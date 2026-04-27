@@ -1,0 +1,36 @@
+name: Update Warrants Data
+
+on:
+  schedule:
+    # 每天台灣時間晚上 8 點 (UTC 12 點) 執行
+    - cron: '0 12 * * *'
+  workflow_dispatch: # 允許在 GitHub 網頁上手動觸發
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Fetch warrants data
+        run: |
+          python fetch_warrants.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add warrants_data.json
+          git commit -m "Auto-update warrants data" || echo "No changes to commit"
+          git push

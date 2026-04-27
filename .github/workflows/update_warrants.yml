@@ -36,3 +36,4 @@ jobs:
           git add warrants_data.json
           git commit -m "Auto-update warrants data" || echo "No changes to commit"
           git push
+

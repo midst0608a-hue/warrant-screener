@@ -8,6 +8,8 @@ import re
 import urllib3
 from bs4 import BeautifulSoup
 import io
+import json
+import os
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # --- 1. BS 計算引擎 ---
@@ -46,7 +48,20 @@ def get_stock_info(stock_id):
     return None, 0.3, stock_id
 
 # --- 3. 獲取全市場權證資料 (結合規格) ---
-def load_all_warrants():
+def load_all_warrants(force_fetch=False):
+    if not force_fetch:
+        try:
+            # 優先嘗試讀取本地靜態檔案 (供 Streamlit Cloud 使用)
+            file_path = os.path.join(os.path.dirname(__file__), 'warrants_data.json')
+            if os.path.exists(file_path):
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    df = pd.DataFrame(data)
+                    if not df.empty:
+                        return df
+        except Exception as e:
+            print("讀取靜態檔案失敗:", e)
+
     full_list = []
     
     # 建立上市股票代號對應字典 (解決 TWSE OpenAPI 只有中文名稱的問題)

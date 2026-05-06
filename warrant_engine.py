@@ -123,7 +123,7 @@ def load_all_warrants(force_fetch=False):
     return df
 
 # --- 4. 權證評分系統與指標計算 ---
-def calculate_warrant_metrics(df_warrants, stock_price, sigma=0.4):
+def calculate_warrant_metrics(df_warrants, stock_price, sigma=0.4, min_price=0.5, max_price=1.5):
     results = []
     now = datetime.datetime.now()
     
@@ -138,7 +138,10 @@ def calculate_warrant_metrics(df_warrants, stock_price, sigma=0.4):
             if days_left <= 0: continue
             
             ratio_raw = row['ratio']
-            ratio = ratio_raw / 1000.0 if ratio_raw > 10 else ratio_raw
+            if row['market'] == '上市':
+                ratio = ratio_raw / 1000.0
+            else:
+                ratio = ratio_raw
                 
             K = row['strike']
             S = stock_price
@@ -170,6 +173,12 @@ def calculate_warrant_metrics(df_warrants, stock_price, sigma=0.4):
                 score += 40
             else:
                 score -= 30
+            
+            # 價格區間評分：符合 0.5 ~ 1.5 加分，太低或太高扣分
+            if min_price <= warrant_price <= max_price:
+                score += 20
+            elif warrant_price < 0.1 or warrant_price > 3.0:
+                score -= 20
             
             results.append({
                 '代號': row['w_code'],
@@ -252,3 +261,20 @@ def get_low_liquidity_warrants():
     except: pass
     
     return black_list
+
+# --- 7. 取得權證最新收盤價 (FinMind) ---
+def get_latest_warrant_price(warrant_code):
+    try:
+        url = "https://api.finmindtrade.com/api/v4/data"
+        parameter = {
+            "dataset": "TaiwanStockPrice",
+            "data_id": str(warrant_code).strip(),
+            "start_date": (datetime.datetime.now() - datetime.timedelta(days=14)).strftime("%Y-%m-%d"),
+        }
+        r = requests.get(url, params=parameter, timeout=5)
+        data = r.json()
+        if "data" in data and len(data["data"]) > 0:
+            return float(data["data"][-1]["close"])
+    except Exception as e:
+        print(f"Error fetching market price for {warrant_code}: {e}")
+    return None

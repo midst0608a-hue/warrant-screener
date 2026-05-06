@@ -65,21 +65,53 @@ with tab1:
                             df_scored = df_scored[~df_scored['代號'].astype(str).isin(bad_warrants)]
                         
                         if not df_scored.empty:
+                            df_scored = df_scored.reset_index(drop=True)
                             st.write(f"🔍 篩選結果：共找到 {len(df_scored)} 檔有效權證 (已排除庫存不足之極端標的，全數列出並依推薦分排序)：")
                             
-                            # 重新排列欄位，強調關鍵參數 (往左集中)，包含價內程度
-                            cols = ['代號', '名稱', '履約價', '價內程度(%)', '理論價', '剩餘天數', '實質槓桿', '綜合評分', '認購/售', '市場', '行使比例']
+                            # --- 新增：針對前 5 名抓取真實收盤價 ---
+                            actual_prices = []
+                            premiums = []
+                            
+                            with st.spinner("正在為排名前 5 的標的抓取即時市場收盤價..."):
+                                for idx, row in df_scored.iterrows():
+                                    if idx < 5:
+                                        code = row['代號']
+                                        market_p = warrant_engine.get_latest_warrant_price(code)
+                                        if market_p is not None:
+                                            actual_prices.append(market_p)
+                                            theo_p = row['理論價']
+                                            premium = (market_p - theo_p) / theo_p * 100
+                                            premiums.append(f"{premium:.2f}%")
+                                        else:
+                                            actual_prices.append('-')
+                                            premiums.append('-')
+                                    else:
+                                        actual_prices.append('-')
+                                        premiums.append('-')
+                                        
+                            df_scored['市場收盤價'] = actual_prices
+                            df_scored['折溢價(%)'] = premiums
+                            
+                            # 重新排列欄位，強調關鍵參數 (往左集中)，包含價內程度與折溢價
+                            cols = ['代號', '名稱', '履約價', '價內程度(%)', '理論價', '市場收盤價', '折溢價(%)', '剩餘天數', '實質槓桿', '綜合評分', '認購/售', '市場', '行使比例']
                             df_display = df_scored[cols]
                             
                             def highlight_score(val):
                                 color = '#2E8B57' if val > 70 else ('#DAA520' if val > 40 else '#CD5C5C')
                                 return f'background-color: {color}; color: white'
                             
-                            st.dataframe(
-                                df_display.style.map(highlight_score, subset=['綜合評分']), 
-                                use_container_width=True, 
-                                hide_index=True
-                            )
+                            def highlight_premium(val):
+                                if val == '-': return ''
+                                try:
+                                    v = float(val.strip('%'))
+                                    # 折價(便宜)顯示綠色，溢價(貴)顯示紅色
+                                    color = '#CD5C5C' if v > 10 else ('#2E8B57' if v < -5 else '')
+                                    return f'color: {color}'
+                                except: return ''
+
+                            styled_df = df_display.style.map(highlight_score, subset=['綜合評分']).map(highlight_premium, subset=['折溢價(%)'])
+                            
+                            st.dataframe(styled_df, use_container_width=True, hide_index=True)
                         else:
                             st.warning("目前無符合任何有效分數計算條件的權證。")
                     else:

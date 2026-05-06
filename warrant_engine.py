@@ -159,26 +159,34 @@ def calculate_warrant_metrics(df_warrants, stock_price, sigma=0.4, min_price=0.5
             else: leverage = abs(delta * S / warrant_price * ratio)
                 
             score = 0
-            if 60 <= days_left <= 180: score += 30
-            elif 30 <= days_left < 60: score += 15
+            
+            # 1. 剩餘天數 (Days Left)
+            if 80 <= days_left <= 180: score += 25
             elif days_left > 180: score += 20
+            elif 30 <= days_left < 80: score += 15
+            
             # 將價外程度轉為「價內程度」：正值為價內，負值為價外
             itm_pct = -otm_pct
             
-            if 3 <= leverage <= 7: score += 30
-            elif 2 <= leverage < 3 or 7 < leverage <= 10: score += 15
+            # 2. 實質槓桿 (Leverage)
+            if 3 <= leverage <= 6: score += 25
+            elif 2 <= leverage < 3 or 6 < leverage <= 10: score += 15
             
-            # 條件改為價外15%(-15%) 到 價內5%(+5%)，未滿足則扣分但保留
+            # 3. 價內外程度 (Moneyness)
             if -15 <= itm_pct <= 5: 
-                score += 40
+                score += 25
             else:
-                score -= 30
+                score += 10
             
-            # 價格區間評分：符合 0.5 ~ 1.5 加分，太低或太高扣分
-            if min_price <= warrant_price <= max_price:
-                score += 20
-            elif warrant_price < 0.1 or warrant_price > 3.0:
-                score -= 20
+            # 4. 理論價格區間 (Price)
+            if 0.8 <= warrant_price <= 1.6:
+                score += 25
+            elif 0.1 <= warrant_price < 0.8:
+                score += 10
+            elif 1.6 < warrant_price <= 3.0:
+                score += 15
+            else:
+                score += 10
             
             results.append({
                 '代號': row['w_code'],

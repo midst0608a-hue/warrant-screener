@@ -65,8 +65,13 @@ with tab1:
                             df_scored = df_scored[~df_scored['代號'].astype(str).isin(bad_warrants)]
                         
                         if not df_scored.empty:
-                            df_scored = df_scored.reset_index(drop=True)
-                            st.write(f"🔍 篩選結果：共找到 {len(df_scored)} 檔有效權證 (已排除庫存不足之極端標的，全數列出並依推薦分排序)：")
+                            total_found = len(df_scored)
+                            df_scored = df_scored.reset_index(drop=True).head(50)
+                            
+                            if total_found > 50:
+                                st.write(f"🔍 篩選結果：共找到 {total_found} 檔有效權證 (已排除庫存不足之極端標的，依推薦分排序，顯示前 50 名)：")
+                            else:
+                                st.write(f"🔍 篩選結果：共找到 {total_found} 檔有效權證 (已排除庫存不足之極端標的，全數列出並依推薦分排序)：")
                             
                             # --- 新增：針對前 5 名抓取真實收盤價 ---
                             actual_prices = []

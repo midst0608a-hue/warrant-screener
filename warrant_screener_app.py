@@ -14,6 +14,10 @@ st.title("📈 專業權證全市場診斷器 (API版)")
 def get_cached_warrants_v2():
     return warrant_engine.load_all_warrants()
 
+@st.cache_data(ttl=3600)
+def get_cached_bad_warrants():
+    return warrant_engine.get_low_liquidity_warrants()
+
 try:
     df_market = get_cached_warrants_v2()
 except Exception as e:
@@ -60,7 +64,7 @@ with tab1:
                     
                     if not df_scored.empty:
                         # 取得並排除造市專戶庫存不足之權證 (流動性極差的黑名單)
-                        bad_warrants = warrant_engine.get_low_liquidity_warrants()
+                        bad_warrants = get_cached_bad_warrants()
                         if bad_warrants:
                             df_scored = df_scored[~df_scored['代號'].astype(str).isin(bad_warrants)]
                         
@@ -78,10 +82,23 @@ with tab1:
                             premiums = []
                             
                             with st.spinner("正在為排名前 5 的標的抓取即時市場收盤價..."):
+                                import concurrent.futures
+                                
+                                def fetch_price(code):
+                                    return code, warrant_engine.get_latest_warrant_price(code)
+
+                                top_5_codes = [row['代號'] for idx, row in df_scored.iterrows() if idx < 5]
+                                fetched_results = {}
+                                
+                                if top_5_codes:
+                                    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+                                        for code, p in executor.map(fetch_price, top_5_codes):
+                                            fetched_results[code] = p
+                                            
                                 for idx, row in df_scored.iterrows():
                                     if idx < 5:
                                         code = row['代號']
-                                        market_p = warrant_engine.get_latest_warrant_price(code)
+                                        market_p = fetched_results.get(code)
                                         if market_p is not None:
                                             actual_prices.append(market_p)
                                             theo_p = row['理論價']

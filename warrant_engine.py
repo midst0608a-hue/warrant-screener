@@ -25,15 +25,100 @@ def bs_price_delta(S, K, T, r, sigma, opt_type):
             return K * np.exp(-r*T) * norm.cdf(-d2) - S * norm.cdf(-d1), norm.cdf(d1) - 1.0
     except: return 0.0, 0.0
 
+# 載入內建備用字典 (保證 100% 覆蓋所有上市上櫃個股/ETF/指數)
+BUILTIN_STOCK_MAP = {}
+try:
+    map_file = os.path.join(os.path.dirname(__file__), 'builtin_stock_map.json')
+    if os.path.exists(map_file):
+        with open(map_file, 'r', encoding='utf-8') as f:
+            BUILTIN_STOCK_MAP = json.load(f)
+except Exception as e:
+    print("載入內建股票字典失敗:", e)
+
+def get_stock_mapping():
+    # 建立股票代號對應字典
+    stock_mapping = dict(BUILTIN_STOCK_MAP)
+    headers = {'User-Agent': 'Mozilla/5.0'}
+
+    # 1. 上市公司基本資料 t187ap03_L
+    try:
+        r = requests.get("https://openapi.twse.com.tw/v1/opendata/t187ap03_L", headers=headers, verify=False, timeout=10)
+        if r.status_code == 200:
+            for item in r.json():
+                code = str(item.get('公司代號', '')).strip()
+                name = str(item.get('公司簡稱', '')).strip()
+                fname = str(item.get('公司名稱', '')).strip()
+                if code and name: stock_mapping[name] = code
+                if code and fname: stock_mapping[fname] = code
+    except: pass
+
+    # 2. STOCK_DAY_ALL
+    try:
+        r_map = requests.get("https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL", headers=headers, verify=False, timeout=10)
+        if r_map.status_code == 200:
+            for item in r_map.json():
+                code = str(item.get('Code', '')).strip()
+                name = str(item.get('Name', '')).strip()
+                if name and code: stock_mapping[name] = code
+    except: pass
+
+    # 3. TPEx 上櫃 mopsfin_t187ap03_O
+    try:
+        r_tpex_mops = requests.get("https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O", headers=headers, verify=False, timeout=10)
+        if r_tpex_mops.status_code == 200:
+            for item in r_tpex_mops.json():
+                code = str(item.get('SecuritiesCompanyCode', '')).strip()
+                name = str(item.get('CompanyName', '')).strip()
+                fname = str(item.get('FullCompanyName', '')).strip()
+                if code and name: stock_mapping[name] = code
+                if code and fname: stock_mapping[fname] = code
+    except: pass
+
+    # 4. TPEx tpex_mainboard_quotes
+    try:
+        r_tpex = requests.get("https://www.tpex.org.tw/openapi/v1/tpex_mainboard_quotes", headers=headers, verify=False, timeout=10)
+        if r_tpex.status_code == 200:
+            for item in r_tpex.json():
+                code = str(item.get('SecuritiesCompanyCode', '')).strip()
+                name = str(item.get('CompanyName', '')).strip()
+                if name and code: stock_mapping[name] = code
+    except: pass
+
+    return stock_mapping
+
+_OTC_STOCK_CODES = None
+
+def get_otc_stock_codes():
+    global _OTC_STOCK_CODES
+    if _OTC_STOCK_CODES is None:
+        try:
+            df = load_all_warrants()
+            if not df.empty and 'market' in df.columns:
+                _OTC_STOCK_CODES = set(df[df['market'] == '上櫃']['stock_id'].unique())
+            else:
+                _OTC_STOCK_CODES = set()
+        except:
+            _OTC_STOCK_CODES = set()
+    return _OTC_STOCK_CODES
+
 # --- 2. 標的報價獲取 ---
 def get_stock_info(stock_id):
     stock_id = str(stock_id).strip()
     
+    # 若傳入中文名稱，嘗試轉換為數字代號
+    if not stock_id.isdigit() and stock_id.upper() not in ['IX0001', '^TWII']:
+        mapping = get_stock_mapping()
+        stock_id = mapping.get(stock_id, stock_id)
+
     # 處理指數型權證代號對應
-    if '指' in stock_id or stock_id.upper() in ['TX', 'MTX', 'IX0001', 'TAIEX']:
+    if '指' in stock_id or stock_id.upper() in ['TX', 'MTX', 'IX0001', 'TAIEX', '臺股指數', '加權指數']:
         ticker_list = ['^TWII']
     else:
-        ticker_list = [f"{stock_id}.TW", f"{stock_id}.TWO"]
+        otc_codes = get_otc_stock_codes()
+        if stock_id in otc_codes:
+            ticker_list = [f"{stock_id}.TWO", f"{stock_id}.TW"]
+        else:
+            ticker_list = [f"{stock_id}.TW", f"{stock_id}.TWO"]
         
     for ticker in ticker_list:
         try:
@@ -63,17 +148,7 @@ def load_all_warrants(force_fetch=False):
             print("讀取靜態檔案失敗:", e)
 
     full_list = []
-    
-    # 建立上市股票代號對應字典 (解決 TWSE OpenAPI 只有中文名稱的問題)
-    stock_mapping = {}
-    try:
-        r_map = requests.get("https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL", verify=False, timeout=10)
-        if r_map.status_code == 200:
-            for item in r_map.json():
-                code = str(item.get('Code', '')).strip()
-                name = str(item.get('Name', '')).strip()
-                if name: stock_mapping[name] = code
-    except: pass
+    stock_mapping = get_stock_mapping()
     
     #上市
     try:

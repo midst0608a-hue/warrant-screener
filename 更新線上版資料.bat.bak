@@ -1,0 +1,36 @@
+@echo off
+title Update Warrants Data
+echo =========================================
+echo.
+echo    Fetching latest data from TWSE/TPEx...
+echo.
+echo =========================================
+cd /d "%~dp0"
+python fetch_warrants.py
+
+echo.
+echo =========================================
+echo.
+echo    Fetch complete! Syncing with GitHub...
+echo.
+echo =========================================
+git add warrants_data.json
+git commit -m "Manual local update of warrants_data"
+git push
+
+echo.
+echo =========================================
+echo.
+echo    Running Radar V2 (籌碼雷達)...
+echo.
+echo =========================================
+cd /d "%~dp0\.."
+python radar_v2.py
+
+echo.
+echo =========================================
+echo.
+echo    Update SUCCESS! All scheduled tasks completed.
+echo.
+echo =========================================
+pause

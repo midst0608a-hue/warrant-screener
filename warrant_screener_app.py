@@ -37,8 +37,19 @@ with tab1:
     if search_btn and not df_market.empty:
         with st.spinner("計算綜合評分中..."):
             stock_input_str = str(stock_input).strip()
-            # 支援輸入數字代碼或中文名稱 (透過權證簡稱反查)
+            stock_map = warrant_engine.get_stock_mapping()
+            
+            matched_code = stock_map.get(stock_input_str)
+            if not matched_code and not stock_input_str.isdigit():
+                for k, v in stock_map.items():
+                    if stock_input_str in k:
+                        matched_code = v
+                        break
+            
+            target_code = matched_code if matched_code else stock_input_str
+            
             stock_warrants = df_market[
+                (df_market['stock_id'] == target_code) | 
                 (df_market['stock_id'] == stock_input_str) | 
                 (df_market['w_name'].str.contains(stock_input_str, na=False))
             ]

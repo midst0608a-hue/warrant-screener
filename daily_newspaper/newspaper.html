@@ -586,6 +586,119 @@
       border-top: 1px dashed var(--border-light);
     }
 
+    /* Feedback & Preferences UI */
+    .card-feedback-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: auto;
+    }
+
+    .fb-thumb-btn {
+      background: none;
+      border: 1px solid var(--border-light);
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 11px;
+      padding: 1px 5px;
+      color: var(--text-muted);
+      opacity: 0.6;
+      transition: all 0.2s;
+    }
+
+    .fb-thumb-btn:hover {
+      opacity: 1;
+      border-color: var(--accent);
+      background: rgba(184, 92, 56, 0.1);
+      transform: scale(1.1);
+    }
+
+    .fb-thumb-btn.active {
+      opacity: 1;
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .toast-notification {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #23201d;
+      color: #f7f4ee;
+      padding: 12px 20px;
+      border-radius: 6px;
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      z-index: 100000;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      animation: fadeInToast 0.3s ease-out;
+    }
+
+    @keyframes fadeInToast {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .pref-textarea {
+      width: 100%;
+      height: 90px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      padding: 10px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-main);
+      box-sizing: border-box;
+      resize: vertical;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .pref-textarea:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .pref-chip-group {
+      margin-top: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      padding: 12px 14px;
+      border-radius: 4px;
+    }
+
+    .pref-chip-title {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .pref-tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .pref-chip {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-family: var(--font-sans);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
     /* ==========================================================================
        MAIN CONTENT GRID (Broadsheet 3-Column Partition)
        ========================================================================== */
@@ -1158,13 +1271,15 @@
       <div class="toolbar-left">
         <span><span class="pulse-dot"></span> 自動排版系統已就緒</span>
         <span>•</span>
-        <span>出刊生成：2026-09-01 17:25:30 (UTC+8)</span>
+        <span>出刊生成：2026-09-01 17:39:09 (UTC+8)</span>
       </div>
       <div class="toolbar-actions">
+        <button class="tool-btn" id="recurateBtn" onclick="openRecurateModal()" style="border-color:var(--accent); color:var(--accent); font-weight:700;">🔄 重新篩選出刊</button>
+        <button class="tool-btn" onclick="openPreferencesModal()">⚙️ 審稿偏好與回饋</button>
         <button class="tool-btn" onclick="setTheme('sepia')">📜 復古</button>
         <button class="tool-btn" onclick="setTheme('light')">☀️ 現代</button>
         <button class="tool-btn" onclick="setTheme('dark')">🌙 夜讀</button>
-        <button class="tool-btn" onclick="window.print()">🖨️ 列印 / 轉存 PDF</button>
+        <button class="tool-btn" onclick="window.print()">🖨️ 列印 / PDF</button>
       </div>
     </div>
 
@@ -1241,6 +1356,10 @@
             
             <div class="stock-footer">
               <span>來源：Yahoo 奇摩新聞 - 總經財經</span>
+              <div class="card-feedback-actions">
+                <button type="button" class="fb-thumb-btn" title="我想多看這類股市焦點" onclick="quickFeedback('like', '輝達注資逾 1,100 億元深化與聯發科十年戰略合作，車用與 AI PC 晶片聯手攻頂', '台股與半導體')">👍 多看</button>
+                <button type="button" class="fb-thumb-btn" title="減少這類股市焦點" onclick="quickFeedback('dislike', '輝達注資逾 1,100 億元深化與聯發科十年戰略合作，車用與 AI PC 晶片聯手攻頂', '台股與半導體')">👎 減少</button>
+              </div>
               <a href="https://tw.news.yahoo.com/%E8%BC%9D%E9%81%94%E7%A0%B8%E9%80%BE1100%E5%84%84%E6%8A%95%E8%B3%87%E8%81%AF%E7%99%BC%E7%A7%91-%E9%BB%83%E4%BB%81%E5%8B%B3-%E5%90%88%E4%BD%9C%E5%8D%81%E5%B9%B4-091200303.html" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">看盤/原文 ↗</a>
             </div>
           </div>
@@ -1262,6 +1381,10 @@
             
             <div class="stock-footer">
               <span>來源：Yahoo 股市 - 台股與美股焦點</span>
+              <div class="card-feedback-actions">
+                <button type="button" class="fb-thumb-btn" title="我想多看這類股市焦點" onclick="quickFeedback('like', '台積電重申海外建廠長期永續原則，將主動「創造需求」升級歐洲半導體生態系', '權值股動態')">👍 多看</button>
+                <button type="button" class="fb-thumb-btn" title="減少這類股市焦點" onclick="quickFeedback('dislike', '台積電重申海外建廠長期永續原則，將主動「創造需求」升級歐洲半導體生態系', '權值股動態')">👎 減少</button>
+              </div>
               <a href="https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E4%BE%AF%E6%B0%B8%E6%B8%85-%E6%B5%B7%E5%A4%96%E6%8A%95%E8%B3%87%E8%A8%AD%E5%BB%A0%E4%B8%8D%E8%83%BD%E5%8F%AA%E7%9C%8B-%E5%B9%B4%E9%9C%80%E6%B1%82-%E9%9C%80%E8%80%83%E9%87%8F%E9%95%B7%E6%9C%89%E7%BA%8C%E6%80%A7-084440447.html" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">看盤/原文 ↗</a>
             </div>
           </div>
@@ -1283,6 +1406,10 @@
             
             <div class="stock-footer">
               <span>來源：科技新報 TechNews</span>
+              <div class="card-feedback-actions">
+                <button type="button" class="fb-thumb-btn" title="我想多看這類股市焦點" onclick="quickFeedback('like', '散熱龍頭雙鴻看旺 2027 營運，AI 伺服器液冷散熱滲透率激增帶動營收創高', 'AI 概念股')">👍 多看</button>
+                <button type="button" class="fb-thumb-btn" title="減少這類股市焦點" onclick="quickFeedback('dislike', '散熱龍頭雙鴻看旺 2027 營運，AI 伺服器液冷散熱滲透率激增帶動營收創高', 'AI 概念股')">👎 減少</button>
+              </div>
               <a href="https://finance.technews.tw/2026/09/01/auras-2/" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">看盤/原文 ↗</a>
             </div>
           </div>
@@ -1347,10 +1474,15 @@
           </div>
           
 
-          <div class="source-action-bar">
+          <div class="source-action-bar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
             <a href="https://www.ithome.com.tw/news/178592" target="_blank" rel="noopener noreferrer" class="read-orig-link">
               閱讀原文報導 ↗
             </a>
+            <div class="card-feedback-actions">
+              <span style="font-size:11px; color:var(--text-muted); font-family:var(--font-sans);">審稿回饋：</span>
+              <button type="button" class="fb-thumb-btn" title="我想多看這類頭條" onclick="quickFeedback('like', '前沿 AI 遭極端武器化：勒索軟體 Aurora 濫用 Cursor 與 Claude 策劃自動化攻擊', 'AI 治理與資安防線')">👍 多看</button>
+              <button type="button" class="fb-thumb-btn" title="減少這類頭條" onclick="quickFeedback('dislike', '前沿 AI 遭極端武器化：勒索軟體 Aurora 濫用 Cursor 與 Claude 策劃自動化攻擊', 'AI 治理與資安防線')">👎 減少</button>
+            </div>
           </div>
         </article>
 
@@ -1416,8 +1548,12 @@
           </div>
           
 
-          <div class="story-footer">
+          <div class="story-footer" style="display:flex; justify-content:space-between; align-items:center;">
             <span>來源：iThome 電腦報</span>
+            <div class="card-feedback-actions">
+              <button type="button" class="fb-thumb-btn" title="多看此類專欄" onclick="quickFeedback('like', 'FSB 發出嚴肅警告：前沿高自主 AI 模型與高槓桿結合恐破壞全球金融穩定', '金融監理與 AI 風險')">👍</button>
+              <button type="button" class="fb-thumb-btn" title="少看此類專欄" onclick="quickFeedback('dislike', 'FSB 發出嚴肅警告：前沿高自主 AI 模型與高槓桿結合恐破壞全球金融穩定', '金融監理與 AI 風險')">👎</button>
+            </div>
             <a href="https://www.ithome.com.tw/news/178584" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
           </div>
         </article>
@@ -1438,8 +1574,12 @@
           <!-- Market & Commodity Linkage Indicator (如原油10日走勢、航運/通膨連動) -->
           
 
-          <div class="story-footer">
+          <div class="story-footer" style="display:flex; justify-content:space-between; align-items:center;">
             <span>來源：Yahoo 新聞 - 政治要聞</span>
+            <div class="card-feedback-actions">
+              <button type="button" class="fb-thumb-btn" title="多看此類專欄" onclick="quickFeedback('like', '外交部調整推動參與聯合國 3 大訴求，拜會立法院長韓國瑜尋求跨黨派支持', '台灣政治與外交')">👍</button>
+              <button type="button" class="fb-thumb-btn" title="少看此類專欄" onclick="quickFeedback('dislike', '外交部調整推動參與聯合國 3 大訴求，拜會立法院長韓國瑜尋求跨黨派支持', '台灣政治與外交')">👎</button>
+            </div>
             <a href="https://tw.news.yahoo.com/%E5%8E%BB%E5%B9%B4%E6%83%B9%E6%AF%9B%E5%BE%90%E5%B7%A7%E8%8A%AF-%E5%A4%96%E4%BA%A4%E9%83%A8%E6%8E%A8%E5%8B%95%E5%8F%83%E8%88%87%E8%81%AF%E5%90%88%E5%9C%8B3%E5%A4%A7%E8%A8%B4%E6%B1%82%E8%AA%BF%E6%95%B4-%E6%9C%89%E5%88%B0%E7%AB%8B%E6%B3%95%E9%99%A2%E6%8B%9C%E8%A8%97%E9%9F%93%E5%9C%8B%E7%91%9C-091055655.html" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
           </div>
         </article>
@@ -1460,8 +1600,12 @@
           <!-- Market & Commodity Linkage Indicator (如原油10日走勢、航運/通膨連動) -->
           
 
-          <div class="story-footer">
+          <div class="story-footer" style="display:flex; justify-content:space-between; align-items:center;">
             <span>來源：CoinDesk</span>
+            <div class="card-feedback-actions">
+              <button type="button" class="fb-thumb-btn" title="多看此類專欄" onclick="quickFeedback('like', '倫敦證券交易所結盟 Payward，推動英國頂級藍籌股代幣化上鏈', 'Web3與金融基建')">👍</button>
+              <button type="button" class="fb-thumb-btn" title="少看此類專欄" onclick="quickFeedback('dislike', '倫敦證券交易所結盟 Payward，推動英國頂級藍籌股代幣化上鏈', 'Web3與金融基建')">👎</button>
+            </div>
             <a href="https://www.coindesk.com/markets/2026/09/01/london-stock-exchange-to-work-with-payward-to-bring-biggest-uk-stocks-onchain" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
           </div>
         </article>
@@ -1500,8 +1644,12 @@
           </div>
           
 
-          <div class="story-footer">
+          <div class="story-footer" style="display:flex; justify-content:space-between; align-items:center;">
             <span>來源：Yahoo 奇摩新聞 - 總經財經</span>
+            <div class="card-feedback-actions">
+              <button type="button" class="fb-thumb-btn" title="多看此類專欄" onclick="quickFeedback('like', '台灣 8 月製造業 PMI 連 11 個月擴張，中經院警示高階記憶體缺貨危機', '總經與產業政策')">👍</button>
+              <button type="button" class="fb-thumb-btn" title="少看此類專欄" onclick="quickFeedback('dislike', '台灣 8 月製造業 PMI 連 11 個月擴張，中經院警示高階記憶體缺貨危機', '總經與產業政策')">👎</button>
+            </div>
             <a href="https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%81%A38%E6%9C%88%E8%A3%BD%E9%80%A0%E6%A5%AD%E9%80%A311%E5%80%8B%E6%9C%88%E6%93%B4%E5%BC%B5%EF%BC%81ai%E9%9C%80%E6%B1%82%E7%BA%8C%E6%97%BA-%E4%B8%AD%E7%B6%93%E9%99%A2%E9%95%B7%E9%80%A3%E8%B3%A2%E6%98%8E%E7%A4%BA%E8%AD%A6%E8%A8%98%E6%86%B6%E9%AB%94%E7%BC%BA%E8%B2%A8%E9%9A%B1%E6%86%82-091121686.html" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
           </div>
         </article>
@@ -1522,8 +1670,12 @@
           <!-- Market & Commodity Linkage Indicator (如原油10日走勢、航運/通膨連動) -->
           
 
-          <div class="story-footer">
+          <div class="story-footer" style="display:flex; justify-content:space-between; align-items:center;">
             <span>來源：科技新報 TechNews</span>
+            <div class="card-feedback-actions">
+              <button type="button" class="fb-thumb-btn" title="多看此類專欄" onclick="quickFeedback('like', '中國太陽能發電裝機容量達 12.86 億千瓦，首次超越煤電躍升第一大電源', '綠能與地緣經濟')">👍</button>
+              <button type="button" class="fb-thumb-btn" title="少看此類專欄" onclick="quickFeedback('dislike', '中國太陽能發電裝機容量達 12.86 億千瓦，首次超越煤電躍升第一大電源', '綠能與地緣經濟')">👎</button>
+            </div>
             <a href="https://finance.technews.tw/2026/09/01/solar-power-capacity-surpasses-coal-china-largest-electricity-source/" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
           </div>
         </article>
@@ -1664,9 +1816,69 @@
     </div>
   </div>
 
+  <!-- Preferences & Feedback Modal (審稿偏好與微調彈窗) -->
+  <div id="preferencesModal" class="modal-overlay" onclick="if(event.target===this) closePreferencesModal();">
+    <div class="modal-content" style="max-width: 740px;">
+      <button class="modal-close-btn" onclick="closePreferencesModal()" title="關閉">✕</button>
+      
+      <div class="modal-masthead">
+        <span class="modal-badge">EDITORIAL BOARD • READER PREFERENCES</span>
+        <h2 class="modal-title">⚙️ 總編輯審稿筆記與偏好配置</h2>
+        <div class="modal-meta">
+          <span>自訂選題權重與微調反饋</span>
+          <span>•</span>
+          <span>即時引導 AI 出刊視角</span>
+        </div>
+      </div>
+
+      <div class="modal-body" style="font-size: 14px;">
+        <label style="font-weight:700; font-family:var(--font-sans); color:var(--text-main); display:block; margin-bottom:4px;">
+          ✒️ 您的個人化審稿指令與關注焦點（將直接注入 AI 總編輯的 Prompt）：
+        </label>
+        <textarea id="prefDirectives" class="pref-textarea" placeholder="例如：我想多看台灣立法院重大法案、加強半導體 CoWoS/先進封裝進度、中東原油連鎖影響；減少純口水攻防與重覆報導..."></textarea>
+        
+        <div class="pref-chip-group">
+          <div class="pref-chip-title">📌 累積的即時讀者回饋紀錄（點擊每篇新聞下方的 👍 或 👎 自動累積）：</div>
+          <div id="feedbackTagsContainer" class="pref-tag-list">
+            <span style="color:var(--text-muted); font-size:12px;">尚未有點擊讚/倒讚紀錄（可在閱讀時點擊每篇新聞下方的 👍 或 👎）</span>
+          </div>
+        </div>
+
+        <div style="margin-top:14px; font-size:12px; color:var(--text-muted); line-height:1.6;">
+          💡 <strong>總編輯微調指南</strong>：<br>
+          1. 點擊「<strong>💾 儲存偏好</strong>」後，您的指令會永久儲存在此裝置瀏覽器中。<br>
+          2. 點擊「<strong>🔄 立即重新篩選出刊</strong>」，系統將即時根據最新指令為您重新策劃今日版面。<br>
+          3. 若希望 GitHub 雲端每日排程也永久套用，可點擊「<strong>📋 複製為 config.json</strong>」！
+        </div>
+      </div>
+
+      <div class="modal-actions" style="flex-wrap: wrap;">
+        <button class="tool-btn" onclick="copyConfigSnippet()">📋 複製為 config.json 永久配置</button>
+        <button class="tool-btn" onclick="savePreferences(false)">💾 儲存偏好</button>
+        <button class="tool-btn" style="background:var(--accent); color:#fff; border-color:var(--accent); font-weight:700;" onclick="savePreferences(true)">🔄 儲存並立即重新篩選</button>
+        <button class="tool-btn" onclick="closePreferencesModal()">關閉</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Re-curating Progress Overlay -->
+  <div id="recuratingOverlay" class="modal-overlay" style="z-index: 100001;">
+    <div class="modal-content" style="max-width: 500px; text-align: center; padding: 36px 24px;">
+      <div class="spinner-ring" style="width:48px; height:48px; border-width:4px;"></div>
+      <h3 style="font-family:var(--font-masthead); font-size:20px; margin: 14px 0 8px 0;">📰 總編輯正在重新策劃今日晨報...</h3>
+      <p style="font-size:13px; color:var(--text-muted); line-height:1.6;" id="recuratingStatus">
+        正在匯入您的個人化審稿指令與關注焦點，請稍候約 5~10 秒...
+      </p>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="feedbackToast" class="toast-notification"></div>
+
   <script>
     const GEMINI_API_KEY = "AIzaSyAqlnXLtAYa_sWOxU466BPRQGIvz4hG7co";
     const GEMINI_MODEL = "gemini-3.6-flash";
+    const DEFAULT_FEEDBACK = "\u91cd\u8996\u53f0\u7063\u7acb\u6cd5\u9662\u91cd\u5927\u6cd5\u6848\u3001\u5730\u7de3\u80fd\u6e90\u8207\u534a\u5c0e\u9ad4\u4f9b\u61c9\u93c8\uff1b\u56b4\u683c\u6392\u9664\u7d14\u53e3\u6c34\u653b\u9632\u8207\u91cd\u8907\u5831\u5c0e\u3002";
 
     function setTheme(themeName) {
       document.documentElement.setAttribute('data-theme', themeName);
@@ -1680,6 +1892,276 @@
         document.documentElement.setAttribute('data-theme', saved);
       }
     })();
+
+    // Show Toast Notification
+    function showToast(message, duration = 3000) {
+      const toast = document.getElementById('feedbackToast');
+      toast.innerHTML = message;
+      toast.style.display = 'flex';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, duration);
+    }
+
+    // Quick Feedback Handler (Thumbs Up / Down)
+    function quickFeedback(type, title, category) {
+      let history = JSON.parse(localStorage.getItem('editorial_feedback_history') || '{"likes":[], "dislikes":[]}');
+      
+      const item = { title: title.slice(0, 30), category: category || '未分類', time: new Date().toLocaleDateString() };
+      
+      if (type === 'like') {
+        history.likes = history.likes.filter(x => x.title !== item.title);
+        history.likes.unshift(item);
+        if (history.likes.length > 8) history.likes.pop();
+        showToast(`👍 <strong>已記錄偏好</strong>：將為您增加「${category || '此類'}」相關報導！`);
+      } else {
+        history.dislikes = history.dislikes.filter(x => x.title !== item.title);
+        history.dislikes.unshift(item);
+        if (history.dislikes.length > 8) history.dislikes.pop();
+        showToast(`👎 <strong>已記錄偏好</strong>：將為您減少「${category || '此類'}」報導！`);
+      }
+      
+      localStorage.setItem('editorial_feedback_history', JSON.stringify(history));
+    }
+
+    // Open Preferences Modal
+    function openPreferencesModal() {
+      const modal = document.getElementById('preferencesModal');
+      const textarea = document.getElementById('prefDirectives');
+      const savedDirectives = localStorage.getItem('editorial_directives') || DEFAULT_FEEDBACK || '';
+      textarea.value = savedDirectives;
+
+      // Render tags history
+      const history = JSON.parse(localStorage.getItem('editorial_feedback_history') || '{"likes":[], "dislikes":[]}');
+      const container = document.getElementById('feedbackTagsContainer');
+      
+      let html = '';
+      if (history.likes.length > 0) {
+        html += '<div style="width:100%; font-size:11px; color:#2e7d32; font-weight:700; margin-bottom:2px;">👍 偏好加重主題：</div>';
+        history.likes.forEach(item => {
+          html += `<span class="pref-chip" style="border-color:#a5d6a7; color:#2e7d32;">👍 ${item.category}: ${item.title}</span>`;
+        });
+      }
+      if (history.dislikes.length > 0) {
+        html += '<div style="width:100%; font-size:11px; color:#c62828; font-weight:700; margin-top:6px; margin-bottom:2px;">👎 偏好排除/減少主題：</div>';
+        history.dislikes.forEach(item => {
+          html += `<span class="pref-chip" style="border-color:#ef9a9a; color:#c62828;">👎 ${item.category}: ${item.title}</span>`;
+        });
+      }
+      if (!html) {
+        html = '<span style="color:var(--text-muted); font-size:12px;">尚未有點擊讚/倒讚紀錄（可在閱讀時點擊每篇新聞下方的 👍 或 👎）</span>';
+      }
+      container.innerHTML = html;
+
+      modal.classList.add('active');
+    }
+
+    function closePreferencesModal() {
+      document.getElementById('preferencesModal').classList.remove('active');
+    }
+
+    // Save Preferences
+    function savePreferences(andRecurate = false) {
+      const directives = document.getElementById('prefDirectives').value.trim();
+      localStorage.setItem('editorial_directives', directives);
+      closePreferencesModal();
+      showToast('💾 <strong>審稿偏好已成功儲存！</strong>');
+
+      if (andRecurate) {
+        recurateNewspaper(directives);
+      }
+    }
+
+    function copyConfigSnippet() {
+      const directives = document.getElementById('prefDirectives').value.trim();
+      const snippet = `"user_editorial_feedback": ${JSON.stringify(directives)}`;
+      navigator.clipboard.writeText(snippet).then(() => {
+        alert(`已複製配置指令至剪貼簿：\n${snippet}\n\n可直接貼入 daily_newspaper/config.json 中！`);
+      });
+    }
+
+    function openRecurateModal() {
+      const savedDirectives = localStorage.getItem('editorial_directives') || DEFAULT_FEEDBACK || '';
+      if (confirm(`確定要根據目前的審稿偏好重新篩選今日晨報嗎？\n\n目前指令：${savedDirectives || '（使用預設準則）'}`)) {
+        recurateNewspaper(savedDirectives);
+      }
+    }
+
+    // Re-curate Newspaper dynamically in browser using Gemini
+    async function recurateNewspaper(customDirectives) {
+      const overlay = document.getElementById('recuratingOverlay');
+      overlay.classList.add('active');
+
+      const history = JSON.parse(localStorage.getItem('editorial_feedback_history') || '{"likes":[], "dislikes":[]}');
+      let likesText = history.likes.map(x => `【加權】${x.category}：${x.title}`).join('； ');
+      let dislikesText = history.dislikes.map(x => `【減少/排除】${x.category}：${x.title}`).join('； ');
+
+      let feedbackSection = '';
+      if (customDirectives) feedbackSection += `\n【讀者自訂審稿指令】：${customDirectives}\n`;
+      if (likesText) feedbackSection += `\n【讀者偏好多看之題材】：${likesText}\n`;
+      if (dislikesText) feedbackSection += `\n【讀者要求減少之題材】：${dislikesText}\n`;
+
+      const prompt = `
+你是一位享譽全球的權威報社（如《金融時報》、《彭博社》）總編輯兼首席主筆。
+讀者正在閱讀今日早報，並要求根據最新的審稿偏好重新策劃與排版今日晨間時報 (The Daily Times)。
+
+${feedbackSection}
+
+【每日四大優先涵蓋領域】：
+一、台灣中央與地方政治、立法院法案制度變動、預算、憲政與公共政策（至少 1~3 則具制度結構意義新聞）。
+二、兩岸關係、中國政局、香港、東亞與印太地緣安全。
+三、全球民主政治、公民社會、威權擴張、各國大選與憲政。
+四、AI治理與能動性、數位身分/憑證、去中心化抗審查基建、Web3、科技政策。
+五、股市與資本市場焦點：精選 3 則關鍵行情與資金動能新聞。
+★ 涉及大宗商品（如原油/天然氣/黃金）、總經利率或半導體供應鏈的新聞，務必在 market_linkage 提供指標名稱、近 10 日走勢與連鎖效應。
+
+請以繁體中文輸出符合標準 NEWSPAPER JSON 格式的完整報紙物件（包含 headline, columns, stock_market, sidebar, editorial, market_pulse）。
+`;
+
+      try {
+        if (!GEMINI_API_KEY) throw new Error("No API Key");
+
+        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: {
+              temperature: 0.3,
+              responseMimeType: "application/json"
+            }
+          })
+        });
+
+        if (!res.ok) throw new Error("Gemini API HTTP Error");
+
+        const data = await res.json();
+        const rawJsonText = data.candidates[0].content.parts[0].text;
+        const newEdition = JSON.parse(rawJsonText);
+
+        // Save new edition to cache and reload DOM
+        localStorage.setItem('cached_curated_edition', JSON.stringify(newEdition));
+        renderNewspaperInPlace(newEdition);
+        overlay.classList.remove('active');
+        showToast('✨ <strong>已成功根據您的最新偏好重新策劃並出刊！</strong>', 4000);
+
+      } catch (err) {
+        console.warn("Client recurate failed:", err);
+        overlay.classList.remove('active');
+        alert("重新篩選時發生問題（可能受限於瀏覽器端網路或金鑰）。建議您也可以在終端機執行 python main.py 重新生成！");
+      }
+    }
+
+    // In-place DOM update for seamless re-render
+    function renderNewspaperInPlace(data) {
+      if (data.headline) {
+        const headlineCard = document.querySelector('.headline-card');
+        if (headlineCard) {
+          let pts = (data.headline.key_points || []).map(p => `<li>${p}</li>`).join('');
+          let linkageHtml = '';
+          if (data.headline.market_linkage) {
+            linkageHtml = `
+              <div class="market-linkage-box">
+                <div class="linkage-header">
+                  <span class="linkage-tag">📊 核心市場指標連動</span>
+                  <strong class="linkage-name">${data.headline.market_linkage.indicator_name || ''}</strong>
+                </div>
+                <div class="linkage-trend"><strong>📈 近 10 日走勢：</strong>${data.headline.market_linkage.ten_day_trend || ''}</div>
+                <div class="linkage-spillover"><strong>⚠️ 連鎖效應：</strong>${data.headline.market_linkage.spillover_effects || ''}</div>
+                ${data.headline.market_linkage.deep_dive_query ? `<button type="button" class="linkage-btn" onclick="triggerDeepDive('${data.headline.market_linkage.deep_dive_query}')">🔍 啟動專題：${data.headline.market_linkage.deep_dive_query} ↗</button>` : ''}
+              </div>
+            `;
+          }
+
+          headlineCard.innerHTML = `
+            <span class="category-badge">${data.headline.category || '頭條'} • 今日頭條焦點</span>
+            <h2 class="headline-title">${data.headline.title}</h2>
+            <div class="headline-subtitle">${data.headline.subtitle || ''}</div>
+            <div class="article-meta">
+              <span class="meta-source">報導來源：${data.headline.source || '特約通訊'}</span>
+              <span>•</span>
+              <span>最新重新策劃</span>
+            </div>
+            <p class="headline-summary">${data.headline.summary}</p>
+            <div class="key-points-box">
+              <h4>♦ 核心關鍵研判</h4>
+              <ul class="key-points-list">${pts}</ul>
+            </div>
+            ${linkageHtml}
+            <div class="source-action-bar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+              <a href="${data.headline.url || '#'}" target="_blank" rel="noopener noreferrer" class="read-orig-link">閱讀原文報導 ↗</a>
+              <div class="card-feedback-actions">
+                <span style="font-size:11px; color:var(--text-muted); font-family:var(--font-sans);">審稿回饋：</span>
+                <button type="button" class="fb-thumb-btn" onclick="quickFeedback('like', '${data.headline.title}', '${data.headline.category}')">👍 多看</button>
+                <button type="button" class="fb-thumb-btn" onclick="quickFeedback('dislike', '${data.headline.title}', '${data.headline.category}')">👎 減少</button>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      // Re-render columns
+      if (data.columns && data.columns.length > 0) {
+        const colStories = document.querySelector('.col-stories');
+        if (colStories) {
+          let colsHtml = `
+            <div class="section-header">
+              <h3>焦點新聞精選</h3>
+              <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">TOP STORIES</span>
+            </div>
+          `;
+          data.columns.forEach(col => {
+            let linkageHtml = '';
+            if (col.market_linkage) {
+              linkageHtml = `
+                <div class="market-linkage-box">
+                  <div class="linkage-header">
+                    <span class="linkage-tag">📊 市場指標連鎖</span>
+                    <strong class="linkage-name">${col.market_linkage.indicator_name || ''}</strong>
+                  </div>
+                  <div class="linkage-trend"><strong>📈 近 10 日走勢：</strong>${col.market_linkage.ten_day_trend || ''}</div>
+                  <div class="linkage-spillover"><strong>⚠️ 連鎖效應：</strong>${col.market_linkage.spillover_effects || ''}</div>
+                  ${col.market_linkage.deep_dive_query ? `<button type="button" class="linkage-btn" onclick="triggerDeepDive('${col.market_linkage.deep_dive_query}')">🔍 深度特刊：${col.market_linkage.deep_dive_query} ↗</button>` : ''}
+                </div>
+              `;
+            }
+            colsHtml += `
+              <article class="story-item">
+                <span class="category-badge">${col.category}</span>
+                <h4 class="story-title"><a href="${col.url || '#'}" target="_blank" rel="noopener noreferrer">${col.title}</a></h4>
+                <p class="story-summary">${col.summary}</p>
+                ${col.key_takeaway ? `<div class="story-takeaway"><strong>啟示：</strong>${col.key_takeaway}</div>` : ''}
+                ${linkageHtml}
+                <div class="story-footer" style="display:flex; justify-content:space-between; align-items:center;">
+                  <span>來源：${col.source}</span>
+                  <div class="card-feedback-actions">
+                    <button type="button" class="fb-thumb-btn" onclick="quickFeedback('like', '${col.title}', '${col.category}')">👍</button>
+                    <button type="button" class="fb-thumb-btn" onclick="quickFeedback('dislike', '${col.title}', '${col.category}')">👎</button>
+                  </div>
+                  <a href="${col.url || '#'}" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
+                </div>
+              </article>
+            `;
+          });
+          colStories.innerHTML = colsHtml;
+        }
+      }
+
+      // Re-render editorial
+      if (data.editorial) {
+        const edSection = document.querySelector('.editorial-section');
+        if (edSection) {
+          edSection.innerHTML = `
+            <span class="editorial-badge">✒️ 每日主筆冷眼 / 銳評</span>
+            <h3 class="editorial-title">${data.editorial.title}</h3>
+            <span class="editorial-author">${data.editorial.author}</span>
+            <p class="editorial-body">${data.editorial.commentary}</p>
+            ${data.editorial.quote ? `<div class="editorial-quote">${data.editorial.quote}</div>` : ''}
+          `;
+        }
+      }
+    }
 
     function closeDeepDive() {
       document.getElementById('deepDiveModal').classList.remove('active');

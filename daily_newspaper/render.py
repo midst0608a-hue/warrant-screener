@@ -71,6 +71,7 @@ def render_newspaper_html(curated_data: Dict[str, Any], config: Dict[str, Any], 
         "stock_market": curated_data.get("stock_market", []),
         "sidebar": curated_data.get("sidebar", []),
         "editorial": curated_data.get("editorial", {}),
+        "user_editorial_feedback": config.get("user_editorial_feedback", ""),
         "market_pulse": curated_data.get("market_pulse", {
             "sentiment": "多元交融",
             "watch_topics": ["#科技前沿", "#全球財經", "#總體趨勢"]

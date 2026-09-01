@@ -273,6 +273,10 @@ def curate_newspaper_with_gemini(articles: List[Dict[str, Any]], config: Dict[st
     temperature = gemini_cfg.get("temperature", 0.3)
     focus_topics = config.get("focus_topics", [])
     max_arts = gemini_cfg.get("max_articles_to_analyze", 25)
+    user_feedback = config.get("user_editorial_feedback", "")
+    feedback_section = ""
+    if user_feedback:
+        feedback_section = f"\n【讀者/總編輯個人化偏好與審稿指令 (User Custom Directives)】：\n{user_feedback}\n請務必高度尊重並優先體現以上讀者回饋指令。\n"
     
     # Prepare articles for prompt
     selected_articles = articles[:max_arts]
@@ -285,7 +289,7 @@ def curate_newspaper_with_gemini(articles: List[Dict[str, Any]], config: Dict[st
     system_instruction = f"""
 你是一位享譽全球的權威報社（如《金融時報》、《紐約時報》、《彭博社》）的「總編輯兼首席主筆」。
 你的任務是審閱今日最新收集的各類新聞，為讀者策劃並排版一份極具深度、客觀嚴謹且排版層次分明的「每日晨間時報 (The Daily Times)」。
-
+{feedback_section}
 【每日四大優先涵蓋核心領域】：
 一、台灣中央與地方政治、立法院與行政部門的重要制度變動、預算與法案、政黨重組、選舉制度及具公共政策影響的政治事件（原則上每天至少納入 1 至 3 則真正具有制度、政策或權力結構意義的政治新聞；若當日沒有足夠重要的政治發展，不勉強湊數）。
 二、台灣與中國關係、中國政治、香港、東亞政局、區域安全與地緣政治。

@@ -38,6 +38,16 @@ NEWSPAPER_SCHEMA = {
                     "items": {"type": "STRING"},
                     "description": "3 個核心關鍵要點或數據分析"
                 },
+                "market_linkage": {
+                    "type": "OBJECT",
+                    "properties": {
+                        "indicator_name": {"type": "STRING", "description": "關聯大宗商品/宏觀/科技指標（例如：布蘭特原油期貨 Brent Crude / 費城半導體 SOX / 美債10年期殖利率 / 美元指數）"},
+                        "ten_day_trend": {"type": "STRING", "description": "近 10 日走勢與具體價位/幅度變動摘要（例如：近 10 日自 $72.3 攀升至 $78.1 (+8.0%)）"},
+                        "spillover_effects": {"type": "STRING", "description": "對實體經濟、台股/美股產業鏈之連鎖效應（例如：油運費率暴漲、航空成本承壓、塑化利差受壓）"},
+                        "deep_dive_query": {"type": "STRING", "description": "用於點擊生成深度特刊的關鍵字（例如：中東油運危機與原油供應鏈連鎖衝擊）"}
+                    },
+                    "description": "關聯的大宗商品/市場指標與近 10 日動態（選填）"
+                },
                 "source": {"type": "STRING", "description": "新聞來源媒體名稱"},
                 "url": {"type": "STRING", "description": "原文網址連結"}
             },
@@ -52,6 +62,16 @@ NEWSPAPER_SCHEMA = {
                     "category": {"type": "STRING", "description": "分類，如：科技/AI、總經金融、國際局勢、Web3"},
                     "summary": {"type": "STRING", "description": "2-3 句事實摘要（約 80-120 字）"},
                     "key_takeaway": {"type": "STRING", "description": "一句話產業影響或洞察（約 20-40 字）"},
+                    "market_linkage": {
+                        "type": "OBJECT",
+                        "properties": {
+                            "indicator_name": {"type": "STRING", "description": "關聯大宗商品/宏觀指標（例如：布蘭特原油期貨、紐約原油 WTI、黃金、十年期美債、台幣匯率、費城半導體）"},
+                            "ten_day_trend": {"type": "STRING", "description": "近 10 日走勢與具體價位/幅度變動摘要（例如：近 10 日自 $72.3 上漲至 $78.1 (+8.0%)）"},
+                            "spillover_effects": {"type": "STRING", "description": "連鎖市場效應與受衝擊/受惠產業族群分析"},
+                            "deep_dive_query": {"type": "STRING", "description": "一鍵生成深度特刊關鍵詞（例如：荷姆茲海峽航運停滯對全球能源與台股供應鏈之衝擊）"}
+                        },
+                        "description": "若新聞涉及地緣/能源大宗/總經利率/半導體等，必須提供市場連鎖指標與 10 日走勢"
+                    },
                     "source": {"type": "STRING", "description": "來源媒體"},
                     "url": {"type": "STRING", "description": "原文網址"}
                 },
@@ -280,9 +300,10 @@ def curate_newspaper_with_gemini(articles: List[Dict[str, Any]], config: Dict[st
 - 嚴禁大量引用單一來源（例如不得全部來自單一入口網站），必須均衡涵蓋中央社、BBC中文、iThome、TechCrunch、CoinDesk、TechNews、各大財經與國際媒體。
 
 【編輯與排版欄位準則】：
-1. 【頭條焦點 (Headline)】：挑選今天最重大、具備高度制度或地緣影響的新聞作為大版面頭條。需提煉出震撼有力的主標題、副標題、流暢事實摘要，以及 3 個核心關鍵點 (key_points)。
-2. 【股市與資本市場焦點 (stock_market)】：精選 3 則關鍵的台股、美股或權值/熱門概念股行情動能新聞。每則包含：市場標籤 (market_tag)、事實摘要 (summary)、行情或資金流向信號 (trend_signal)、來源與 URL。
-3. 【重點新聞專欄 (Columns)】：精選 4 到 5 則核心新聞，嚴格優先涵蓋台灣制度法案、地緣區域安全、全球民主憲政、AI治理與抗審查政策。每則提供精煉摘要與一行關鍵啟示 (key_takeaway)。
+1. 【頭條焦點 (Headline)】：挑選今天最重大、具備高度制度或地緣影響的新聞作為大版面頭條。需提煉出震撼有力的主標題、副標題、流暢事實摘要，以及 3 個核心關鍵點 (key_points)。若具有市場或大宗商品連動，請一併提供 market_linkage。
+2. 【重點新聞專欄 (Columns)】：精選 4 到 5 則核心新聞，嚴格優先涵蓋台灣制度法案、地緣區域安全、全球民主憲政、AI治理與抗審查政策。每則提供精煉摘要與一行關鍵啟示 (key_takeaway)。
+   ★【市場指標與 10 日走勢連鎖 (market_linkage)】：只要該篇新聞涉及「地緣局勢（如荷姆茲海峽/中東/台海）」、「大宗商品（如原油/天然氣/黃金）」、「總經利率/通膨」或「半導體供應鏈」，務必附帶 market_linkage，精準列出關聯指標名稱（如布蘭特原油 Brent Crude、十年期美債殖利率、費城半導體）、近 10 日走勢與漲跌幅、實體產業鏈連鎖效應，以及 deep_dive_query。
+3. 【股市與資本市場焦點 (stock_market)】：精選 3 則關鍵的台股、美股或權值/熱門概念股行情動能新聞。每則包含：市場標籤 (market_tag)、事實摘要 (summary)、行情或資金流向信號 (trend_signal)、來源與 URL。
 4. 【側欄速報 (Sidebar)】：精選 4 到 6 則簡短快訊，讓讀者迅速掌握世界脈動。
 5. 【主筆冷眼/銳評 (Editorial)】：撰寫一段 250~400 字極具洞察力、批判思辨的專欄短文，融會貫通今日政經與科技脈絡，並附上一句經典金句 (quote)。
 6. 【市場與局勢脈動 (Market Pulse)】：簡述今日全球整體氛圍與 3-4 個關鍵話題標籤。

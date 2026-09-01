@@ -354,6 +354,84 @@
     }
 
     /* ==========================================================================
+       MARKET LINKAGE CALLOUT (關鍵市場指標連動情報盒)
+       ========================================================================== */
+    .market-linkage-box {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: rgba(184, 92, 56, 0.05);
+      border-left: 3px solid var(--accent);
+      border-top: 1px solid var(--border-light);
+      border-right: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      border-radius: 2px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .linkage-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    .linkage-tag {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #fff;
+      background: var(--accent);
+      padding: 2px 6px;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+
+    .linkage-name {
+      font-family: var(--font-serif);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .linkage-trend {
+      color: var(--text-main);
+      margin-bottom: 4px;
+      font-size: 12.5px;
+    }
+
+    .linkage-spillover {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .linkage-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 2px;
+    }
+
+    .linkage-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(184, 92, 56, 0.25);
+    }
+
+    /* ==========================================================================
        INTERACTIVE DEEP DIVE MODAL (特刊號彈窗)
        ========================================================================== */
     .modal-overlay {
@@ -1196,6 +1274,27 @@
             </ul>
           </div>
 
+          <!-- Headline Market Linkage (Optional) -->
+          {% if headline.market_linkage %}
+          <div class="market-linkage-box">
+            <div class="linkage-header">
+              <span class="linkage-tag">📊 核心市場指標連動</span>
+              <strong class="linkage-name">{{ headline.market_linkage.indicator_name }}</strong>
+            </div>
+            <div class="linkage-trend">
+              <strong>📈 近 10 日走勢：</strong>{{ headline.market_linkage.ten_day_trend }}
+            </div>
+            <div class="linkage-spillover">
+              <strong>⚠️ 連鎖效應：</strong>{{ headline.market_linkage.spillover_effects }}
+            </div>
+            {% if headline.market_linkage.deep_dive_query %}
+            <button type="button" class="linkage-btn" onclick="triggerDeepDive('{{ headline.market_linkage.deep_dive_query }}')">
+              🔍 啟動專題：{{ headline.market_linkage.deep_dive_query }} ↗
+            </button>
+            {% endif %}
+          </div>
+          {% endif %}
+
           <div class="source-action-bar">
             <a href="{{ headline.url }}" target="_blank" rel="noopener noreferrer" class="read-orig-link">
               閱讀原文報導 ↗
@@ -1241,6 +1340,27 @@
           {% if col.key_takeaway %}
           <div class="story-takeaway">
             <strong>啟示：</strong>{{ col.key_takeaway }}
+          </div>
+          {% endif %}
+
+          <!-- Market & Commodity Linkage Indicator (如原油10日走勢、航運/通膨連動) -->
+          {% if col.market_linkage %}
+          <div class="market-linkage-box">
+            <div class="linkage-header">
+              <span class="linkage-tag">📊 市場指標連鎖</span>
+              <strong class="linkage-name">{{ col.market_linkage.indicator_name }}</strong>
+            </div>
+            <div class="linkage-trend">
+              <strong>📈 近 10 日走勢：</strong>{{ col.market_linkage.ten_day_trend }}
+            </div>
+            <div class="linkage-spillover">
+              <strong>⚠️ 連鎖效應：</strong>{{ col.market_linkage.spillover_effects }}
+            </div>
+            {% if col.market_linkage.deep_dive_query %}
+            <button type="button" class="linkage-btn" onclick="triggerDeepDive('{{ col.market_linkage.deep_dive_query }}')">
+              🔍 深度特刊：{{ col.market_linkage.deep_dive_query }} ↗
+            </button>
+            {% endif %}
           </div>
           {% endif %}
 

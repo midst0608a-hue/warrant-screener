@@ -1,142 +1,160 @@
 {
   "headline": {
-    "title": "輝達斥資35億美元認購聯發科CB 台灣IC設計龍頭奪NVLink關鍵門票",
-    "subtitle": "包下近九成額度深化AI生態系合作 三大外資力挺目標價上看萬元",
-    "category": "科技前沿",
-    "summary": "台灣IC設計龍頭聯發科於8月31日宣布完成海外可轉換公司債（ECB）訂價，最大認購投資人確認為全球AI晶片霸主輝達（NVIDIA），斥資達35億美元，包下近九成額度。此舉被市場視為聯發科成功取得進入輝達NVLink生態系的關鍵門票，擺脫手機市場疲軟的枷鎖，轉型為雲端AI與高速傳輸領域的關鍵供應商。",
+    "title": "前沿 AI 遭極端武器化：勒索軟體 Aurora 濫用 Cursor 與 Claude 策劃自動化攻擊",
+    "subtitle": "資安界首度證實生成式 AI 與 Agent 協助鎖定企業 ESXi 基礎設施，凸顯 AI 治理與控制防線嚴峻挑戰",
+    "category": "AI 治理與資安防線",
+    "summary": "資安機構 CloudSEK 與 TRM Labs 最新調查發現，勒索軟體組織 Aurora（Aur0ra）自今年 4 月起積極展開攻擊，不僅利用 AI 程式碼助手 Cursor 規畫攻擊腳本，更借助 Anthropic 的 Claude Sonnet 模型協助編譯與談判。截至 7 月已有超過 20 家企業組織受害，攻擊者更刻意排除獨立國家國協地區，顯示生成式 AI Agent 正從輔助工具轉變為自動化資安威脅武器。",
     "key_points": [
-      "輝達認購聯發科近九成ECB額度，投資金額高達35億美元，創下兩強合作新里程碑。",
-      "聯發科藉此取得NVLink關鍵技術門票，三大AI成長引擎齊發，加速擺脫手機單一市場依賴。",
-      "外資法人一致看好，亞系外資重申「加碼」評等，並將目標價調升至萬元大關。"
+      "攻擊者運用俄語指令促使 Cursor AI 與 Claude 產生極具針對性的 ESXi 環境攻擊與加密腳本。",
+      "全球已有至少 20 家企業受害，其中 17 家遭到網域層級侵入，凸顯 LLM 輸出審查機制在邊緣情境的漏洞。",
+      "金融監理機構與科技巨頭面臨防禦升級壓力，AI 模型的自主性控制與反濫用架構已升級為國安與產業治理課題。"
     ],
-    "source": "Yahoo 股市 - 台股與美股焦點",
-    "url": "https://tw.news.yahoo.com/%E6%93%BA%E8%84%AB%E6%89%8B%E6%A9%9F%E7%96%B2%E8%BB%9F%E6%9E%B7%E9%8E%96-%E8%81%AF%E7%99%BC%E7%A7%91%E6%8B%BF%E5%88%B0nvlink%E9%97%9C%E9%8D%B5%E9%96%80%E7%A5%A8-%E4%B8%89%E5%A4%A7ai%E6%88%90%E9%95%B7%E5%BC%95%E6%93%8E%E9%BD%8A%E7%99%BC-043200971.html"
+    "market_linkage": {
+      "indicator_name": "納斯達克資安指數 (BUG) / 費城半導體",
+      "ten_day_trend": "近 10 日自 3,120 點微幅震盪至 3,185 點 (+2.08%)",
+      "spillover_effects": "催化企業急增 Zero-Trust 零信任架構與 AI Agent 安全防護支出，資安軟體族群與雲端防護鏈獲得資金挹注。",
+      "deep_dive_query": "AI程式碼助手濫用與生成式AI資安治理防禦機制"
+    },
+    "source": "iThome 電腦報",
+    "url": "https://www.ithome.com.tw/news/178592"
   },
   "columns": [
     {
-      "title": "川普長子創投領投 Polymarket完成10億美元巨額融資",
-      "category": "Web3與抗審查",
-      "summary": "由美國前總統川普之子旗下投資公司1789 Capital領投，去中心化預測平台Polymarket完成高達10億美元的融資，使該平台估值飆升至210億美元。此舉顯示政治資本正深度介入Web3與去中心化預測市場。",
-      "key_takeaway": "去中心化預測平台已成為地緣政治與大選風向的關鍵基礎設施。",
-      "source": "CoinDesk (Web3與抗審查基礎設施)",
-      "url": "https://www.coindesk.com/business/2026/09/01/trump-jr-s-firm-leads-usd1-billion-polymarket-raise-at-usd21-billion-value-report"
+      "title": "FSB 發出嚴肅警告：前沿高自主 AI 模型與高槓桿結合恐破壞全球金融穩定",
+      "category": "金融監理與 AI 風險",
+      "summary": "國際金融穩定委員會（FSB）主席 Andrew Bailey 指出，具備高度自主性的前沿 AI 模型正在全球金融市場加速滲透。若與高槓桿交易及演算法追價結合，可能在市場劇烈波動時放大系統性風險，嚴重衝擊金融體系穩定與投資人信心。",
+      "key_takeaway": "金融監理機關正加速出台自主 Agent 演算法交易與 AI 風險控管規範，避免系統性風險擴散。",
+      "market_linkage": {
+        "indicator_name": "十年期美債殖利率",
+        "ten_day_trend": "近 10 日自 4.25% 攀升至 4.38% (+13 bps)",
+        "spillover_effects": "高槓桿市場與演算法量化資金承壓，避險情緒帶動長天期國債殖利率波動加劇。",
+        "deep_dive_query": "金融穩定委員會FSB對前沿AI自主模型與金融市場槓桿風險之警訊"
+      },
+      "source": "iThome 電腦報",
+      "url": "https://www.ithome.com.tw/news/178584"
     },
     {
-      "title": "AI Agent與後量子密碼學崛起 企業防禦架構面臨轉型",
-      "category": "AI治理與數位政策",
-      "summary": "生成式AI正從單純的聊天工具演進為具備自主執行任務能力的AI Agent，能存取企業敏感資料並操作系統，這為企業資安帶來全新威脅。同時，後量子密碼學（PQC）的導入也迫使企業重新評估現有的加密防禦體系。",
-      "key_takeaway": "自主化AI工具的普及將徹底重塑企業資安邊界與信任機制。",
-      "source": "科技新報 TechNews (半導體與產業)",
-      "url": "https://infosecu.technews.tw/2026/09/01/ai-agent-pqc-security/"
-    },
-    {
-      "title": "FTC聯合22州起訴亞馬遜 控其廣告拍賣暗藏加價涉200億美元",
-      "category": "AI治理與數位政策",
-      "summary": "美國聯邦交易委員會（FTC）聯合22州檢察長向電商巨頭亞馬遜提起訴訟，指控其廣告拍賣機制長期存在隱形加價，時間長達7年，涉及超過100萬名賣家，並可能因此非法獲利逾200億美元。",
-      "key_takeaway": "反壟斷監管正深入科技巨頭的演算法與黑箱拍賣機制。",
-      "source": "iThome 電腦報 (資安與AI治理)",
-      "url": "https://www.ithome.com.tw/news/178572"
-    },
-    {
-      "title": "聯合國大會即將登場 外交部提出接納台灣三大訴求",
-      "category": "地緣政治與兩岸",
-      "summary": "第81屆聯合國大會將於9月8日召開，台灣外交部正式公布今年推案的三大訴求，強調聯合國應尋求適當方式接納台灣參與，以維護多邊主義的完整性，並確保台海及印太區域的和平穩定。",
-      "key_takeaway": "台灣持續透過法律與地緣戰略論述，挑戰聯大第2758號決議的詮釋。",
+      "title": "外交部調整推動參與聯合國 3 大訴求，拜會立法院長韓國瑜尋求跨黨派支持",
+      "category": "台灣政治與外交",
+      "summary": "外交部針對今年推動參與聯合國的策略進行調整，並向立法院長韓國瑜及各黨派立委說明 3 大訴求轉變。外交部強調，此舉旨在深化台灣在國際組織的制度性參與，透過國會溝通凝聚跨黨派外交共識。",
+      "key_takeaway": "國會溝通成為台灣多邊外交戰略能否獲得國內預算與跨黨派穩定支持的核心關鍵。",
       "source": "Yahoo 新聞 - 政治要聞",
-      "url": "https://tw.news.yahoo.com/%E8%81%AF%E5%90%88%E5%9C%8B%E5%A4%A7%E6%9C%838%E6%97%A5%E7%99%BB%E5%A0%B4-%E5%A4%96%E4%BA%A4%E9%83%A8%E6%9B%9D-%E6%8E%A8%E6%A1%883%E5%A4%A7%E8%A8%B4%E6%B1%82-%E6%87%89%E5%B0%8B%E6%B1%82%E9%81%A9%E7%95%B6%E6%96%B9%E5%BC%8F%E6%8E%A5%E7%B4%8D%E5%8F%B0%E7%81%A3-050200978.html"
+      "url": "https://tw.news.yahoo.com/%E5%8E%BB%E5%B9%B4%E6%83%B9%E6%AF%9B%E5%BE%90%E5%B7%A7%E8%8A%AF-%E5%A4%96%E4%BA%A4%E9%83%A8%E6%8E%A8%E5%8B%95%E5%8F%83%E8%88%87%E8%81%AF%E5%90%88%E5%9C%8B3%E5%A4%A7%E8%A8%B4%E6%B1%82%E8%AA%BF%E6%95%B4-%E6%9C%89%E5%88%B0%E7%AB%8B%E6%B3%95%E9%99%A2%E6%8B%9C%E8%A8%97%E9%9F%93%E5%9C%8B%E7%91%9C-091055655.html"
     },
     {
-      "title": "荷姆茲海峽單日僅5船通行 零油輪過境引發能源市場疑慮",
-      "category": "地緣政治與兩岸",
-      "summary": "根據航運數據，關鍵水道荷姆茲海峽在8月31日僅有5艘船隻通行，且罕見地出現「零油輪過境」的異常狀況，遠低於10日均值。這反映出中東地緣政治緊張局勢已嚴重干擾全球能源供應鏈。",
-      "key_takeaway": "關鍵海峽的航運停滯是全球能源通膨與供應鏈斷裂的紅色警訊。",
+      "title": "倫敦證券交易所結盟 Payward，推動英國頂級藍籌股代幣化上鏈",
+      "category": "Web3與金融基建",
+      "summary": "倫敦證券交易所（LSE）宣布與 Payward 結盟，將英國最頂級的藍籌股引進區塊鏈基礎設施進行代幣化交易。此舉標誌著傳統頂級交易所跨入去中心化清算與 24/7 資產代幣化市場的新里程碑。",
+      "key_takeaway": "傳統金融巨人加速轉向 Onchain 架構，代幣化實體資產（RWA）成為資本市場效率升級的核心戰場。",
+      "source": "CoinDesk",
+      "url": "https://www.coindesk.com/markets/2026/09/01/london-stock-exchange-to-work-with-payward-to-bring-biggest-uk-stocks-onchain"
+    },
+    {
+      "title": "台灣 8 月製造業 PMI 連 11 個月擴張，中經院警示高階記憶體缺貨危機",
+      "category": "總經與產業政策",
+      "summary": "中華經濟研究院發布台灣 8 月製造業採購經理人指數（PMI），顯示產業已連續 11 個月處於擴張區間，主要受到 AI 終端硬體拉貨動能強勁支撐。然而中經院院長連賢明特別示警，高頻寬記憶體（HBM）與傳統記憶體供需失衡，可能成為下游供應鏈交貨延遲的潛在瓶頸。",
+      "key_takeaway": "AI 熱潮拉動出口景氣的同時，關鍵組件缺貨潮正考驗電子代工體系的料況控管能力。",
+      "market_linkage": {
+        "indicator_name": "費城半導體指數 (SOX)",
+        "ten_day_trend": "近 10 日自 5,150 點震盪攀升至 5,310 點 (+3.1%)",
+        "spillover_effects": "HBM 與高階 DRAM 現貨價強勢上揚，終端伺服器組裝廠需承擔零組件溢價成本壓力。",
+        "deep_dive_query": "台灣製造業PMI擴張與AI記憶體供需失衡隱憂分析"
+      },
       "source": "Yahoo 奇摩新聞 - 總經財經",
-      "url": "https://tw.stock.yahoo.com/news/%E8%8D%B7%E5%A7%86%E8%8C%B2%E6%B5%B7%E5%B3%BD8%E6%9C%8831%E6%97%A5%E5%83%855%E8%89%98%E8%88%B9%E9%80%9A%E8%A1%8C-%E7%84%A1%E6%B2%B9%E8%BC%AA%E9%81%8E%E5%A2%83-%E9%81%A0%E4%BD%8E%E6%96%BC10%E6%97%A5%E5%9D%87%E5%80%BC-045233996.html"
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%81%A38%E6%9C%88%E8%A3%BD%E9%80%A0%E6%A5%AD%E9%80%A311%E5%80%8B%E6%9C%88%E6%93%B4%E5%BC%B5%EF%BC%81ai%E9%9C%80%E6%B1%82%E7%BA%8C%E6%97%BA-%E4%B8%AD%E7%B6%93%E9%99%A2%E9%95%B7%E9%80%A3%E8%B3%A2%E6%98%8E%E7%A4%BA%E8%AD%A6%E8%A8%98%E6%86%B6%E9%AB%94%E7%BC%BA%E8%B2%A8%E9%9A%B1%E6%86%82-091121686.html"
+    },
+    {
+      "title": "中國太陽能發電裝機容量達 12.86 億千瓦，首次超越煤電躍升第一大電源",
+      "category": "綠能與地緣經濟",
+      "summary": "中國國家能源局最新公布數據，截至今年 7 月底，太陽能發電裝機容量達到 12.86 億千瓦，歷經多年快速擴張後，裝機規模首次超越燃煤發電，成為中國國內發電能力第一大來源。然而電力網平穩調度與綠電消納問題亦隨之上升。",
+      "key_takeaway": "全球能源轉型出現歷史性交錯，但電力網韌性與儲能系統部署將是下階段關鍵突破點。",
+      "source": "科技新報 TechNews",
+      "url": "https://finance.technews.tw/2026/09/01/solar-power-capacity-surpasses-coal-china-largest-electricity-source/"
     }
   ],
   "stock_market": [
     {
-      "title": "台股暴漲700點叩關4萬7 槓桿與美債ETF爆量演出",
-      "market_tag": "台股焦點",
-      "summary": "台股加權指數今日開高走高，盤中大漲逾750點，強勢叩關47,000點大關。市場資金瘋狂湧入，槓桿型ETF 00685L漲幅破4%且成交量飆破29萬張，美債ETF 00403A亦上揚並噴出38.5萬張巨量，顯示市場多頭氣氛極其強烈。",
-      "trend_signal": "資金大舉回流權值股，槓桿與避險工具同步爆量。",
-      "source": "Yahoo 股市 - 台股與美股焦點",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E5%A4%A7%E6%BC%B2700%E9%BB%9E%E5%8F%A9%E9%97%9C4%E8%90%AC7-00403a%E4%B8%8A%E6%8F%9A%E5%99%B438-5%E8%90%AC-00685l%E6%BC%B2%E7%A0%B44-%E9%A3%86%E5%87%BA29%E8%90%AC%E5%BC%B5-044200984.html"
-    },
-    {
-      "title": "長庚醫院手握1.46萬張台積電 市值破350億成台股隱形大戶",
-      "market_tag": "半導體族群",
-      "summary": "長庚醫療財團法人最新財報曝光，其帳上股票投資現值高達2,433.96億元，其中持有台積電達1.46萬張，市值突破350億台幣。這項驚人的投資版圖引發市場熱議，被網友戲稱為「本業金控、副業醫療」的超級法人。",
-      "trend_signal": "非營利財團法人資金重倉權值股，提供台股下檔強力支撐。",
-      "source": "Yahoo 股市 - 台股與美股焦點",
-      "url": "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E9%9A%B1%E5%BD%A2%E5%A4%A7%E6%88%B6-%E9%95%B7%E5%BA%9A%E9%86%AB%E9%99%A2%E6%8F%A11-46%E8%90%AC%E5%BC%B5%E5%8F%B0%E7%A9%8D%E9%9B%BB%E5%B8%82%E5%80%BC%E7%A0%B4350%E5%84%84-%E7%B6%B2%E7%AC%91-%E6%9C%AC%E6%A5%AD%E9%87%91%E6%8E%A7-042922586.html"
-    },
-    {
-      "title": "投信搶買晶圓二哥爆18萬張巨量 凱基金與台新新光金同寫史高",
-      "market_tag": "台股焦點",
-      "summary": "投信法人昨日大舉搶進「晶圓二哥」聯電，成交量爆出18萬張登台股之冠，股價強漲逾3%。同時，金融板塊亦表現亮眼，凱基金在釋出「股利不掉隊」承諾後股價噴新高，台新金與新光金亦雙雙漲破40元，同創歷史新高。",
-      "trend_signal": "法人資金雙向布局半導體成熟製程與高股息金融股。",
+      "title": "輝達注資逾 1,100 億元深化與聯發科十年戰略合作，車用與 AI PC 晶片聯手攻頂",
+      "market_tag": "台股與半導體",
+      "summary": "輝達（Nvidia）執行長黃仁勳宣布將投入超過 1,100 億新台幣深化與聯發科（2454）的長期結盟，戰略聚焦於下一代車用 SoC 晶片與 AI PC 系統單晶片。法人評估此投資將顯著拉升聯發科在高階邊緣 AI 晶片市場的占有率。",
+      "trend_signal": "外資與投信資金重回半導體設計權值股，聯發科供應鏈量能顯著增溫。",
       "source": "Yahoo 奇摩新聞 - 總經財經",
-      "url": "https://tw.news.yahoo.com/%E6%8A%95%E4%BF%A1%E6%98%A8%E6%90%B6%E8%B2%B7-%E6%99%B6%E5%9C%93%E4%BA%8C%E5%93%A5-%E6%88%90%E4%BA%A4%E9%87%8F%E7%88%8618%E8%90%AC%E5%BC%B5%E7%99%BB%E7%8E%8B%E4%BD%8D-%E8%82%A1%E5%83%B9%E5%BC%B7%E6%BC%B2%E9%80%BE3-045100647.html"
+      "url": "https://tw.news.yahoo.com/%E8%BC%9D%E9%81%94%E7%A0%B8%E9%80%BE1100%E5%84%84%E6%8A%95%E8%B3%87%E8%81%AF%E7%99%BC%E7%A7%91-%E9%BB%83%E4%BB%81%E5%8B%B3-%E5%90%88%E4%BD%9C%E5%8D%81%E5%B9%B4-091200303.html"
+    },
+    {
+      "title": "台積電重申海外建廠長期永續原則，將主動「創造需求」升級歐洲半導體生態系",
+      "market_tag": "權值股動態",
+      "summary": "台積電共同營運長侯永清於歐盟投資論壇指出，海外設廠必須基於長期且可持續的市場需求，歐洲 7 奈米需求雖成長但規模仍有限，台積電將透過技術協同主動創造高階晶片需求，確保德勒斯登等海外廠長期營運效益。",
+      "trend_signal": "半導體先進製程供應鏈評價穩定，市場關注海外晶圓廠長期毛利率與資本支出投報率。",
+      "source": "Yahoo 股市 - 台股與美股焦點",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E4%BE%AF%E6%B0%B8%E6%B8%85-%E6%B5%B7%E5%A4%96%E6%8A%95%E8%B3%87%E8%A8%AD%E5%BB%A0%E4%B8%8D%E8%83%BD%E5%8F%AA%E7%9C%8B-%E5%B9%B4%E9%9C%80%E6%B1%82-%E9%9C%80%E8%80%83%E9%87%8F%E9%95%B7%E6%9C%89%E7%BA%8C%E6%80%A7-084440447.html"
+    },
+    {
+      "title": "散熱龍頭雙鴻看旺 2027 營運，AI 伺服器液冷散熱滲透率激增帶動營收創高",
+      "market_tag": "AI 概念股",
+      "summary": "散熱大廠雙鴻董事長林育申表示，AI 伺服器功耗持續攀升驅動水冷散熱模組需求放量，預期明年營運表現將優於今年。法人預估水冷板與分流管（CDU）出貨力道強勁，有利散熱族群毛利率進一步提升。",
+      "trend_signal": "AI 伺服器硬體散熱概念股成為盤面資金簇擁焦點，法人買盤買超強勢突破。",
+      "source": "科技新報 TechNews",
+      "url": "https://finance.technews.tw/2026/09/01/auras-2/"
     }
   ],
   "sidebar": [
     {
-      "title": "微軟身分驗證核心設定異常 衝擊全球多項M365服務",
-      "category": "AI治理與數位政策",
-      "brief": "微軟於9月1日凌晨發生Exchange Online驗證異常，隨後擴大波及Teams、OneDrive、SharePoint等多項Microsoft 365服務，主因為處理身分驗證的核心設定出錯。",
-      "source": "iThome 電報 (資安與AI治理)",
-      "url": "https://www.ithome.com.tw/news/178571"
+      "title": "Anthropic 調整 Claude Code 使用限額，9月中旬起實際額度縮減 17%",
+      "category": "AI 開發政策",
+      "brief": "Anthropic 宣布調整 AI 程式開發工具 Claude Code 限額機制，新制調升標準額度 25%，但因取消先前 50% 臨時加碼，使用者實際可用額度將減少約 17%。",
+      "source": "iThome 電腦報",
+      "url": "https://www.ithome.com.tw/news/178590"
     },
     {
-      "title": "ASML於台灣半導體論壇揭密 High NA EUV高量產藍圖",
-      "category": "半導體與科技政策",
-      "brief": "半導體曝光機龍頭ASML在2026年SEMICON Taiwan論壇上，揭密High NA EUV先進技術藍圖，強調其高經濟效益，宣告半導體正式邁向高量產新時代。",
-      "source": "科技新報 TechNews (半導體與產業)",
-      "url": "https://finance.technews.tw/2026/09/01/high-na-euv-moving-towards-the-era-of-high-volume-production/"
+      "title": "比特幣維穩 7.8 萬美元關卡，聯準會鷹派預期致主要代幣受壓",
+      "category": "加密貨幣市場",
+      "brief": "比特幣走勢維持於 78,000 美元上方震盪，受市場對聯準會升息鷹派預期升溫影響，加密貨幣主要代幣短線小幅回檔。",
+      "source": "CoinDesk",
+      "url": "https://www.coindesk.com/markets/2026/09/01/bitcoin-steady-above-usd78-000-hype-leads-as-majors-slip-on-hawkish-fed-bets"
     },
     {
-      "title": "北韓駭客於Hyperliquid轉移千萬資金 川普推動平台本土化",
-      "category": "Web3與抗審查",
-      "brief": "鏈上數據顯示，北韓駭客組織正利用去中心化交易平台Hyperliquid轉移數千萬美元資金。與此同時，川普正積極推動將該平台納入美國本土監管。",
-      "source": "CoinDesk (Web3與抗審查基礎設施)",
-      "url": "https://www.coindesk.com/business/2026/08/31/north-korean-hackers-are-moving-tens-of-millions-on-hyperliquid-as-trump-pushes-to-onshore-the-crypto-platform"
-    },
-    {
-      "title": "蘋果指控前員工為OpenAI竊密 提交銷毀證據之關鍵鐵證",
-      "category": "AI治理與數位政策",
-      "brief": "蘋果公司向法院提交「震撼性證據」，指控一名涉嫌為OpenAI竊取公司機密數據的前員工，在得知自己接受調查後，惡意銷毀了相關竊密證據。",
-      "source": "TechCrunch (國際科技前沿)",
+      "title": "蘋果指控前員工涉嫌為 OpenAI 竊取機密資料，提出關鍵法庭證據",
+      "category": "科技法律與智慧財產",
+      "brief": "蘋果公司在法庭呈交新證據，指控一名離職工程師在接受調查後試圖銷毀竊取公司機密並提供給 OpenAI 的數據數位軌跡。",
+      "source": "TechCrunch",
       "url": "https://techcrunch.com/2026/08/31/apple-shares-shocking-evidence-against-former-employee-accused-of-stealing-company-data-for-openai/"
     },
     {
-      "title": "資安研究員揭露卡巴斯基與Avast防毒軟體零時差漏洞",
-      "category": "AI治理與數位政策",
-      "brief": "曾多次揭露微軟漏洞的資安研究人員Nightmare Eclipse，近期將目標轉向防毒軟體，公開了卡巴斯基與Avast的權限提升零時差漏洞。",
-      "source": "iThome 電報 (資安與AI治理)",
-      "url": "https://www.ithome.com.tw/news/178570"
+      "title": "OpenAI ChatGPT Ads 年化廣告收入突破 10 億美元",
+      "category": "數位商業與平台",
+      "brief": "OpenAI 宣布旗下 ChatGPT Ads 廣告業務上線約 200 天，已吸引數萬家廣告主進駐，帶動年化營收正式突破 10 億美元大關。",
+      "source": "iThome 電腦報",
+      "url": "https://www.ithome.com.tw/news/178582"
     },
     {
-      "title": "沃旭大彰化920 MW風場完工 在台累計綠能容量近2 GW",
-      "category": "半導體與科技政策",
-      "brief": "沃旭能源大彰化西南第二階段及西北離岸風場今日舉行完工典禮，總裝置容量達920 MW，使沃旭在台累計風電容量逼近2 GW，下一步將續攻新案。",
-      "source": "科技新報 TechNews (半導體與產業)",
-      "url": "https://technews.tw/2026/09/01/greater-changhua-920-mw-wind-farm-completed-orsted-cumulative-capacity-taiwan-reaches-2-gw-next-pursue-new-projects/"
+      "title": "Polymarket 獲特朗普二世旗下基金領投，融資規模達 10 億美元",
+      "category": "Web3與預測市場",
+      "brief": "去中心化預測市場 Polymarket 獲得 1789 Capital 領投 3 億美元，推動本輪融資總額邁向 10 億美元，進一步拓展合規與國際市場。",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/08/31/polymarket-reportedly-raises-300-million-from-donald-trump-jr-s-investment-fund/"
+    },
+    {
+      "title": "台灣美光工會醞釀罷工，資方預告 10 月發放歷年最高績效獎金",
+      "category": "勞資爭議與產業",
+      "brief": "受惠 AI 與 HBM 記憶體需求暴增，美光營收創高，面對台灣美光工會醞釀罷工訴求，公司提前預告 10 月將發放歷史新高績效獎金以平息爭議。",
+      "source": "科技新報 TechNews",
+      "url": "https://finance.technews.tw/2026/09/01/micron-taiwan-announced-that-it-will-announce-its-highest-performance-bonus-in-history-this-october/"
     }
   ],
   "editorial": {
-    "title": "當資本與地緣政治在AI與Web3深水區交會",
+    "title": "當 AI Agent 突破雙刃劍邊界：自動化威脅與金融穩定的雙重考驗",
     "author": "首席主筆 / Chief Columnist",
-    "commentary": "今日的全球政經版圖，正呈現一種科技、資本與地緣政治高度糾纏的「深水區」態勢。一方面，輝達（NVIDIA）以35億美元的驚人手筆，包下台灣IC設計龍頭聯發科近九成的可轉換公司債。這絕非單純的財務投資，而是地緣政治風暴下，美國AI霸主為了確保硬體生態系與高速傳輸（NVLink）供應鏈絕對安全，而對台灣半導體實施的「深度戰略綁定」。另一方面，去中心化預測平台Polymarket獲得川普長子旗下創投領投10億美元，估值直逼210億美元。這揭示了Web3技術已不再是邊緣極客的玩具，而是成為主流政治勢力爭奪輿論定價權、甚至繞過傳統審查的「新型權力槓桿」。當AI的物理硬體在台海兩岸的敏感神經上築起防線，而Web3的虛擬共識在美國大選的資本遊戲中狂飆，我們正見證一個由演算法、主權國家與跨國資本共同編織的新帝國崛起。在這個新時代，技術的能動性已超越了單純的工具範疇，成為決定地緣政治勝負的終極籌碼。",
-    "quote": "科技不再是政治的延伸，而是權力重新分配的終極戰場。"
+    "commentary": "今日資安領域與金融監理機構同時敲響警鐘。勒索軟體 Aurora 濫用 Cursor AI 與 Claude Sonnet 進行自動化攻擊程式碼撰寫與入侵規劃，標誌著生成式 AI Agent 的雙面刃特性已從理論預測走向現實威脅。與此同時，金融穩定委員會（FSB）發出警告，自主前沿模型若與市場槓桿過度結合，將對全球金融體系帶來難以測度的系統性風險。我們正目睹科技演進的二元悖論：一方面，AI 代碼寫作與決策代理極大地推升了生產力，創造了如 OpenAI 廣告年收突破十億美元的龐大商業價值；另一方面，模型能力的開放性漏洞卻缺乏強而有力的倫理與控制防線。對於政府、企業與資安專家而言，單靠事後補丁或業者自主承諾已不足以防範風險。建立具備密碼學可驗證性、強健的邊界審查機制以及跨國法規調和，已是維持數位時代安全與穩定不可退讓的防線。",
+    "quote": "技術的自主性若缺乏嚴密的安全邊界與制度約束，其強大的生產力終將演變為難以掌控的系統性風險。"
   },
   "market_pulse": {
-    "sentiment": "科技狂潮與地緣避險並存",
+    "sentiment": "科技強勁與宏觀風險交織下的謹慎分化",
     "watch_topics": [
-      "NVLink生態系",
-      "Web3預測市場",
-      "後量子資安",
-      "地緣供應鏈"
+      "AI Agent 資安武器化",
+      "金融穩定與槓桿風險",
+      "半導體強勢結盟",
+      "RWA 資產代幣化"
     ]
   }
 }

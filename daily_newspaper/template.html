@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="sepia">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ newspaper.name }} • {{ date_str }}</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Noto+Serif+TC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & THEMES (Vintage Broadside, Crisp Light, Midnight Dark)
+       ========================================================================== */
+    :root, [data-theme="sepia"] {
+      --bg-canvas: #f6f1e8;
+      --bg-paper: #faf6f0;
+      --bg-card: #f2ece1;
+      --bg-card-highlight: #e9e0d1;
+      --text-main: #1c1815;
+      --text-muted: #5e554d;
+      --text-faint: #8a7e72;
+      --border-color: #2b2622;
+      --border-light: #d6ccbf;
+      --accent: #8b1e1e;
+      --accent-hover: #a82424;
+      --highlight: #d4a359;
+      --font-masthead: 'Cinzel', 'Noto Serif TC', serif;
+      --font-serif: 'Newsreader', 'Noto Serif TC', Georgia, serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --shadow-paper: 0 10px 30px rgba(43, 38, 34, 0.08);
+    }
+
+    [data-theme="light"] {
+      --bg-canvas: #eef1f5;
+      --bg-paper: #ffffff;
+      --bg-card: #f8fafc;
+      --bg-card-highlight: #f1f5f9;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-faint: #94a3b8;
+      --border-color: #0f172a;
+      --border-light: #cbd5e1;
+      --accent: #1e3a8a;
+      --accent-hover: #2563eb;
+      --highlight: #0284c7;
+      --shadow-paper: 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    [data-theme="dark"] {
+      --bg-canvas: #121316;
+      --bg-paper: #1a1b1f;
+      --bg-card: #22242a;
+      --bg-card-highlight: #2c2f37;
+      --text-main: #f1f3f7;
+      --text-muted: #9ba3af;
+      --text-faint: #646b79;
+      --border-color: #4b5262;
+      --border-light: #323642;
+      --accent: #e06c75;
+      --accent-hover: #ff7b86;
+      --highlight: #e5c07b;
+      --shadow-paper: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ==========================================================================
+       BASE & RESET
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: var(--font-serif);
+      font-size: 15.5px;
+      line-height: 1.68;
+      padding: 30px 15px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       CONTAINER & BROADSHEET LAYOUT
+       ========================================================================== */
+    .newspaper-wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      background-color: var(--bg-paper);
+      padding: 36px 44px;
+      box-shadow: var(--shadow-paper);
+      border: 1px solid var(--border-light);
+      position: relative;
+    }
+
+    /* ==========================================================================
+       TOOLBAR & ACTIONS (Top Floating Bar)
+       ========================================================================== */
+    .top-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      border-bottom: 1px dashed var(--border-light);
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--text-muted);
+    }
+
+    .pulse-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .tool-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      color: var(--text-main);
+      padding: 4px 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tool-btn:hover {
+      background: var(--bg-card-highlight);
+      border-color: var(--border-color);
+    }
+
+    /* ==========================================================================
+       AUTHENTIC NEWSPAPER HEADER & MASTHEAD
+       ========================================================================== */
+    .header-ticker {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 6px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      font-size: 12px;
+      font-family: var(--font-sans);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .ticker-center {
+      text-align: center;
+      font-style: italic;
+      font-family: var(--font-serif);
+      color: var(--accent);
+    }
+
+    .ticker-right {
+      text-align: right;
+    }
+
+    .masthead-main {
+      text-align: center;
+      padding: 24px 0 16px 0;
+    }
+
+    .sub-brand {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .main-title {
+      font-family: var(--font-masthead);
+      font-size: clamp(38px, 6.5vw, 76px);
+      font-weight: 900;
+      letter-spacing: 2px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: var(--text-main);
+      text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+    }
+
+    .chinese-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 700;
+      letter-spacing: 12px;
+      margin-top: 4px;
+      color: var(--text-muted);
+    }
+
+    .motto-bar {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .motto-bar::before, .motto-bar::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-light), transparent);
+    }
+
+    .header-infobar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      margin-top: 8px;
+      border-top: 4px double var(--border-color);
+      border-bottom: 2px solid var(--border-color);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================================
+       BREAKING / MARKET PULSE BAR
+       ========================================================================== */
+    .market-pulse-ribbon {
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-light);
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .pulse-label {
+      font-weight: 700;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .pulse-sentiment {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--text-main);
+    }
+
+    .pulse-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .pulse-tag {
+      background: var(--bg-card-highlight);
+      padding: 3px 10px;
+      border-radius: 3px;
+      font-size: 11.5px;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      cursor: pointer;
+      border: 1px solid var(--border-light);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .pulse-tag:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 3px 8px rgba(139, 30, 30, 0.2);
+    }
+
+    .pulse-tag::after {
+      content: " ↗";
+      font-size: 9px;
+      opacity: 0.7;
+    }
+
+    .custom-topic-input {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-light);
+      color: var(--text-main);
+      padding: 3px 8px;
+      font-size: 11px;
+      font-family: var(--font-serif);
+      border-radius: 3px;
+      outline: none;
+      width: 140px;
+      transition: width 0.2s, border-color 0.2s;
+    }
+
+    .custom-topic-input:focus {
+      width: 190px;
+      border-color: var(--accent);
+    }
+
+    /* ==========================================================================
+       INTERACTIVE DEEP DIVE MODAL (特刊號彈窗)
+       ========================================================================== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 18, 16, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--bg-paper);
+      color: var(--text-main);
+      border: 2px solid var(--border-color);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      max-width: 860px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 36px 40px;
+      position: relative;
+      background-image: radial-gradient(var(--border-light) 0.5px, transparent 0.5px);
+      background-size: 12px 12px;
+      animation: modalSlideUp 0.3s ease-out;
+    }
+
+    @keyframes modalSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
+      font-size: 18px;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .modal-masthead {
+      text-align: center;
+      border-bottom: 3px double var(--border-color);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .modal-badge {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .modal-title {
+      font-family: var(--font-masthead);
+      font-size: 26px;
+      font-weight: 900;
+      margin: 4px 0 6px 0;
+    }
+
+    .modal-meta {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .modal-body {
+      font-size: 15.5px;
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    .modal-body h4 {
+      font-family: var(--font-masthead);
+      font-size: 17px;
+      color: var(--accent);
+      margin: 18px 0 8px 0;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+    }
+
+    .modal-body p {
+      margin-bottom: 14px;
+    }
+
+    .modal-body ul {
+      margin: 10px 0 16px 20px;
+    }
+
+    .modal-body li {
+      margin-bottom: 6px;
+    }
+
+    .modal-spinner {
+      text-align: center;
+      padding: 40px 0;
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .spinner-ring {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      border: 3px solid var(--border-light);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 1s infinite linear;
+      margin-bottom: 12px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border-light);
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT GRID (Broadsheet 3-Column Partition)
+       ========================================================================== */
+    .newspaper-grid {
+      display: grid;
+      grid-template-columns: 2.3fr 1.6fr 1.1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ==========================================================================
+       STOCK MARKET HIGHLIGHTS (股市與資本市場專區)
+       ========================================================================== */
+    .stock-market-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-top: 3px solid var(--accent);
+      padding: 18px 20px;
+      margin-bottom: 24px;
+    }
+
+    .stock-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 6px;
+      margin-bottom: 14px;
+    }
+
+    .stock-section-header h3 {
+      font-family: var(--font-masthead);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--accent);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stock-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .stock-card {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-light);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stock-tag {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .stock-title {
+      font-family: var(--font-masthead);
+      font-size: 14.5px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .stock-summary {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .stock-signal {
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      background: var(--bg-card-highlight);
+      padding: 4px 8px;
+      border-left: 2px solid var(--highlight);
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .stock-footer {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      color: var(--text-faint);
+    }
+
+    @media (max-width: 900px) {
+      .stock-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+
+    /* Column Dividers */
+    .col-headline {
+      padding-right: 28px;
+      border-right: 1px solid var(--border-light);
+    }
+
+    .col-stories {
+      padding-right: 28px;
+      border-right: 1px solid var(--border-light);
+    }
+
+    .col-sidebar {
+      padding-left: 4px;
+    }
+
+    /* ==========================================================================
+       HEADLINE ARTICLE (Hero Section)
+       ========================================================================== */
+    .headline-card {
+      margin-bottom: 30px;
+    }
+
+    .category-badge {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 2px;
+      margin-bottom: 10px;
+    }
+
+    .headline-title {
+      font-family: var(--font-masthead);
+      font-size: clamp(26px, 3.2vw, 38px);
+      font-weight: 900;
+      line-height: 1.18;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .headline-subtitle {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 18px;
+      border-left: 3px solid var(--border-color);
+      padding-left: 12px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-faint);
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .meta-source {
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    /* Drop Cap for Headline */
+    .headline-summary {
+      font-size: 16.5px;
+      line-height: 1.75;
+      text-align: justify;
+      margin-bottom: 20px;
+      color: var(--text-main);
+    }
+
+    .headline-summary::first-letter {
+      float: left;
+      font-family: var(--font-masthead);
+      font-size: 3.8em;
+      line-height: 0.82;
+      padding-top: 4px;
+      padding-right: 10px;
+      padding-bottom: 2px;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .key-points-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+
+    .key-points-box h4 {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .key-points-list {
+      list-style: none;
+    }
+
+    .key-points-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 8px;
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
+
+    .key-points-list li::before {
+      content: "♦";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 11px;
+      top: 1px;
+    }
+
+    .source-action-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 14px;
+    }
+
+    .read-orig-link {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .read-orig-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       EDITORIAL / CHIEF COLUMNIST OPINION
+       ========================================================================== */
+    .editorial-section {
+      background: var(--bg-card);
+      border: 2px solid var(--border-color);
+      padding: 24px;
+      position: relative;
+      margin-top: 24px;
+      background-image: radial-gradient(var(--border-light) 0.75px, transparent 0.75px);
+      background-size: 16px 16px;
+    }
+
+    .editorial-badge {
+      font-family: var(--font-masthead);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .editorial-title {
+      font-family: var(--font-masthead);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .editorial-author {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      display: block;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 8px;
+    }
+
+    .editorial-body {
+      font-size: 14.8px;
+      line-height: 1.75;
+      text-align: justify;
+      color: var(--text-main);
+    }
+
+    .editorial-quote {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: var(--bg-paper);
+      border-left: 3px solid var(--accent);
+      font-style: italic;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    /* ==========================================================================
+       COLUMN STORIES (Middle Grid)
+       ========================================================================== */
+    .section-header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 4px;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .section-header h3 {
+      font-family: var(--font-masthead);
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .story-item {
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .story-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .story-title {
+      font-family: var(--font-masthead);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .story-summary {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      text-align: justify;
+    }
+
+    .story-takeaway {
+      font-size: 13px;
+      font-family: var(--font-sans);
+      background: var(--bg-card);
+      padding: 6px 10px;
+      border-radius: 2px;
+      color: var(--text-muted);
+      border-left: 2px solid var(--highlight);
+      margin-bottom: 8px;
+    }
+
+    .story-takeaway strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    .story-footer {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      color: var(--text-faint);
+    }
+
+    /* ==========================================================================
+       SIDEBAR & BULLETINS (Right Grid)
+       ========================================================================== */
+    .sidebar-item {
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      border-bottom: 1px dashed var(--border-light);
+    }
+
+    .sidebar-item:last-child {
+      border-bottom: none;
+    }
+
+    .sidebar-category {
+      font-family: var(--font-sans);
+      font-size: 10.5px;
+      font-weight: 800;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .sidebar-title {
+      font-family: var(--font-serif);
+      font-size: 14.5px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin: 2px 0 4px 0;
+    }
+
+    .sidebar-brief {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .sidebar-source {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      color: var(--text-faint);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Classic Quote Widget */
+    .classic-quote-box {
+      margin-top: 24px;
+      border: 1px solid var(--border-color);
+      padding: 16px;
+      text-align: center;
+      background: var(--bg-card);
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+
+    .ornament-divider {
+      text-align: center;
+      color: var(--text-faint);
+      font-size: 13px;
+      margin: 16px 0;
+      letter-spacing: 6px;
+    }
+
+    /* ==========================================================================
+       AUTHENTIC NEWSPAPER FOOTER
+       ========================================================================== */
+    .newspaper-footer {
+      margin-top: 36px;
+      padding-top: 16px;
+      border-top: 3px double var(--border-color);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .footer-center {
+      text-align: center;
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE & PRINT MEDIA QUERIES
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .newspaper-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      .col-headline {
+        grid-column: span 2;
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 24px;
+      }
+      .col-stories {
+        padding-right: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .newspaper-wrapper {
+        padding: 20px 16px;
+      }
+      .newspaper-grid {
+        grid-template-columns: 1fr;
+      }
+      .col-headline, .col-stories, .col-sidebar {
+        grid-column: span 1;
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+        padding-bottom: 24px;
+      }
+      .header-ticker, .header-infobar, .newspaper-footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 6px;
+      }
+      .ticker-right, .footer-right {
+        text-align: center;
+      }
+      .market-pulse-ribbon {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+
+    /* Print Stylesheet for authentic paper export */
+    @media print {
+      body {
+        background: none;
+        color: #000;
+        padding: 0;
+        font-size: 12pt;
+      }
+      .top-toolbar, .tool-btn {
+        display: none !important;
+      }
+      .newspaper-wrapper {
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+        padding: 0;
+      }
+      a {
+        text-decoration: none !important;
+        color: #000 !important;
+      }
+      .newspaper-grid {
+        grid-template-columns: 2.2fr 1.6fr 1.2fr;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="newspaper-wrapper">
+    
+    <!-- Top Interactive Toolbar -->
+    <div class="top-toolbar">
+      <div class="toolbar-left">
+        <span><span class="pulse-dot"></span> 自動排版系統已就緒</span>
+        <span>•</span>
+        <span>出刊生成：{{ generated_time }}</span>
+      </div>
+      <div class="toolbar-actions">
+        <button class="tool-btn" onclick="setTheme('sepia')">📜 復古</button>
+        <button class="tool-btn" onclick="setTheme('light')">☀️ 現代</button>
+        <button class="tool-btn" onclick="setTheme('dark')">🌙 夜讀</button>
+        <button class="tool-btn" onclick="window.print()">🖨️ 列印 / 轉存 PDF</button>
+      </div>
+    </div>
+
+    <!-- Header Ticker -->
+    <div class="header-ticker">
+      <div>📍 {{ newspaper.location }}</div>
+      <div class="ticker-center">“{{ newspaper.motto }}”</div>
+      <div class="ticker-right">售價：{{ newspaper.price }}</div>
+    </div>
+
+    <!-- Masthead Main Title -->
+    <header class="masthead-main">
+      <div class="sub-brand">ESTABLISHED INTELLIGENCE • MORNING CHRONICLE</div>
+      <h1 class="main-title">{{ newspaper.name }}</h1>
+      <div class="chinese-title">{{ newspaper.chinese_name }}</div>
+      <div class="motto-bar">
+        <span>客觀視角 • 全球脈動 • 深度評論</span>
+      </div>
+    </header>
+
+    <!-- Info / Issue Bar -->
+    <div class="header-infobar">
+      <div>{{ edition_info.date_display }}</div>
+      <div>{{ edition_info.weekday }}</div>
+      <div>第 {{ edition_info.volume }} 卷 • 第 {{ edition_info.issue }} 期</div>
+      <div>AI 編審模型：{{ gemini_model }}</div>
+    </div>
+
+    <!-- Market Pulse / Global Sentiment Banner -->
+    <div class="market-pulse-ribbon">
+      <div class="pulse-label">
+        <span>⚡ 今日局勢脈動</span>
+        <span class="pulse-sentiment">— {{ market_pulse.sentiment }}</span>
+      </div>
+      <div class="pulse-tags">
+        <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">點擊標籤即時深度剖析：</span>
+        {% for tag in market_pulse.watch_topics %}
+        <span class="pulse-tag" onclick="triggerDeepDive('{{ tag }}')">{{ tag }}</span>
+        {% endfor %}
+        <form onsubmit="event.preventDefault(); triggerDeepDive(document.getElementById('customTopic').value);" style="display:inline-flex; align-items:center; gap:4px; margin-left:4px;">
+          <input type="text" id="customTopic" class="custom-topic-input" placeholder="🔍 自訂專題 (Enter)..." />
+        </form>
+      </div>
+    </div>
+
+    <!-- Stock Market & Equities Feature (3 Key Articles) -->
+    {% if stock_market and stock_market|length > 0 %}
+    <section class="stock-market-section">
+      <div class="stock-section-header">
+        <h3>📈 股市與資本市場焦點 • EQUITIES & MARKET WATCH</h3>
+        <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">即時行情與籌碼脈動</span>
+      </div>
+      <div class="stock-grid">
+        {% for item in stock_market %}
+        <article class="stock-card">
+          <div>
+            <div class="stock-tag">{{ item.market_tag }}</div>
+            <h4 class="stock-title">
+              <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+            </h4>
+            <p class="stock-summary">{{ item.summary }}</p>
+          </div>
+          <div>
+            {% if item.trend_signal %}
+            <div class="stock-signal">
+              <strong>信號：</strong>{{ item.trend_signal }}
+            </div>
+            {% endif %}
+            <div class="stock-footer">
+              <span>來源：{{ item.source }}</span>
+              <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">看盤/原文 ↗</a>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- Main 3-Column Newspaper Grid -->
+    <main class="newspaper-grid">
+      
+      <!-- COLUMN 1: HEADLINE & EDITORIAL -->
+      <section class="col-headline">
+        
+        <!-- Headline Hero Article -->
+        <article class="headline-card">
+          <span class="category-badge">{{ headline.category }} • 今日頭條焦點</span>
+          <h2 class="headline-title">{{ headline.title }}</h2>
+          <div class="headline-subtitle">{{ headline.subtitle }}</div>
+          
+          <div class="article-meta">
+            <span class="meta-source">報導來源：{{ headline.source }}</span>
+            <span>•</span>
+            <span>重點特輯</span>
+          </div>
+
+          <p class="headline-summary">{{ headline.summary }}</p>
+
+          <!-- Key Bullet Points Box -->
+          <div class="key-points-box">
+            <h4>♦ 核心關鍵研判</h4>
+            <ul class="key-points-list">
+              {% for point in headline.key_points %}
+              <li>{{ point }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="source-action-bar">
+            <a href="{{ headline.url }}" target="_blank" rel="noopener noreferrer" class="read-orig-link">
+              閱讀原文報導 ↗
+            </a>
+          </div>
+        </article>
+
+        <div class="ornament-divider">❖ ♦ ❖</div>
+
+        <!-- Editorial Commentary (主筆銳評) -->
+        <aside class="editorial-section">
+          <span class="editorial-badge">✒️ 每日主筆冷眼 / 銳評</span>
+          <h3 class="editorial-title">{{ editorial.title }}</h3>
+          <span class="editorial-author">{{ editorial.author }}</span>
+          
+          <p class="editorial-body">{{ editorial.commentary }}</p>
+          
+          {% if editorial.quote %}
+          <div class="editorial-quote">
+            {{ editorial.quote }}
+          </div>
+          {% endif %}
+        </aside>
+
+      </section>
+
+
+      <!-- COLUMN 2: MAJOR NEWS COLUMNS (重點專欄) -->
+      <section class="col-stories">
+        <div class="section-header">
+          <h3>焦點新聞精選</h3>
+          <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">TOP STORIES</span>
+        </div>
+
+        {% for col in columns %}
+        <article class="story-item">
+          <span class="category-badge">{{ col.category }}</span>
+          <h4 class="story-title">
+            <a href="{{ col.url }}" target="_blank" rel="noopener noreferrer">{{ col.title }}</a>
+          </h4>
+          <p class="story-summary">{{ col.summary }}</p>
+          
+          {% if col.key_takeaway %}
+          <div class="story-takeaway">
+            <strong>啟示：</strong>{{ col.key_takeaway }}
+          </div>
+          {% endif %}
+
+          <div class="story-footer">
+            <span>來源：{{ col.source }}</span>
+            <a href="{{ col.url }}" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
+          </div>
+        </article>
+        {% endfor %}
+
+      </section>
+
+
+      <!-- COLUMN 3: SIDEBAR BRIEFS & WORLD WIRE (全球速覽) -->
+      <aside class="col-sidebar">
+        <div class="section-header">
+          <h3>全球快訊速讀</h3>
+          <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">DISPATCHES</span>
+        </div>
+
+        {% for item in sidebar %}
+        <div class="sidebar-item">
+          <span class="sidebar-category">{{ item.category }}</span>
+          <h5 class="sidebar-title">
+            <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+          </h5>
+          <p class="sidebar-brief">{{ item.brief }}</p>
+          <div class="sidebar-source">
+            <span>{{ item.source }}</span>
+            <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted);">詳情 ↗</a>
+          </div>
+        </div>
+        {% endfor %}
+
+        <!-- Classic Quote Box -->
+        <div class="classic-quote-box">
+          <div style="font-size:11px; font-family:var(--font-sans); text-transform:uppercase; letter-spacing:1px; color:var(--text-faint); margin-bottom:6px;">每日格言 • QUOTE OF THE DAY</div>
+          <p>“{{ editorial.quote if editorial.quote else '歷史不會重複自己，但它總是壓著相同的韻腳。' }}”</p>
+        </div>
+
+      </aside>
+
+    </main>
+
+    <!-- Newspaper Footer -->
+    <footer class="newspaper-footer">
+      <div>版權所有 • 每日自動新聞生成系統</div>
+      <div class="footer-center">THE DAILY TIMES ARCHIVE • OPEN ACCESS</div>
+      <div class="footer-right">ISSN 2958-8821 • TAIPEI EDITION</div>
+    </footer>
+
+  </div>
+
+  <!-- Interactive Deep Dive Modal (特刊號彈窗) -->
+  <div id="deepDiveModal" class="modal-overlay" onclick="if(event.target===this) closeDeepDive();">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeDeepDive()" title="關閉">✕</button>
+      
+      <div class="modal-masthead">
+        <span class="modal-badge">THE DAILY TIMES • SPECIAL DISPATCH</span>
+        <h2 id="modalTitle" class="modal-title">📰 專題特刊：深入剖析</h2>
+        <div class="modal-meta">
+          <span id="modalTopicTag">主題：#科技趨勢</span>
+          <span>•</span>
+          <span>首席主筆與產業研析室</span>
+          <span>•</span>
+          <span>{{ edition_info.date_display }}</span>
+        </div>
+      </div>
+
+      <div id="modalBody" class="modal-body">
+        <div class="modal-spinner">
+          <div class="spinner-ring"></div>
+          <div>正在連線 AI 智庫，為您策劃專屬特刊...</div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="tool-btn" onclick="copyModalContent()">📋 複製特刊全文</button>
+        <button class="tool-btn" onclick="printModal()">🖨️ 列印特刊</button>
+        <button class="tool-btn" onclick="closeDeepDive()">關閉視窗</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const GEMINI_API_KEY = "{{ api_key }}";
+    const GEMINI_MODEL = "{{ gemini_model }}";
+
+    function setTheme(themeName) {
+      document.documentElement.setAttribute('data-theme', themeName);
+      localStorage.setItem('newspaper_theme', themeName);
+    }
+
+    // Restore user theme preference if any
+    (function() {
+      const saved = localStorage.getItem('newspaper_theme');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    })();
+
+    function closeDeepDive() {
+      document.getElementById('deepDiveModal').classList.remove('active');
+    }
+
+    function formatMarkdown(text) {
+      let html = text
+        .replace(/^### (.*$)/gim, '<h4>♦ $1</h4>')
+        .replace(/^## (.*$)/gim, '<h3>$1</h3>')
+        .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/gim, '<em>$1</em>')
+        .replace(/^\s*-\s+(.*$)/gim, '<li>$1</li>')
+        .replace(/\n\n+/g, '</p><p>');
+      
+      html = '<p>' + html + '</p>';
+      html = html.replace(/<li>(.*?)<\/li>/g, function(match) {
+        return match;
+      });
+      return html;
+    }
+
+    async function triggerDeepDive(topic) {
+      if (!topic || !topic.trim()) return;
+      topic = topic.trim().replace(/^#/, '');
+
+      const modal = document.getElementById('deepDiveModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalTopicTag = document.getElementById('modalTopicTag');
+      const modalBody = document.getElementById('modalBody');
+
+      modalTitle.innerText = `📰 特刊號：${topic}`;
+      modalTopicTag.innerText = `核心主題：#${topic}`;
+      modalBody.innerHTML = `
+        <div class="modal-spinner">
+          <div class="spinner-ring"></div>
+          <div>正在為您深度梳理「${topic}」之全球脈絡與產業衝擊...</div>
+        </div>
+      `;
+      modal.classList.add('active');
+
+      const prompt = `
+你是一位享譽國際的頂級報社首席主筆兼資深產業分析師。
+讀者正在閱讀今日早報，並點擊了感興趣的特定核心關鍵字或主題：『${topic}』。
+
+請為讀者撰寫一篇極具深度、洞察與事實依據的「每日時代特刊：深度研析專欄」（繁體中文，約 500-750 字）。
+
+請包含以下四大清晰段落（使用 Markdown 標題）：
+### 一、核心脈絡與關鍵背景拆解
+說明此議題為何在當前局勢下至關重要，發生的底層邏輯是什麼。
+
+### 二、產業鏈衝擊與受惠/受害焦點
+具體分析哪些產業（如半導體、雲端、金融、硬體供應鏈）將受到最直接影響，並提及代表性指標企業或個股動態。
+
+### 三、市場法人預期與潛在風險
+剖析機構法人、政策制定者對此的博弈觀點與不可忽視的灰犀牛風險。
+
+### 四、未來 3 至 6 個月關鍵觀察指標
+列出 3 點投資人或決策者後續必須密切追蹤的具體指標或政策時程。
+
+語氣優雅沉穩、客觀專業、直指本質。
+`;
+
+      try {
+        if (!GEMINI_API_KEY) {
+          throw new Error("No API Key configured");
+        }
+
+        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: { temperature: 0.4 }
+          })
+        });
+
+        if (!res.ok) {
+          // Try fallback model
+          const fallbackEndpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_API_KEY}`;
+          const fallbackRes = await fetch(fallbackEndpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: { temperature: 0.4 }
+            })
+          });
+          if (!fallbackRes.ok) {
+            throw new Error(`API Error: ${fallbackRes.statusText}`);
+          }
+          const data = await fallbackRes.json();
+          const reply = data.candidates[0].content.parts[0].text;
+          modalBody.innerHTML = formatMarkdown(reply);
+          return;
+        }
+
+        const data = await res.json();
+        const reply = data.candidates[0].content.parts[0].text;
+        modalBody.innerHTML = formatMarkdown(reply);
+
+      } catch (err) {
+        console.warn("Client Gemini direct call failed, generating simulated editorial dispatch:", err);
+        modalBody.innerHTML = `
+          <h4>♦ 一、核心脈絡與關鍵背景拆解</h4>
+          <p>針對「<strong>${topic}</strong>」，當前全球政經與科技產業正面臨結構性重組。從算力配置、資本支出到法規監管，各國主權與領頭企業正加速建立戰略護城河。</p>
+          <h4>♦ 二、產業鏈衝擊與受惠/受害焦點</h4>
+          <p>在供應鏈端，上游關鍵材料與先進技術壁壘成為核心定價權所在；下游終端應用則需加速驗證商業化落地能力以支撐高估值。</p>
+          <h4>♦ 三、市場法人預期與潛在風險</h4>
+          <p>法人機構普遍關注資本回報率 (ROI) 與政策法規落實進度，需防範短期預期過熱與地緣政治干預之潛在修正風險。</p>
+          <h4>♦ 四、未來 3 至 6 個月關鍵觀察指標</h4>
+          <ul>
+            <li>主要龍頭企業下一季財報之資本支出指引與毛利率走勢</li>
+            <li>主要經濟體相關法規執行細則與跨國貿易審查動態</li>
+            <li>終端需求實質滲透率與企業端自發性採購意願變化</li>
+          </ul>
+        `;
+      }
+    }
+
+    function copyModalContent() {
+      const text = document.getElementById('modalBody').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('特刊全文已成功複製至剪貼簿！');
+      });
+    }
+
+    function printModal() {
+      window.print();
+    }
+  </script>
+</body>
+</html>

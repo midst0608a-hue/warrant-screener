@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="sepia">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE DAILY TIMES • 2026 年 09 月 01 日</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Noto+Serif+TC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & THEMES (Vintage Broadside, Crisp Light, Midnight Dark)
+       ========================================================================== */
+    :root, [data-theme="sepia"] {
+      --bg-canvas: #f6f1e8;
+      --bg-paper: #faf6f0;
+      --bg-card: #f2ece1;
+      --bg-card-highlight: #e9e0d1;
+      --text-main: #1c1815;
+      --text-muted: #5e554d;
+      --text-faint: #8a7e72;
+      --border-color: #2b2622;
+      --border-light: #d6ccbf;
+      --accent: #8b1e1e;
+      --accent-hover: #a82424;
+      --highlight: #d4a359;
+      --font-masthead: 'Cinzel', 'Noto Serif TC', serif;
+      --font-serif: 'Newsreader', 'Noto Serif TC', Georgia, serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --shadow-paper: 0 10px 30px rgba(43, 38, 34, 0.08);
+    }
+
+    [data-theme="light"] {
+      --bg-canvas: #eef1f5;
+      --bg-paper: #ffffff;
+      --bg-card: #f8fafc;
+      --bg-card-highlight: #f1f5f9;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-faint: #94a3b8;
+      --border-color: #0f172a;
+      --border-light: #cbd5e1;
+      --accent: #1e3a8a;
+      --accent-hover: #2563eb;
+      --highlight: #0284c7;
+      --shadow-paper: 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    [data-theme="dark"] {
+      --bg-canvas: #121316;
+      --bg-paper: #1a1b1f;
+      --bg-card: #22242a;
+      --bg-card-highlight: #2c2f37;
+      --text-main: #f1f3f7;
+      --text-muted: #9ba3af;
+      --text-faint: #646b79;
+      --border-color: #4b5262;
+      --border-light: #323642;
+      --accent: #e06c75;
+      --accent-hover: #ff7b86;
+      --highlight: #e5c07b;
+      --shadow-paper: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ==========================================================================
+       BASE & RESET
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: var(--font-serif);
+      font-size: 15.5px;
+      line-height: 1.68;
+      padding: 30px 15px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       CONTAINER & BROADSHEET LAYOUT
+       ========================================================================== */
+    .newspaper-wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      background-color: var(--bg-paper);
+      padding: 36px 44px;
+      box-shadow: var(--shadow-paper);
+      border: 1px solid var(--border-light);
+      position: relative;
+    }
+
+    /* ==========================================================================
+       TOOLBAR & ACTIONS (Top Floating Bar)
+       ========================================================================== */
+    .top-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      border-bottom: 1px dashed var(--border-light);
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--text-muted);
+    }
+
+    .pulse-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .tool-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      color: var(--text-main);
+      padding: 4px 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tool-btn:hover {
+      background: var(--bg-card-highlight);
+      border-color: var(--border-color);
+    }
+
+    /* ==========================================================================
+       AUTHENTIC NEWSPAPER HEADER & MASTHEAD
+       ========================================================================== */
+    .header-ticker {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 6px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      font-size: 12px;
+      font-family: var(--font-sans);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .ticker-center {
+      text-align: center;
+      font-style: italic;
+      font-family: var(--font-serif);
+      color: var(--accent);
+    }
+
+    .ticker-right {
+      text-align: right;
+    }
+
+    .masthead-main {
+      text-align: center;
+      padding: 24px 0 16px 0;
+    }
+
+    .sub-brand {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .main-title {
+      font-family: var(--font-masthead);
+      font-size: clamp(38px, 6.5vw, 76px);
+      font-weight: 900;
+      letter-spacing: 2px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: var(--text-main);
+      text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+    }
+
+    .chinese-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 700;
+      letter-spacing: 12px;
+      margin-top: 4px;
+      color: var(--text-muted);
+    }
+
+    .motto-bar {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .motto-bar::before, .motto-bar::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-light), transparent);
+    }
+
+    .header-infobar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      margin-top: 8px;
+      border-top: 4px double var(--border-color);
+      border-bottom: 2px solid var(--border-color);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================================
+       BREAKING / MARKET PULSE BAR
+       ========================================================================== */
+    .market-pulse-ribbon {
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-light);
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .pulse-label {
+      font-weight: 700;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .pulse-sentiment {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--text-main);
+    }
+
+    .pulse-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .pulse-tag {
+      background: var(--bg-card-highlight);
+      padding: 3px 10px;
+      border-radius: 3px;
+      font-size: 11.5px;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      cursor: pointer;
+      border: 1px solid var(--border-light);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .pulse-tag:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 3px 8px rgba(139, 30, 30, 0.2);
+    }
+
+    .pulse-tag::after {
+      content: " ↗";
+      font-size: 9px;
+      opacity: 0.7;
+    }
+
+    .custom-topic-input {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-light);
+      color: var(--text-main);
+      padding: 3px 8px;
+      font-size: 11px;
+      font-family: var(--font-serif);
+      border-radius: 3px;
+      outline: none;
+      width: 140px;
+      transition: width 0.2s, border-color 0.2s;
+    }
+
+    .custom-topic-input:focus {
+      width: 190px;
+      border-color: var(--accent);
+    }
+
+    /* ==========================================================================
+       INTERACTIVE DEEP DIVE MODAL (特刊號彈窗)
+       ========================================================================== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 18, 16, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--bg-paper);
+      color: var(--text-main);
+      border: 2px solid var(--border-color);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      max-width: 860px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 36px 40px;
+      position: relative;
+      background-image: radial-gradient(var(--border-light) 0.5px, transparent 0.5px);
+      background-size: 12px 12px;
+      animation: modalSlideUp 0.3s ease-out;
+    }
+
+    @keyframes modalSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
+      font-size: 18px;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .modal-masthead {
+      text-align: center;
+      border-bottom: 3px double var(--border-color);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .modal-badge {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .modal-title {
+      font-family: var(--font-masthead);
+      font-size: 26px;
+      font-weight: 900;
+      margin: 4px 0 6px 0;
+    }
+
+    .modal-meta {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .modal-body {
+      font-size: 15.5px;
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    .modal-body h4 {
+      font-family: var(--font-masthead);
+      font-size: 17px;
+      color: var(--accent);
+      margin: 18px 0 8px 0;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+    }
+
+    .modal-body p {
+      margin-bottom: 14px;
+    }
+
+    .modal-body ul {
+      margin: 10px 0 16px 20px;
+    }
+
+    .modal-body li {
+      margin-bottom: 6px;
+    }
+
+    .modal-spinner {
+      text-align: center;
+      padding: 40px 0;
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .spinner-ring {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      border: 3px solid var(--border-light);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 1s infinite linear;
+      margin-bottom: 12px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border-light);
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT GRID (Broadsheet 3-Column Partition)
+       ========================================================================== */
+    .newspaper-grid {
+      display: grid;
+      grid-template-columns: 2.3fr 1.6fr 1.1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ==========================================================================
+       STOCK MARKET HIGHLIGHTS (股市與資本市場專區)
+       ========================================================================== */
+    .stock-market-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-top: 3px solid var(--accent);
+      padding: 18px 20px;
+      margin-bottom: 24px;
+    }
+
+    .stock-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 6px;
+      margin-bottom: 14px;
+    }
+
+    .stock-section-header h3 {
+      font-family: var(--font-masthead);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--accent);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stock-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .stock-card {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-light);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stock-tag {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .stock-title {
+      font-family: var(--font-masthead);
+      font-size: 14.5px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .stock-summary {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .stock-signal {
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      background: var(--bg-card-highlight);
+      padding: 4px 8px;
+      border-left: 2px solid var(--highlight);
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .stock-footer {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      color: var(--text-faint);
+    }
+
+    @media (max-width: 900px) {
+      .stock-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+
+    /* Column Dividers */
+    .col-headline {
+      padding-right: 28px;
+      border-right: 1px solid var(--border-light);
+    }
+
+    .col-stories {
+      padding-right: 28px;
+      border-right: 1px solid var(--border-light);
+    }
+
+    .col-sidebar {
+      padding-left: 4px;
+    }
+
+    /* ==========================================================================
+       HEADLINE ARTICLE (Hero Section)
+       ========================================================================== */
+    .headline-card {
+      margin-bottom: 30px;
+    }
+
+    .category-badge {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 2px;
+      margin-bottom: 10px;
+    }
+
+    .headline-title {
+      font-family: var(--font-masthead);
+      font-size: clamp(26px, 3.2vw, 38px);
+      font-weight: 900;
+      line-height: 1.18;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .headline-subtitle {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 18px;
+      border-left: 3px solid var(--border-color);
+      padding-left: 12px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-faint);
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .meta-source {
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    /* Drop Cap for Headline */
+    .headline-summary {
+      font-size: 16.5px;
+      line-height: 1.75;
+      text-align: justify;
+      margin-bottom: 20px;
+      color: var(--text-main);
+    }
+
+    .headline-summary::first-letter {
+      float: left;
+      font-family: var(--font-masthead);
+      font-size: 3.8em;
+      line-height: 0.82;
+      padding-top: 4px;
+      padding-right: 10px;
+      padding-bottom: 2px;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .key-points-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+
+    .key-points-box h4 {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .key-points-list {
+      list-style: none;
+    }
+
+    .key-points-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 8px;
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
+
+    .key-points-list li::before {
+      content: "♦";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 11px;
+      top: 1px;
+    }
+
+    .source-action-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 14px;
+    }
+
+    .read-orig-link {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .read-orig-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       EDITORIAL / CHIEF COLUMNIST OPINION
+       ========================================================================== */
+    .editorial-section {
+      background: var(--bg-card);
+      border: 2px solid var(--border-color);
+      padding: 24px;
+      position: relative;
+      margin-top: 24px;
+      background-image: radial-gradient(var(--border-light) 0.75px, transparent 0.75px);
+      background-size: 16px 16px;
+    }
+
+    .editorial-badge {
+      font-family: var(--font-masthead);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .editorial-title {
+      font-family: var(--font-masthead);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .editorial-author {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      display: block;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 8px;
+    }
+
+    .editorial-body {
+      font-size: 14.8px;
+      line-height: 1.75;
+      text-align: justify;
+      color: var(--text-main);
+    }
+
+    .editorial-quote {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: var(--bg-paper);
+      border-left: 3px solid var(--accent);
+      font-style: italic;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    /* ==========================================================================
+       COLUMN STORIES (Middle Grid)
+       ========================================================================== */
+    .section-header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 4px;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .section-header h3 {
+      font-family: var(--font-masthead);
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .story-item {
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .story-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .story-title {
+      font-family: var(--font-masthead);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .story-summary {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      text-align: justify;
+    }
+
+    .story-takeaway {
+      font-size: 13px;
+      font-family: var(--font-sans);
+      background: var(--bg-card);
+      padding: 6px 10px;
+      border-radius: 2px;
+      color: var(--text-muted);
+      border-left: 2px solid var(--highlight);
+      margin-bottom: 8px;
+    }
+
+    .story-takeaway strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    .story-footer {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      color: var(--text-faint);
+    }
+
+    /* ==========================================================================
+       SIDEBAR & BULLETINS (Right Grid)
+       ========================================================================== */
+    .sidebar-item {
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      border-bottom: 1px dashed var(--border-light);
+    }
+
+    .sidebar-item:last-child {
+      border-bottom: none;
+    }
+
+    .sidebar-category {
+      font-family: var(--font-sans);
+      font-size: 10.5px;
+      font-weight: 800;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .sidebar-title {
+      font-family: var(--font-serif);
+      font-size: 14.5px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin: 2px 0 4px 0;
+    }
+
+    .sidebar-brief {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .sidebar-source {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      color: var(--text-faint);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Classic Quote Widget */
+    .classic-quote-box {
+      margin-top: 24px;
+      border: 1px solid var(--border-color);
+      padding: 16px;
+      text-align: center;
+      background: var(--bg-card);
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+
+    .ornament-divider {
+      text-align: center;
+      color: var(--text-faint);
+      font-size: 13px;
+      margin: 16px 0;
+      letter-spacing: 6px;
+    }
+
+    /* ==========================================================================
+       AUTHENTIC NEWSPAPER FOOTER
+       ========================================================================== */
+    .newspaper-footer {
+      margin-top: 36px;
+      padding-top: 16px;
+      border-top: 3px double var(--border-color);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .footer-center {
+      text-align: center;
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE & PRINT MEDIA QUERIES
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .newspaper-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      .col-headline {
+        grid-column: span 2;
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 24px;
+      }
+      .col-stories {
+        padding-right: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .newspaper-wrapper {
+        padding: 20px 16px;
+      }
+      .newspaper-grid {
+        grid-template-columns: 1fr;
+      }
+      .col-headline, .col-stories, .col-sidebar {
+        grid-column: span 1;
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+        padding-bottom: 24px;
+      }
+      .header-ticker, .header-infobar, .newspaper-footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 6px;
+      }
+      .ticker-right, .footer-right {
+        text-align: center;
+      }
+      .market-pulse-ribbon {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+
+    /* Print Stylesheet for authentic paper export */
+    @media print {
+      body {
+        background: none;
+        color: #000;
+        padding: 0;
+        font-size: 12pt;
+      }
+      .top-toolbar, .tool-btn {
+        display: none !important;
+      }
+      .newspaper-wrapper {
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+        padding: 0;
+      }
+      a {
+        text-decoration: none !important;
+        color: #000 !important;
+      }
+      .newspaper-grid {
+        grid-template-columns: 2.2fr 1.6fr 1.2fr;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="newspaper-wrapper">
+    
+    <!-- Top Interactive Toolbar -->
+    <div class="top-toolbar">
+      <div class="toolbar-left">
+        <span><span class="pulse-dot"></span> 自動排版系統已就緒</span>
+        <span>•</span>
+        <span>出刊生成：2026-09-01 13:27:59 (UTC+8)</span>
+      </div>
+      <div class="toolbar-actions">
+        <button class="tool-btn" onclick="setTheme('sepia')">📜 復古</button>
+        <button class="tool-btn" onclick="setTheme('light')">☀️ 現代</button>
+        <button class="tool-btn" onclick="setTheme('dark')">🌙 夜讀</button>
+        <button class="tool-btn" onclick="window.print()">🖨️ 列印 / 轉存 PDF</button>
+      </div>
+    </div>
+
+    <!-- Header Ticker -->
+    <div class="header-ticker">
+      <div>📍 TAIPEI / GLOBAL EDITION</div>
+      <div class="ticker-center">“Veritas Vos Liberabit • 洞悉全局 觀點領航”</div>
+      <div class="ticker-right">售價：NT$ 20 / FREE OPEN ACCESS</div>
+    </div>
+
+    <!-- Masthead Main Title -->
+    <header class="masthead-main">
+      <div class="sub-brand">ESTABLISHED INTELLIGENCE • MORNING CHRONICLE</div>
+      <h1 class="main-title">THE DAILY TIMES</h1>
+      <div class="chinese-title">每日時代早報</div>
+      <div class="motto-bar">
+        <span>客觀視角 • 全球脈動 • 深度評論</span>
+      </div>
+    </header>
+
+    <!-- Info / Issue Bar -->
+    <div class="header-infobar">
+      <div>2026 年 09 月 01 日</div>
+      <div>星期二 (Tuesday)</div>
+      <div>第 106 卷 • 第 244 期</div>
+      <div>AI 編審模型：gemini-3.6-flash</div>
+    </div>
+
+    <!-- Market Pulse / Global Sentiment Banner -->
+    <div class="market-pulse-ribbon">
+      <div class="pulse-label">
+        <span>⚡ 今日局勢脈動</span>
+        <span class="pulse-sentiment">— 科技狂潮與地緣避險並存</span>
+      </div>
+      <div class="pulse-tags">
+        <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">點擊標籤即時深度剖析：</span>
+        
+        <span class="pulse-tag" onclick="triggerDeepDive('NVLink生態系')">NVLink生態系</span>
+        
+        <span class="pulse-tag" onclick="triggerDeepDive('Web3預測市場')">Web3預測市場</span>
+        
+        <span class="pulse-tag" onclick="triggerDeepDive('後量子資安')">後量子資安</span>
+        
+        <span class="pulse-tag" onclick="triggerDeepDive('地緣供應鏈')">地緣供應鏈</span>
+        
+        <form onsubmit="event.preventDefault(); triggerDeepDive(document.getElementById('customTopic').value);" style="display:inline-flex; align-items:center; gap:4px; margin-left:4px;">
+          <input type="text" id="customTopic" class="custom-topic-input" placeholder="🔍 自訂專題 (Enter)..." />
+        </form>
+      </div>
+    </div>
+
+    <!-- Stock Market & Equities Feature (3 Key Articles) -->
+    
+    <section class="stock-market-section">
+      <div class="stock-section-header">
+        <h3>📈 股市與資本市場焦點 • EQUITIES & MARKET WATCH</h3>
+        <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">即時行情與籌碼脈動</span>
+      </div>
+      <div class="stock-grid">
+        
+        <article class="stock-card">
+          <div>
+            <div class="stock-tag">台股焦點</div>
+            <h4 class="stock-title">
+              <a href="https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E5%A4%A7%E6%BC%B2700%E9%BB%9E%E5%8F%A9%E9%97%9C4%E8%90%AC7-00403a%E4%B8%8A%E6%8F%9A%E5%99%B438-5%E8%90%AC-00685l%E6%BC%B2%E7%A0%B44-%E9%A3%86%E5%87%BA29%E8%90%AC%E5%BC%B5-044200984.html" target="_blank" rel="noopener noreferrer">台股暴漲700點叩關4萬7 槓桿與美債ETF爆量演出</a>
+            </h4>
+            <p class="stock-summary">台股加權指數今日開高走高，盤中大漲逾750點，強勢叩關47,000點大關。市場資金瘋狂湧入，槓桿型ETF 00685L漲幅破4%且成交量飆破29萬張，美債ETF 00403A亦上揚並噴出38.5萬張巨量，顯示市場多頭氣氛極其強烈。</p>
+          </div>
+          <div>
+            
+            <div class="stock-signal">
+              <strong>信號：</strong>資金大舉回流權值股，槓桿與避險工具同步爆量。
+            </div>
+            
+            <div class="stock-footer">
+              <span>來源：Yahoo 股市 - 台股與美股焦點</span>
+              <a href="https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E5%A4%A7%E6%BC%B2700%E9%BB%9E%E5%8F%A9%E9%97%9C4%E8%90%AC7-00403a%E4%B8%8A%E6%8F%9A%E5%99%B438-5%E8%90%AC-00685l%E6%BC%B2%E7%A0%B44-%E9%A3%86%E5%87%BA29%E8%90%AC%E5%BC%B5-044200984.html" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">看盤/原文 ↗</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="stock-card">
+          <div>
+            <div class="stock-tag">半導體族群</div>
+            <h4 class="stock-title">
+              <a href="https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E9%9A%B1%E5%BD%A2%E5%A4%A7%E6%88%B6-%E9%95%B7%E5%BA%9A%E9%86%AB%E9%99%A2%E6%8F%A11-46%E8%90%AC%E5%BC%B5%E5%8F%B0%E7%A9%8D%E9%9B%BB%E5%B8%82%E5%80%BC%E7%A0%B4350%E5%84%84-%E7%B6%B2%E7%AC%91-%E6%9C%AC%E6%A5%AD%E9%87%91%E6%8E%A7-042922586.html" target="_blank" rel="noopener noreferrer">長庚醫院手握1.46萬張台積電 市值破350億成台股隱形大戶</a>
+            </h4>
+            <p class="stock-summary">長庚醫療財團法人最新財報曝光，其帳上股票投資現值高達2,433.96億元，其中持有台積電達1.46萬張，市值突破350億台幣。這項驚人的投資版圖引發市場熱議，被網友戲稱為「本業金控、副業醫療」的超級法人。</p>
+          </div>
+          <div>
+            
+            <div class="stock-signal">
+              <strong>信號：</strong>非營利財團法人資金重倉權值股，提供台股下檔強力支撐。
+            </div>
+            
+            <div class="stock-footer">
+              <span>來源：Yahoo 股市 - 台股與美股焦點</span>
+              <a href="https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E9%9A%B1%E5%BD%A2%E5%A4%A7%E6%88%B6-%E9%95%B7%E5%BA%9A%E9%86%AB%E9%99%A2%E6%8F%A11-46%E8%90%AC%E5%BC%B5%E5%8F%B0%E7%A9%8D%E9%9B%BB%E5%B8%82%E5%80%BC%E7%A0%B4350%E5%84%84-%E7%B6%B2%E7%AC%91-%E6%9C%AC%E6%A5%AD%E9%87%91%E6%8E%A7-042922586.html" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">看盤/原文 ↗</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="stock-card">
+          <div>
+            <div class="stock-tag">台股焦點</div>
+            <h4 class="stock-title">
+              <a href="https://tw.news.yahoo.com/%E6%8A%95%E4%BF%A1%E6%98%A8%E6%90%B6%E8%B2%B7-%E6%99%B6%E5%9C%93%E4%BA%8C%E5%93%A5-%E6%88%90%E4%BA%A4%E9%87%8F%E7%88%8618%E8%90%AC%E5%BC%B5%E7%99%BB%E7%8E%8B%E4%BD%8D-%E8%82%A1%E5%83%B9%E5%BC%B7%E6%BC%B2%E9%80%BE3-045100647.html" target="_blank" rel="noopener noreferrer">投信搶買晶圓二哥爆18萬張巨量 凱基金與台新新光金同寫史高</a>
+            </h4>
+            <p class="stock-summary">投信法人昨日大舉搶進「晶圓二哥」聯電，成交量爆出18萬張登台股之冠，股價強漲逾3%。同時，金融板塊亦表現亮眼，凱基金在釋出「股利不掉隊」承諾後股價噴新高，台新金與新光金亦雙雙漲破40元，同創歷史新高。</p>
+          </div>
+          <div>
+            
+            <div class="stock-signal">
+              <strong>信號：</strong>法人資金雙向布局半導體成熟製程與高股息金融股。
+            </div>
+            
+            <div class="stock-footer">
+              <span>來源：Yahoo 奇摩新聞 - 總經財經</span>
+              <a href="https://tw.news.yahoo.com/%E6%8A%95%E4%BF%A1%E6%98%A8%E6%90%B6%E8%B2%B7-%E6%99%B6%E5%9C%93%E4%BA%8C%E5%93%A5-%E6%88%90%E4%BA%A4%E9%87%8F%E7%88%8618%E8%90%AC%E5%BC%B5%E7%99%BB%E7%8E%8B%E4%BD%8D-%E8%82%A1%E5%83%B9%E5%BC%B7%E6%BC%B2%E9%80%BE3-045100647.html" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">看盤/原文 ↗</a>
+            </div>
+          </div>
+        </article>
+        
+      </div>
+    </section>
+    
+
+    <!-- Main 3-Column Newspaper Grid -->
+    <main class="newspaper-grid">
+      
+      <!-- COLUMN 1: HEADLINE & EDITORIAL -->
+      <section class="col-headline">
+        
+        <!-- Headline Hero Article -->
+        <article class="headline-card">
+          <span class="category-badge">科技前沿 • 今日頭條焦點</span>
+          <h2 class="headline-title">輝達斥資35億美元認購聯發科CB 台灣IC設計龍頭奪NVLink關鍵門票</h2>
+          <div class="headline-subtitle">包下近九成額度深化AI生態系合作 三大外資力挺目標價上看萬元</div>
+          
+          <div class="article-meta">
+            <span class="meta-source">報導來源：Yahoo 股市 - 台股與美股焦點</span>
+            <span>•</span>
+            <span>重點特輯</span>
+          </div>
+
+          <p class="headline-summary">台灣IC設計龍頭聯發科於8月31日宣布完成海外可轉換公司債（ECB）訂價，最大認購投資人確認為全球AI晶片霸主輝達（NVIDIA），斥資達35億美元，包下近九成額度。此舉被市場視為聯發科成功取得進入輝達NVLink生態系的關鍵門票，擺脫手機市場疲軟的枷鎖，轉型為雲端AI與高速傳輸領域的關鍵供應商。</p>
+
+          <!-- Key Bullet Points Box -->
+          <div class="key-points-box">
+            <h4>♦ 核心關鍵研判</h4>
+            <ul class="key-points-list">
+              
+              <li>輝達認購聯發科近九成ECB額度，投資金額高達35億美元，創下兩強合作新里程碑。</li>
+              
+              <li>聯發科藉此取得NVLink關鍵技術門票，三大AI成長引擎齊發，加速擺脫手機單一市場依賴。</li>
+              
+              <li>外資法人一致看好，亞系外資重申「加碼」評等，並將目標價調升至萬元大關。</li>
+              
+            </ul>
+          </div>
+
+          <div class="source-action-bar">
+            <a href="https://tw.news.yahoo.com/%E6%93%BA%E8%84%AB%E6%89%8B%E6%A9%9F%E7%96%B2%E8%BB%9F%E6%9E%B7%E9%8E%96-%E8%81%AF%E7%99%BC%E7%A7%91%E6%8B%BF%E5%88%B0nvlink%E9%97%9C%E9%8D%B5%E9%96%80%E7%A5%A8-%E4%B8%89%E5%A4%A7ai%E6%88%90%E9%95%B7%E5%BC%95%E6%93%8E%E9%BD%8A%E7%99%BC-043200971.html" target="_blank" rel="noopener noreferrer" class="read-orig-link">
+              閱讀原文報導 ↗
+            </a>
+          </div>
+        </article>
+
+        <div class="ornament-divider">❖ ♦ ❖</div>
+
+        <!-- Editorial Commentary (主筆銳評) -->
+        <aside class="editorial-section">
+          <span class="editorial-badge">✒️ 每日主筆冷眼 / 銳評</span>
+          <h3 class="editorial-title">當資本與地緣政治在AI與Web3深水區交會</h3>
+          <span class="editorial-author">首席主筆 / Chief Columnist</span>
+          
+          <p class="editorial-body">今日的全球政經版圖，正呈現一種科技、資本與地緣政治高度糾纏的「深水區」態勢。一方面，輝達（NVIDIA）以35億美元的驚人手筆，包下台灣IC設計龍頭聯發科近九成的可轉換公司債。這絕非單純的財務投資，而是地緣政治風暴下，美國AI霸主為了確保硬體生態系與高速傳輸（NVLink）供應鏈絕對安全，而對台灣半導體實施的「深度戰略綁定」。另一方面，去中心化預測平台Polymarket獲得川普長子旗下創投領投10億美元，估值直逼210億美元。這揭示了Web3技術已不再是邊緣極客的玩具，而是成為主流政治勢力爭奪輿論定價權、甚至繞過傳統審查的「新型權力槓桿」。當AI的物理硬體在台海兩岸的敏感神經上築起防線，而Web3的虛擬共識在美國大選的資本遊戲中狂飆，我們正見證一個由演算法、主權國家與跨國資本共同編織的新帝國崛起。在這個新時代，技術的能動性已超越了單純的工具範疇，成為決定地緣政治勝負的終極籌碼。</p>
+          
+          
+          <div class="editorial-quote">
+            科技不再是政治的延伸，而是權力重新分配的終極戰場。
+          </div>
+          
+        </aside>
+
+      </section>
+
+
+      <!-- COLUMN 2: MAJOR NEWS COLUMNS (重點專欄) -->
+      <section class="col-stories">
+        <div class="section-header">
+          <h3>焦點新聞精選</h3>
+          <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">TOP STORIES</span>
+        </div>
+
+        
+        <article class="story-item">
+          <span class="category-badge">Web3與抗審查</span>
+          <h4 class="story-title">
+            <a href="https://www.coindesk.com/business/2026/09/01/trump-jr-s-firm-leads-usd1-billion-polymarket-raise-at-usd21-billion-value-report" target="_blank" rel="noopener noreferrer">川普長子創投領投 Polymarket完成10億美元巨額融資</a>
+          </h4>
+          <p class="story-summary">由美國前總統川普之子旗下投資公司1789 Capital領投，去中心化預測平台Polymarket完成高達10億美元的融資，使該平台估值飆升至210億美元。此舉顯示政治資本正深度介入Web3與去中心化預測市場。</p>
+          
+          
+          <div class="story-takeaway">
+            <strong>啟示：</strong>去中心化預測平台已成為地緣政治與大選風向的關鍵基礎設施。
+          </div>
+          
+
+          <div class="story-footer">
+            <span>來源：CoinDesk (Web3與抗審查基礎設施)</span>
+            <a href="https://www.coindesk.com/business/2026/09/01/trump-jr-s-firm-leads-usd1-billion-polymarket-raise-at-usd21-billion-value-report" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
+          </div>
+        </article>
+        
+        <article class="story-item">
+          <span class="category-badge">AI治理與數位政策</span>
+          <h4 class="story-title">
+            <a href="https://infosecu.technews.tw/2026/09/01/ai-agent-pqc-security/" target="_blank" rel="noopener noreferrer">AI Agent與後量子密碼學崛起 企業防禦架構面臨轉型</a>
+          </h4>
+          <p class="story-summary">生成式AI正從單純的聊天工具演進為具備自主執行任務能力的AI Agent，能存取企業敏感資料並操作系統，這為企業資安帶來全新威脅。同時，後量子密碼學（PQC）的導入也迫使企業重新評估現有的加密防禦體系。</p>
+          
+          
+          <div class="story-takeaway">
+            <strong>啟示：</strong>自主化AI工具的普及將徹底重塑企業資安邊界與信任機制。
+          </div>
+          
+
+          <div class="story-footer">
+            <span>來源：科技新報 TechNews (半導體與產業)</span>
+            <a href="https://infosecu.technews.tw/2026/09/01/ai-agent-pqc-security/" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
+          </div>
+        </article>
+        
+        <article class="story-item">
+          <span class="category-badge">AI治理與數位政策</span>
+          <h4 class="story-title">
+            <a href="https://www.ithome.com.tw/news/178572" target="_blank" rel="noopener noreferrer">FTC聯合22州起訴亞馬遜 控其廣告拍賣暗藏加價涉200億美元</a>
+          </h4>
+          <p class="story-summary">美國聯邦交易委員會（FTC）聯合22州檢察長向電商巨頭亞馬遜提起訴訟，指控其廣告拍賣機制長期存在隱形加價，時間長達7年，涉及超過100萬名賣家，並可能因此非法獲利逾200億美元。</p>
+          
+          
+          <div class="story-takeaway">
+            <strong>啟示：</strong>反壟斷監管正深入科技巨頭的演算法與黑箱拍賣機制。
+          </div>
+          
+
+          <div class="story-footer">
+            <span>來源：iThome 電腦報 (資安與AI治理)</span>
+            <a href="https://www.ithome.com.tw/news/178572" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
+          </div>
+        </article>
+        
+        <article class="story-item">
+          <span class="category-badge">地緣政治與兩岸</span>
+          <h4 class="story-title">
+            <a href="https://tw.news.yahoo.com/%E8%81%AF%E5%90%88%E5%9C%8B%E5%A4%A7%E6%9C%838%E6%97%A5%E7%99%BB%E5%A0%B4-%E5%A4%96%E4%BA%A4%E9%83%A8%E6%9B%9D-%E6%8E%A8%E6%A1%883%E5%A4%A7%E8%A8%B4%E6%B1%82-%E6%87%89%E5%B0%8B%E6%B1%82%E9%81%A9%E7%95%B6%E6%96%B9%E5%BC%8F%E6%8E%A5%E7%B4%8D%E5%8F%B0%E7%81%A3-050200978.html" target="_blank" rel="noopener noreferrer">聯合國大會即將登場 外交部提出接納台灣三大訴求</a>
+          </h4>
+          <p class="story-summary">第81屆聯合國大會將於9月8日召開，台灣外交部正式公布今年推案的三大訴求，強調聯合國應尋求適當方式接納台灣參與，以維護多邊主義的完整性，並確保台海及印太區域的和平穩定。</p>
+          
+          
+          <div class="story-takeaway">
+            <strong>啟示：</strong>台灣持續透過法律與地緣戰略論述，挑戰聯大第2758號決議的詮釋。
+          </div>
+          
+
+          <div class="story-footer">
+            <span>來源：Yahoo 新聞 - 政治要聞</span>
+            <a href="https://tw.news.yahoo.com/%E8%81%AF%E5%90%88%E5%9C%8B%E5%A4%A7%E6%9C%838%E6%97%A5%E7%99%BB%E5%A0%B4-%E5%A4%96%E4%BA%A4%E9%83%A8%E6%9B%9D-%E6%8E%A8%E6%A1%883%E5%A4%A7%E8%A8%B4%E6%B1%82-%E6%87%89%E5%B0%8B%E6%B1%82%E9%81%A9%E7%95%B6%E6%96%B9%E5%BC%8F%E6%8E%A5%E7%B4%8D%E5%8F%B0%E7%81%A3-050200978.html" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
+          </div>
+        </article>
+        
+        <article class="story-item">
+          <span class="category-badge">地緣政治與兩岸</span>
+          <h4 class="story-title">
+            <a href="https://tw.stock.yahoo.com/news/%E8%8D%B7%E5%A7%86%E8%8C%B2%E6%B5%B7%E5%B3%BD8%E6%9C%8831%E6%97%A5%E5%83%855%E8%89%98%E8%88%B9%E9%80%9A%E8%A1%8C-%E7%84%A1%E6%B2%B9%E8%BC%AA%E9%81%8E%E5%A2%83-%E9%81%A0%E4%BD%8E%E6%96%BC10%E6%97%A5%E5%9D%87%E5%80%BC-045233996.html" target="_blank" rel="noopener noreferrer">荷姆茲海峽單日僅5船通行 零油輪過境引發能源市場疑慮</a>
+          </h4>
+          <p class="story-summary">根據航運數據，關鍵水道荷姆茲海峽在8月31日僅有5艘船隻通行，且罕見地出現「零油輪過境」的異常狀況，遠低於10日均值。這反映出中東地緣政治緊張局勢已嚴重干擾全球能源供應鏈。</p>
+          
+          
+          <div class="story-takeaway">
+            <strong>啟示：</strong>關鍵海峽的航運停滯是全球能源通膨與供應鏈斷裂的紅色警訊。
+          </div>
+          
+
+          <div class="story-footer">
+            <span>來源：Yahoo 奇摩新聞 - 總經財經</span>
+            <a href="https://tw.stock.yahoo.com/news/%E8%8D%B7%E5%A7%86%E8%8C%B2%E6%B5%B7%E5%B3%BD8%E6%9C%8831%E6%97%A5%E5%83%855%E8%89%98%E8%88%B9%E9%80%9A%E8%A1%8C-%E7%84%A1%E6%B2%B9%E8%BC%AA%E9%81%8E%E5%A2%83-%E9%81%A0%E4%BD%8E%E6%96%BC10%E6%97%A5%E5%9D%87%E5%80%BC-045233996.html" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
+          </div>
+        </article>
+        
+
+      </section>
+
+
+      <!-- COLUMN 3: SIDEBAR BRIEFS & WORLD WIRE (全球速覽) -->
+      <aside class="col-sidebar">
+        <div class="section-header">
+          <h3>全球快訊速讀</h3>
+          <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">DISPATCHES</span>
+        </div>
+
+        
+        <div class="sidebar-item">
+          <span class="sidebar-category">AI治理與數位政策</span>
+          <h5 class="sidebar-title">
+            <a href="https://www.ithome.com.tw/news/178571" target="_blank" rel="noopener noreferrer">微軟身分驗證核心設定異常 衝擊全球多項M365服務</a>
+          </h5>
+          <p class="sidebar-brief">微軟於9月1日凌晨發生Exchange Online驗證異常，隨後擴大波及Teams、OneDrive、SharePoint等多項Microsoft 365服務，主因為處理身分驗證的核心設定出錯。</p>
+          <div class="sidebar-source">
+            <span>iThome 電報 (資安與AI治理)</span>
+            <a href="https://www.ithome.com.tw/news/178571" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted);">詳情 ↗</a>
+          </div>
+        </div>
+        
+        <div class="sidebar-item">
+          <span class="sidebar-category">半導體與科技政策</span>
+          <h5 class="sidebar-title">
+            <a href="https://finance.technews.tw/2026/09/01/high-na-euv-moving-towards-the-era-of-high-volume-production/" target="_blank" rel="noopener noreferrer">ASML於台灣半導體論壇揭密 High NA EUV高量產藍圖</a>
+          </h5>
+          <p class="sidebar-brief">半導體曝光機龍頭ASML在2026年SEMICON Taiwan論壇上，揭密High NA EUV先進技術藍圖，強調其高經濟效益，宣告半導體正式邁向高量產新時代。</p>
+          <div class="sidebar-source">
+            <span>科技新報 TechNews (半導體與產業)</span>
+            <a href="https://finance.technews.tw/2026/09/01/high-na-euv-moving-towards-the-era-of-high-volume-production/" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted);">詳情 ↗</a>
+          </div>
+        </div>
+        
+        <div class="sidebar-item">
+          <span class="sidebar-category">Web3與抗審查</span>
+          <h5 class="sidebar-title">
+            <a href="https://www.coindesk.com/business/2026/08/31/north-korean-hackers-are-moving-tens-of-millions-on-hyperliquid-as-trump-pushes-to-onshore-the-crypto-platform" target="_blank" rel="noopener noreferrer">北韓駭客於Hyperliquid轉移千萬資金 川普推動平台本土化</a>
+          </h5>
+          <p class="sidebar-brief">鏈上數據顯示，北韓駭客組織正利用去中心化交易平台Hyperliquid轉移數千萬美元資金。與此同時，川普正積極推動將該平台納入美國本土監管。</p>
+          <div class="sidebar-source">
+            <span>CoinDesk (Web3與抗審查基礎設施)</span>
+            <a href="https://www.coindesk.com/business/2026/08/31/north-korean-hackers-are-moving-tens-of-millions-on-hyperliquid-as-trump-pushes-to-onshore-the-crypto-platform" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted);">詳情 ↗</a>
+          </div>
+        </div>
+        
+        <div class="sidebar-item">
+          <span class="sidebar-category">AI治理與數位政策</span>
+          <h5 class="sidebar-title">
+            <a href="https://techcrunch.com/2026/08/31/apple-shares-shocking-evidence-against-former-employee-accused-of-stealing-company-data-for-openai/" target="_blank" rel="noopener noreferrer">蘋果指控前員工為OpenAI竊密 提交銷毀證據之關鍵鐵證</a>
+          </h5>
+          <p class="sidebar-brief">蘋果公司向法院提交「震撼性證據」，指控一名涉嫌為OpenAI竊取公司機密數據的前員工，在得知自己接受調查後，惡意銷毀了相關竊密證據。</p>
+          <div class="sidebar-source">
+            <span>TechCrunch (國際科技前沿)</span>
+            <a href="https://techcrunch.com/2026/08/31/apple-shares-shocking-evidence-against-former-employee-accused-of-stealing-company-data-for-openai/" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted);">詳情 ↗</a>
+          </div>
+        </div>
+        
+        <div class="sidebar-item">
+          <span class="sidebar-category">AI治理與數位政策</span>
+          <h5 class="sidebar-title">
+            <a href="https://www.ithome.com.tw/news/178570" target="_blank" rel="noopener noreferrer">資安研究員揭露卡巴斯基與Avast防毒軟體零時差漏洞</a>
+          </h5>
+          <p class="sidebar-brief">曾多次揭露微軟漏洞的資安研究人員Nightmare Eclipse，近期將目標轉向防毒軟體，公開了卡巴斯基與Avast的權限提升零時差漏洞。</p>
+          <div class="sidebar-source">
+            <span>iThome 電報 (資安與AI治理)</span>
+            <a href="https://www.ithome.com.tw/news/178570" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted);">詳情 ↗</a>
+          </div>
+        </div>
+        
+        <div class="sidebar-item">
+          <span class="sidebar-category">半導體與科技政策</span>
+          <h5 class="sidebar-title">
+            <a href="https://technews.tw/2026/09/01/greater-changhua-920-mw-wind-farm-completed-orsted-cumulative-capacity-taiwan-reaches-2-gw-next-pursue-new-projects/" target="_blank" rel="noopener noreferrer">沃旭大彰化920 MW風場完工 在台累計綠能容量近2 GW</a>
+          </h5>
+          <p class="sidebar-brief">沃旭能源大彰化西南第二階段及西北離岸風場今日舉行完工典禮，總裝置容量達920 MW，使沃旭在台累計風電容量逼近2 GW，下一步將續攻新案。</p>
+          <div class="sidebar-source">
+            <span>科技新報 TechNews (半導體與產業)</span>
+            <a href="https://technews.tw/2026/09/01/greater-changhua-920-mw-wind-farm-completed-orsted-cumulative-capacity-taiwan-reaches-2-gw-next-pursue-new-projects/" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted);">詳情 ↗</a>
+          </div>
+        </div>
+        
+
+        <!-- Classic Quote Box -->
+        <div class="classic-quote-box">
+          <div style="font-size:11px; font-family:var(--font-sans); text-transform:uppercase; letter-spacing:1px; color:var(--text-faint); margin-bottom:6px;">每日格言 • QUOTE OF THE DAY</div>
+          <p>“科技不再是政治的延伸，而是權力重新分配的終極戰場。”</p>
+        </div>
+
+      </aside>
+
+    </main>
+
+    <!-- Newspaper Footer -->
+    <footer class="newspaper-footer">
+      <div>版權所有 • 每日自動新聞生成系統</div>
+      <div class="footer-center">THE DAILY TIMES ARCHIVE • OPEN ACCESS</div>
+      <div class="footer-right">ISSN 2958-8821 • TAIPEI EDITION</div>
+    </footer>
+
+  </div>
+
+  <!-- Interactive Deep Dive Modal (特刊號彈窗) -->
+  <div id="deepDiveModal" class="modal-overlay" onclick="if(event.target===this) closeDeepDive();">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeDeepDive()" title="關閉">✕</button>
+      
+      <div class="modal-masthead">
+        <span class="modal-badge">THE DAILY TIMES • SPECIAL DISPATCH</span>
+        <h2 id="modalTitle" class="modal-title">📰 專題特刊：深入剖析</h2>
+        <div class="modal-meta">
+          <span id="modalTopicTag">主題：#科技趨勢</span>
+          <span>•</span>
+          <span>首席主筆與產業研析室</span>
+          <span>•</span>
+          <span>2026 年 09 月 01 日</span>
+        </div>
+      </div>
+
+      <div id="modalBody" class="modal-body">
+        <div class="modal-spinner">
+          <div class="spinner-ring"></div>
+          <div>正在連線 AI 智庫，為您策劃專屬特刊...</div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="tool-btn" onclick="copyModalContent()">📋 複製特刊全文</button>
+        <button class="tool-btn" onclick="printModal()">🖨️ 列印特刊</button>
+        <button class="tool-btn" onclick="closeDeepDive()">關閉視窗</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const GEMINI_API_KEY = "AIzaSyAqlnXLtAYa_sWOxU466BPRQGIvz4hG7co";
+    const GEMINI_MODEL = "gemini-3.6-flash";
+
+    function setTheme(themeName) {
+      document.documentElement.setAttribute('data-theme', themeName);
+      localStorage.setItem('newspaper_theme', themeName);
+    }
+
+    // Restore user theme preference if any
+    (function() {
+      const saved = localStorage.getItem('newspaper_theme');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    })();
+
+    function closeDeepDive() {
+      document.getElementById('deepDiveModal').classList.remove('active');
+    }
+
+    function formatMarkdown(text) {
+      let html = text
+        .replace(/^### (.*$)/gim, '<h4>♦ $1</h4>')
+        .replace(/^## (.*$)/gim, '<h3>$1</h3>')
+        .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/gim, '<em>$1</em>')
+        .replace(/^\s*-\s+(.*$)/gim, '<li>$1</li>')
+        .replace(/\n\n+/g, '</p><p>');
+      
+      html = '<p>' + html + '</p>';
+      html = html.replace(/<li>(.*?)<\/li>/g, function(match) {
+        return match;
+      });
+      return html;
+    }
+
+    async function triggerDeepDive(topic) {
+      if (!topic || !topic.trim()) return;
+      topic = topic.trim().replace(/^#/, '');
+
+      const modal = document.getElementById('deepDiveModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalTopicTag = document.getElementById('modalTopicTag');
+      const modalBody = document.getElementById('modalBody');
+
+      modalTitle.innerText = `📰 特刊號：${topic}`;
+      modalTopicTag.innerText = `核心主題：#${topic}`;
+      modalBody.innerHTML = `
+        <div class="modal-spinner">
+          <div class="spinner-ring"></div>
+          <div>正在為您深度梳理「${topic}」之全球脈絡與產業衝擊...</div>
+        </div>
+      `;
+      modal.classList.add('active');
+
+      const prompt = `
+你是一位享譽國際的頂級報社首席主筆兼資深產業分析師。
+讀者正在閱讀今日早報，並點擊了感興趣的特定核心關鍵字或主題：『${topic}』。
+
+請為讀者撰寫一篇極具深度、洞察與事實依據的「每日時代特刊：深度研析專欄」（繁體中文，約 500-750 字）。
+
+請包含以下四大清晰段落（使用 Markdown 標題）：
+### 一、核心脈絡與關鍵背景拆解
+說明此議題為何在當前局勢下至關重要，發生的底層邏輯是什麼。
+
+### 二、產業鏈衝擊與受惠/受害焦點
+具體分析哪些產業（如半導體、雲端、金融、硬體供應鏈）將受到最直接影響，並提及代表性指標企業或個股動態。
+
+### 三、市場法人預期與潛在風險
+剖析機構法人、政策制定者對此的博弈觀點與不可忽視的灰犀牛風險。
+
+### 四、未來 3 至 6 個月關鍵觀察指標
+列出 3 點投資人或決策者後續必須密切追蹤的具體指標或政策時程。
+
+語氣優雅沉穩、客觀專業、直指本質。
+`;
+
+      try {
+        if (!GEMINI_API_KEY) {
+          throw new Error("No API Key configured");
+        }
+
+        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: { temperature: 0.4 }
+          })
+        });
+
+        if (!res.ok) {
+          // Try fallback model
+          const fallbackEndpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_API_KEY}`;
+          const fallbackRes = await fetch(fallbackEndpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: { temperature: 0.4 }
+            })
+          });
+          if (!fallbackRes.ok) {
+            throw new Error(`API Error: ${fallbackRes.statusText}`);
+          }
+          const data = await fallbackRes.json();
+          const reply = data.candidates[0].content.parts[0].text;
+          modalBody.innerHTML = formatMarkdown(reply);
+          return;
+        }
+
+        const data = await res.json();
+        const reply = data.candidates[0].content.parts[0].text;
+        modalBody.innerHTML = formatMarkdown(reply);
+
+      } catch (err) {
+        console.warn("Client Gemini direct call failed, generating simulated editorial dispatch:", err);
+        modalBody.innerHTML = `
+          <h4>♦ 一、核心脈絡與關鍵背景拆解</h4>
+          <p>針對「<strong>${topic}</strong>」，當前全球政經與科技產業正面臨結構性重組。從算力配置、資本支出到法規監管，各國主權與領頭企業正加速建立戰略護城河。</p>
+          <h4>♦ 二、產業鏈衝擊與受惠/受害焦點</h4>
+          <p>在供應鏈端，上游關鍵材料與先進技術壁壘成為核心定價權所在；下游終端應用則需加速驗證商業化落地能力以支撐高估值。</p>
+          <h4>♦ 三、市場法人預期與潛在風險</h4>
+          <p>法人機構普遍關注資本回報率 (ROI) 與政策法規落實進度，需防範短期預期過熱與地緣政治干預之潛在修正風險。</p>
+          <h4>♦ 四、未來 3 至 6 個月關鍵觀察指標</h4>
+          <ul>
+            <li>主要龍頭企業下一季財報之資本支出指引與毛利率走勢</li>
+            <li>主要經濟體相關法規執行細則與跨國貿易審查動態</li>
+            <li>終端需求實質滲透率與企業端自發性採購意願變化</li>
+          </ul>
+        `;
+      }
+    }
+
+    function copyModalContent() {
+      const text = document.getElementById('modalBody').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('特刊全文已成功複製至剪貼簿！');
+      });
+    }
+
+    function printModal() {
+      window.print();
+    }
+  </script>
+</body>
+</html>

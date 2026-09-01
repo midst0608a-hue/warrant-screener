@@ -1,0 +1,58 @@
+name: Daily Newspaper Generator & Publisher
+
+on:
+  schedule:
+    # 每天台灣時間清晨 06:30 (UTC 22:30) 自動執行
+    - cron: '30 22 * * *'
+  workflow_dispatch: # 支援在 GitHub 網頁上手動點擊立即執行
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          pip install -r daily_newspaper/requirements.txt
+
+      - name: Generate Daily Newspaper
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python daily_newspaper/main.py --no-open --save-json
+
+      - name: Commit & Push Generated Newspaper
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add daily_newspaper/curated_edition.json daily_newspaper/newspaper.html
+          git commit -m "🗞️ Publish Daily Newspaper: $(date +'%Y-%m-%d')" || echo "No changes to commit"
+          git push
+
+      - name: Prepare GitHub Pages Artifact
+        run: |
+          mkdir -p _site
+          cp daily_newspaper/newspaper.html _site/index.html
+          cp daily_newspaper/newspaper.html _site/newspaper.html
+          cp daily_newspaper/curated_edition.json _site/curated_edition.json
+
+      - name: Deploy to GitHub Pages (gh-pages branch)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
+          force_orphan: true

@@ -1590,6 +1590,13 @@
       </div>
 
       <div class="modal-body" style="font-size: 14px;">
+        <div style="margin-bottom: 12px;">
+          <label style="font-weight:700; font-family:var(--font-sans); color:var(--text-main); display:block; margin-bottom:4px;">
+            🔑 Gemini API Key（儲存於此瀏覽器以供即時重新篩選）：
+          </label>
+          <input type="password" id="prefApiKey" class="custom-topic-input" style="width:100%; box-sizing:border-box; height:36px; padding:6px 10px; font-family:var(--font-mono); font-size:12px;" placeholder="AIzaSy..." />
+        </div>
+
         <label style="font-weight:700; font-family:var(--font-sans); color:var(--text-main); display:block; margin-bottom:4px;">
           ✒️ 您的個人化審稿指令與關注焦點（將直接注入 AI 總編輯的 Prompt）：
         </label>
@@ -1604,7 +1611,7 @@
 
         <div style="margin-top:14px; font-size:12px; color:var(--text-muted); line-height:1.6;">
           💡 <strong>總編輯微調指南</strong>：<br>
-          1. 點擊「<strong>💾 儲存偏好</strong>」後，您的指令會永久儲存在此裝置瀏覽器中。<br>
+          1. 點擊「<strong>💾 儲存偏好</strong>」後，您的指令與金鑰會永久儲存在此裝置瀏覽器中。<br>
           2. 點擊「<strong>🔄 立即重新篩選出刊</strong>」，系統將即時根據最新指令為您重新策劃今日版面。<br>
           3. 若希望 GitHub 雲端每日排程也永久套用，可點擊「<strong>📋 複製為 config.json</strong>」！
         </div>
@@ -1686,8 +1693,13 @@
     function openPreferencesModal() {
       const modal = document.getElementById('preferencesModal');
       const textarea = document.getElementById('prefDirectives');
+      const apiKeyInput = document.getElementById('prefApiKey');
+      
       const savedDirectives = localStorage.getItem('editorial_directives') || DEFAULT_FEEDBACK || '';
       textarea.value = savedDirectives;
+
+      const savedKey = localStorage.getItem('gemini_api_key') || GEMINI_API_KEY || '';
+      apiKeyInput.value = savedKey;
 
       // Render tags history
       const history = JSON.parse(localStorage.getItem('editorial_feedback_history') || '{"likes":[], "dislikes":[]}');
@@ -1721,9 +1733,15 @@
     // Save Preferences
     function savePreferences(andRecurate = false) {
       const directives = document.getElementById('prefDirectives').value.trim();
+      const apiKeyVal = document.getElementById('prefApiKey').value.trim();
+      
       localStorage.setItem('editorial_directives', directives);
+      if (apiKeyVal) {
+        localStorage.setItem('gemini_api_key', apiKeyVal);
+      }
+      
       closePreferencesModal();
-      showToast('💾 <strong>審稿偏好已成功儲存！</strong>');
+      showToast('💾 <strong>審稿偏好與金鑰已成功儲存！</strong>');
 
       if (andRecurate) {
         recurateNewspaper(directives);
@@ -1748,7 +1766,9 @@
     // Re-curate Newspaper dynamically in browser using Gemini
     async function recurateNewspaper(customDirectives) {
       const overlay = document.getElementById('recuratingOverlay');
+      const statusText = document.getElementById('recuratingStatus');
       overlay.classList.add('active');
+      statusText.innerText = "正在連線 AI 智庫，匯入您的審稿指令與關注焦點...";
 
       const history = JSON.parse(localStorage.getItem('editorial_feedback_history') || '{"likes":[], "dislikes":[]}');
       let likesText = history.likes.map(x => `【加權】${x.category}：${x.title}`).join('； ');
@@ -1773,42 +1793,78 @@ ${feedbackSection}
 五、股市與資本市場焦點：精選 3 則關鍵行情與資金動能新聞。
 ★ 涉及大宗商品（如原油/天然氣/黃金）、總經利率或半導體供應鏈的新聞，務必在 market_linkage 提供指標名稱、近 10 日走勢與連鎖效應。
 
-請以繁體中文輸出符合標準 NEWSPAPER JSON 格式的完整報紙物件（包含 headline, columns, stock_market, sidebar, editorial, market_pulse）。
+請以繁體中文輸出符合以下完整格式的 JSON 物件（必須包含 headline, columns, stock_market, sidebar, editorial, market_pulse）：
+{
+  "headline": { "title": "...", "subtitle": "...", "category": "...", "summary": "...", "key_points": ["...", "...", "..."], "market_linkage": { "indicator_name": "...", "ten_day_trend": "...", "spillover_effects": "...", "deep_dive_query": "..." }, "source": "...", "url": "..." },
+  "columns": [ { "title": "...", "category": "...", "summary": "...", "key_takeaway": "...", "market_linkage": { "indicator_name": "...", "ten_day_trend": "...", "spillover_effects": "...", "deep_dive_query": "..." }, "source": "...", "url": "..." } ],
+  "stock_market": [ { "title": "...", "market_tag": "...", "summary": "...", "trend_signal": "...", "source": "...", "url": "..." } ],
+  "sidebar": [ { "title": "...", "category": "...", "brief": "...", "source": "...", "url": "..." } ],
+  "editorial": { "title": "...", "author": "...", "commentary": "...", "quote": "..." },
+  "market_pulse": { "sentiment": "...", "watch_topics": ["#...", "#...", "#..."] }
+}
 `;
 
-      try {
-        if (!GEMINI_API_KEY) throw new Error("No API Key");
-
-        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
-        const res = await fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }],
-            generationConfig: {
-              temperature: 0.3,
-              responseMimeType: "application/json"
-            }
-          })
-        });
-
-        if (!res.ok) throw new Error("Gemini API HTTP Error");
-
-        const data = await res.json();
-        const rawJsonText = data.candidates[0].content.parts[0].text;
-        const newEdition = JSON.parse(rawJsonText);
-
-        // Save new edition to cache and reload DOM
-        localStorage.setItem('cached_curated_edition', JSON.stringify(newEdition));
-        renderNewspaperInPlace(newEdition);
+      const activeApiKey = localStorage.getItem('gemini_api_key') || GEMINI_API_KEY;
+      if (!activeApiKey) {
         overlay.classList.remove('active');
-        showToast('✨ <strong>已成功根據您的最新偏好重新策劃並出刊！</strong>', 4000);
-
-      } catch (err) {
-        console.warn("Client recurate failed:", err);
-        overlay.classList.remove('active');
-        alert("重新篩選時發生問題（可能受限於瀏覽器端網路或金鑰）。建議您也可以在終端機執行 python main.py 重新生成！");
+        const userKey = prompt("請輸入您的 Gemini API Key 以啟用瀏覽器端即時重新篩選功能：");
+        if (userKey && userKey.trim()) {
+          localStorage.setItem('gemini_api_key', userKey.trim());
+          return recurateNewspaper(customDirectives);
+        }
+        return;
       }
+
+      // Robust fallback model cascade
+      const modelsToTry = [
+        "gemini-3.5-flash",
+        "gemini-3.7-flash",
+        "gemini-3.6-flash",
+        "gemini-flash-latest",
+        "gemini-1.5-flash"
+      ];
+
+      let lastError = null;
+      for (const m of modelsToTry) {
+        try {
+          statusText.innerText = `正在連線 Gemini [${m}] 重新審稿中...`;
+          const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${activeApiKey}`;
+          const res = await fetch(endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: {
+                temperature: 0.3,
+                responseMimeType: "application/json"
+              }
+            })
+          });
+
+          if (!res.ok) {
+            const errBody = await res.text();
+            throw new Error(`HTTP ${res.status}: ${errBody}`);
+          }
+
+          const data = await res.json();
+          const rawJsonText = data.candidates[0].content.parts[0].text;
+          const newEdition = JSON.parse(rawJsonText);
+
+          // Save new edition to cache and reload DOM
+          localStorage.setItem('cached_curated_edition', JSON.stringify(newEdition));
+          renderNewspaperInPlace(newEdition);
+          overlay.classList.remove('active');
+          showToast('✨ <strong>已成功根據您的最新偏好重新策劃並出刊！</strong>', 4000);
+          return;
+
+        } catch (err) {
+          console.warn(`Model ${m} failed in browser:`, err);
+          lastError = err;
+        }
+      }
+
+      overlay.classList.remove('active');
+      alert(`重新篩選時發生問題：${lastError ? lastError.message : '未知錯誤'}。\n\n提示：您可以在「⚙️ 審稿偏好與回饋」中確認或更新 API Key，或在終端機執行 python main.py 重新生成！`);
     }
 
     // In-place DOM update for seamless re-render

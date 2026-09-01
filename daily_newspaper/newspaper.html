@@ -1271,7 +1271,7 @@
       <div class="toolbar-left">
         <span><span class="pulse-dot"></span> 自動排版系統已就緒</span>
         <span>•</span>
-        <span>出刊生成：2026-09-01 17:59:22 (UTC+8)</span>
+        <span>出刊生成：2026-09-01 18:05:39 (UTC+8)</span>
       </div>
       <div class="toolbar-actions">
         <button class="tool-btn" id="recurateBtn" onclick="openRecurateModal()" style="border-color:var(--accent); color:var(--accent); font-weight:700;">🔄 重新篩選出刊</button>
@@ -1305,7 +1305,7 @@
       <div>2026 年 09 月 01 日</div>
       <div>星期二 (Tuesday)</div>
       <div>第 106 卷 • 第 244 期</div>
-      <div>AI 編審模型：gemini-3.6-flash</div>
+      <div>AI 編審模型：gemini-2.5-flash</div>
     </div>
 
     <!-- Market Pulse / Global Sentiment Banner -->
@@ -1883,8 +1883,8 @@
   <div id="feedbackToast" class="toast-notification"></div>
 
   <script>
-    const GEMINI_API_KEY = "AIzaSyAqlnXLtAYa_sWOxU466BPRQGIvz4hG7co";
-    const GEMINI_MODEL = "gemini-3.6-flash";
+    const GEMINI_API_KEY = "";
+    const GEMINI_MODEL = "gemini-2.5-flash";
     const DEFAULT_FEEDBACK = "\u91cd\u8996\u53f0\u7063\u7acb\u6cd5\u9662\u91cd\u5927\u6cd5\u6848\u3001\u5730\u7de3\u80fd\u6e90\u8207\u534a\u5c0e\u9ad4\u4f9b\u61c9\u93c8\uff1b\u56b4\u683c\u6392\u9664\u7d14\u53e3\u6c34\u653b\u9632\u8207\u91cd\u8907\u5831\u5c0e\u3002";
 
     function setTheme(themeName) {
@@ -2059,11 +2059,10 @@ ${feedbackSection}
 
       // Robust fallback model cascade
       const modelsToTry = [
-        "gemini-3.5-flash",
-        "gemini-3.7-flash",
-        "gemini-3.6-flash",
-        "gemini-flash-latest",
-        "gemini-1.5-flash"
+        "gemini-2.5-flash",
+        "gemini-2.0-flash",
+        "gemini-2.5-pro",
+        "gemini-1.5-flash-latest"
       ];
 
       let lastError = null;
@@ -2281,46 +2280,37 @@ ${feedbackSection}
 `;
 
       try {
-        if (!GEMINI_API_KEY) {
+        const activeKey = localStorage.getItem('gemini_api_key') || GEMINI_API_KEY;
+        if (!activeKey) {
           throw new Error("No API Key configured");
         }
 
-        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
-        const res = await fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }],
-            generationConfig: { temperature: 0.4 }
-          })
-        });
-
-        if (!res.ok) {
-          // Try fallback model
-          const fallbackEndpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_API_KEY}`;
-          const fallbackRes = await fetch(fallbackEndpoint, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              contents: [{ parts: [{ text: prompt }] }],
-              generationConfig: { temperature: 0.4 }
-            })
-          });
-          if (!fallbackRes.ok) {
-            throw new Error(`API Error: ${fallbackRes.statusText}`);
-          }
-          const data = await fallbackRes.json();
-          const reply = data.candidates[0].content.parts[0].text;
-          modalBody.innerHTML = formatMarkdown(reply);
-          return;
+        const models = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-2.5-pro", "gemini-1.5-flash-latest"];
+        let success = false;
+        for (const m of models) {
+          try {
+            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${activeKey}`;
+            const res = await fetch(endpoint, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                contents: [{ parts: [{ text: prompt }] }],
+                generationConfig: { temperature: 0.4 }
+              })
+            });
+            if (res.ok) {
+              const data = await res.json();
+              const reply = data.candidates[0].content.parts[0].text;
+              modalBody.innerHTML = formatMarkdown(reply);
+              success = true;
+              break;
+            }
+          } catch(e) {}
         }
-
-        const data = await res.json();
-        const reply = data.candidates[0].content.parts[0].text;
-        modalBody.innerHTML = formatMarkdown(reply);
+        if (!success) throw new Error("All model calls failed");
 
       } catch (err) {
-        console.warn("Client Gemini direct call failed, generating simulated editorial dispatch:", err);
+        console.warn("Client Gemini direct call fallback:", err);
         modalBody.innerHTML = `
           <h4>♦ 一、核心脈絡與關鍵背景拆解</h4>
           <p>針對「<strong>${topic}</strong>」，當前全球政經與科技產業正面臨結構性重組。從算力配置、資本支出到法規監管，各國主權與領頭企業正加速建立戰略護城河。</p>

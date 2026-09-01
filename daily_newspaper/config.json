@@ -7,8 +7,8 @@
     "price": "NT$ 20 / FREE OPEN ACCESS"
   },
   "gemini": {
-    "api_key": "AIzaSyAqlnXLtAYa_sWOxU466BPRQGIvz4hG7co",
-    "model": "gemini-3.6-flash",
+    "api_key": "",
+    "model": "gemini-2.5-flash",
     "temperature": 0.3,
     "max_articles_to_analyze": 35,
     "output_language": "Traditional Chinese (繁體中文)"

@@ -1817,11 +1817,10 @@ ${feedbackSection}
 
       // Robust fallback model cascade
       const modelsToTry = [
-        "gemini-3.5-flash",
-        "gemini-3.7-flash",
-        "gemini-3.6-flash",
-        "gemini-flash-latest",
-        "gemini-1.5-flash"
+        "gemini-2.5-flash",
+        "gemini-2.0-flash",
+        "gemini-2.5-pro",
+        "gemini-1.5-flash-latest"
       ];
 
       let lastError = null;
@@ -2039,46 +2038,37 @@ ${feedbackSection}
 `;
 
       try {
-        if (!GEMINI_API_KEY) {
+        const activeKey = localStorage.getItem('gemini_api_key') || GEMINI_API_KEY;
+        if (!activeKey) {
           throw new Error("No API Key configured");
         }
 
-        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
-        const res = await fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }],
-            generationConfig: { temperature: 0.4 }
-          })
-        });
-
-        if (!res.ok) {
-          // Try fallback model
-          const fallbackEndpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_API_KEY}`;
-          const fallbackRes = await fetch(fallbackEndpoint, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              contents: [{ parts: [{ text: prompt }] }],
-              generationConfig: { temperature: 0.4 }
-            })
-          });
-          if (!fallbackRes.ok) {
-            throw new Error(`API Error: ${fallbackRes.statusText}`);
-          }
-          const data = await fallbackRes.json();
-          const reply = data.candidates[0].content.parts[0].text;
-          modalBody.innerHTML = formatMarkdown(reply);
-          return;
+        const models = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-2.5-pro", "gemini-1.5-flash-latest"];
+        let success = false;
+        for (const m of models) {
+          try {
+            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${activeKey}`;
+            const res = await fetch(endpoint, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                contents: [{ parts: [{ text: prompt }] }],
+                generationConfig: { temperature: 0.4 }
+              })
+            });
+            if (res.ok) {
+              const data = await res.json();
+              const reply = data.candidates[0].content.parts[0].text;
+              modalBody.innerHTML = formatMarkdown(reply);
+              success = true;
+              break;
+            }
+          } catch(e) {}
         }
-
-        const data = await res.json();
-        const reply = data.candidates[0].content.parts[0].text;
-        modalBody.innerHTML = formatMarkdown(reply);
+        if (!success) throw new Error("All model calls failed");
 
       } catch (err) {
-        console.warn("Client Gemini direct call failed, generating simulated editorial dispatch:", err);
+        console.warn("Client Gemini direct call fallback:", err);
         modalBody.innerHTML = `
           <h4>♦ 一、核心脈絡與關鍵背景拆解</h4>
           <p>針對「<strong>${topic}</strong>」，當前全球政經與科技產業正面臨結構性重組。從算力配置、資本支出到法規監管，各國主權與領頭企業正加速建立戰略護城河。</p>

@@ -23,24 +23,39 @@
   ],
   "rss_feeds": [
     {
-      "name": "中央社 - 政治與要聞",
+      "name": "中央社 - 國內政治與政策",
+      "category": "政治與公共政策",
+      "url": "https://feeds.feedburner.com/rsscna/politics"
+    },
+    {
+      "name": "中央社 - 頭條即時要聞",
       "category": "政治與公共政策",
       "url": "https://feeds.feedburner.com/cnaFirstNews"
     },
     {
-      "name": "Yahoo 新聞 - 政治要聞",
-      "category": "政治與公共政策",
-      "url": "https://tw.news.yahoo.com/rss/politics"
+      "name": "中央社 - 兩岸與區域情勢",
+      "category": "地緣政治與兩岸",
+      "url": "https://feeds.feedburner.com/rsscna/mainland"
+    },
+    {
+      "name": "中央社 - 國際政經視野",
+      "category": "全球民主與地緣",
+      "url": "https://feeds.feedburner.com/rsscna/intworld"
+    },
+    {
+      "name": "中央社 - 產經與金融焦點",
+      "category": "總經與財經",
+      "url": "https://feeds.feedburner.com/rsscna/finance"
+    },
+    {
+      "name": "中央社 - 科技前沿與產業鏈",
+      "category": "半導體與科技政策",
+      "url": "https://feeds.feedburner.com/rsscna/technology"
     },
     {
       "name": "BBC 中文網 - 兩岸與國際局勢",
       "category": "地緣政治與兩岸",
       "url": "https://feeds.bbci.co.uk/zhongwen/trad/rss.xml"
-    },
-    {
-      "name": "Yahoo 新聞 - 國際頭條",
-      "category": "全球民主與地緣",
-      "url": "https://tw.news.yahoo.com/rss/world"
     },
     {
       "name": "iThome 電腦報 (資安與AI治理)",

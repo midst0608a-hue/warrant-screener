@@ -1,160 +1,128 @@
 {
   "headline": {
-    "title": "前沿 AI 遭極端武器化：勒索軟體 Aurora 濫用 Cursor 與 Claude 策劃自動化攻擊",
-    "subtitle": "資安界首度證實生成式 AI 與 Agent 協助鎖定企業 ESXi 基礎設施，凸顯 AI 治理與控制防線嚴峻挑戰",
-    "category": "AI 治理與資安防線",
-    "summary": "資安機構 CloudSEK 與 TRM Labs 最新調查發現，勒索軟體組織 Aurora（Aur0ra）自今年 4 月起積極展開攻擊，不僅利用 AI 程式碼助手 Cursor 規畫攻擊腳本，更借助 Anthropic 的 Claude Sonnet 模型協助編譯與談判。截至 7 月已有超過 20 家企業組織受害，攻擊者更刻意排除獨立國家國協地區，顯示生成式 AI Agent 正從輔助工具轉變為自動化資安威脅武器。",
+    "title": "林佳龍出席太平洋島國論壇峰會 批中國霸凌破壞盛會氣氛",
+    "subtitle": "資本支出創新高之際，全球供應鏈韌性面臨全新考驗",
+    "category": "政治與公共政策",
+    "summary": "（中央社帛琉科羅1日綜合外電報導）台灣今年受邀參與由邦交國帛琉主辦的太平洋島國論壇峰會，中國警告「總會有後果」。外交部長林佳龍今天批評北京破壞盛會氣氛，並強調不應因中國霸凌而有所妥協。",
     "key_points": [
-      "攻擊者運用俄語指令促使 Cursor AI 與 Claude 產生極具針對性的 ESXi 環境攻擊與加密腳本。",
-      "全球已有至少 20 家企業受害，其中 17 家遭到網域層級侵入，凸顯 LLM 輸出審查機制在邊緣情境的漏洞。",
-      "金融監理機構與科技巨頭面臨防禦升級壓力，AI 模型的自主性控制與反濫用架構已升級為國安與產業治理課題。"
+      "先進製程與高頻寬記憶體需求持續超出預期",
+      "主權 AI 與資料在地化法規重塑跨國技術部署格局",
+      "企業端逐步由概念驗證 (PoC) 邁向規模化營運整合"
     ],
-    "market_linkage": {
-      "indicator_name": "納斯達克資安指數 (BUG) / 費城半導體",
-      "ten_day_trend": "近 10 日自 3,120 點微幅震盪至 3,185 點 (+2.08%)",
-      "spillover_effects": "催化企業急增 Zero-Trust 零信任架構與 AI Agent 安全防護支出，資安軟體族群與雲端防護鏈獲得資金挹注。",
-      "deep_dive_query": "AI程式碼助手濫用與生成式AI資安治理防禦機制"
-    },
-    "source": "iThome 電腦報",
-    "url": "https://www.ithome.com.tw/news/178592"
+    "source": "中央社 - 國內政治與政策",
+    "url": "https://www.cna.com.tw/news/aipl/202609010367.aspx"
   },
   "columns": [
     {
-      "title": "FSB 發出嚴肅警告：前沿高自主 AI 模型與高槓桿結合恐破壞全球金融穩定",
-      "category": "金融監理與 AI 風險",
-      "summary": "國際金融穩定委員會（FSB）主席 Andrew Bailey 指出，具備高度自主性的前沿 AI 模型正在全球金融市場加速滲透。若與高槓桿交易及演算法追價結合，可能在市場劇烈波動時放大系統性風險，嚴重衝擊金融體系穩定與投資人信心。",
-      "key_takeaway": "金融監理機關正加速出台自主 Agent 演算法交易與 AI 風險控管規範，避免系統性風險擴散。",
-      "market_linkage": {
-        "indicator_name": "十年期美債殖利率",
-        "ten_day_trend": "近 10 日自 4.25% 攀升至 4.38% (+13 bps)",
-        "spillover_effects": "高槓桿市場與演算法量化資金承壓，避險情緒帶動長天期國債殖利率波動加劇。",
-        "deep_dive_query": "金融穩定委員會FSB對前沿AI自主模型與金融市場槓桿風險之警訊"
-      },
-      "source": "iThome 電腦報",
-      "url": "https://www.ithome.com.tw/news/178584"
+      "title": "中俄蒙9月上旬舉行邊防合作聯合演練",
+      "category": "地緣政治與兩岸",
+      "summary": "（中央社記者馮昭上海1日電）中國國防部今天公布，中國與俄羅斯、蒙古國邊防部隊將在9月上旬舉行「邊防合作-2026」聯合演練。",
+      "key_takeaway": "持續觀察各國央行政策路徑與主要產業財報指引。",
+      "source": "中央社 - 兩岸與區域情勢",
+      "url": "https://www.cna.com.tw/news/acn/202609010374.aspx"
     },
     {
-      "title": "外交部調整推動參與聯合國 3 大訴求，拜會立法院長韓國瑜尋求跨黨派支持",
-      "category": "台灣政治與外交",
-      "summary": "外交部針對今年推動參與聯合國的策略進行調整，並向立法院長韓國瑜及各黨派立委說明 3 大訴求轉變。外交部強調，此舉旨在深化台灣在國際組織的制度性參與，透過國會溝通凝聚跨黨派外交共識。",
-      "key_takeaway": "國會溝通成為台灣多邊外交戰略能否獲得國內預算與跨黨派穩定支持的核心關鍵。",
-      "source": "Yahoo 新聞 - 政治要聞",
-      "url": "https://tw.news.yahoo.com/%E5%8E%BB%E5%B9%B4%E6%83%B9%E6%AF%9B%E5%BE%90%E5%B7%A7%E8%8A%AF-%E5%A4%96%E4%BA%A4%E9%83%A8%E6%8E%A8%E5%8B%95%E5%8F%83%E8%88%87%E8%81%AF%E5%90%88%E5%9C%8B3%E5%A4%A7%E8%A8%B4%E6%B1%82%E8%AA%BF%E6%95%B4-%E6%9C%89%E5%88%B0%E7%AB%8B%E6%B3%95%E9%99%A2%E6%8B%9C%E8%A8%97%E9%9F%93%E5%9C%8B%E7%91%9C-091055655.html"
+      "title": "澤倫斯基：俄領空將充滿烏克蘭無人機、不再安全",
+      "category": "全球民主與地緣",
+      "summary": "（中央社基輔1日綜合外電報導）烏克蘭總統澤倫斯基（Volodymyr Zelenskyy）今天示警各家航空公司與旅客，在俄烏交戰期間，俄羅斯領空將變得「一點也不安全」，基輔正在此處部署大量無人機。",
+      "key_takeaway": "持續觀察各國央行政策路徑與主要產業財報指引。",
+      "source": "中央社 - 國際政經視野",
+      "url": "https://www.cna.com.tw/news/aopl/202609020014.aspx"
     },
     {
-      "title": "倫敦證券交易所結盟 Payward，推動英國頂級藍籌股代幣化上鏈",
-      "category": "Web3與金融基建",
-      "summary": "倫敦證券交易所（LSE）宣布與 Payward 結盟，將英國最頂級的藍籌股引進區塊鏈基礎設施進行代幣化交易。此舉標誌著傳統頂級交易所跨入去中心化清算與 24/7 資產代幣化市場的新里程碑。",
-      "key_takeaway": "傳統金融巨人加速轉向 Onchain 架構，代幣化實體資產（RWA）成為資本市場效率升級的核心戰場。",
-      "source": "CoinDesk",
-      "url": "https://www.coindesk.com/markets/2026/09/01/london-stock-exchange-to-work-with-payward-to-bring-biggest-uk-stocks-onchain"
+      "title": "歐元區8月通膨近3年新高 歐股收跌",
+      "category": "總經與財經",
+      "summary": "（中央社倫敦1日綜合外電報導）歐洲股市主要指數今天收跌，投資情緒受到官方數據影響，數據顯示歐元區8月通膨率3.3%創近3年新高，外界對歐洲中央銀行（ECB）下週升息的預期升高。",
+      "key_takeaway": "持續觀察各國央行政策路徑與主要產業財報指引。",
+      "source": "中央社 - 產經與金融焦點",
+      "url": "https://www.cna.com.tw/news/afe/202609020002.aspx"
     },
     {
-      "title": "台灣 8 月製造業 PMI 連 11 個月擴張，中經院警示高階記憶體缺貨危機",
-      "category": "總經與產業政策",
-      "summary": "中華經濟研究院發布台灣 8 月製造業採購經理人指數（PMI），顯示產業已連續 11 個月處於擴張區間，主要受到 AI 終端硬體拉貨動能強勁支撐。然而中經院院長連賢明特別示警，高頻寬記憶體（HBM）與傳統記憶體供需失衡，可能成為下游供應鏈交貨延遲的潛在瓶頸。",
-      "key_takeaway": "AI 熱潮拉動出口景氣的同時，關鍵組件缺貨潮正考驗電子代工體系的料況控管能力。",
-      "market_linkage": {
-        "indicator_name": "費城半導體指數 (SOX)",
-        "ten_day_trend": "近 10 日自 5,150 點震盪攀升至 5,310 點 (+3.1%)",
-        "spillover_effects": "HBM 與高階 DRAM 現貨價強勢上揚，終端伺服器組裝廠需承擔零組件溢價成本壓力。",
-        "deep_dive_query": "台灣製造業PMI擴張與AI記憶體供需失衡隱憂分析"
-      },
-      "source": "Yahoo 奇摩新聞 - 總經財經",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%81%A38%E6%9C%88%E8%A3%BD%E9%80%A0%E6%A5%AD%E9%80%A311%E5%80%8B%E6%9C%88%E6%93%B4%E5%BC%B5%EF%BC%81ai%E9%9C%80%E6%B1%82%E7%BA%8C%E6%97%BA-%E4%B8%AD%E7%B6%93%E9%99%A2%E9%95%B7%E9%80%A3%E8%B3%A2%E6%98%8E%E7%A4%BA%E8%AD%A6%E8%A8%98%E6%86%B6%E9%AB%94%E7%BC%BA%E8%B2%A8%E9%9A%B1%E6%86%82-091121686.html"
+      "title": "使用AI模型企業購買趨勢轉變 更多考量CP值",
+      "category": "半導體與科技政策",
+      "summary": "（中央社記者馮昭上海1日電）瑞銀證券今天表示，詞元投資回報率（Token ROI）是今年上半年明顯的行業趨勢轉變。對於人工智慧（AI）模型詞元的花費，從5、6月不再直線往上增長，而是將性價比因素納入購",
+      "key_takeaway": "持續觀察各國央行政策路徑與主要產業財報指引。",
+      "source": "中央社 - 科技前沿與產業鏈",
+      "url": "https://www.cna.com.tw/news/ait/202609010369.aspx"
     },
     {
-      "title": "中國太陽能發電裝機容量達 12.86 億千瓦，首次超越煤電躍升第一大電源",
-      "category": "綠能與地緣經濟",
-      "summary": "中國國家能源局最新公布數據，截至今年 7 月底，太陽能發電裝機容量達到 12.86 億千瓦，歷經多年快速擴張後，裝機規模首次超越燃煤發電，成為中國國內發電能力第一大來源。然而電力網平穩調度與綠電消納問題亦隨之上升。",
-      "key_takeaway": "全球能源轉型出現歷史性交錯，但電力網韌性與儲能系統部署將是下階段關鍵突破點。",
-      "source": "科技新報 TechNews",
-      "url": "https://finance.technews.tw/2026/09/01/solar-power-capacity-surpasses-coal-china-largest-electricity-source/"
+      "title": "上合組織25週年：中國舞台、伊朗考驗，還是「清談場所」？",
+      "category": "地緣政治與兩岸",
+      "summary": "「整套東西說穿了，就是共識旗幟下的中國工具箱。成員加入自己感興趣的部分，沒有人被要求成為盟友。北京不要求同盟式義務，它要的是背書、參與，以及不要阻擋（中國）。」",
+      "key_takeaway": "持續觀察各國央行政策路徑與主要產業財報指引。",
+      "source": "BBC 中文網 - 兩岸與國際局勢",
+      "url": "https://www.bbc.com/zhongwen/articles/c8d39n7m2g8o/trad?at_medium=RSS&at_campaign=rss"
     }
   ],
   "stock_market": [
     {
-      "title": "輝達注資逾 1,100 億元深化與聯發科十年戰略合作，車用與 AI PC 晶片聯手攻頂",
-      "market_tag": "台股與半導體",
-      "summary": "輝達（Nvidia）執行長黃仁勳宣布將投入超過 1,100 億新台幣深化與聯發科（2454）的長期結盟，戰略聚焦於下一代車用 SoC 晶片與 AI PC 系統單晶片。法人評估此投資將顯著拉升聯發科在高階邊緣 AI 晶片市場的占有率。",
-      "trend_signal": "外資與投信資金重回半導體設計權值股，聯發科供應鏈量能顯著增溫。",
-      "source": "Yahoo 奇摩新聞 - 總經財經",
-      "url": "https://tw.news.yahoo.com/%E8%BC%9D%E9%81%94%E7%A0%B8%E9%80%BE1100%E5%84%84%E6%8A%95%E8%B3%87%E8%81%AF%E7%99%BC%E7%A7%91-%E9%BB%83%E4%BB%81%E5%8B%B3-%E5%90%88%E4%BD%9C%E5%8D%81%E5%B9%B4-091200303.html"
+      "title": "台積電先進封裝產能緊俏 帶動半導體供應鏈營運動能強勁",
+      "market_tag": "台股焦點 • 權值龍頭",
+      "summary": "晶圓代工龍頭持續擴產 CoWoS 與 2 奈米技術，帶動設備廠、材料商與封測族群買盤湧入，外資維持偏多加碼評等。",
+      "trend_signal": "法人籌碼高度集中，留意相關供應鏈月營收年增率。",
+      "source": "Yahoo 股市",
+      "url": "https://tw.stock.yahoo.com/"
     },
     {
-      "title": "台積電重申海外建廠長期永續原則，將主動「創造需求」升級歐洲半導體生態系",
-      "market_tag": "權值股動態",
-      "summary": "台積電共同營運長侯永清於歐盟投資論壇指出，海外設廠必須基於長期且可持續的市場需求，歐洲 7 奈米需求雖成長但規模仍有限，台積電將透過技術協同主動創造高階晶片需求，確保德勒斯登等海外廠長期營運效益。",
-      "trend_signal": "半導體先進製程供應鏈評價穩定，市場關注海外晶圓廠長期毛利率與資本支出投報率。",
-      "source": "Yahoo 股市 - 台股與美股焦點",
-      "url": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E4%BE%AF%E6%B0%B8%E6%B8%85-%E6%B5%B7%E5%A4%96%E6%8A%95%E8%B3%87%E8%A8%AD%E5%BB%A0%E4%B8%8D%E8%83%BD%E5%8F%AA%E7%9C%8B-%E5%B9%B4%E9%9C%80%E6%B1%82-%E9%9C%80%E8%80%83%E9%87%8F%E9%95%B7%E6%9C%89%E7%BA%8C%E6%80%A7-084440447.html"
+      "title": "美股 AI 巨頭資本支出上調 伺服器與高速傳輸概念股走揚",
+      "market_tag": "美股動態 • 科技七巨頭",
+      "summary": "微軟與亞馬遜等雲端巨頭維持高額 AI 基礎設施預算，帶動高頻寬記憶體與液冷散熱模組訂單能見度直達下半年度。",
+      "trend_signal": "科技股那斯達克指數維持多頭架構，留意聯準會降息步伐。",
+      "source": "Yahoo 股市",
+      "url": "https://tw.stock.yahoo.com/"
     },
     {
-      "title": "散熱龍頭雙鴻看旺 2027 營運，AI 伺服器液冷散熱滲透率激增帶動營收創高",
-      "market_tag": "AI 概念股",
-      "summary": "散熱大廠雙鴻董事長林育申表示，AI 伺服器功耗持續攀升驅動水冷散熱模組需求放量，預期明年營運表現將優於今年。法人預估水冷板與分流管（CDU）出貨力道強勁，有利散熱族群毛利率進一步提升。",
-      "trend_signal": "AI 伺服器硬體散熱概念股成為盤面資金簇擁焦點，法人買盤買超強勢突破。",
-      "source": "科技新報 TechNews",
-      "url": "https://finance.technews.tw/2026/09/01/auras-2/"
+      "title": "高股息 ETF 換股潮將屆 投信被動買盤聚焦穩健殖利率標的",
+      "market_tag": "台股焦點 • ETF資金流",
+      "summary": "多檔千億級高股息 ETF 進入成分股調整期，金融股與傳產績優高殖利率個股獲得顯著被動買盤支撐，成交量溫和放大。",
+      "trend_signal": "內資投信連續買超，低本益比防禦型類股獲資金青睞。",
+      "source": "中央社",
+      "url": "https://feeds.feedburner.com/cnaFirstNews"
     }
   ],
   "sidebar": [
     {
-      "title": "Anthropic 調整 Claude Code 使用限額，9月中旬起實際額度縮減 17%",
-      "category": "AI 開發政策",
-      "brief": "Anthropic 宣布調整 AI 程式開發工具 Claude Code 限額機制，新制調升標準額度 25%，但因取消先前 50% 臨時加碼，使用者實際可用額度將減少約 17%。",
-      "source": "iThome 電腦報",
-      "url": "https://www.ithome.com.tw/news/178590"
+      "title": "TerminalFix社交工程攻擊將受害主機變成存取企業內網的跳板",
+      "category": "AI治理與數位政策",
+      "brief": "微軟威脅情報團隊揭露名為TerminalFix的新一波ClickFix社交工程攻擊。攻擊者利用遭入侵網站顯示假的Clou",
+      "source": "iThome 電腦報 (資安與AI治理)",
+      "url": "https://www.ithome.com.tw/news/178577"
     },
     {
-      "title": "比特幣維穩 7.8 萬美元關卡，聯準會鷹派預期致主要代幣受壓",
-      "category": "加密貨幣市場",
-      "brief": "比特幣走勢維持於 78,000 美元上方震盪，受市場對聯準會升息鷹派預期升溫影響，加密貨幣主要代幣短線小幅回檔。",
-      "source": "CoinDesk",
-      "url": "https://www.coindesk.com/markets/2026/09/01/bitcoin-steady-above-usd78-000-hype-leads-as-majors-slip-on-hawkish-fed-bets"
+      "title": "Larry Page’s flying car company Pivotal loses its CEO",
+      "category": "AI治理與數位政策",
+      "brief": "The company told TechCrunch he is \"pursuing new endeavors.\"",
+      "source": "TechCrunch (國際科技前沿)",
+      "url": "https://techcrunch.com/2026/09/01/larry-pages-flying-car-company-pivotal-loses-its-ceo/"
     },
     {
-      "title": "蘋果指控前員工涉嫌為 OpenAI 竊取機密資料，提出關鍵法庭證據",
-      "category": "科技法律與智慧財產",
-      "brief": "蘋果公司在法庭呈交新證據，指控一名離職工程師在接受調查後試圖銷毀竊取公司機密並提供給 OpenAI 的數據數位軌跡。",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/08/31/apple-shares-shocking-evidence-against-former-employee-accused-of-stealing-company-data-for-openai/"
+      "title": "SEC proposes transfer agent rule, sets event to figure out round-the-clock U.S. trading",
+      "category": "Web3與抗審查",
+      "brief": "",
+      "source": "CoinDesk (Web3與抗審查基礎設施)",
+      "url": "https://www.coindesk.com/policy/2026/09/01/sec-proposes-transfer-agent-rule-sets-event-to-figure-out-round-the-clock-u-s-trading"
     },
     {
-      "title": "OpenAI ChatGPT Ads 年化廣告收入突破 10 億美元",
-      "category": "數位商業與平台",
-      "brief": "OpenAI 宣布旗下 ChatGPT Ads 廣告業務上線約 200 天，已吸引數萬家廣告主進駐，帶動年化營收正式突破 10 億美元大關。",
-      "source": "iThome 電腦報",
-      "url": "https://www.ithome.com.tw/news/178582"
-    },
-    {
-      "title": "Polymarket 獲特朗普二世旗下基金領投，融資規模達 10 億美元",
-      "category": "Web3與預測市場",
-      "brief": "去中心化預測市場 Polymarket 獲得 1789 Capital 領投 3 億美元，推動本輪融資總額邁向 10 億美元，進一步拓展合規與國際市場。",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/08/31/polymarket-reportedly-raises-300-million-from-donald-trump-jr-s-investment-fund/"
-    },
-    {
-      "title": "台灣美光工會醞釀罷工，資方預告 10 月發放歷年最高績效獎金",
-      "category": "勞資爭議與產業",
-      "brief": "受惠 AI 與 HBM 記憶體需求暴增，美光營收創高，面對台灣美光工會醞釀罷工訴求，公司提前預告 10 月將發放歷史新高績效獎金以平息爭議。",
-      "source": "科技新報 TechNews",
-      "url": "https://finance.technews.tw/2026/09/01/micron-taiwan-announced-that-it-will-announce-its-highest-performance-bonus-in-history-this-october/"
+      "title": "駭客不必攻破 50 家公司：Cl0p 事件揭開企業供應鏈資安的最大盲點",
+      "category": "半導體與科技政策",
+      "brief": "在傳統的企業資安思維中，多數執行長與資訊長習慣把精力放在強化公司內部的防線。大家投資龐大預算升級防火牆、部署端 […]",
+      "source": "科技新報 TechNews (半導體與產業)",
+      "url": "https://finance.technews.tw/2026/09/02/cl0p-exposes-enterprise-supply-chain-security-blind-spot/"
     }
   ],
   "editorial": {
-    "title": "當 AI Agent 突破雙刃劍邊界：自動化威脅與金融穩定的雙重考驗",
-    "author": "首席主筆 / Chief Columnist",
-    "commentary": "今日資安領域與金融監理機構同時敲響警鐘。勒索軟體 Aurora 濫用 Cursor AI 與 Claude Sonnet 進行自動化攻擊程式碼撰寫與入侵規劃，標誌著生成式 AI Agent 的雙面刃特性已從理論預測走向現實威脅。與此同時，金融穩定委員會（FSB）發出警告，自主前沿模型若與市場槓桿過度結合，將對全球金融體系帶來難以測度的系統性風險。我們正目睹科技演進的二元悖論：一方面，AI 代碼寫作與決策代理極大地推升了生產力，創造了如 OpenAI 廣告年收突破十億美元的龐大商業價值；另一方面，模型能力的開放性漏洞卻缺乏強而有力的倫理與控制防線。對於政府、企業與資安專家而言，單靠事後補丁或業者自主承諾已不足以防範風險。建立具備密碼學可驗證性、強健的邊界審查機制以及跨國法規調和，已是維持數位時代安全與穩定不可退讓的防線。",
-    "quote": "技術的自主性若缺乏嚴密的安全邊界與制度約束，其強大的生產力終將演變為難以掌控的系統性風險。"
+    "title": "在嘈雜的算法洪流中，尋找沉澱的文明錨點",
+    "author": "晨報首席主筆 / Editorial Board",
+    "commentary": "每日滾動的新聞標題往往充斥著市場的情緒與短期的焦慮。然而，當我們拉長時間軸審視，真正推動歷史齒輪的，從來不是單日幾百點的漲跌，而是底層技術架構的質變與制度規則的演進。在生成式智能鋪天蓋地的今日，人類社會最珍貴的資產依然是獨立思辨的定力與洞察本質的勇氣。看清週期，方能立於潮頭之上。",
+    "quote": "「在資訊過剩的時代，清晰的思考就是最稀缺的權力。」"
   },
   "market_pulse": {
-    "sentiment": "科技強勁與宏觀風險交織下的謹慎分化",
+    "sentiment": "技術創新與結構轉型交織",
     "watch_topics": [
-      "AI Agent 資安武器化",
-      "金融穩定與槓桿風險",
-      "半導體強勢結盟",
-      "RWA 資產代幣化"
+      "#AI代理生態",
+      "#利率決議",
+      "#半導體供應鏈",
+      "#能源轉型"
     ]
   }
 }

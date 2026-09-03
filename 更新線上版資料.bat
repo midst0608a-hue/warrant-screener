@@ -1,5 +1,6 @@
 @echo off
 title Update Warrants Data
+chcp 65001 >nul
 echo =========================================
 echo.
 echo    Fetching latest data from TWSE/TPEx...
@@ -15,22 +16,17 @@ echo    Fetch complete! Syncing with GitHub...
 echo.
 echo =========================================
 git add warrants_data.json
-git commit -m "Manual local update of warrants_data"
+git commit -m "Auto-update warrants data"
 git push
 
 echo.
 echo =========================================
 echo.
-echo    Running Radar V2 (籌碼雷達)...
+echo    Warrants Data Update SUCCESS!
 echo.
 echo =========================================
-cd /d "%~dp0\.."
-python radar_v2.py --no-copy
-
-echo.
-echo =========================================
-echo.
-echo    Update SUCCESS! All scheduled tasks completed.
-echo.
-echo =========================================
+if "%1"=="--scheduled" goto end
+if "%1"=="/silent" goto end
+if "%1"=="--no-pause" goto end
 pause
+:end

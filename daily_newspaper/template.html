@@ -556,7 +556,7 @@
 
     .modal-spinner {
       text-align: center;
-      padding: 40px 0;
+      padding: 30px 0;
       font-family: var(--font-serif);
       font-style: italic;
       color: var(--text-muted);
@@ -584,6 +584,152 @@
       margin-top: 24px;
       padding-top: 14px;
       border-top: 1px dashed var(--border-light);
+    }
+
+    /* Modal Search Results & AI Deep Dive Layout */
+    .modal-section-title {
+      font-family: var(--font-masthead);
+      font-size: 16.5px;
+      font-weight: 800;
+      color: var(--accent);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 6px;
+      margin: 22px 0 14px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-section-title:first-child {
+      margin-top: 0;
+    }
+
+    .search-results-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .search-result-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      padding: 14px 16px;
+      border-radius: 3px;
+      transition: all 0.2s ease;
+    }
+
+    .search-result-card:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-highlight);
+    }
+
+    .search-result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      color: var(--text-faint);
+    }
+
+    .search-result-badge {
+      background: var(--accent);
+      color: #fff;
+      padding: 1px 7px;
+      border-radius: 2px;
+      font-weight: 700;
+      font-size: 10.5px;
+    }
+
+    .search-result-title {
+      font-family: var(--font-serif);
+      font-size: 16.5px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .search-result-title a {
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .search-result-title a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .search-result-snippet {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    .search-highlight {
+      background-color: #ffe082;
+      color: #1a1a1a;
+      padding: 1px 4px;
+      border-radius: 2px;
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .search-highlight {
+      background-color: #d4a359;
+      color: #000;
+    }
+
+    .api-key-prompt-card {
+      background: var(--bg-card);
+      border: 1.5px dashed var(--accent);
+      padding: 22px 24px;
+      border-radius: 4px;
+      margin: 16px 0;
+    }
+
+    .api-key-prompt-card h4 {
+      font-family: var(--font-masthead);
+      font-size: 16px;
+      color: var(--accent);
+      margin: 0 0 8px 0;
+      border: none;
+      padding: 0;
+    }
+
+    .api-key-prompt-card p {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .api-key-input-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .api-key-input-field {
+      flex: 1;
+      min-width: 260px;
+      height: 38px;
+      padding: 0 12px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-paper);
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      border-radius: 2px;
+    }
+
+    .api-error-card {
+      background: rgba(184, 30, 30, 0.08);
+      border: 1px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin: 16px 0;
     }
 
     /* Feedback & Preferences UI */
@@ -1319,8 +1465,9 @@
         {% for tag in market_pulse.watch_topics %}
         <span class="pulse-tag" onclick="triggerDeepDive('{{ tag }}')">{{ tag }}</span>
         {% endfor %}
-        <form onsubmit="event.preventDefault(); triggerDeepDive(document.getElementById('customTopic').value);" style="display:inline-flex; align-items:center; gap:4px; margin-left:4px;">
-          <input type="text" id="customTopic" class="custom-topic-input" placeholder="🔍 自訂專題 (Enter)..." />
+        <form onsubmit="event.preventDefault(); triggerDeepDive(document.getElementById('customTopic').value);" style="display:inline-flex; align-items:center; gap:6px; margin-left:6px;">
+          <input type="text" id="customTopic" class="custom-topic-input" placeholder="🔍 搜尋新聞 / 自訂專題 (Enter)..." />
+          <button type="submit" class="tool-btn" style="height:28px; padding:0 10px; font-size:11.5px; font-weight:700;">搜尋</button>
         </form>
       </div>
     </div>
@@ -1644,6 +1791,8 @@
     const GEMINI_API_KEY = "{{ api_key }}";
     const GEMINI_MODEL = "{{ gemini_model }}";
     const DEFAULT_FEEDBACK = {{ user_editorial_feedback|tojson if user_editorial_feedback else '""' }};
+    const ORIGINAL_EDITION = {{ curated_edition_json|safe if curated_edition_json else '{}' }};
+    let TODAY_EDITION = ORIGINAL_EDITION;
 
     function setTheme(themeName) {
       document.documentElement.setAttribute('data-theme', themeName);
@@ -1661,6 +1810,7 @@
     // Show Toast Notification
     function showToast(message, duration = 3000) {
       const toast = document.getElementById('feedbackToast');
+      if (!toast) return;
       toast.innerHTML = message;
       toast.style.display = 'flex';
       setTimeout(() => {
@@ -1763,6 +1913,14 @@
       }
     }
 
+    function resetToDefaultEdition() {
+      if (confirm("確定要清除自訂篩選快取，恢復今日原始出刊版本嗎？")) {
+        localStorage.removeItem('cached_curated_edition');
+        renderNewspaperInPlace(ORIGINAL_EDITION);
+        showToast("🔄 已恢復至原始出刊版本！");
+      }
+    }
+
     // Re-curate Newspaper dynamically in browser using Gemini
     async function recurateNewspaper(customDirectives) {
       const overlay = document.getElementById('recuratingOverlay');
@@ -1817,10 +1975,11 @@ ${feedbackSection}
 
       // Robust fallback model cascade
       const modelsToTry = [
-        "gemini-2.5-flash",
         "gemini-2.0-flash",
-        "gemini-2.5-pro",
-        "gemini-1.5-flash-latest"
+        "gemini-1.5-flash",
+        "gemini-2.5-flash",
+        "gemini-1.5-pro",
+        "gemini-2.0-flash-lite"
       ];
 
       let lastError = null;
@@ -1846,7 +2005,12 @@ ${feedbackSection}
           }
 
           const data = await res.json();
-          const rawJsonText = data.candidates[0].content.parts[0].text;
+          let rawJsonText = data.candidates[0].content.parts[0].text.trim();
+          if (rawJsonText.startsWith("```json")) {
+            rawJsonText = rawJsonText.replace(/^```json\s*/i, "").replace(/\s*```$/, "");
+          } else if (rawJsonText.startsWith("```")) {
+            rawJsonText = rawJsonText.replace(/^```\s*/, "").replace(/\s*```$/, "");
+          }
           const newEdition = JSON.parse(rawJsonText);
 
           // Save new edition to cache and reload DOM
@@ -1866,8 +2030,68 @@ ${feedbackSection}
       alert(`重新篩選時發生問題：${lastError ? lastError.message : '未知錯誤'}。\n\n提示：您可以在「⚙️ 審稿偏好與回饋」中確認或更新 API Key，或在終端機執行 python main.py 重新生成！`);
     }
 
-    // In-place DOM update for seamless re-render
+    // In-place DOM update for seamless re-render across ALL sections
     function renderNewspaperInPlace(data) {
+      if (!data || typeof data !== 'object') return;
+      TODAY_EDITION = data;
+
+      // 1. Market Pulse Ribbon
+      if (data.market_pulse) {
+        const sentimentEl = document.querySelector('.pulse-sentiment');
+        if (sentimentEl && data.market_pulse.sentiment) {
+          sentimentEl.innerText = `— ${data.market_pulse.sentiment}`;
+        }
+        const pulseTagsEl = document.querySelector('.pulse-tags');
+        if (pulseTagsEl && Array.isArray(data.market_pulse.watch_topics)) {
+          let tagsHtml = `<span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">點擊標籤即時深度剖析：</span>`;
+          data.market_pulse.watch_topics.forEach(tag => {
+            tagsHtml += `<span class="pulse-tag" onclick="triggerDeepDive('${tag}')">${tag}</span>`;
+          });
+          tagsHtml += `
+            <form onsubmit="event.preventDefault(); triggerDeepDive(document.getElementById('customTopic').value);" style="display:inline-flex; align-items:center; gap:6px; margin-left:6px;">
+              <input type="text" id="customTopic" class="custom-topic-input" placeholder="🔍 搜尋新聞 / 自訂專題 (Enter)..." />
+              <button type="submit" class="tool-btn" style="height:28px; padding:0 10px; font-size:11.5px; font-weight:700;">搜尋</button>
+            </form>
+          `;
+          pulseTagsEl.innerHTML = tagsHtml;
+        }
+      }
+
+      // 2. Stock Market Section
+      if (Array.isArray(data.stock_market) && data.stock_market.length > 0) {
+        let stockSection = document.querySelector('.stock-market-section');
+        if (stockSection) {
+          let stockCardsHtml = '';
+          data.stock_market.forEach(item => {
+            stockCardsHtml += `
+              <article class="stock-card">
+                <div>
+                  <div class="stock-tag">${item.market_tag || '股市焦點'}</div>
+                  <h4 class="stock-title">
+                    <a href="${item.url || '#'}" target="_blank" rel="noopener noreferrer">${item.title}</a>
+                  </h4>
+                  <p class="stock-summary">${item.summary}</p>
+                </div>
+                <div>
+                  ${item.trend_signal ? `<div class="stock-signal"><strong>信號：</strong>${item.trend_signal}</div>` : ''}
+                  <div class="stock-footer">
+                    <span>來源：${item.source || '股市'}</span>
+                    <div class="card-feedback-actions">
+                      <button type="button" class="fb-thumb-btn" title="我想多看這類股市焦點" onclick="quickFeedback('like', '${item.title}', '${item.market_tag}')">👍 多看</button>
+                      <button type="button" class="fb-thumb-btn" title="減少這類股市焦點" onclick="quickFeedback('dislike', '${item.title}', '${item.market_tag}')">👎 減少</button>
+                    </div>
+                    <a href="${item.url || '#'}" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">看盤/原文 ↗</a>
+                  </div>
+                </div>
+              </article>
+            `;
+          });
+          const grid = stockSection.querySelector('.stock-grid');
+          if (grid) grid.innerHTML = stockCardsHtml;
+        }
+      }
+
+      // 3. Headline Hero
       if (data.headline) {
         const headlineCard = document.querySelector('.headline-card');
         if (headlineCard) {
@@ -1914,7 +2138,7 @@ ${feedbackSection}
         }
       }
 
-      // Re-render columns
+      // 4. Columns (焦點新聞)
       if (data.columns && data.columns.length > 0) {
         const colStories = document.querySelector('.col-stories');
         if (colStories) {
@@ -1961,7 +2185,7 @@ ${feedbackSection}
         }
       }
 
-      // Re-render editorial
+      // 5. Editorial (主筆銳評)
       if (data.editorial) {
         const edSection = document.querySelector('.editorial-section');
         if (edSection) {
@@ -1974,7 +2198,68 @@ ${feedbackSection}
           `;
         }
       }
+
+      // 6. Sidebar (全球快訊)
+      if (Array.isArray(data.sidebar) && data.sidebar.length > 0) {
+        const sidebarCol = document.querySelector('.col-sidebar');
+        if (sidebarCol) {
+          let sideHtml = `
+            <div class="section-header">
+              <h3>全球快訊速讀</h3>
+              <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">DISPATCHES</span>
+            </div>
+          `;
+          data.sidebar.forEach(item => {
+            sideHtml += `
+              <div class="sidebar-item">
+                <span class="sidebar-category">${item.category || '快訊'}</span>
+                <h5 class="sidebar-title">
+                  <a href="${item.url || '#'}" target="_blank" rel="noopener noreferrer">${item.title}</a>
+                </h5>
+                <p class="sidebar-brief">${item.brief}</p>
+                <div class="sidebar-source">
+                  <span>${item.source || '快訊'}</span>
+                  <a href="${item.url || '#'}" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted);">詳情 ↗</a>
+                </div>
+              </div>
+            `;
+          });
+          const quoteText = data.editorial && data.editorial.quote ? data.editorial.quote : '歷史不會重複自己，但它總是壓著相同的韻腳。';
+          sideHtml += `
+            <div class="classic-quote-box">
+              <div style="font-size:11px; font-family:var(--font-sans); text-transform:uppercase; letter-spacing:1px; color:var(--text-faint); margin-bottom:6px;">每日格言 • QUOTE OF THE DAY</div>
+              <p>“${quoteText}”</p>
+            </div>
+          `;
+          sidebarCol.innerHTML = sideHtml;
+        }
+      }
     }
+
+    // Auto-restore cached edition if available
+    (function initCachedEdition() {
+      try {
+        const cached = localStorage.getItem('cached_curated_edition');
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (parsed && parsed.headline) {
+            renderNewspaperInPlace(parsed);
+            // Add reset indicator to toolbar
+            const toolbarLeft = document.querySelector('.toolbar-left');
+            if (toolbarLeft && !document.getElementById('resetEditionBtn')) {
+              const resetBtn = document.createElement('span');
+              resetBtn.id = 'resetEditionBtn';
+              resetBtn.style.cssText = 'color:var(--accent); cursor:pointer; text-decoration:underline; font-weight:700; margin-left:6px;';
+              resetBtn.innerText = '[恢復原始版面]';
+              resetBtn.onclick = resetToDefaultEdition;
+              toolbarLeft.appendChild(resetBtn);
+            }
+          }
+        }
+      } catch (e) {
+        console.warn("Could not load cached edition:", e);
+      }
+    })();
 
     function closeDeepDive() {
       document.getElementById('deepDiveModal').classList.remove('active');
@@ -1996,6 +2281,109 @@ ${feedbackSection}
       return html;
     }
 
+    // Search across all sections in today's newspaper edition
+    function searchTodayEdition(query) {
+      if (!TODAY_EDITION || typeof TODAY_EDITION !== 'object') return [];
+      const q = query.toLowerCase().trim();
+      if (!q) return [];
+
+      const results = [];
+
+      // 1. Headline
+      if (TODAY_EDITION.headline) {
+        const h = TODAY_EDITION.headline;
+        const text = `${h.title || ''} ${h.subtitle || ''} ${h.summary || ''} ${(h.key_points || []).join(' ')} ${h.category || ''}`;
+        if (text.toLowerCase().includes(q)) {
+          results.push({
+            section: '今日頭條焦點',
+            category: h.category || '頭條',
+            title: h.title,
+            snippet: h.summary || (h.key_points ? h.key_points.join('； ') : ''),
+            url: h.url || '#',
+            source: h.source || '特約通訊'
+          });
+        }
+      }
+
+      // 2. Columns
+      if (Array.isArray(TODAY_EDITION.columns)) {
+        TODAY_EDITION.columns.forEach(col => {
+          const text = `${col.title || ''} ${col.summary || ''} ${col.key_takeaway || ''} ${col.category || ''}`;
+          if (text.toLowerCase().includes(q)) {
+            results.push({
+              section: '焦點新聞專欄',
+              category: col.category || '專欄',
+              title: col.title,
+              snippet: col.summary || col.key_takeaway || '',
+              url: col.url || '#',
+              source: col.source || '本報'
+            });
+          }
+        });
+      }
+
+      // 3. Stock market
+      if (Array.isArray(TODAY_EDITION.stock_market)) {
+        TODAY_EDITION.stock_market.forEach(s => {
+          const text = `${s.title || ''} ${s.summary || ''} ${s.trend_signal || ''} ${s.market_tag || ''}`;
+          if (text.toLowerCase().includes(q)) {
+            results.push({
+              section: '股市與資本焦點',
+              category: s.market_tag || '股市',
+              title: s.title,
+              snippet: s.summary || s.trend_signal || '',
+              url: s.url || '#',
+              source: s.source || '看盤'
+            });
+          }
+        });
+      }
+
+      // 4. Sidebar
+      if (Array.isArray(TODAY_EDITION.sidebar)) {
+        TODAY_EDITION.sidebar.forEach(sb => {
+          const text = `${sb.title || ''} ${sb.brief || ''} ${sb.category || ''}`;
+          if (text.toLowerCase().includes(q)) {
+            results.push({
+              section: '全球快訊速讀',
+              category: sb.category || '快訊',
+              title: sb.title,
+              snippet: sb.brief || '',
+              url: sb.url || '#',
+              source: sb.source || '國際編譯'
+            });
+          }
+        });
+      }
+
+      // 5. Editorial
+      if (TODAY_EDITION.editorial) {
+        const ed = TODAY_EDITION.editorial;
+        const text = `${ed.title || ''} ${ed.commentary || ''} ${ed.author || ''}`;
+        if (text.toLowerCase().includes(q)) {
+          results.push({
+            section: '每日主筆冷眼 / 銳評',
+            category: '主筆評論',
+            title: ed.title,
+            snippet: ed.commentary ? ed.commentary.slice(0, 160) + '...' : '',
+            url: '#',
+            source: ed.author || '首席主筆'
+          });
+        }
+      }
+
+      return results;
+    }
+
+    function highlightKeyword(text, keyword) {
+      if (!keyword || !text) return text;
+      const cleanKw = keyword.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      if (!cleanKw) return text;
+      const regex = new RegExp(`(${cleanKw})`, 'gi');
+      return text.replace(regex, '<mark class="search-highlight">$1</mark>');
+    }
+
+    // Trigger Search & Deep Dive Modal
     async function triggerDeepDive(topic) {
       if (!topic || !topic.trim()) return;
       topic = topic.trim().replace(/^#/, '');
@@ -2005,28 +2393,99 @@ ${feedbackSection}
       const modalTopicTag = document.getElementById('modalTopicTag');
       const modalBody = document.getElementById('modalBody');
 
-      modalTitle.innerText = `📰 特刊號：${topic}`;
+      modalTitle.innerText = `📰 特刊號與搜尋：${topic}`;
       modalTopicTag.innerText = `核心主題：#${topic}`;
-      modalBody.innerHTML = `
-        <div class="modal-spinner">
-          <div class="spinner-ring"></div>
-          <div>正在為您深度梳理「${topic}」之全球脈絡與產業衝擊...</div>
+      modal.classList.add('active');
+
+      // 1. Search today's articles
+      const matches = searchTodayEdition(topic);
+      let searchSectionHtml = '';
+
+      if (matches.length > 0) {
+        searchSectionHtml = `
+          <div class="modal-section-title">
+            <span>📑 今日報紙相關報導 (共 ${matches.length} 則)</span>
+            <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-muted);">TODAY'S DISPATCHES</span>
+          </div>
+          <div class="search-results-list">
+            ${matches.map(m => `
+              <div class="search-result-card">
+                <div class="search-result-header">
+                  <span class="search-result-badge">${m.category} • ${m.section}</span>
+                  <span>來源：${m.source}</span>
+                </div>
+                <h4 class="search-result-title">
+                  <a href="${m.url}" target="_blank" rel="noopener noreferrer">${highlightKeyword(m.title, topic)}</a>
+                </h4>
+                <p class="search-result-snippet">${highlightKeyword(m.snippet, topic)}</p>
+                <div style="margin-top:6px; text-align:right;">
+                  <a href="${m.url}" target="_blank" rel="noopener noreferrer" style="font-size:12px; color:var(--accent); font-family:var(--font-sans);">閱讀原文 ↗</a>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      } else {
+        searchSectionHtml = `
+          <div class="modal-section-title">
+            <span>📑 今日報紙相關報導</span>
+            <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-muted);">LOCAL ARCHIVE</span>
+          </div>
+          <div style="background:var(--bg-card); padding:14px 16px; border:1px solid var(--border-light); font-size:13.5px; color:var(--text-muted); margin-bottom:20px; border-radius:3px;">
+            📌 <em>本日晨報排版中未直接提及「${topic}」關鍵字。您可以點擊下方 AI 智庫即時生成專屬全球深度研析特刊！</em>
+          </div>
+        `;
+      }
+
+      // 2. AI Deep Dive Section
+      let aiSectionHtml = `
+        <div class="modal-section-title">
+          <span>🤖 首席主筆 AI 即時深度特刊</span>
+          <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-muted);">GLOBAL DEEP DIVE</span>
+        </div>
+        <div id="aiDeepDiveContainer">
+          <div class="modal-spinner">
+            <div class="spinner-ring"></div>
+            <div>正在為您深度梳理「${topic}」之全球脈絡與產業衝擊...</div>
+          </div>
         </div>
       `;
-      modal.classList.add('active');
+
+      modalBody.innerHTML = searchSectionHtml + aiSectionHtml;
+
+      // 3. Trigger AI Generation or Show Key Setup Card
+      const activeKey = localStorage.getItem('gemini_api_key') || GEMINI_API_KEY;
+      if (activeKey) {
+        generateAiDeepDive(topic, activeKey);
+      } else {
+        renderApiKeySetupCard(topic, matches);
+      }
+    }
+
+    // Call Gemini API in browser with multiple model fallback
+    async function generateAiDeepDive(topic, activeKey) {
+      const container = document.getElementById('aiDeepDiveContainer');
+      if (!container) return;
+
+      container.innerHTML = `
+        <div class="modal-spinner">
+          <div class="spinner-ring"></div>
+          <div>正在連線 AI 智庫，為您即時撰寫「${topic}」深度特刊...</div>
+        </div>
+      `;
 
       const prompt = `
 你是一位享譽國際的頂級報社首席主筆兼資深產業分析師。
 讀者正在閱讀今日早報，並點擊了感興趣的特定核心關鍵字或主題：『${topic}』。
 
-請為讀者撰寫一篇極具深度、洞察與事實依據的「每日時代特刊：深度研析專欄」（繁體中文，約 500-750 字）。
+請為讀者撰寫一篇極具深度、洞察與事實依據的「每日時代特刊：深度研析專欄」（繁體中文，約 550-800 字）。
 
-請包含以下四大清晰段落（使用 Markdown 標題）：
+請包含以下四大清晰段落（務必使用 Markdown 標題 ###）：
 ### 一、核心脈絡與關鍵背景拆解
-說明此議題為何在當前局勢下至關重要，發生的底層邏輯是什麼。
+說明此議題為何在當前局勢下至關重要，發生的底層邏輯與最新進展。
 
 ### 二、產業鏈衝擊與受惠/受害焦點
-具體分析哪些產業（如半導體、雲端、金融、硬體供應鏈）將受到最直接影響，並提及代表性指標企業或個股動態。
+具體分析哪些產業（如半導體、雲端伺服器、金融、硬體供應鏈或公共政策）將受到最直接影響，並提及代表性指標企業或產業動態。
 
 ### 三、市場法人預期與潛在風險
 剖析機構法人、政策制定者對此的博弈觀點與不可忽視的灰犀牛風險。
@@ -2037,53 +2496,116 @@ ${feedbackSection}
 語氣優雅沉穩、客觀專業、直指本質。
 `;
 
-      try {
-        const activeKey = localStorage.getItem('gemini_api_key') || GEMINI_API_KEY;
-        if (!activeKey) {
-          throw new Error("No API Key configured");
-        }
+      const modelsToTry = [
+        "gemini-2.0-flash",
+        "gemini-1.5-flash",
+        "gemini-2.5-flash",
+        "gemini-1.5-pro",
+        "gemini-2.0-flash-lite"
+      ];
 
-        const models = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-2.5-pro", "gemini-1.5-flash-latest"];
-        let success = false;
-        for (const m of models) {
-          try {
-            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${activeKey}`;
-            const res = await fetch(endpoint, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                contents: [{ parts: [{ text: prompt }] }],
-                generationConfig: { temperature: 0.4 }
-              })
-            });
-            if (res.ok) {
-              const data = await res.json();
-              const reply = data.candidates[0].content.parts[0].text;
-              modalBody.innerHTML = formatMarkdown(reply);
-              success = true;
-              break;
-            }
-          } catch(e) {}
-        }
-        if (!success) throw new Error("All model calls failed");
+      let lastError = null;
+      for (const m of modelsToTry) {
+        try {
+          const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${activeKey}`;
+          const res = await fetch(endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: { temperature: 0.35 }
+            })
+          });
 
-      } catch (err) {
-        console.warn("Client Gemini direct call fallback:", err);
-        modalBody.innerHTML = `
-          <h4>♦ 一、核心脈絡與關鍵背景拆解</h4>
-          <p>針對「<strong>${topic}</strong>」，當前全球政經與科技產業正面臨結構性重組。從算力配置、資本支出到法規監管，各國主權與領頭企業正加速建立戰略護城河。</p>
-          <h4>♦ 二、產業鏈衝擊與受惠/受害焦點</h4>
-          <p>在供應鏈端，上游關鍵材料與先進技術壁壘成為核心定價權所在；下游終端應用則需加速驗證商業化落地能力以支撐高估值。</p>
-          <h4>♦ 三、市場法人預期與潛在風險</h4>
-          <p>法人機構普遍關注資本回報率 (ROI) 與政策法規落實進度，需防範短期預期過熱與地緣政治干預之潛在修正風險。</p>
-          <h4>♦ 四、未來 3 至 6 個月關鍵觀察指標</h4>
-          <ul>
-            <li>主要龍頭企業下一季財報之資本支出指引與毛利率走勢</li>
-            <li>主要經濟體相關法規執行細則與跨國貿易審查動態</li>
-            <li>終端需求實質滲透率與企業端自發性採購意願變化</li>
-          </ul>
+          if (!res.ok) {
+            const errBody = await res.text();
+            throw new Error(`HTTP ${res.status}: ${errBody}`);
+          }
+
+          const data = await res.json();
+          const reply = data.candidates[0].content.parts[0].text;
+          container.innerHTML = formatMarkdown(reply);
+          return;
+
+        } catch (err) {
+          console.warn(`Model ${m} failed for deep dive:`, err);
+          lastError = err;
+        }
+      }
+
+      // If all models failed, display informative error with action buttons
+      container.innerHTML = `
+        <div class="api-error-card">
+          <h4 style="color:var(--accent); font-family:var(--font-masthead); margin:0 0 6px 0;">⚠️ AI 特刊生成連線受阻</h4>
+          <p style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">
+            錯誤代碼：${lastError ? lastError.message : 'API 連線失敗'}。<br>
+            可能原因：API Key 無效、流量額度超限或網路連線異常。
+          </p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="tool-btn" onclick="generateAiDeepDive('${topic}', '${activeKey}')">🔄 重新嘗試</button>
+            <button class="tool-btn" onclick="renderApiKeySetupCard('${topic}')">🔑 更換 API Key</button>
+          </div>
+        </div>
+      `;
+    }
+
+    // Render interactive API key setup card in modal when no key is configured
+    function renderApiKeySetupCard(topic, matches = []) {
+      const container = document.getElementById('aiDeepDiveContainer');
+      if (!container) return;
+
+      const safeTopic = topic.replace(/'/g, "\\'");
+      let fallbackSummaryHtml = '';
+
+      if (matches && matches.length > 0) {
+        fallbackSummaryHtml = `
+          <div style="margin-top:16px; padding:14px; background:var(--bg-paper); border-left:3px solid var(--accent);">
+            <div style="font-weight:700; font-size:13px; margin-bottom:6px;">📰 本日出刊相關要點即時摘要：</div>
+            <ul style="margin:0 0 0 16px; font-size:13px; color:var(--text-main); line-height:1.6;">
+              ${matches.map(m => `<li><strong>${m.category}</strong>：${m.title}</li>`).join('')}
+            </ul>
+          </div>
         `;
       }
+
+      container.innerHTML = `
+        <div class="api-key-prompt-card">
+          <h4>🔑 啟用 AI 即時深度特刊生成</h4>
+          <p>
+            請輸入您的 <strong>Gemini API Key</strong>，系統即可針對「<strong>${topic}</strong>」由 AI 首席主筆為您即時撰寫 600~800 字之專屬全球產業與政經研析。（金鑰僅安全儲存在您目前的本機瀏覽器，不會上傳伺服器）
+          </p>
+          <div class="api-key-input-row">
+            <input type="password" id="modalApiKeyInput" class="api-key-input-field" placeholder="請貼上 AIzaSy... 開頭之 API 金鑰" />
+            <button type="button" class="tool-btn" style="background:var(--accent); color:#fff; border-color:var(--accent); font-weight:700;" onclick="saveModalKeyAndGenerate('${safeTopic}')">
+              🚀 儲存並即時生成
+            </button>
+          </div>
+          <div style="margin-top:10px; font-size:12px;">
+            <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style="color:var(--accent); text-decoration:underline;">
+              👉 點此免費獲取 Google Gemini API Key (Google AI Studio) ↗
+            </a>
+          </div>
+          ${fallbackSummaryHtml}
+        </div>
+      `;
+    }
+
+    // Save key from modal input and immediately start generation
+    function saveModalKeyAndGenerate(topic) {
+      const input = document.getElementById('modalApiKeyInput');
+      if (!input) return;
+      const keyVal = input.value.trim();
+      if (!keyVal) {
+        alert("請輸入有效的 Gemini API Key！");
+        return;
+      }
+
+      localStorage.setItem('gemini_api_key', keyVal);
+      const prefInput = document.getElementById('prefApiKey');
+      if (prefInput) prefInput.value = keyVal;
+
+      showToast("🔑 <strong>API Key 已成功儲存於瀏覽器！</strong>");
+      generateAiDeepDive(topic, keyVal);
     }
 
     function copyModalContent() {

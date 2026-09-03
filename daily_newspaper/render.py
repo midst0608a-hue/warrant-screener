@@ -59,10 +59,12 @@ def render_newspaper_html(curated_data: Dict[str, Any], config: Dict[str, Any], 
     now_tpe = datetime.now(timezone(timedelta(hours=8)))
     edition_info = calculate_edition_info(now_tpe)
     
+    api_key = os.environ.get("GEMINI_API_KEY") or config.get("gemini", {}).get("api_key", "")
+    
     context = {
         "newspaper": config.get("newspaper", {}),
-        "gemini_model": config.get("gemini", {}).get("model", "gemini-3.6-flash"),
-        "api_key": config.get("gemini", {}).get("api_key", ""),
+        "gemini_model": config.get("gemini", {}).get("model", "gemini-2.5-flash"),
+        "api_key": api_key,
         "date_str": edition_info["date_display"],
         "generated_time": now_tpe.strftime("%Y-%m-%d %H:%M:%S (UTC+8)"),
         "edition_info": edition_info,
@@ -75,7 +77,8 @@ def render_newspaper_html(curated_data: Dict[str, Any], config: Dict[str, Any], 
         "market_pulse": curated_data.get("market_pulse", {
             "sentiment": "多元交融",
             "watch_topics": ["#科技前沿", "#全球財經", "#總體趨勢"]
-        })
+        }),
+        "curated_edition_json": json.dumps(curated_data, ensure_ascii=False)
     }
     
     rendered_html = template.render(context)

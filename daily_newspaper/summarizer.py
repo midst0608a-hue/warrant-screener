@@ -255,15 +255,41 @@ def create_mock_newspaper(articles: List[Dict[str, Any]], config: Dict[str, Any]
     }
 
 
+def load_env_file_if_present():
+    """Lightweight loader for .env file without external dependencies."""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    possible_paths = [
+        os.path.join(script_dir, ".env"),
+        os.path.join(os.path.dirname(script_dir), ".env")
+    ]
+    for p in possible_paths:
+        if os.path.exists(p):
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    for line in f:
+                        line = line.strip()
+                        if line and not line.startswith("#") and "=" in line:
+                            k, v = line.split("=", 1)
+                            k = k.strip()
+                            v = v.strip().strip("\"'")
+                            if k and not os.environ.get(k):
+                                os.environ[k] = v
+                break
+            except Exception:
+                pass
+
+load_env_file_if_present()
+
+
 def curate_newspaper_with_gemini(articles: List[Dict[str, Any]], config: Dict[str, Any]) -> Dict[str, Any]:
     """
     Calls Gemini API using google-genai SDK to curate a complete newspaper JSON.
     """
     gemini_cfg = config.get("gemini", {})
-    # Priority: 1. Environment variable, 2. config.json "api_key"
+    # Priority: 1. Environment variable (or .env), 2. config.json "api_key"
     api_key = os.environ.get("GEMINI_API_KEY") or gemini_cfg.get("api_key")
     if not api_key:
-        logger.warning("GEMINI_API_KEY is not set (in env or config.json). Falling back to mock generator.")
+        logger.warning("GEMINI_API_KEY is not set (in env, .env, or config.json). Falling back to mock generator.")
         return create_mock_newspaper(articles, config)
 
     client = genai.Client(api_key=api_key)
@@ -327,7 +353,15 @@ def curate_newspaper_with_gemini(articles: List[Dict[str, Any]], config: Dict[st
 請根據以上新聞內容，以總編輯身份產出今日報紙的完整 JSON 結構。
 """
 
-    candidate_models = [model_name, "gemini-3.7-flash", "gemini-3.6-flash", "gemini-3.5-flash", "gemini-flash-latest"]
+    candidate_models = [
+        model_name,
+        "gemini-2.5-flash",
+        "gemini-2.0-flash",
+        "gemini-2.5-pro",
+        "gemini-1.5-flash",
+        "gemini-1.5-pro",
+        "gemini-2.0-flash-001"
+    ]
     # Deduplicate while preserving order
     models_to_try = list(dict.fromkeys(candidate_models))
 

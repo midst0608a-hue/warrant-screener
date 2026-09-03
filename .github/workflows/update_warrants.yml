@@ -2,8 +2,8 @@ name: Update Warrants Data
 
 on:
   schedule:
-    # 每天台灣時間晚上 8 點 (UTC 12 點) 執行
-    - cron: '0 12 * * *'
+    # 每天台灣時間晚上 9:15 (UTC 13:15) 執行
+    - cron: '15 13 * * *'
   workflow_dispatch: # 允許在 GitHub 網頁上手動觸發
 
 jobs:

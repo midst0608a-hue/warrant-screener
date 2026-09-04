@@ -5,6 +5,7 @@ Uses google-genai SDK to analyze raw news articles and curate a structured newsp
 
 import os
 import sys
+import re
 import json
 import logging
 from datetime import datetime, timezone
@@ -140,27 +141,167 @@ NEWSPAPER_SCHEMA = {
 }
 
 
+def _extract_sentences(text: str) -> List[str]:
+    """Helper to split text into clean, well-formatted sentence segments."""
+    if not text:
+        return []
+    # Strip common news wire prefix patterns like （中央社記者...電）
+    cleaned_text = re.sub(r"^[（(][^）)]+(?:電|訊|報)[）)]\s*", "", text.strip())
+    cleaned_text = re.sub(r"^\[[^\]]+\]\s*", "", cleaned_text)
+    
+    # Split by standard Chinese and English delimiters
+    parts = re.split(r"[。！？；\n]+", cleaned_text)
+    cleaned = []
+    for p in parts:
+        s = p.strip().strip("，、 ")
+        if len(s) >= 8:
+            if len(s) > 50:
+                s = s[:48] + "..."
+            cleaned.append(s)
+    return cleaned
+
+
+def _derive_takeaway(title: str, summary: str, category: str, index: int = 0) -> str:
+    """Generate a unique, context-aware key takeaway based on article content."""
+    combined = (title + " " + summary).lower()
+    
+    if any(k in combined for k in ["中東", "航空", "杜拜", "原油", "能源", "油價", "波斯灣", "海峽"]):
+        options = [
+            "留意地緣緊張局勢對國際客貨運航線、能源供應與全球物流成本之潛在衝擊。",
+            "關注跨國航運避險路徑調整與原油供應鏈韌性之實質變化。",
+            "區域突發變局左右能源定價，持續評估對航空與運輸產業獲利之影響。"
+        ]
+        return options[index % len(options)]
+    elif any(k in combined for k in ["宣傳", "資訊戰", "認知戰", "假消息", "虛假", "俄羅斯", "烏克蘭", "情報", "駭客", "資安"]):
+        options = [
+            "社群網路與認知作戰交織，凸顯跨國事實查核與數位資訊防禦之重要性。",
+            "威權體系跨國資訊操弄加劇，關注公民社會韌性與平台內容治理進展。",
+            "留意新型態混合戰略對地緣政治互信與公眾輿論之深層干擾。"
+        ]
+        return options[index % len(options)]
+    elif any(k in combined for k in ["外交", "帛琉", "盟友", "友邦", "兩岸", "中國", "中共", "國安", "軍", "地緣", "印太"]):
+        options = [
+            "關注印太區域地緣戰略博弈、防務安全與多邊外交實質進展。",
+            "評估跨國盟友合作機制對區域經貿與地緣戰略穩定之長遠影響。",
+            "留意區域安全形勢變動對國際航運與周邊供應鏈之連鎖效應。"
+        ]
+        return options[index % len(options)]
+    elif any(k in combined for k in ["立法院", "行政院", "法案", "政策", "政黨", "預算", "憲政", "選舉", "政治", "陳其邁", "沈伯洋", "市長"]):
+        options = [
+            "評估制度法案修訂對公共治理架構與跨部會行政協調之長遠效應。",
+            "關注重大公共政策推進節奏與社會各界民意權益之平衡溝通。",
+            "地方治理實務考驗政治人物面對危機之承擔力與政策落實透明度。"
+        ]
+        return options[index % len(options)]
+    elif any(k in combined for k in ["教會", "律師", "人權", "人身", "民主", "公民", "審查"]):
+        options = [
+            "關注公民社會韌性、司法法治與國際人道倡議之跨國連鎖迴響。",
+            "威權體制擴張背景下，跨國庇護與人權法制機制備受國際重視。"
+        ]
+        return options[index % len(options)]
+    elif any(k in combined for k in ["裁員", "車", "福斯", "關稅", "製造", "傳統產業", "競爭"]):
+        options = [
+            "跨國貿易壁壘與產業轉型夾擊下，製造巨頭加速重組以維持營運動能。",
+            "觀察全球供應鏈重構過程中之成本控制、市占率洗牌與就業市場衝擊。"
+        ]
+        return options[index % len(options)]
+    elif any(k in combined for k in ["債", "房", "房貸", "利率", "通膨", "降息", "央行", "聯準會", "貨幣"]):
+        options = [
+            "利率與信用環境波動下，密切關注資金流向、資產定價與融資成本變化。",
+            "債券殖利率上行直接衝擊實體借貸需求，留意資產負債表承壓情況。",
+            "持續追蹤各國央行政策路徑對實體經濟與資金流動性之引導效應。"
+        ]
+        return options[index % len(options)]
+    elif any(k in combined for k in ["ai", "人工智慧", "半導體", "晶片", "科技", "算力", "模型", "台積電", "輝達"]):
+        options = [
+            "留意算力基建投資回報率與新興技術垂直落地之商用轉化效率。",
+            "追蹤先進製程資本支出與關鍵設備材料供應鏈之動能消長。",
+            "技術競爭焦點轉向性價比與領域專用微調，加速產業生態重塑。"
+        ]
+        return options[index % len(options)]
+    elif any(k in combined for k in ["加密", "比特幣", "以太坊", "web3", "區塊鏈"]):
+        options = [
+            "留意鏈上流動性重分配與全球合規監管架構之演進脈絡。",
+            "機構資金參與度提升，帶動去中心化基礎設施成熟度。"
+        ]
+        return options[index % len(options)]
+    else:
+        # Contextual fallback using article's title
+        short_title = title[:14]
+        return f"持續關注「{short_title}」後續事態發展與相關領域之實質效應。"
+
+
 def create_mock_newspaper(articles: List[Dict[str, Any]], config: Dict[str, Any]) -> Dict[str, Any]:
     """Fallback generator in case Gemini API key is missing or network is unavailable."""
-    logger.warning("Using Mock Newspaper Data for offline preview...")
-    sample_arts = articles[:10] if articles else []
+    logger.warning("Using Dynamic Fallback Newspaper Generator...")
+    sample_arts = articles if articles else []
     
+    # 1. Headline Selection
     headline_art = sample_arts[0] if len(sample_arts) > 0 else {
         "title": "全球半導體與 AI 算力基礎設施迎來新一輪擴張潮",
         "link": "https://technews.tw/",
         "source": "科技新報",
         "category": "科技與AI",
-        "summary": "各大科技巨頭近期持續加大先進製程與資料中心投資，推動相關供應鏈營運動能強勁。"
+        "summary": "各大科技巨頭近期持續加大先進製程與資料中心投資，推動相關供應鏈營運動能強勁。產業專家指出，隨著生成式應用逐步由概念驗證走向規模化落地，高頻寬記憶體與先進封裝產能將維持高度緊俏。"
     }
     
+    # Dynamic Headline Subtitle & Key Points
+    h_title = headline_art.get("title", "重大時政與產業前瞻報導")
+    h_summary = headline_art.get("summary", "")
+    h_cat = headline_art.get("category", "今日頭條焦點")
+    
+    # Extract key points from summary sentences
+    sentences = _extract_sentences(h_summary)
+    if len(sentences) >= 3:
+        h_key_points = sentences[:3]
+    elif len(sentences) == 2:
+        h_key_points = [
+            sentences[0],
+            sentences[1],
+            _derive_takeaway(h_title, h_summary, h_cat, 0)
+        ]
+    elif len(sentences) == 1:
+        h_key_points = [
+            sentences[0],
+            f"關鍵脈絡：{h_title}",
+            _derive_takeaway(h_title, h_summary, h_cat, 0)
+        ]
+    else:
+        h_key_points = [
+            f"事件核心：{h_title}",
+            "各方利益與制度架構面臨深度重塑與調適",
+            _derive_takeaway(h_title, h_summary, h_cat, 0)
+        ]
+    
+    # Subtitle based on topic
+    if "帛琉" in h_title or "外交" in h_title or "友邦" in h_title or "太平洋" in h_title:
+        h_subtitle = "凝聚多邊戰略共識之際，印太區域和平與供應鏈韌性成焦點"
+    elif "政治" in h_cat or "政策" in h_cat:
+        h_subtitle = "重大法制制度推進之際，公共政策與各界權益面臨新平衡"
+    elif "科技" in h_cat or "AI" in h_cat:
+        h_subtitle = "前瞻技術加速演進之際，產業生態與算力架構迎來升級"
+    elif "財經" in h_cat or "總經" in h_cat:
+        h_subtitle = "全球金融情勢波動之際，市場資金流向與定價邏輯深度重構"
+    else:
+        h_subtitle = sentences[0] if sentences else "深度剖析重大事件脈絡與長遠制度影響"
+    if len(h_subtitle) > 40:
+        h_subtitle = h_subtitle[:38] + "..."
+
+    # 2. Columns (Focus News)
     cols = []
-    for i, a in enumerate(sample_arts[1:6] if len(sample_arts) > 1 else []):
+    col_arts = sample_arts[1:6] if len(sample_arts) > 1 else []
+    for i, a in enumerate(col_arts):
+        c_title = a.get("title", f"重大市場動態報導第 {i+1} 則")
+        c_summary = a.get("summary", "")
+        c_cat = a.get("category", "重點新聞")
+        takeaway = _derive_takeaway(c_title, c_summary, c_cat, i)
+        
         cols.append({
-            "title": a.get("title", f"重大市場動態報導第 {i+1} 則"),
-            "category": a.get("category", "總經與財經"),
-            "summary": a.get("summary", "新聞詳細內文重點摘要，包含產業變化與市場預期趨勢。")[:100],
-            "key_takeaway": "持續觀察各國央行政策路徑與主要產業財報指引。",
-            "source": a.get("source", "財經快訊"),
+            "title": c_title,
+            "category": c_cat,
+            "summary": c_summary[:130] + ("..." if len(c_summary) > 130 else ""),
+            "key_takeaway": takeaway,
+            "source": a.get("source", "權威報導"),
             "url": a.get("link", "#")
         })
         
@@ -170,7 +311,7 @@ def create_mock_newspaper(articles: List[Dict[str, Any]], config: Dict[str, Any]
                 "title": "美歐通膨數據趨緩 降息路徑成為市場關注焦點",
                 "category": "總經與財經",
                 "summary": "全球主要經濟體通膨指標呈現漸進回落，市場對貨幣政策寬鬆週期的預期升溫，資金流向新興市場。",
-                "key_takeaway": "實質利率下行有助於改善企業融資成本與流動性。",
+                "key_takeaway": "實質利率下行有助於改善企業融資成本與流動性環境。",
                 "source": "中央社",
                 "url": "#"
             },
@@ -184,38 +325,45 @@ def create_mock_newspaper(articles: List[Dict[str, Any]], config: Dict[str, Any]
             }
         ]
 
-    sidebars = []
-    for i, a in enumerate(sample_arts[6:10] if len(sample_arts) > 6 else []):
-        sidebars.append({
-            "title": a.get("title", f"全球速覽快訊 {i+1}"),
-            "category": a.get("category", "國際簡訊"),
-            "brief": a.get("summary", "全球主要區域政經局勢與產業最新進展速讀。")[:60],
-            "source": a.get("source", "國際編譯"),
+    # 3. Stock Market Items (Search scraped articles for financial/market ones)
+    stock_arts = []
+    used_links = {headline_art.get("link", "")} | {c.get("url", "") for c in cols}
+    
+    for a in sample_arts:
+        if a.get("link") in used_links:
+            continue
+        c_text = (a.get("title", "") + " " + a.get("summary", "")).lower()
+        if any(k in c_text for k in ["股", "產經", "財經", "台積電", "營收", "外資", "法人", "美股", "etf", "市場", "資本", "關稅", "車", "減產"]):
+            stock_arts.append(a)
+            used_links.add(a.get("link"))
+            if len(stock_arts) >= 3:
+                break
+                
+    stock_market = []
+    for i, a in enumerate(stock_arts):
+        s_title = a.get("title", "")
+        s_summary = a.get("summary", "")
+        # Dynamic tag
+        if "台" in s_title or "台積電" in s_title:
+            stag = "台股焦點 • 權值動態"
+        elif "美" in s_title or "關稅" in s_title:
+            stag = "全球市場 • 跨國經貿"
+        elif "車" in s_title or "製造" in s_title or "裁員" in s_title:
+            stag = "產業脈動 • 結構轉型"
+        else:
+            stag = "資本市場 • 焦點快訊"
+            
+        stock_market.append({
+            "title": s_title,
+            "market_tag": stag,
+            "summary": s_summary[:100] + ("..." if len(s_summary) > 100 else ""),
+            "trend_signal": _derive_takeaway(s_title, s_summary, "財經", i + 3),
+            "source": a.get("source", "財經快訊"),
             "url": a.get("link", "#")
         })
-    if not sidebars:
-        sidebars = [
-            {"title": "原油期貨窄幅震盪", "category": "大宗商品", "brief": "產油國減產協議與全球需求預測拉鋸，能源價格維持區間走勢。", "source": "鉅亨網", "url": "#"},
-            {"title": "加密資產機構資金穩定流入", "category": "Web3", "brief": "現貨 ETF 交易量平穩，鏈上活躍地址數創近期新高。", "source": "BlockTempo", "url": "#"},
-            {"title": "綠色能源供應鏈法規更新", "category": "國際局勢", "brief": "歐盟發布新版碳邊境機制細則，跨國製造業加緊低碳轉型。", "source": "BBC 中文", "url": "#"}
-        ]
-
-    return {
-        "headline": {
-            "title": headline_art.get("title", "AI 算力競逐與新地緣經濟秩序成形"),
-            "subtitle": "資本支出創新高之際，全球供應鏈韌性面臨全新考驗",
-            "category": headline_art.get("category", "科技與AI"),
-            "summary": headline_art.get("summary", "在技術快速迭代與資本高度集中的推動下，全球科技產業迎來全新分水嶺。市場一方面聚焦基礎建設投報率，另一方面也在密切評估技術外溢效應對整體生產力的長線提振。"),
-            "key_points": [
-                "先進製程與高頻寬記憶體需求持續超出預期",
-                "主權 AI 與資料在地化法規重塑跨國技術部署格局",
-                "企業端逐步由概念驗證 (PoC) 邁向規模化營運整合"
-            ],
-            "source": headline_art.get("source", "科技新報"),
-            "url": headline_art.get("link", "https://technews.tw/")
-        },
-        "columns": cols,
-        "stock_market": [
+        
+    if len(stock_market) < 3:
+        default_stocks = [
             {
                 "title": "台積電先進封裝產能緊俏 帶動半導體供應鏈營運動能強勁",
                 "market_tag": "台股焦點 • 權值龍頭",
@@ -228,7 +376,7 @@ def create_mock_newspaper(articles: List[Dict[str, Any]], config: Dict[str, Any]
                 "title": "美股 AI 巨頭資本支出上調 伺服器與高速傳輸概念股走揚",
                 "market_tag": "美股動態 • 科技七巨頭",
                 "summary": "微軟與亞馬遜等雲端巨頭維持高額 AI 基礎設施預算，帶動高頻寬記憶體與液冷散熱模組訂單能見度直達下半年度。",
-                "trend_signal": "科技股那斯達克指數維持多頭架構，留意聯準會降息步伐。",
+                "trend_signal": "科技股維持多頭架構，留意聯準會利率決策步伐。",
                 "source": "Yahoo 股市",
                 "url": "https://tw.stock.yahoo.com/"
             },
@@ -240,17 +388,57 @@ def create_mock_newspaper(articles: List[Dict[str, Any]], config: Dict[str, Any]
                 "source": "中央社",
                 "url": "https://feeds.feedburner.com/cnaFirstNews"
             }
-        ],
+        ]
+        stock_market.extend(default_stocks[len(stock_market):3])
+
+    # 4. Sidebar Items
+    sidebars = []
+    remaining_arts = [a for a in sample_arts if a.get("link") not in used_links]
+    for i, a in enumerate(remaining_arts[:5]):
+        sidebars.append({
+            "title": a.get("title", f"全球速覽快訊 {i+1}"),
+            "category": a.get("category", "國際簡訊"),
+            "brief": a.get("summary", "全球主要區域政經局勢與產業最新進展速讀。")[:65] + "...",
+            "source": a.get("source", "國際編譯"),
+            "url": a.get("link", "#")
+        })
+    if not sidebars:
+        sidebars = [
+            {"title": "原油期貨窄幅震盪", "category": "大宗商品", "brief": "產油國減產協議與全球需求預測拉鋸，能源價格維持區間走勢。", "source": "鉅亨網", "url": "#"},
+            {"title": "加密資產機構資金穩定流入", "category": "Web3", "brief": "現貨 ETF 交易量平穩，鏈上活躍地址數創近期新高。", "source": "BlockTempo", "url": "#"},
+            {"title": "綠色能源供應鏈法規更新", "category": "國際局勢", "brief": "歐盟發布新版碳邊境機制細則，跨國製造業加緊低碳轉型。", "source": "BBC 中文", "url": "#"}
+        ]
+
+    # 5. Dynamic Editorial
+    editorial_title = f"在變局中審視秩序：從「{h_title[:14]}」談起"
+    editorial_commentary = (
+        f"每日滾動的新聞標題往往充斥著即時的市場情緒與短期的焦慮。然而，當我們拉長時間軸審視「{h_title[:18]}」等重大發展，"
+        f"真正推動歷史齒輪的，從來不是單日幾百點的漲跌或即時的政治口水，而是底層制度規則的演進、地緣政治的再平衡，以及關鍵產業技術架構的質變。"
+        f"在資訊高度碎裂與算法洪流的今日，洞察本質與保持清醒思辨依然是面對未知週期最關鍵的定力。"
+    )
+
+    return {
+        "headline": {
+            "title": h_title,
+            "subtitle": h_subtitle,
+            "category": h_cat,
+            "summary": h_summary if h_summary else "在國際與產業變局交織的推動下，相關體系迎來全新分水嶺。市場一方面聚焦實質制度進展，另一方面也在密切評估外溢效應對整體長線發展的提振。",
+            "key_points": h_key_points,
+            "source": headline_art.get("source", "焦點特稿"),
+            "url": headline_art.get("link", "#")
+        },
+        "columns": cols,
+        "stock_market": stock_market,
         "sidebar": sidebars,
         "editorial": {
-            "title": "在嘈雜的算法洪流中，尋找沉澱的文明錨點",
+            "title": editorial_title,
             "author": "晨報首席主筆 / Editorial Board",
-            "commentary": "每日滾動的新聞標題往往充斥著市場的情緒與短期的焦慮。然而，當我們拉長時間軸審視，真正推動歷史齒輪的，從來不是單日幾百點的漲跌，而是底層技術架構的質變與制度規則的演進。在生成式智能鋪天蓋地的今日，人類社會最珍貴的資產依然是獨立思辨的定力與洞察本質的勇氣。看清週期，方能立於潮頭之上。",
+            "commentary": editorial_commentary,
             "quote": "「在資訊過剩的時代，清晰的思考就是最稀缺的權力。」"
         },
         "market_pulse": {
-            "sentiment": "技術創新與結構轉型交織",
-            "watch_topics": ["#AI代理生態", "#利率決議", "#半導體供應鏈", "#能源轉型"]
+            "sentiment": "地緣局勢與產業轉型交織博弈",
+            "watch_topics": [f"#{h_cat}", "#地緣安全", "#政策制度", "#產業轉型", "#資本流向"]
         }
     }
 

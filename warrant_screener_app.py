@@ -31,7 +31,11 @@ with tab1:
     st.subheader("1. 根據標的搜尋權證 (評分排行榜)")
     
     with st.form("search_form"):
-        stock_input = st.text_input("輸入股票代號 (例: 2330, 6187)", value="2330")
+        col_s1, col_s2 = st.columns([3, 1])
+        with col_s1:
+            stock_input = st.text_input("輸入股票代號、名稱或權證代號 (例: 2330, 6173, 信昌電, 700673)", value="2330")
+        with col_s2:
+            exclude_bad = st.checkbox("🚫 排除庫存不足標的", value=True, help="依主管機關 MOPS 造市專戶庫存不足 (<500張) 之名單進行排除，避免買到極端冷門流動性風險標的。若欲查看所有發行權證，請取消勾選。")
         search_btn = st.form_submit_button("搜尋高分排行榜 (支援 Enter)", type="primary", use_container_width=True)
     
     if search_btn and not df_market.empty:
@@ -51,13 +55,14 @@ with tab1:
             stock_warrants = df_market[
                 (df_market['stock_id'] == target_code) | 
                 (df_market['stock_id'] == stock_input_str) | 
+                (df_market['w_code'].astype(str) == stock_input_str) |
                 (df_market['w_name'].str.contains(stock_input_str, na=False))
             ]
             
             if stock_warrants.empty:
                 st.warning("找不到該標的的相關權證，請確認代號或名稱是否正確。")
             else:
-                # 若使用者輸入中文名稱，自動從配對到的權證中取出正確的標的數字代號
+                # 若使用者輸入中文名稱或權證代號，自動從配對到的權證中取出正確的標的數字代號
                 actual_sid = stock_warrants['stock_id'].iloc[0]
                 price, sigma, sid = warrant_engine.get_stock_info(actual_sid)
                 
@@ -74,19 +79,29 @@ with tab1:
                     df_scored = warrant_engine.calculate_warrant_metrics(stock_warrants, price, sigma)
                     
                     if not df_scored.empty:
-                        # 取得並排除造市專戶庫存不足之權證 (流動性極差的黑名單)
-                        bad_warrants = get_cached_bad_warrants()
-                        if bad_warrants:
+                        total_found_raw = len(df_scored)
+                        bad_warrants = get_cached_bad_warrants() or set()
+                        
+                        # 標註造市庫存狀態
+                        df_scored['造市狀態'] = df_scored['代號'].astype(str).apply(
+                            lambda x: '⚠️ 庫存不足' if x in bad_warrants else '✅ 正常'
+                        )
+                        
+                        # 若勾選排除造市庫存不足之標的
+                        if exclude_bad and bad_warrants:
+                            bad_count = len(df_scored[df_scored['代號'].astype(str).isin(bad_warrants)])
                             df_scored = df_scored[~df_scored['代號'].astype(str).isin(bad_warrants)]
+                            if bad_count > 0:
+                                st.info(f"💡 提醒：本標的共有 {total_found_raw} 檔發行權證，其中 **{bad_count}** 檔因造市商專戶庫存不足 (<500張) 已自動為您過濾。如需檢視全部標的，可取消勾選上方「🚫 排除庫存不足標的」。")
                         
                         if not df_scored.empty:
                             total_found = len(df_scored)
                             df_scored = df_scored.reset_index(drop=True).head(50)
                             
                             if total_found > 50:
-                                st.write(f"🔍 篩選結果：共找到 {total_found} 檔有效權證 (已排除庫存不足之極端標的，依推薦分排序，顯示前 50 名)：")
+                                st.write(f"🔍 篩選結果：共找到 {total_found} 檔有效權證 (依推薦分排序，顯示前 50 名)：")
                             else:
-                                st.write(f"🔍 篩選結果：共找到 {total_found} 檔有效權證 (已排除庫存不足之極端標的，全數列出並依推薦分排序)：")
+                                st.write(f"🔍 篩選結果：共找到 {total_found} 檔有效權證 (全數列出並依推薦分排序)：")
                             
                             # --- 新增：針對前 5 名抓取真實收盤價 ---
                             actual_prices = []
@@ -125,8 +140,8 @@ with tab1:
                             df_scored['市場收盤價'] = actual_prices
                             df_scored['折溢價(%)'] = premiums
                             
-                            # 重新排列欄位，強調關鍵參數 (往左集中)，包含價內程度與折溢價
-                            cols = ['代號', '名稱', '履約價', '價內程度(%)', '理論價', '市場收盤價', '折溢價(%)', '剩餘天數', '實質槓桿', '綜合評分', '認購/售', '市場', '行使比例']
+                            # 重新排列欄位，強調關鍵參數 (往左集中)，包含價內程度、折溢價與造市狀態
+                            cols = ['代號', '名稱', '履約價', '價內程度(%)', '理論價', '市場收盤價', '折溢價(%)', '剩餘天數', '實質槓桿', '綜合評分', '造市狀態', '認購/售', '市場', '行使比例']
                             df_display = df_scored[cols]
                             
                             def highlight_score(val):
@@ -142,11 +157,16 @@ with tab1:
                                     return f'color: {color}'
                                 except: return ''
 
-                            styled_df = df_display.style.map(highlight_score, subset=['綜合評分']).map(highlight_premium, subset=['折溢價(%)'])
+                            def highlight_status(val):
+                                if '不足' in str(val):
+                                    return 'color: #CD5C5C; font-weight: bold'
+                                return 'color: #2E8B57'
+
+                            styled_df = df_display.style.map(highlight_score, subset=['綜合評分']).map(highlight_premium, subset=['折溢價(%)']).map(highlight_status, subset=['造市狀態'])
                             
                             st.dataframe(styled_df, use_container_width=True, hide_index=True)
                         else:
-                            st.warning("目前無符合任何有效分數計算條件的權證。")
+                            st.warning("目前無符合條件之權證（該標的之所有發行權證皆在庫存不足名單中）。您可以取消勾選上方「🚫 排除庫存不足標的」以檢視所有權證！")
                     else:
                         st.warning("未能計算出有效評分。")
 
@@ -162,10 +182,25 @@ with tab2:
     
     if diag_btn and w_input and not df_market.empty:
         with st.spinner("診斷資料與指標分析中..."):
-            target_w = df_market[df_market['w_code'] == w_input.strip()]
+            raw_w_input = w_input.strip()
+            target_w = df_market[df_market['w_code'] == raw_w_input]
             
             if target_w.empty:
-                st.error(f"在全市場資料中找不到權證：{w_input}，請確認代號。")
+                # 檢查使用者是否誤輸入了股票標的代號 (例如 6173 或 2330)
+                stock_map = warrant_engine.get_stock_mapping()
+                potential_warrants = df_market[
+                    (df_market['stock_id'] == raw_w_input) |
+                    (df_market['w_name'].str.contains(raw_w_input, na=False))
+                ]
+                if not potential_warrants.empty:
+                    st.warning(f"⚠️ 您輸入的「{raw_w_input}」是股票標的代號（共找到 {len(potential_warrants)} 檔相關發行權證），而非單一 6 位數權證代號！")
+                    st.info("👉 建議您直接至「🔎 標的篩選推薦」分頁依推薦分篩選；或參考下方該標的之權證清單，複製其 6 位數代號在此執行單點診斷：")
+                    preview_df = potential_warrants[['w_code', 'w_name', 'strike', 'ratio', 'expiry', 'market']].rename(
+                        columns={'w_code': '權證代號', 'w_name': '權證簡稱', 'strike': '履約價', 'ratio': '行使比例', 'expiry': '到期日', 'market': '市場'}
+                    )
+                    st.dataframe(preview_df, use_container_width=True, hide_index=True)
+                else:
+                    st.error(f"在全市場資料中找不到權證：{raw_w_input}，請確認代號。")
             else:
                 w_row = target_w.iloc[0]
                 stock_id = w_row['stock_id']

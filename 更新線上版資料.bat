@@ -17,7 +17,8 @@ echo.
 echo =========================================
 git add warrants_data.json
 git commit -m "Auto-update warrants data"
-git push
+git pull --rebase origin main
+git push origin main
 
 echo.
 echo =========================================

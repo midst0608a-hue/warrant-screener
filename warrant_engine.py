@@ -102,6 +102,44 @@ def get_otc_stock_codes():
     return _OTC_STOCK_CODES
 
 # --- 2. 標的報價獲取 ---
+def _fetch_fallback_tw_price(stock_id):
+    """Fallback price fetcher using TWSE/TPEx real-time MIS API and Yahoo Taiwan Web API."""
+    stock_id = str(stock_id).strip()
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+    
+    # 1. TWSE / TPEx official MIS API (instant & reliable)
+    try:
+        url = f"https://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=otc_{stock_id}.tw|tse_{stock_id}.tw&json=1&delay=0"
+        r = requests.get(url, timeout=4, headers=headers)
+        if r.status_code == 200:
+            data = r.json()
+            for item in data.get('msgArray', []):
+                p_str = item.get('z') or item.get('y')
+                if p_str and p_str != '-':
+                    p = float(p_str)
+                    if p > 0:
+                        return p
+    except Exception:
+        pass
+
+    # 2. Yahoo TW Stock Web API
+    for suffix in ['.TWO', '.TW']:
+        try:
+            url = f"https://tw.stock.yahoo.com/_td-stock/api/resource/StockServices.stockList;symbols={stock_id}{suffix}"
+            r = requests.get(url, timeout=4, headers=headers)
+            if r.status_code == 200:
+                res = r.json()
+                items = res.get('list', [])
+                if items:
+                    p = items[0].get('price')
+                    if p and float(p) > 0:
+                        return float(p)
+        except Exception:
+            pass
+            
+    return None
+
+
 def get_stock_info(stock_id):
     stock_id = str(stock_id).strip()
     
@@ -128,8 +166,16 @@ def get_stock_info(stock_id):
             if not hist.empty:
                 p = hist['Close'].iloc[-1]
                 sig = np.log(hist['Close'] / hist['Close'].shift(1)).std() * np.sqrt(252)
-                return p, sig, stock_id
-        except: continue
+                if p and float(p) > 0:
+                    return float(p), (float(sig) if not np.isnan(sig) and sig > 0 else 0.35), stock_id
+        except Exception:
+            continue
+            
+    # 若 yfinance 遭遇封鎖或超時，自動啟動 TWSE MIS / Yahoo TW 備援機制
+    fallback_price = _fetch_fallback_tw_price(stock_id)
+    if fallback_price is not None:
+        return fallback_price, 0.35, stock_id
+        
     return None, 0.3, stock_id
 
 # --- 3. 獲取全市場權證資料 (結合規格) ---

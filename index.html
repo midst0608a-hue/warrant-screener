@@ -1,0 +1,2801 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="sepia">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE DAILY TIMES • 2026 年 09 月 07 日</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Noto+Serif+TC:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & THEMES (Vintage Broadside, Crisp Light, Midnight Dark)
+       ========================================================================== */
+    :root, [data-theme="sepia"] {
+      --bg-canvas: #f6f1e8;
+      --bg-paper: #faf6f0;
+      --bg-card: #f2ece1;
+      --bg-card-highlight: #e9e0d1;
+      --text-main: #1c1815;
+      --text-muted: #5e554d;
+      --text-faint: #8a7e72;
+      --border-color: #2b2622;
+      --border-light: #d6ccbf;
+      --accent: #8b1e1e;
+      --accent-hover: #a82424;
+      --highlight: #d4a359;
+      --font-masthead: 'Cinzel', 'Noto Serif TC', serif;
+      --font-serif: 'Newsreader', 'Noto Serif TC', Georgia, serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --shadow-paper: 0 10px 30px rgba(43, 38, 34, 0.08);
+    }
+
+    [data-theme="light"] {
+      --bg-canvas: #eef1f5;
+      --bg-paper: #ffffff;
+      --bg-card: #f8fafc;
+      --bg-card-highlight: #f1f5f9;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-faint: #94a3b8;
+      --border-color: #0f172a;
+      --border-light: #cbd5e1;
+      --accent: #1e3a8a;
+      --accent-hover: #2563eb;
+      --highlight: #0284c7;
+      --shadow-paper: 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    [data-theme="dark"] {
+      --bg-canvas: #121316;
+      --bg-paper: #1a1b1f;
+      --bg-card: #22242a;
+      --bg-card-highlight: #2c2f37;
+      --text-main: #f1f3f7;
+      --text-muted: #9ba3af;
+      --text-faint: #646b79;
+      --border-color: #4b5262;
+      --border-light: #323642;
+      --accent: #e06c75;
+      --accent-hover: #ff7b86;
+      --highlight: #e5c07b;
+      --shadow-paper: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ==========================================================================
+       BASE & RESET
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: var(--font-serif);
+      font-size: 15.5px;
+      line-height: 1.68;
+      padding: 30px 15px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       CONTAINER & BROADSHEET LAYOUT
+       ========================================================================== */
+    .newspaper-wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      background-color: var(--bg-paper);
+      padding: 36px 44px;
+      box-shadow: var(--shadow-paper);
+      border: 1px solid var(--border-light);
+      position: relative;
+    }
+
+    /* ==========================================================================
+       TOOLBAR & ACTIONS (Top Floating Bar)
+       ========================================================================== */
+    .top-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      border-bottom: 1px dashed var(--border-light);
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--text-muted);
+    }
+
+    .pulse-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .tool-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      color: var(--text-main);
+      padding: 4px 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tool-btn:hover {
+      background: var(--bg-card-highlight);
+      border-color: var(--border-color);
+    }
+
+    /* ==========================================================================
+       AUTHENTIC NEWSPAPER HEADER & MASTHEAD
+       ========================================================================== */
+    .header-ticker {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 6px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      font-size: 12px;
+      font-family: var(--font-sans);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .ticker-center {
+      text-align: center;
+      font-style: italic;
+      font-family: var(--font-serif);
+      color: var(--accent);
+    }
+
+    .ticker-right {
+      text-align: right;
+    }
+
+    .masthead-main {
+      text-align: center;
+      padding: 24px 0 16px 0;
+    }
+
+    .sub-brand {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .main-title {
+      font-family: var(--font-masthead);
+      font-size: clamp(38px, 6.5vw, 76px);
+      font-weight: 900;
+      letter-spacing: 2px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: var(--text-main);
+      text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+    }
+
+    .chinese-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 700;
+      letter-spacing: 12px;
+      margin-top: 4px;
+      color: var(--text-muted);
+    }
+
+    .motto-bar {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .motto-bar::before, .motto-bar::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-light), transparent);
+    }
+
+    .header-infobar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      margin-top: 8px;
+      border-top: 4px double var(--border-color);
+      border-bottom: 2px solid var(--border-color);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================================
+       BREAKING / MARKET PULSE BAR
+       ========================================================================== */
+    .market-pulse-ribbon {
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-light);
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .pulse-label {
+      font-weight: 700;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .pulse-sentiment {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--text-main);
+    }
+
+    .pulse-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .pulse-tag {
+      background: var(--bg-card-highlight);
+      padding: 3px 10px;
+      border-radius: 3px;
+      font-size: 11.5px;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      cursor: pointer;
+      border: 1px solid var(--border-light);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .pulse-tag:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 3px 8px rgba(139, 30, 30, 0.2);
+    }
+
+    .pulse-tag::after {
+      content: " ↗";
+      font-size: 9px;
+      opacity: 0.7;
+    }
+
+    .custom-topic-input {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-light);
+      color: var(--text-main);
+      padding: 3px 8px;
+      font-size: 11px;
+      font-family: var(--font-serif);
+      border-radius: 3px;
+      outline: none;
+      width: 140px;
+      transition: width 0.2s, border-color 0.2s;
+    }
+
+    .custom-topic-input:focus {
+      width: 190px;
+      border-color: var(--accent);
+    }
+
+    /* ==========================================================================
+       MARKET LINKAGE CALLOUT (關鍵市場指標連動情報盒)
+       ========================================================================== */
+    .market-linkage-box {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: rgba(184, 92, 56, 0.05);
+      border-left: 3px solid var(--accent);
+      border-top: 1px solid var(--border-light);
+      border-right: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      border-radius: 2px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .linkage-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    .linkage-tag {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #fff;
+      background: var(--accent);
+      padding: 2px 6px;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+
+    .linkage-name {
+      font-family: var(--font-serif);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .linkage-trend {
+      color: var(--text-main);
+      margin-bottom: 4px;
+      font-size: 12.5px;
+    }
+
+    .linkage-spillover {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .linkage-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 2px;
+    }
+
+    .linkage-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(184, 92, 56, 0.25);
+    }
+
+    /* ==========================================================================
+       INTERACTIVE DEEP DIVE MODAL (特刊號彈窗)
+       ========================================================================== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 18, 16, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--bg-paper);
+      color: var(--text-main);
+      border: 2px solid var(--border-color);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      max-width: 860px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 36px 40px;
+      position: relative;
+      background-image: radial-gradient(var(--border-light) 0.5px, transparent 0.5px);
+      background-size: 12px 12px;
+      animation: modalSlideUp 0.3s ease-out;
+    }
+
+    @keyframes modalSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
+      font-size: 18px;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .modal-masthead {
+      text-align: center;
+      border-bottom: 3px double var(--border-color);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .modal-badge {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .modal-title {
+      font-family: var(--font-masthead);
+      font-size: 26px;
+      font-weight: 900;
+      margin: 4px 0 6px 0;
+    }
+
+    .modal-meta {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .modal-body {
+      font-size: 15.5px;
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    .modal-body h4 {
+      font-family: var(--font-masthead);
+      font-size: 17px;
+      color: var(--accent);
+      margin: 18px 0 8px 0;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+    }
+
+    .modal-body p {
+      margin-bottom: 14px;
+    }
+
+    .modal-body ul {
+      margin: 10px 0 16px 20px;
+    }
+
+    .modal-body li {
+      margin-bottom: 6px;
+    }
+
+    .modal-spinner {
+      text-align: center;
+      padding: 30px 0;
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .spinner-ring {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      border: 3px solid var(--border-light);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 1s infinite linear;
+      margin-bottom: 12px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border-light);
+    }
+
+    /* Modal Search Results & AI Deep Dive Layout */
+    .modal-section-title {
+      font-family: var(--font-masthead);
+      font-size: 16.5px;
+      font-weight: 800;
+      color: var(--accent);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 6px;
+      margin: 22px 0 14px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-section-title:first-child {
+      margin-top: 0;
+    }
+
+    .search-results-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .search-result-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      padding: 14px 16px;
+      border-radius: 3px;
+      transition: all 0.2s ease;
+    }
+
+    .search-result-card:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-highlight);
+    }
+
+    .search-result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      color: var(--text-faint);
+    }
+
+    .search-result-badge {
+      background: var(--accent);
+      color: #fff;
+      padding: 1px 7px;
+      border-radius: 2px;
+      font-weight: 700;
+      font-size: 10.5px;
+    }
+
+    .search-result-title {
+      font-family: var(--font-serif);
+      font-size: 16.5px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .search-result-title a {
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .search-result-title a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .search-result-snippet {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    .search-highlight {
+      background-color: #ffe082;
+      color: #1a1a1a;
+      padding: 1px 4px;
+      border-radius: 2px;
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .search-highlight {
+      background-color: #d4a359;
+      color: #000;
+    }
+
+    .api-key-prompt-card {
+      background: var(--bg-card);
+      border: 1.5px dashed var(--accent);
+      padding: 22px 24px;
+      border-radius: 4px;
+      margin: 16px 0;
+    }
+
+    .api-key-prompt-card h4 {
+      font-family: var(--font-masthead);
+      font-size: 16px;
+      color: var(--accent);
+      margin: 0 0 8px 0;
+      border: none;
+      padding: 0;
+    }
+
+    .api-key-prompt-card p {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .api-key-input-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .api-key-input-field {
+      flex: 1;
+      min-width: 260px;
+      height: 38px;
+      padding: 0 12px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-paper);
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      border-radius: 2px;
+    }
+
+    .api-error-card {
+      background: rgba(184, 30, 30, 0.08);
+      border: 1px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin: 16px 0;
+    }
+
+    /* Feedback & Preferences UI */
+    .card-feedback-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: auto;
+    }
+
+    .fb-thumb-btn {
+      background: none;
+      border: 1px solid var(--border-light);
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 11px;
+      padding: 1px 5px;
+      color: var(--text-muted);
+      opacity: 0.6;
+      transition: all 0.2s;
+    }
+
+    .fb-thumb-btn:hover {
+      opacity: 1;
+      border-color: var(--accent);
+      background: rgba(184, 92, 56, 0.1);
+      transform: scale(1.1);
+    }
+
+    .fb-thumb-btn.active {
+      opacity: 1;
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .toast-notification {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #23201d;
+      color: #f7f4ee;
+      padding: 12px 20px;
+      border-radius: 6px;
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      z-index: 100000;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      animation: fadeInToast 0.3s ease-out;
+    }
+
+    @keyframes fadeInToast {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .pref-textarea {
+      width: 100%;
+      height: 90px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      padding: 10px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-main);
+      box-sizing: border-box;
+      resize: vertical;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .pref-textarea:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .pref-chip-group {
+      margin-top: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      padding: 12px 14px;
+      border-radius: 4px;
+    }
+
+    .pref-chip-title {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .pref-tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .pref-chip {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-family: var(--font-sans);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT GRID (Broadsheet 3-Column Partition)
+       ========================================================================== */
+    .newspaper-grid {
+      display: grid;
+      grid-template-columns: 2.3fr 1.6fr 1.1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ==========================================================================
+       STOCK MARKET HIGHLIGHTS (股市與資本市場專區)
+       ========================================================================== */
+    .stock-market-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-top: 3px solid var(--accent);
+      padding: 18px 20px;
+      margin-bottom: 24px;
+    }
+
+    .stock-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 6px;
+      margin-bottom: 14px;
+    }
+
+    .stock-section-header h3 {
+      font-family: var(--font-masthead);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--accent);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stock-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .stock-card {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-light);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stock-tag {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .stock-title {
+      font-family: var(--font-masthead);
+      font-size: 14.5px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .stock-summary {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .stock-signal {
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      background: var(--bg-card-highlight);
+      padding: 4px 8px;
+      border-left: 2px solid var(--highlight);
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .stock-footer {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      color: var(--text-faint);
+    }
+
+    @media (max-width: 900px) {
+      .stock-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+
+    /* Column Dividers */
+    .col-headline {
+      padding-right: 28px;
+      border-right: 1px solid var(--border-light);
+    }
+
+    .col-stories {
+      padding-right: 28px;
+      border-right: 1px solid var(--border-light);
+    }
+
+    .col-sidebar {
+      padding-left: 4px;
+    }
+
+    /* ==========================================================================
+       HEADLINE ARTICLE (Hero Section)
+       ========================================================================== */
+    .headline-card {
+      margin-bottom: 30px;
+    }
+
+    .category-badge {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 2px;
+      margin-bottom: 10px;
+    }
+
+    .headline-title {
+      font-family: var(--font-masthead);
+      font-size: clamp(26px, 3.2vw, 38px);
+      font-weight: 900;
+      line-height: 1.18;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .headline-subtitle {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 18px;
+      border-left: 3px solid var(--border-color);
+      padding-left: 12px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-faint);
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .meta-source {
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    /* Drop Cap for Headline */
+    .headline-summary {
+      font-size: 16.5px;
+      line-height: 1.75;
+      text-align: justify;
+      margin-bottom: 20px;
+      color: var(--text-main);
+    }
+
+    .headline-summary::first-letter {
+      float: left;
+      font-family: var(--font-masthead);
+      font-size: 3.8em;
+      line-height: 0.82;
+      padding-top: 4px;
+      padding-right: 10px;
+      padding-bottom: 2px;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .key-points-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+
+    .key-points-box h4 {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .key-points-list {
+      list-style: none;
+    }
+
+    .key-points-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 8px;
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
+
+    .key-points-list li::before {
+      content: "♦";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 11px;
+      top: 1px;
+    }
+
+    .source-action-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 14px;
+    }
+
+    .read-orig-link {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .read-orig-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       EDITORIAL / CHIEF COLUMNIST OPINION
+       ========================================================================== */
+    .editorial-section {
+      background: var(--bg-card);
+      border: 2px solid var(--border-color);
+      padding: 24px;
+      position: relative;
+      margin-top: 24px;
+      background-image: radial-gradient(var(--border-light) 0.75px, transparent 0.75px);
+      background-size: 16px 16px;
+    }
+
+    .editorial-badge {
+      font-family: var(--font-masthead);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .editorial-title {
+      font-family: var(--font-masthead);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .editorial-author {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      display: block;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 8px;
+    }
+
+    .editorial-body {
+      font-size: 14.8px;
+      line-height: 1.75;
+      text-align: justify;
+      color: var(--text-main);
+    }
+
+    .editorial-quote {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: var(--bg-paper);
+      border-left: 3px solid var(--accent);
+      font-style: italic;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    /* ==========================================================================
+       COLUMN STORIES (Middle Grid)
+       ========================================================================== */
+    .section-header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 4px;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .section-header h3 {
+      font-family: var(--font-masthead);
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .story-item {
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .story-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .story-title {
+      font-family: var(--font-masthead);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .story-summary {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      text-align: justify;
+    }
+
+    .story-takeaway {
+      font-size: 13px;
+      font-family: var(--font-sans);
+      background: var(--bg-card);
+      padding: 6px 10px;
+      border-radius: 2px;
+      color: var(--text-muted);
+      border-left: 2px solid var(--highlight);
+      margin-bottom: 8px;
+    }
+
+    .story-takeaway strong {
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    .story-footer {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      color: var(--text-faint);
+    }
+
+    /* ==========================================================================
+       SIDEBAR & BULLETINS (Right Grid)
+       ========================================================================== */
+    .sidebar-item {
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      border-bottom: 1px dashed var(--border-light);
+    }
+
+    .sidebar-item:last-child {
+      border-bottom: none;
+    }
+
+    .sidebar-category {
+      font-family: var(--font-sans);
+      font-size: 10.5px;
+      font-weight: 800;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .sidebar-title {
+      font-family: var(--font-serif);
+      font-size: 14.5px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin: 2px 0 4px 0;
+    }
+
+    .sidebar-brief {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .sidebar-source {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      color: var(--text-faint);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Classic Quote Widget */
+    .classic-quote-box {
+      margin-top: 24px;
+      border: 1px solid var(--border-color);
+      padding: 16px;
+      text-align: center;
+      background: var(--bg-card);
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+
+    .ornament-divider {
+      text-align: center;
+      color: var(--text-faint);
+      font-size: 13px;
+      margin: 16px 0;
+      letter-spacing: 6px;
+    }
+
+    /* ==========================================================================
+       AUTHENTIC NEWSPAPER FOOTER
+       ========================================================================== */
+    .newspaper-footer {
+      margin-top: 36px;
+      padding-top: 16px;
+      border-top: 3px double var(--border-color);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .footer-center {
+      text-align: center;
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE & PRINT MEDIA QUERIES
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .newspaper-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      .col-headline {
+        grid-column: span 2;
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 24px;
+      }
+      .col-stories {
+        padding-right: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .newspaper-wrapper {
+        padding: 20px 16px;
+      }
+      .newspaper-grid {
+        grid-template-columns: 1fr;
+      }
+      .col-headline, .col-stories, .col-sidebar {
+        grid-column: span 1;
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+        padding-bottom: 24px;
+      }
+      .header-ticker, .header-infobar, .newspaper-footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 6px;
+      }
+      .ticker-right, .footer-right {
+        text-align: center;
+      }
+      .market-pulse-ribbon {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+
+    /* Print Stylesheet for authentic paper export */
+    @media print {
+      body {
+        background: none;
+        color: #000;
+        padding: 0;
+        font-size: 12pt;
+      }
+      .top-toolbar, .tool-btn {
+        display: none !important;
+      }
+      .newspaper-wrapper {
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+        padding: 0;
+      }
+      a {
+        text-decoration: none !important;
+        color: #000 !important;
+      }
+      .newspaper-grid {
+        grid-template-columns: 2.2fr 1.6fr 1.2fr;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="newspaper-wrapper">
+    
+    <!-- Top Interactive Toolbar -->
+    <div class="top-toolbar">
+      <div class="toolbar-left">
+        <span><span class="pulse-dot"></span> 自動排版系統已就緒</span>
+        <span>•</span>
+        <span>出刊生成：2026-09-07 08:07:48 (UTC+8)</span>
+      </div>
+      <div class="toolbar-actions">
+        <button class="tool-btn" id="recurateBtn" onclick="openRecurateModal()" style="border-color:var(--accent); color:var(--accent); font-weight:700;">🔄 重新篩選出刊</button>
+        <button class="tool-btn" onclick="openPreferencesModal()">⚙️ 審稿偏好與回饋</button>
+        <button class="tool-btn" onclick="setTheme('sepia')">📜 復古</button>
+        <button class="tool-btn" onclick="setTheme('light')">☀️ 現代</button>
+        <button class="tool-btn" onclick="setTheme('dark')">🌙 夜讀</button>
+        <button class="tool-btn" onclick="window.print()">🖨️ 列印 / PDF</button>
+      </div>
+    </div>
+
+    <!-- Header Ticker -->
+    <div class="header-ticker">
+      <div>📍 TAIPEI / GLOBAL EDITION</div>
+      <div class="ticker-center">“Veritas Vos Liberabit • 洞悉全局 觀點領航”</div>
+      <div class="ticker-right">售價：NT$ 20 / FREE OPEN ACCESS</div>
+    </div>
+
+    <!-- Masthead Main Title -->
+    <header class="masthead-main">
+      <div class="sub-brand">ESTABLISHED INTELLIGENCE • MORNING CHRONICLE</div>
+      <h1 class="main-title">THE DAILY TIMES</h1>
+      <div class="chinese-title">每日時代早報</div>
+      <div class="motto-bar">
+        <span>客觀視角 • 全球脈動 • 深度評論</span>
+      </div>
+    </header>
+
+    <!-- Info / Issue Bar -->
+    <div class="header-infobar">
+      <div>2026 年 09 月 07 日</div>
+      <div>星期一 (Monday)</div>
+      <div>第 106 卷 • 第 250 期</div>
+      <div>AI 編審模型：gemini-2.0-flash</div>
+    </div>
+
+    <!-- Market Pulse / Global Sentiment Banner -->
+    <div class="market-pulse-ribbon">
+      <div class="pulse-label">
+        <span>⚡ 今日局勢脈動</span>
+        <span class="pulse-sentiment">— 地緣局勢與產業轉型交織博弈</span>
+      </div>
+      <div class="pulse-tags">
+        <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">點擊標籤即時深度剖析：</span>
+        
+        <span class="pulse-tag" onclick="triggerDeepDive('#政治與公共政策')">#政治與公共政策</span>
+        
+        <span class="pulse-tag" onclick="triggerDeepDive('#地緣安全')">#地緣安全</span>
+        
+        <span class="pulse-tag" onclick="triggerDeepDive('#政策制度')">#政策制度</span>
+        
+        <span class="pulse-tag" onclick="triggerDeepDive('#產業轉型')">#產業轉型</span>
+        
+        <span class="pulse-tag" onclick="triggerDeepDive('#資本流向')">#資本流向</span>
+        
+        <form onsubmit="event.preventDefault(); triggerDeepDive(document.getElementById('customTopic').value);" style="display:inline-flex; align-items:center; gap:6px; margin-left:6px;">
+          <input type="text" id="customTopic" class="custom-topic-input" placeholder="🔍 搜尋新聞 / 自訂專題 (Enter)..." />
+          <button type="submit" class="tool-btn" style="height:28px; padding:0 10px; font-size:11.5px; font-weight:700;">搜尋</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Stock Market & Equities Feature (3 Key Articles) -->
+    
+    <section class="stock-market-section">
+      <div class="stock-section-header">
+        <h3>📈 股市與資本市場焦點 • EQUITIES & MARKET WATCH</h3>
+        <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">即時行情與籌碼脈動</span>
+      </div>
+      <div class="stock-grid">
+        
+        <article class="stock-card">
+          <div>
+            <div class="stock-tag">台股焦點 • 權值動態</div>
+            <h4 class="stock-title">
+              <a href="https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E6%95%99%E6%88%B01-%E5%8F%B0%E8%82%A1%E8%BF%8E55%E5%A4%A9%E9%97%9C%E9%8D%B5%E8%BD%89%E6%8A%98-%E5%AE%88%E4%BD%8F-%E9%80%99%E6%A2%9D%E7%B7%9A-%E6%9C%89%E6%9C%9B%E6%8C%91%E6%88%B052-233001450.html" target="_blank" rel="noopener noreferrer">台股教戰1／台股迎55天關鍵轉折 守住「這條線」有望挑戰52,373點</a>
+            </h4>
+            <p class="stock-summary">加權指數來到55天週期轉折點，又碰上平行軌道線上緣，明道大學商管學院前院長、冠永騰國際投資部顧問林原勗指出，若多頭續強，指數下個目標將上看52,373點；若攻高無力，就要留意回測44,309點是否有撐</p>
+          </div>
+          <div>
+            
+            <div class="stock-signal">
+              <strong>信號：</strong>持續關注「台股教戰1／台股迎55天關鍵」後續事態發展與相關領域之實質效應。
+            </div>
+            
+            <div class="stock-footer">
+              <span>來源：Yahoo 股市 - 台股與美股焦點</span>
+              <div class="card-feedback-actions">
+                <button type="button" class="fb-thumb-btn" title="我想多看這類股市焦點" onclick="quickFeedback('like', '台股教戰1／台股迎55天關鍵轉折 守住「這條線」有望挑戰52,373點', '台股焦點 • 權值動態')">👍 多看</button>
+                <button type="button" class="fb-thumb-btn" title="減少這類股市焦點" onclick="quickFeedback('dislike', '台股教戰1／台股迎55天關鍵轉折 守住「這條線」有望挑戰52,373點', '台股焦點 • 權值動態')">👎 減少</button>
+              </div>
+              <a href="https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E6%95%99%E6%88%B01-%E5%8F%B0%E8%82%A1%E8%BF%8E55%E5%A4%A9%E9%97%9C%E9%8D%B5%E8%BD%89%E6%8A%98-%E5%AE%88%E4%BD%8F-%E9%80%99%E6%A2%9D%E7%B7%9A-%E6%9C%89%E6%9C%9B%E6%8C%91%E6%88%B052-233001450.html" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">看盤/原文 ↗</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="stock-card">
+          <div>
+            <div class="stock-tag">台股焦點 • 權值動態</div>
+            <h4 class="stock-title">
+              <a href="https://www.cna.com.tw/news/afe/202609060169.aspx" target="_blank" rel="noopener noreferrer">化解台積電3奈米廠出走危機 陳良基出書談4年入閣心路</a>
+            </h4>
+            <p class="stock-summary">（中央社記者謝怡璇台北6日電）前科技部長陳良基今天舉辦新書分享會，回顧4年入閣心路。他表示，憑藉知識分子的理想與良心，成功在政壇證明理想與現實可以兼得，並曾化解台積電3奈米廠出走危機。他期盼，藉此書向...</p>
+          </div>
+          <div>
+            
+            <div class="stock-signal">
+              <strong>信號：</strong>關注重大公共政策推進節奏與社會各界民意權益之平衡溝通。
+            </div>
+            
+            <div class="stock-footer">
+              <span>來源：中央社 - 產經與金融焦點</span>
+              <div class="card-feedback-actions">
+                <button type="button" class="fb-thumb-btn" title="我想多看這類股市焦點" onclick="quickFeedback('like', '化解台積電3奈米廠出走危機 陳良基出書談4年入閣心路', '台股焦點 • 權值動態')">👍 多看</button>
+                <button type="button" class="fb-thumb-btn" title="減少這類股市焦點" onclick="quickFeedback('dislike', '化解台積電3奈米廠出走危機 陳良基出書談4年入閣心路', '台股焦點 • 權值動態')">👎 減少</button>
+              </div>
+              <a href="https://www.cna.com.tw/news/afe/202609060169.aspx" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">看盤/原文 ↗</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="stock-card">
+          <div>
+            <div class="stock-tag">台股焦點 • 權值動態</div>
+            <h4 class="stock-title">
+              <a href="https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E6%95%99%E6%88%B02-%E5%8F%B0%E8%82%A146-000%E9%AB%98%E6%AA%94%E9%9C%87%E7%9B%AA-%E5%B0%88%E5%AE%B6%E9%BB%9E%E5%90%8D-10%E6%9C%88-233000724.html" target="_blank" rel="noopener noreferrer">台股教戰2／台股46,000高檔震盪 專家點名「10月」低接時機、4族群先卡位</a>
+            </h4>
+            <p class="stock-summary">台股高檔震盪，指數雖一度衝上46,948點後拉回，但上週五重新站回46,000點，盤勢未明顯轉弱。法人指出，短線仍受到美股、聯準會政策及11月美國期中選舉等變數干擾，行情恐持續來回震盪；而從過去選舉行</p>
+          </div>
+          <div>
+            
+            <div class="stock-signal">
+              <strong>信號：</strong>地方治理實務考驗政治人物面對危機之承擔力與政策落實透明度。
+            </div>
+            
+            <div class="stock-footer">
+              <span>來源：Yahoo 股市 - 台股與美股焦點</span>
+              <div class="card-feedback-actions">
+                <button type="button" class="fb-thumb-btn" title="我想多看這類股市焦點" onclick="quickFeedback('like', '台股教戰2／台股46,000高檔震盪 專家點名「10月」低接時機、4族群先卡位', '台股焦點 • 權值動態')">👍 多看</button>
+                <button type="button" class="fb-thumb-btn" title="減少這類股市焦點" onclick="quickFeedback('dislike', '台股教戰2／台股46,000高檔震盪 專家點名「10月」低接時機、4族群先卡位', '台股焦點 • 權值動態')">👎 減少</button>
+              </div>
+              <a href="https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E6%95%99%E6%88%B02-%E5%8F%B0%E8%82%A146-000%E9%AB%98%E6%AA%94%E9%9C%87%E7%9B%AA-%E5%B0%88%E5%AE%B6%E9%BB%9E%E5%90%8D-10%E6%9C%88-233000724.html" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">看盤/原文 ↗</a>
+            </div>
+          </div>
+        </article>
+        
+      </div>
+    </section>
+    
+
+    <!-- Main 3-Column Newspaper Grid -->
+    <main class="newspaper-grid">
+      
+      <!-- COLUMN 1: HEADLINE & EDITORIAL -->
+      <section class="col-headline">
+        
+        <!-- Headline Hero Article -->
+        <article class="headline-card">
+          <span class="category-badge">政治與公共政策 • 今日頭條焦點</span>
+          <h2 class="headline-title">李四川冒雨掃街拜票 蘇巧慧邀紙風車表演搶親子票</h2>
+          <div class="headline-subtitle">重大法制制度推進之際，公共政策與各界權益面臨新平衡</div>
+          
+          <div class="article-meta">
+            <span class="meta-source">報導來源：中央社 - 國內政治與政策</span>
+            <span>•</span>
+            <span>重點特輯</span>
+          </div>
+
+          <p class="headline-summary">（中央社記者王鴻國新北6日電）藍綠新北市長選舉熱情大雨澆不熄，李四川今天勤走三鶯地區，冒雨掃街拜票受歡迎；蘇巧慧成立四大藥業後援會，場面熱烈，還邀紙風車藝術卡車舞鈴劇場表演，吸引親子雨中看戲。</p>
+
+          <!-- Key Bullet Points Box -->
+          <div class="key-points-box">
+            <h4>♦ 核心關鍵研判</h4>
+            <ul class="key-points-list">
+              
+              <li>藍綠新北市長選舉熱情大雨澆不熄，李四川今天勤走三鶯地區，冒雨掃街拜票受歡迎</li>
+              
+              <li>蘇巧慧成立四大藥業後援會，場面熱烈，還邀紙風車藝術卡車舞鈴劇場表演，吸引親子雨中看戲</li>
+              
+              <li>評估制度法案修訂對公共治理架構與跨部會行政協調之長遠效應。</li>
+              
+            </ul>
+          </div>
+
+          <!-- Headline Market Linkage (Optional) -->
+          
+
+          <div class="source-action-bar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+            <a href="https://www.cna.com.tw/news/aipl/202609060191.aspx" target="_blank" rel="noopener noreferrer" class="read-orig-link">
+              閱讀原文報導 ↗
+            </a>
+            <div class="card-feedback-actions">
+              <span style="font-size:11px; color:var(--text-muted); font-family:var(--font-sans);">審稿回饋：</span>
+              <button type="button" class="fb-thumb-btn" title="我想多看這類頭條" onclick="quickFeedback('like', '李四川冒雨掃街拜票 蘇巧慧邀紙風車表演搶親子票', '政治與公共政策')">👍 多看</button>
+              <button type="button" class="fb-thumb-btn" title="減少這類頭條" onclick="quickFeedback('dislike', '李四川冒雨掃街拜票 蘇巧慧邀紙風車表演搶親子票', '政治與公共政策')">👎 減少</button>
+            </div>
+          </div>
+        </article>
+
+        <div class="ornament-divider">❖ ♦ ❖</div>
+
+        <!-- Editorial Commentary (主筆銳評) -->
+        <aside class="editorial-section">
+          <span class="editorial-badge">✒️ 每日主筆冷眼 / 銳評</span>
+          <h3 class="editorial-title">在變局中審視秩序：從「李四川冒雨掃街拜票 蘇巧慧邀」談起</h3>
+          <span class="editorial-author">晨報首席主筆 / Editorial Board</span>
+          
+          <p class="editorial-body">每日滾動的新聞標題往往充斥著即時的市場情緒與短期的焦慮。然而，當我們拉長時間軸審視「李四川冒雨掃街拜票 蘇巧慧邀紙風車表」等重大發展，真正推動歷史齒輪的，從來不是單日幾百點的漲跌或即時的政治口水，而是底層制度規則的演進、地緣政治的再平衡，以及關鍵產業技術架構的質變。在資訊高度碎裂與算法洪流的今日，洞察本質與保持清醒思辨依然是面對未知週期最關鍵的定力。</p>
+          
+          
+          <div class="editorial-quote">
+            「在資訊過剩的時代，清晰的思考就是最稀缺的權力。」
+          </div>
+          
+        </aside>
+
+      </section>
+
+
+      <!-- COLUMN 2: MAJOR NEWS COLUMNS (重點專欄) -->
+      <section class="col-stories">
+        <div class="section-header">
+          <h3>焦點新聞精選</h3>
+          <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">TOP STORIES</span>
+        </div>
+
+        
+        <article class="story-item">
+          <span class="category-badge">地緣政治與兩岸</span>
+          <h4 class="story-title">
+            <a href="https://www.cna.com.tw/news/acn/202609060188.aspx" target="_blank" rel="noopener noreferrer">中共黨刊再談經濟問題 承認社會活力減弱不敢投資</a>
+          </h4>
+          <p class="story-summary">（中央社台北6日電）中共黨刊「求是」最新一期文章再談中國經濟，坦言「一些微觀主體的預期、信心和行為選擇正在發生變化，部分領域活力有所減弱」，並指企業「傾向於持幣觀望，不敢擴大投資、不敢增加用工」。</p>
+          
+          
+          <div class="story-takeaway">
+            <strong>啟示：</strong>關注印太區域地緣戰略博弈、防務安全與多邊外交實質進展。
+          </div>
+          
+
+          <!-- Market & Commodity Linkage Indicator (如原油10日走勢、航運/通膨連動) -->
+          
+
+          <div class="story-footer" style="display:flex; justify-content:space-between; align-items:center;">
+            <span>來源：中央社 - 兩岸與區域情勢</span>
+            <div class="card-feedback-actions">
+              <button type="button" class="fb-thumb-btn" title="多看此類專欄" onclick="quickFeedback('like', '中共黨刊再談經濟問題 承認社會活力減弱不敢投資', '地緣政治與兩岸')">👍</button>
+              <button type="button" class="fb-thumb-btn" title="少看此類專欄" onclick="quickFeedback('dislike', '中共黨刊再談經濟問題 承認社會活力減弱不敢投資', '地緣政治與兩岸')">👎</button>
+            </div>
+            <a href="https://www.cna.com.tw/news/acn/202609060188.aspx" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
+          </div>
+        </article>
+        
+        <article class="story-item">
+          <span class="category-badge">全球民主與地緣</span>
+          <h4 class="story-title">
+            <a href="https://www.cna.com.tw/news/aopl/202609070007.aspx" target="_blank" rel="noopener noreferrer">亞馬遜貨機邁阿密機場衝出跑道 撞上多輛車起火</a>
+          </h4>
+          <p class="story-summary">（中央社邁阿密6日綜合外電報導）美國電子商務巨擘亞馬遜一架貨運飛機今天在邁阿密國際機場衝出跑道後，撞上多部車輛並且起火，濃濃黑煙直竄天際。事件導致美國最繁忙機場之一的所有跑道暫時關閉。</p>
+          
+          
+          <div class="story-takeaway">
+            <strong>啟示：</strong>觀察全球供應鏈重構過程中之成本控制、市占率洗牌與就業市場衝擊。
+          </div>
+          
+
+          <!-- Market & Commodity Linkage Indicator (如原油10日走勢、航運/通膨連動) -->
+          
+
+          <div class="story-footer" style="display:flex; justify-content:space-between; align-items:center;">
+            <span>來源：中央社 - 國際政經視野</span>
+            <div class="card-feedback-actions">
+              <button type="button" class="fb-thumb-btn" title="多看此類專欄" onclick="quickFeedback('like', '亞馬遜貨機邁阿密機場衝出跑道 撞上多輛車起火', '全球民主與地緣')">👍</button>
+              <button type="button" class="fb-thumb-btn" title="少看此類專欄" onclick="quickFeedback('dislike', '亞馬遜貨機邁阿密機場衝出跑道 撞上多輛車起火', '全球民主與地緣')">👎</button>
+            </div>
+            <a href="https://www.cna.com.tw/news/aopl/202609070007.aspx" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
+          </div>
+        </article>
+        
+        <article class="story-item">
+          <span class="category-badge">總經與財經</span>
+          <h4 class="story-title">
+            <a href="https://www.cna.com.tw/news/afe/202609060186.aspx" target="_blank" rel="noopener noreferrer">OPEC+：10月維持既有產量政策不變</a>
+          </h4>
+          <p class="story-summary">（中央社維也納6日綜合外電報導）石油輸出國組織與夥伴國（OPEC+）核心成員國今天舉行會議後發布聲明說，10月維持既有產量政策不變。</p>
+          
+          
+          <div class="story-takeaway">
+            <strong>啟示：</strong>地方治理實務考驗政治人物面對危機之承擔力與政策落實透明度。
+          </div>
+          
+
+          <!-- Market & Commodity Linkage Indicator (如原油10日走勢、航運/通膨連動) -->
+          
+
+          <div class="story-footer" style="display:flex; justify-content:space-between; align-items:center;">
+            <span>來源：中央社 - 產經與金融焦點</span>
+            <div class="card-feedback-actions">
+              <button type="button" class="fb-thumb-btn" title="多看此類專欄" onclick="quickFeedback('like', 'OPEC+：10月維持既有產量政策不變', '總經與財經')">👍</button>
+              <button type="button" class="fb-thumb-btn" title="少看此類專欄" onclick="quickFeedback('dislike', 'OPEC+：10月維持既有產量政策不變', '總經與財經')">👎</button>
+            </div>
+            <a href="https://www.cna.com.tw/news/afe/202609060186.aspx" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
+          </div>
+        </article>
+        
+        <article class="story-item">
+          <span class="category-badge">半導體與科技政策</span>
+          <h4 class="story-title">
+            <a href="https://www.cna.com.tw/news/ait/202609060010.aspx" target="_blank" rel="noopener noreferrer">德國伊薩航太火箭升空 歐洲加速追求太空自主</a>
+          </h4>
+          <p class="story-summary">（中央社奧斯陸5日綜合外電報導）德國新創公司伊薩航太（Isar Aerospace）今天在挪威北極圈內的基地，成功將旗下首枚火箭送入太空，讓歐洲朝自主從境內發射衛星的目標更進一步。</p>
+          
+          
+          <div class="story-takeaway">
+            <strong>啟示：</strong>持續關注「德國伊薩航太火箭升空 歐洲加」後續事態發展與相關領域之實質效應。
+          </div>
+          
+
+          <!-- Market & Commodity Linkage Indicator (如原油10日走勢、航運/通膨連動) -->
+          
+
+          <div class="story-footer" style="display:flex; justify-content:space-between; align-items:center;">
+            <span>來源：中央社 - 科技前沿與產業鏈</span>
+            <div class="card-feedback-actions">
+              <button type="button" class="fb-thumb-btn" title="多看此類專欄" onclick="quickFeedback('like', '德國伊薩航太火箭升空 歐洲加速追求太空自主', '半導體與科技政策')">👍</button>
+              <button type="button" class="fb-thumb-btn" title="少看此類專欄" onclick="quickFeedback('dislike', '德國伊薩航太火箭升空 歐洲加速追求太空自主', '半導體與科技政策')">👎</button>
+            </div>
+            <a href="https://www.cna.com.tw/news/ait/202609060010.aspx" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
+          </div>
+        </article>
+        
+        <article class="story-item">
+          <span class="category-badge">地緣政治與兩岸</span>
+          <h4 class="story-title">
+            <a href="https://www.bbc.com/zhongwen/articles/cwyzv9w5w6yo/trad?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">歐洲國家接連提走北美黃金儲備所為何事</a>
+          </h4>
+          <p class="story-summary">荷蘭已將86噸閃閃發亮的黃金儲備從美國遷移至其他地方，究竟發生了甚麼事？</p>
+          
+          
+          <div class="story-takeaway">
+            <strong>啟示：</strong>持續關注「歐洲國家接連提走北美黃金儲備」後續事態發展與相關領域之實質效應。
+          </div>
+          
+
+          <!-- Market & Commodity Linkage Indicator (如原油10日走勢、航運/通膨連動) -->
+          
+
+          <div class="story-footer" style="display:flex; justify-content:space-between; align-items:center;">
+            <span>來源：BBC 中文網 - 兩岸與國際局勢</span>
+            <div class="card-feedback-actions">
+              <button type="button" class="fb-thumb-btn" title="多看此類專欄" onclick="quickFeedback('like', '歐洲國家接連提走北美黃金儲備所為何事', '地緣政治與兩岸')">👍</button>
+              <button type="button" class="fb-thumb-btn" title="少看此類專欄" onclick="quickFeedback('dislike', '歐洲國家接連提走北美黃金儲備所為何事', '地緣政治與兩岸')">👎</button>
+            </div>
+            <a href="https://www.bbc.com/zhongwen/articles/cwyzv9w5w6yo/trad?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
+          </div>
+        </article>
+        
+
+      </section>
+
+
+      <!-- COLUMN 3: SIDEBAR BRIEFS & WORLD WIRE (全球速覽) -->
+      <aside class="col-sidebar">
+        <div class="section-header">
+          <h3>全球快訊速讀</h3>
+          <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">DISPATCHES</span>
+        </div>
+
+        
+        <div class="sidebar-item">
+          <span class="sidebar-category">AI治理與數位政策</span>
+          <h5 class="sidebar-title">
+            <a href="https://www.ithome.com.tw/news/178720" target="_blank" rel="noopener noreferrer">JetBrains加強Kotlin工具鏈，可發布多平臺函式庫並建置Wasm應用</a>
+          </h5>
+          <p class="sidebar-brief">JetBrains釋出建置工具Kotlin Toolchain 0.12，新增Kotlin多平臺函式庫發布能力，涵蓋JVM、And...</p>
+          <div class="sidebar-source">
+            <span>iThome 電腦報 (資安與AI治理)</span>
+            <a href="https://www.ithome.com.tw/news/178720" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted);">詳情 ↗</a>
+          </div>
+        </div>
+        
+        <div class="sidebar-item">
+          <span class="sidebar-category">AI治理與數位政策</span>
+          <h5 class="sidebar-title">
+            <a href="https://techcrunch.com/2026/09/06/phil-schillers-app-store-exit-reportedly-driven-by-wariness-over-future-plans/" target="_blank" rel="noopener noreferrer">Phil Schiller’s App Store exit reportedly driven by wariness over future plans</a>
+          </h5>
+          <p class="sidebar-brief">Schiller reportedly had reservations about new CEO John Ternus&#39; g...</p>
+          <div class="sidebar-source">
+            <span>TechCrunch (國際科技前沿)</span>
+            <a href="https://techcrunch.com/2026/09/06/phil-schillers-app-store-exit-reportedly-driven-by-wariness-over-future-plans/" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted);">詳情 ↗</a>
+          </div>
+        </div>
+        
+        <div class="sidebar-item">
+          <span class="sidebar-category">Web3與抗審查</span>
+          <h5 class="sidebar-title">
+            <a href="https://www.coindesk.com/news-analysis/2026/09/06/prediction-markets-inch-closer-to-the-supreme-court-state-of-crypto" target="_blank" rel="noopener noreferrer">Prediction markets inch closer to the Supreme Court: State of Crypto</a>
+          </h5>
+          <p class="sidebar-brief">...</p>
+          <div class="sidebar-source">
+            <span>CoinDesk (Web3與抗審查基礎設施)</span>
+            <a href="https://www.coindesk.com/news-analysis/2026/09/06/prediction-markets-inch-closer-to-the-supreme-court-state-of-crypto" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted);">詳情 ↗</a>
+          </div>
+        </div>
+        
+        <div class="sidebar-item">
+          <span class="sidebar-category">半導體與科技政策</span>
+          <h5 class="sidebar-title">
+            <a href="https://finance.technews.tw/2026/09/07/strong-majority-of-japanese-firms-have-yet-to-fully-embrace-ai-reuters-poll/" target="_blank" rel="noopener noreferrer">日本 AI 的真正危機：會製造、會出口，企業卻還不太會用</a>
+          </h5>
+          <p class="sidebar-brief">日本政府與科技業近年砸重金，全力扶植半導體晶圓廠、大型資料中心與 AI 硬體供應鏈，成功讓日本製造的零組件與製 […]...</p>
+          <div class="sidebar-source">
+            <span>科技新報 TechNews (半導體與產業)</span>
+            <a href="https://finance.technews.tw/2026/09/07/strong-majority-of-japanese-firms-have-yet-to-fully-embrace-ai-reuters-poll/" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted);">詳情 ↗</a>
+          </div>
+        </div>
+        
+        <div class="sidebar-item">
+          <span class="sidebar-category">總經與財經</span>
+          <h5 class="sidebar-title">
+            <a href="https://tw.stock.yahoo.com/news/%E8%81%96%E5%AC%B0%E7%8F%BE%E8%B1%A1%E8%A1%9D%E6%93%8A%E5%B7%B4%E6%8B%BF%E9%A6%AC%E9%81%8B%E6%B2%B3-9%E6%9C%88%E4%B8%AD%E6%97%AC%E8%B5%B7%E6%AF%8F%E6%97%A5%E9%80%9A%E8%88%AA%E9%87%8F%E5%86%8D%E9%99%8D%E8%87%B332%E8%89%98-235700383.html" target="_blank" rel="noopener noreferrer">聖嬰現象衝擊巴拿馬運河，9月中旬起每日通航量再降至32艘</a>
+          </h5>
+          <p class="sidebar-brief">...</p>
+          <div class="sidebar-source">
+            <span>Yahoo 奇摩新聞 - 總經財經</span>
+            <a href="https://tw.stock.yahoo.com/news/%E8%81%96%E5%AC%B0%E7%8F%BE%E8%B1%A1%E8%A1%9D%E6%93%8A%E5%B7%B4%E6%8B%BF%E9%A6%AC%E9%81%8B%E6%B2%B3-9%E6%9C%88%E4%B8%AD%E6%97%AC%E8%B5%B7%E6%AF%8F%E6%97%A5%E9%80%9A%E8%88%AA%E9%87%8F%E5%86%8D%E9%99%8D%E8%87%B332%E8%89%98-235700383.html" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted);">詳情 ↗</a>
+          </div>
+        </div>
+        
+
+        <!-- Classic Quote Box -->
+        <div class="classic-quote-box">
+          <div style="font-size:11px; font-family:var(--font-sans); text-transform:uppercase; letter-spacing:1px; color:var(--text-faint); margin-bottom:6px;">每日格言 • QUOTE OF THE DAY</div>
+          <p>“「在資訊過剩的時代，清晰的思考就是最稀缺的權力。」”</p>
+        </div>
+
+      </aside>
+
+    </main>
+
+    <!-- Newspaper Footer -->
+    <footer class="newspaper-footer">
+      <div>版權所有 • 每日自動新聞生成系統</div>
+      <div class="footer-center">THE DAILY TIMES ARCHIVE • OPEN ACCESS</div>
+      <div class="footer-right">ISSN 2958-8821 • TAIPEI EDITION</div>
+    </footer>
+
+  </div>
+
+  <!-- Interactive Deep Dive Modal (特刊號彈窗) -->
+  <div id="deepDiveModal" class="modal-overlay" onclick="if(event.target===this) closeDeepDive();">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeDeepDive()" title="關閉">✕</button>
+      
+      <div class="modal-masthead">
+        <span class="modal-badge">THE DAILY TIMES • SPECIAL DISPATCH</span>
+        <h2 id="modalTitle" class="modal-title">📰 專題特刊：深入剖析</h2>
+        <div class="modal-meta">
+          <span id="modalTopicTag">主題：#科技趨勢</span>
+          <span>•</span>
+          <span>首席主筆與產業研析室</span>
+          <span>•</span>
+          <span>2026 年 09 月 07 日</span>
+        </div>
+      </div>
+
+      <div id="modalBody" class="modal-body">
+        <div class="modal-spinner">
+          <div class="spinner-ring"></div>
+          <div>正在連線 AI 智庫，為您策劃專屬特刊...</div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="tool-btn" onclick="copyModalContent()">📋 複製特刊全文</button>
+        <button class="tool-btn" onclick="printModal()">🖨️ 列印特刊</button>
+        <button class="tool-btn" onclick="closeDeepDive()">關閉視窗</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preferences & Feedback Modal (審稿偏好與微調彈窗) -->
+  <div id="preferencesModal" class="modal-overlay" onclick="if(event.target===this) closePreferencesModal();">
+    <div class="modal-content" style="max-width: 740px;">
+      <button class="modal-close-btn" onclick="closePreferencesModal()" title="關閉">✕</button>
+      
+      <div class="modal-masthead">
+        <span class="modal-badge">EDITORIAL BOARD • READER PREFERENCES</span>
+        <h2 class="modal-title">⚙️ 總編輯審稿筆記與偏好配置</h2>
+        <div class="modal-meta">
+          <span>自訂選題權重與微調反饋</span>
+          <span>•</span>
+          <span>即時引導 AI 出刊視角</span>
+        </div>
+      </div>
+
+      <div class="modal-body" style="font-size: 14px;">
+        <div style="margin-bottom: 12px;">
+          <label style="font-weight:700; font-family:var(--font-sans); color:var(--text-main); display:block; margin-bottom:4px;">
+            🔑 Gemini API Key（儲存於此瀏覽器以供即時重新篩選）：
+          </label>
+          <input type="password" id="prefApiKey" class="custom-topic-input" style="width:100%; box-sizing:border-box; height:36px; padding:6px 10px; font-family:var(--font-mono); font-size:12px;" placeholder="AIzaSy..." />
+        </div>
+
+        <label style="font-weight:700; font-family:var(--font-sans); color:var(--text-main); display:block; margin-bottom:4px;">
+          ✒️ 您的個人化審稿指令與關注焦點（將直接注入 AI 總編輯的 Prompt）：
+        </label>
+        <textarea id="prefDirectives" class="pref-textarea" placeholder="例如：我想多看台灣立法院重大法案、加強半導體 CoWoS/先進封裝進度、中東原油連鎖影響；減少純口水攻防與重覆報導..."></textarea>
+        
+        <div class="pref-chip-group">
+          <div class="pref-chip-title">📌 累積的即時讀者回饋紀錄（點擊每篇新聞下方的 👍 或 👎 自動累積）：</div>
+          <div id="feedbackTagsContainer" class="pref-tag-list">
+            <span style="color:var(--text-muted); font-size:12px;">尚未有點擊讚/倒讚紀錄（可在閱讀時點擊每篇新聞下方的 👍 或 👎）</span>
+          </div>
+        </div>
+
+        <div style="margin-top:14px; font-size:12px; color:var(--text-muted); line-height:1.6;">
+          💡 <strong>總編輯微調指南</strong>：<br>
+          1. 點擊「<strong>💾 儲存偏好</strong>」後，您的指令與金鑰會永久儲存在此裝置瀏覽器中。<br>
+          2. 點擊「<strong>🔄 立即重新篩選出刊</strong>」，系統將即時根據最新指令為您重新策劃今日版面。<br>
+          3. 若希望 GitHub 雲端每日排程也永久套用，可點擊「<strong>📋 複製為 config.json</strong>」！
+        </div>
+      </div>
+
+      <div class="modal-actions" style="flex-wrap: wrap;">
+        <button class="tool-btn" onclick="copyConfigSnippet()">📋 複製為 config.json 永久配置</button>
+        <button class="tool-btn" onclick="savePreferences(false)">💾 儲存偏好</button>
+        <button class="tool-btn" style="background:var(--accent); color:#fff; border-color:var(--accent); font-weight:700;" onclick="savePreferences(true)">🔄 儲存並立即重新篩選</button>
+        <button class="tool-btn" onclick="closePreferencesModal()">關閉</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Re-curating Progress Overlay -->
+  <div id="recuratingOverlay" class="modal-overlay" style="z-index: 100001;">
+    <div class="modal-content" style="max-width: 500px; text-align: center; padding: 36px 24px;">
+      <div class="spinner-ring" style="width:48px; height:48px; border-width:4px;"></div>
+      <h3 style="font-family:var(--font-masthead); font-size:20px; margin: 14px 0 8px 0;">📰 總編輯正在重新策劃今日晨報...</h3>
+      <p style="font-size:13px; color:var(--text-muted); line-height:1.6;" id="recuratingStatus">
+        正在匯入您的個人化審稿指令與關注焦點，請稍候約 5~10 秒...
+      </p>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="feedbackToast" class="toast-notification"></div>
+
+  <script>
+    const GEMINI_API_KEY = "AIzaSyAqlnXLtAYa_sWOxU466BPRQGIvz4hG7co";
+    const GEMINI_MODEL = "gemini-2.0-flash";
+    const DEFAULT_FEEDBACK = "\u91cd\u8996\u53f0\u7063\u7acb\u6cd5\u9662\u91cd\u5927\u6cd5\u6848\u3001\u5730\u7de3\u80fd\u6e90\u8207\u534a\u5c0e\u9ad4\u4f9b\u61c9\u93c8\uff1b\u56b4\u683c\u6392\u9664\u7d14\u53e3\u6c34\u653b\u9632\u8207\u91cd\u8907\u5831\u5c0e\u3002";
+    const ORIGINAL_EDITION = {"headline": {"title": "李四川冒雨掃街拜票 蘇巧慧邀紙風車表演搶親子票", "subtitle": "重大法制制度推進之際，公共政策與各界權益面臨新平衡", "category": "政治與公共政策", "summary": "（中央社記者王鴻國新北6日電）藍綠新北市長選舉熱情大雨澆不熄，李四川今天勤走三鶯地區，冒雨掃街拜票受歡迎；蘇巧慧成立四大藥業後援會，場面熱烈，還邀紙風車藝術卡車舞鈴劇場表演，吸引親子雨中看戲。", "key_points": ["藍綠新北市長選舉熱情大雨澆不熄，李四川今天勤走三鶯地區，冒雨掃街拜票受歡迎", "蘇巧慧成立四大藥業後援會，場面熱烈，還邀紙風車藝術卡車舞鈴劇場表演，吸引親子雨中看戲", "評估制度法案修訂對公共治理架構與跨部會行政協調之長遠效應。"], "source": "中央社 - 國內政治與政策", "url": "https://www.cna.com.tw/news/aipl/202609060191.aspx"}, "columns": [{"title": "中共黨刊再談經濟問題 承認社會活力減弱不敢投資", "category": "地緣政治與兩岸", "summary": "（中央社台北6日電）中共黨刊「求是」最新一期文章再談中國經濟，坦言「一些微觀主體的預期、信心和行為選擇正在發生變化，部分領域活力有所減弱」，並指企業「傾向於持幣觀望，不敢擴大投資、不敢增加用工」。", "key_takeaway": "關注印太區域地緣戰略博弈、防務安全與多邊外交實質進展。", "source": "中央社 - 兩岸與區域情勢", "url": "https://www.cna.com.tw/news/acn/202609060188.aspx"}, {"title": "亞馬遜貨機邁阿密機場衝出跑道 撞上多輛車起火", "category": "全球民主與地緣", "summary": "（中央社邁阿密6日綜合外電報導）美國電子商務巨擘亞馬遜一架貨運飛機今天在邁阿密國際機場衝出跑道後，撞上多部車輛並且起火，濃濃黑煙直竄天際。事件導致美國最繁忙機場之一的所有跑道暫時關閉。", "key_takeaway": "觀察全球供應鏈重構過程中之成本控制、市占率洗牌與就業市場衝擊。", "source": "中央社 - 國際政經視野", "url": "https://www.cna.com.tw/news/aopl/202609070007.aspx"}, {"title": "OPEC+：10月維持既有產量政策不變", "category": "總經與財經", "summary": "（中央社維也納6日綜合外電報導）石油輸出國組織與夥伴國（OPEC+）核心成員國今天舉行會議後發布聲明說，10月維持既有產量政策不變。", "key_takeaway": "地方治理實務考驗政治人物面對危機之承擔力與政策落實透明度。", "source": "中央社 - 產經與金融焦點", "url": "https://www.cna.com.tw/news/afe/202609060186.aspx"}, {"title": "德國伊薩航太火箭升空 歐洲加速追求太空自主", "category": "半導體與科技政策", "summary": "（中央社奧斯陸5日綜合外電報導）德國新創公司伊薩航太（Isar Aerospace）今天在挪威北極圈內的基地，成功將旗下首枚火箭送入太空，讓歐洲朝自主從境內發射衛星的目標更進一步。", "key_takeaway": "持續關注「德國伊薩航太火箭升空 歐洲加」後續事態發展與相關領域之實質效應。", "source": "中央社 - 科技前沿與產業鏈", "url": "https://www.cna.com.tw/news/ait/202609060010.aspx"}, {"title": "歐洲國家接連提走北美黃金儲備所為何事", "category": "地緣政治與兩岸", "summary": "荷蘭已將86噸閃閃發亮的黃金儲備從美國遷移至其他地方，究竟發生了甚麼事？", "key_takeaway": "持續關注「歐洲國家接連提走北美黃金儲備」後續事態發展與相關領域之實質效應。", "source": "BBC 中文網 - 兩岸與國際局勢", "url": "https://www.bbc.com/zhongwen/articles/cwyzv9w5w6yo/trad?at_medium=RSS&at_campaign=rss"}], "stock_market": [{"title": "台股教戰1／台股迎55天關鍵轉折 守住「這條線」有望挑戰52,373點", "market_tag": "台股焦點 • 權值動態", "summary": "加權指數來到55天週期轉折點，又碰上平行軌道線上緣，明道大學商管學院前院長、冠永騰國際投資部顧問林原勗指出，若多頭續強，指數下個目標將上看52,373點；若攻高無力，就要留意回測44,309點是否有撐", "trend_signal": "持續關注「台股教戰1／台股迎55天關鍵」後續事態發展與相關領域之實質效應。", "source": "Yahoo 股市 - 台股與美股焦點", "url": "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E6%95%99%E6%88%B01-%E5%8F%B0%E8%82%A1%E8%BF%8E55%E5%A4%A9%E9%97%9C%E9%8D%B5%E8%BD%89%E6%8A%98-%E5%AE%88%E4%BD%8F-%E9%80%99%E6%A2%9D%E7%B7%9A-%E6%9C%89%E6%9C%9B%E6%8C%91%E6%88%B052-233001450.html"}, {"title": "化解台積電3奈米廠出走危機 陳良基出書談4年入閣心路", "market_tag": "台股焦點 • 權值動態", "summary": "（中央社記者謝怡璇台北6日電）前科技部長陳良基今天舉辦新書分享會，回顧4年入閣心路。他表示，憑藉知識分子的理想與良心，成功在政壇證明理想與現實可以兼得，並曾化解台積電3奈米廠出走危機。他期盼，藉此書向...", "trend_signal": "關注重大公共政策推進節奏與社會各界民意權益之平衡溝通。", "source": "中央社 - 產經與金融焦點", "url": "https://www.cna.com.tw/news/afe/202609060169.aspx"}, {"title": "台股教戰2／台股46,000高檔震盪 專家點名「10月」低接時機、4族群先卡位", "market_tag": "台股焦點 • 權值動態", "summary": "台股高檔震盪，指數雖一度衝上46,948點後拉回，但上週五重新站回46,000點，盤勢未明顯轉弱。法人指出，短線仍受到美股、聯準會政策及11月美國期中選舉等變數干擾，行情恐持續來回震盪；而從過去選舉行", "trend_signal": "地方治理實務考驗政治人物面對危機之承擔力與政策落實透明度。", "source": "Yahoo 股市 - 台股與美股焦點", "url": "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E6%95%99%E6%88%B02-%E5%8F%B0%E8%82%A146-000%E9%AB%98%E6%AA%94%E9%9C%87%E7%9B%AA-%E5%B0%88%E5%AE%B6%E9%BB%9E%E5%90%8D-10%E6%9C%88-233000724.html"}], "sidebar": [{"title": "JetBrains加強Kotlin工具鏈，可發布多平臺函式庫並建置Wasm應用", "category": "AI治理與數位政策", "brief": "JetBrains釋出建置工具Kotlin Toolchain 0.12，新增Kotlin多平臺函式庫發布能力，涵蓋JVM、And...", "source": "iThome 電腦報 (資安與AI治理)", "url": "https://www.ithome.com.tw/news/178720"}, {"title": "Phil Schiller’s App Store exit reportedly driven by wariness over future plans", "category": "AI治理與數位政策", "brief": "Schiller reportedly had reservations about new CEO John Ternus' g...", "source": "TechCrunch (國際科技前沿)", "url": "https://techcrunch.com/2026/09/06/phil-schillers-app-store-exit-reportedly-driven-by-wariness-over-future-plans/"}, {"title": "Prediction markets inch closer to the Supreme Court: State of Crypto", "category": "Web3與抗審查", "brief": "...", "source": "CoinDesk (Web3與抗審查基礎設施)", "url": "https://www.coindesk.com/news-analysis/2026/09/06/prediction-markets-inch-closer-to-the-supreme-court-state-of-crypto"}, {"title": "日本 AI 的真正危機：會製造、會出口，企業卻還不太會用", "category": "半導體與科技政策", "brief": "日本政府與科技業近年砸重金，全力扶植半導體晶圓廠、大型資料中心與 AI 硬體供應鏈，成功讓日本製造的零組件與製 […]...", "source": "科技新報 TechNews (半導體與產業)", "url": "https://finance.technews.tw/2026/09/07/strong-majority-of-japanese-firms-have-yet-to-fully-embrace-ai-reuters-poll/"}, {"title": "聖嬰現象衝擊巴拿馬運河，9月中旬起每日通航量再降至32艘", "category": "總經與財經", "brief": "...", "source": "Yahoo 奇摩新聞 - 總經財經", "url": "https://tw.stock.yahoo.com/news/%E8%81%96%E5%AC%B0%E7%8F%BE%E8%B1%A1%E8%A1%9D%E6%93%8A%E5%B7%B4%E6%8B%BF%E9%A6%AC%E9%81%8B%E6%B2%B3-9%E6%9C%88%E4%B8%AD%E6%97%AC%E8%B5%B7%E6%AF%8F%E6%97%A5%E9%80%9A%E8%88%AA%E9%87%8F%E5%86%8D%E9%99%8D%E8%87%B332%E8%89%98-235700383.html"}], "editorial": {"title": "在變局中審視秩序：從「李四川冒雨掃街拜票 蘇巧慧邀」談起", "author": "晨報首席主筆 / Editorial Board", "commentary": "每日滾動的新聞標題往往充斥著即時的市場情緒與短期的焦慮。然而，當我們拉長時間軸審視「李四川冒雨掃街拜票 蘇巧慧邀紙風車表」等重大發展，真正推動歷史齒輪的，從來不是單日幾百點的漲跌或即時的政治口水，而是底層制度規則的演進、地緣政治的再平衡，以及關鍵產業技術架構的質變。在資訊高度碎裂與算法洪流的今日，洞察本質與保持清醒思辨依然是面對未知週期最關鍵的定力。", "quote": "「在資訊過剩的時代，清晰的思考就是最稀缺的權力。」"}, "market_pulse": {"sentiment": "地緣局勢與產業轉型交織博弈", "watch_topics": ["#政治與公共政策", "#地緣安全", "#政策制度", "#產業轉型", "#資本流向"]}};
+    let TODAY_EDITION = ORIGINAL_EDITION;
+
+    function setTheme(themeName) {
+      document.documentElement.setAttribute('data-theme', themeName);
+      localStorage.setItem('newspaper_theme', themeName);
+    }
+
+    // Restore user theme preference if any
+    (function() {
+      const saved = localStorage.getItem('newspaper_theme');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    })();
+
+    // Show Toast Notification
+    function showToast(message, duration = 3000) {
+      const toast = document.getElementById('feedbackToast');
+      if (!toast) return;
+      toast.innerHTML = message;
+      toast.style.display = 'flex';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, duration);
+    }
+
+    // Quick Feedback Handler (Thumbs Up / Down)
+    function quickFeedback(type, title, category) {
+      let history = JSON.parse(localStorage.getItem('editorial_feedback_history') || '{"likes":[], "dislikes":[]}');
+      
+      const item = { title: title.slice(0, 30), category: category || '未分類', time: new Date().toLocaleDateString() };
+      
+      if (type === 'like') {
+        history.likes = history.likes.filter(x => x.title !== item.title);
+        history.likes.unshift(item);
+        if (history.likes.length > 8) history.likes.pop();
+        showToast(`👍 <strong>已記錄偏好</strong>：將為您增加「${category || '此類'}」相關報導！`);
+      } else {
+        history.dislikes = history.dislikes.filter(x => x.title !== item.title);
+        history.dislikes.unshift(item);
+        if (history.dislikes.length > 8) history.dislikes.pop();
+        showToast(`👎 <strong>已記錄偏好</strong>：將為您減少「${category || '此類'}」報導！`);
+      }
+      
+      localStorage.setItem('editorial_feedback_history', JSON.stringify(history));
+    }
+
+    // Open Preferences Modal
+    function openPreferencesModal() {
+      const modal = document.getElementById('preferencesModal');
+      const textarea = document.getElementById('prefDirectives');
+      const apiKeyInput = document.getElementById('prefApiKey');
+      
+      const savedDirectives = localStorage.getItem('editorial_directives') || DEFAULT_FEEDBACK || '';
+      textarea.value = savedDirectives;
+
+      const savedKey = localStorage.getItem('gemini_api_key') || GEMINI_API_KEY || '';
+      apiKeyInput.value = savedKey;
+
+      // Render tags history
+      const history = JSON.parse(localStorage.getItem('editorial_feedback_history') || '{"likes":[], "dislikes":[]}');
+      const container = document.getElementById('feedbackTagsContainer');
+      
+      let html = '';
+      if (history.likes.length > 0) {
+        html += '<div style="width:100%; font-size:11px; color:#2e7d32; font-weight:700; margin-bottom:2px;">👍 偏好加重主題：</div>';
+        history.likes.forEach(item => {
+          html += `<span class="pref-chip" style="border-color:#a5d6a7; color:#2e7d32;">👍 ${item.category}: ${item.title}</span>`;
+        });
+      }
+      if (history.dislikes.length > 0) {
+        html += '<div style="width:100%; font-size:11px; color:#c62828; font-weight:700; margin-top:6px; margin-bottom:2px;">👎 偏好排除/減少主題：</div>';
+        history.dislikes.forEach(item => {
+          html += `<span class="pref-chip" style="border-color:#ef9a9a; color:#c62828;">👎 ${item.category}: ${item.title}</span>`;
+        });
+      }
+      if (!html) {
+        html = '<span style="color:var(--text-muted); font-size:12px;">尚未有點擊讚/倒讚紀錄（可在閱讀時點擊每篇新聞下方的 👍 或 👎）</span>';
+      }
+      container.innerHTML = html;
+
+      modal.classList.add('active');
+    }
+
+    function closePreferencesModal() {
+      document.getElementById('preferencesModal').classList.remove('active');
+    }
+
+    // Save Preferences
+    function savePreferences(andRecurate = false) {
+      const directives = document.getElementById('prefDirectives').value.trim();
+      const apiKeyVal = document.getElementById('prefApiKey').value.trim();
+      
+      localStorage.setItem('editorial_directives', directives);
+      if (apiKeyVal) {
+        localStorage.setItem('gemini_api_key', apiKeyVal);
+      }
+      
+      closePreferencesModal();
+      showToast('💾 <strong>審稿偏好與金鑰已成功儲存！</strong>');
+
+      if (andRecurate) {
+        recurateNewspaper(directives);
+      }
+    }
+
+    function copyConfigSnippet() {
+      const directives = document.getElementById('prefDirectives').value.trim();
+      const snippet = `"user_editorial_feedback": ${JSON.stringify(directives)}`;
+      navigator.clipboard.writeText(snippet).then(() => {
+        alert(`已複製配置指令至剪貼簿：\n${snippet}\n\n可直接貼入 daily_newspaper/config.json 中！`);
+      });
+    }
+
+    function openRecurateModal() {
+      const savedDirectives = localStorage.getItem('editorial_directives') || DEFAULT_FEEDBACK || '';
+      if (confirm(`確定要根據目前的審稿偏好重新篩選今日晨報嗎？\n\n目前指令：${savedDirectives || '（使用預設準則）'}`)) {
+        recurateNewspaper(savedDirectives);
+      }
+    }
+
+    function resetToDefaultEdition() {
+      if (confirm("確定要清除自訂篩選快取，恢復今日原始出刊版本嗎？")) {
+        localStorage.removeItem('cached_curated_edition');
+        renderNewspaperInPlace(ORIGINAL_EDITION);
+        showToast("🔄 已恢復至原始出刊版本！");
+      }
+    }
+
+    // Re-curate Newspaper dynamically in browser using Gemini
+    async function recurateNewspaper(customDirectives) {
+      const overlay = document.getElementById('recuratingOverlay');
+      const statusText = document.getElementById('recuratingStatus');
+      overlay.classList.add('active');
+      statusText.innerText = "正在連線 AI 智庫，匯入您的審稿指令與關注焦點...";
+
+      const history = JSON.parse(localStorage.getItem('editorial_feedback_history') || '{"likes":[], "dislikes":[]}');
+      let likesText = history.likes.map(x => `【加權】${x.category}：${x.title}`).join('； ');
+      let dislikesText = history.dislikes.map(x => `【減少/排除】${x.category}：${x.title}`).join('； ');
+
+      let feedbackSection = '';
+      if (customDirectives) feedbackSection += `\n【讀者自訂審稿指令】：${customDirectives}\n`;
+      if (likesText) feedbackSection += `\n【讀者偏好多看之題材】：${likesText}\n`;
+      if (dislikesText) feedbackSection += `\n【讀者要求減少之題材】：${dislikesText}\n`;
+
+      const prompt = `
+你是一位享譽全球的權威報社（如《金融時報》、《彭博社》）總編輯兼首席主筆。
+讀者正在閱讀今日早報，並要求根據最新的審稿偏好重新策劃與排版今日晨間時報 (The Daily Times)。
+
+${feedbackSection}
+
+【每日四大優先涵蓋領域】：
+一、台灣中央與地方政治、立法院法案制度變動、預算、憲政與公共政策（至少 1~3 則具制度結構意義新聞）。
+二、兩岸關係、中國政局、香港、東亞與印太地緣安全。
+三、全球民主政治、公民社會、威權擴張、各國大選與憲政。
+四、AI治理與能動性、數位身分/憑證、去中心化抗審查基建、Web3、科技政策。
+五、股市與資本市場焦點：精選 3 則關鍵行情與資金動能新聞。
+★ 涉及大宗商品（如原油/天然氣/黃金）、總經利率或半導體供應鏈的新聞，務必在 market_linkage 提供指標名稱、近 10 日走勢與連鎖效應。
+
+請以繁體中文輸出符合以下完整格式的 JSON 物件（必須包含 headline, columns, stock_market, sidebar, editorial, market_pulse）：
+{
+  "headline": { "title": "...", "subtitle": "...", "category": "...", "summary": "...", "key_points": ["...", "...", "..."], "market_linkage": { "indicator_name": "...", "ten_day_trend": "...", "spillover_effects": "...", "deep_dive_query": "..." }, "source": "...", "url": "..." },
+  "columns": [ { "title": "...", "category": "...", "summary": "...", "key_takeaway": "...", "market_linkage": { "indicator_name": "...", "ten_day_trend": "...", "spillover_effects": "...", "deep_dive_query": "..." }, "source": "...", "url": "..." } ],
+  "stock_market": [ { "title": "...", "market_tag": "...", "summary": "...", "trend_signal": "...", "source": "...", "url": "..." } ],
+  "sidebar": [ { "title": "...", "category": "...", "brief": "...", "source": "...", "url": "..." } ],
+  "editorial": { "title": "...", "author": "...", "commentary": "...", "quote": "..." },
+  "market_pulse": { "sentiment": "...", "watch_topics": ["#...", "#...", "#..."] }
+}
+`;
+
+      const activeApiKey = localStorage.getItem('gemini_api_key') || GEMINI_API_KEY;
+      if (!activeApiKey) {
+        overlay.classList.remove('active');
+        const userKey = prompt("請輸入您的 Gemini API Key 以啟用瀏覽器端即時重新篩選功能：");
+        if (userKey && userKey.trim()) {
+          localStorage.setItem('gemini_api_key', userKey.trim());
+          return recurateNewspaper(customDirectives);
+        }
+        return;
+      }
+
+      // Robust fallback model cascade
+      const modelsToTry = [
+        "gemini-2.0-flash",
+        "gemini-1.5-flash",
+        "gemini-2.5-flash",
+        "gemini-1.5-pro",
+        "gemini-2.0-flash-lite"
+      ];
+
+      let lastError = null;
+      for (const m of modelsToTry) {
+        try {
+          statusText.innerText = `正在連線 Gemini [${m}] 重新審稿中...`;
+          const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${activeApiKey}`;
+          const res = await fetch(endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: {
+                temperature: 0.3,
+                responseMimeType: "application/json"
+              }
+            })
+          });
+
+          if (!res.ok) {
+            const errBody = await res.text();
+            throw new Error(`HTTP ${res.status}: ${errBody}`);
+          }
+
+          const data = await res.json();
+          let rawJsonText = data.candidates[0].content.parts[0].text.trim();
+          if (rawJsonText.startsWith("```json")) {
+            rawJsonText = rawJsonText.replace(/^```json\s*/i, "").replace(/\s*```$/, "");
+          } else if (rawJsonText.startsWith("```")) {
+            rawJsonText = rawJsonText.replace(/^```\s*/, "").replace(/\s*```$/, "");
+          }
+          const newEdition = JSON.parse(rawJsonText);
+
+          // Save new edition to cache and reload DOM
+          localStorage.setItem('cached_curated_edition', JSON.stringify(newEdition));
+          renderNewspaperInPlace(newEdition);
+          overlay.classList.remove('active');
+          showToast('✨ <strong>已成功根據您的最新偏好重新策劃並出刊！</strong>', 4000);
+          return;
+
+        } catch (err) {
+          console.warn(`Model ${m} failed in browser:`, err);
+          lastError = err;
+        }
+      }
+
+      overlay.classList.remove('active');
+      alert(`重新篩選時發生問題：${lastError ? lastError.message : '未知錯誤'}。\n\n提示：您可以在「⚙️ 審稿偏好與回饋」中確認或更新 API Key，或在終端機執行 python main.py 重新生成！`);
+    }
+
+    // In-place DOM update for seamless re-render across ALL sections
+    function renderNewspaperInPlace(data) {
+      if (!data || typeof data !== 'object') return;
+      TODAY_EDITION = data;
+
+      // 1. Market Pulse Ribbon
+      if (data.market_pulse) {
+        const sentimentEl = document.querySelector('.pulse-sentiment');
+        if (sentimentEl && data.market_pulse.sentiment) {
+          sentimentEl.innerText = `— ${data.market_pulse.sentiment}`;
+        }
+        const pulseTagsEl = document.querySelector('.pulse-tags');
+        if (pulseTagsEl && Array.isArray(data.market_pulse.watch_topics)) {
+          let tagsHtml = `<span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">點擊標籤即時深度剖析：</span>`;
+          data.market_pulse.watch_topics.forEach(tag => {
+            tagsHtml += `<span class="pulse-tag" onclick="triggerDeepDive('${tag}')">${tag}</span>`;
+          });
+          tagsHtml += `
+            <form onsubmit="event.preventDefault(); triggerDeepDive(document.getElementById('customTopic').value);" style="display:inline-flex; align-items:center; gap:6px; margin-left:6px;">
+              <input type="text" id="customTopic" class="custom-topic-input" placeholder="🔍 搜尋新聞 / 自訂專題 (Enter)..." />
+              <button type="submit" class="tool-btn" style="height:28px; padding:0 10px; font-size:11.5px; font-weight:700;">搜尋</button>
+            </form>
+          `;
+          pulseTagsEl.innerHTML = tagsHtml;
+        }
+      }
+
+      // 2. Stock Market Section
+      if (Array.isArray(data.stock_market) && data.stock_market.length > 0) {
+        let stockSection = document.querySelector('.stock-market-section');
+        if (stockSection) {
+          let stockCardsHtml = '';
+          data.stock_market.forEach(item => {
+            stockCardsHtml += `
+              <article class="stock-card">
+                <div>
+                  <div class="stock-tag">${item.market_tag || '股市焦點'}</div>
+                  <h4 class="stock-title">
+                    <a href="${item.url || '#'}" target="_blank" rel="noopener noreferrer">${item.title}</a>
+                  </h4>
+                  <p class="stock-summary">${item.summary}</p>
+                </div>
+                <div>
+                  ${item.trend_signal ? `<div class="stock-signal"><strong>信號：</strong>${item.trend_signal}</div>` : ''}
+                  <div class="stock-footer">
+                    <span>來源：${item.source || '股市'}</span>
+                    <div class="card-feedback-actions">
+                      <button type="button" class="fb-thumb-btn" title="我想多看這類股市焦點" onclick="quickFeedback('like', '${item.title}', '${item.market_tag}')">👍 多看</button>
+                      <button type="button" class="fb-thumb-btn" title="減少這類股市焦點" onclick="quickFeedback('dislike', '${item.title}', '${item.market_tag}')">👎 減少</button>
+                    </div>
+                    <a href="${item.url || '#'}" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">看盤/原文 ↗</a>
+                  </div>
+                </div>
+              </article>
+            `;
+          });
+          const grid = stockSection.querySelector('.stock-grid');
+          if (grid) grid.innerHTML = stockCardsHtml;
+        }
+      }
+
+      // 3. Headline Hero
+      if (data.headline) {
+        const headlineCard = document.querySelector('.headline-card');
+        if (headlineCard) {
+          let pts = (data.headline.key_points || []).map(p => `<li>${p}</li>`).join('');
+          let linkageHtml = '';
+          if (data.headline.market_linkage) {
+            linkageHtml = `
+              <div class="market-linkage-box">
+                <div class="linkage-header">
+                  <span class="linkage-tag">📊 核心市場指標連動</span>
+                  <strong class="linkage-name">${data.headline.market_linkage.indicator_name || ''}</strong>
+                </div>
+                <div class="linkage-trend"><strong>📈 近 10 日走勢：</strong>${data.headline.market_linkage.ten_day_trend || ''}</div>
+                <div class="linkage-spillover"><strong>⚠️ 連鎖效應：</strong>${data.headline.market_linkage.spillover_effects || ''}</div>
+                ${data.headline.market_linkage.deep_dive_query ? `<button type="button" class="linkage-btn" onclick="triggerDeepDive('${data.headline.market_linkage.deep_dive_query}')">🔍 啟動專題：${data.headline.market_linkage.deep_dive_query} ↗</button>` : ''}
+              </div>
+            `;
+          }
+
+          headlineCard.innerHTML = `
+            <span class="category-badge">${data.headline.category || '頭條'} • 今日頭條焦點</span>
+            <h2 class="headline-title">${data.headline.title}</h2>
+            <div class="headline-subtitle">${data.headline.subtitle || ''}</div>
+            <div class="article-meta">
+              <span class="meta-source">報導來源：${data.headline.source || '特約通訊'}</span>
+              <span>•</span>
+              <span>最新重新策劃</span>
+            </div>
+            <p class="headline-summary">${data.headline.summary}</p>
+            <div class="key-points-box">
+              <h4>♦ 核心關鍵研判</h4>
+              <ul class="key-points-list">${pts}</ul>
+            </div>
+            ${linkageHtml}
+            <div class="source-action-bar" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+              <a href="${data.headline.url || '#'}" target="_blank" rel="noopener noreferrer" class="read-orig-link">閱讀原文報導 ↗</a>
+              <div class="card-feedback-actions">
+                <span style="font-size:11px; color:var(--text-muted); font-family:var(--font-sans);">審稿回饋：</span>
+                <button type="button" class="fb-thumb-btn" onclick="quickFeedback('like', '${data.headline.title}', '${data.headline.category}')">👍 多看</button>
+                <button type="button" class="fb-thumb-btn" onclick="quickFeedback('dislike', '${data.headline.title}', '${data.headline.category}')">👎 減少</button>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      // 4. Columns (焦點新聞)
+      if (data.columns && data.columns.length > 0) {
+        const colStories = document.querySelector('.col-stories');
+        if (colStories) {
+          let colsHtml = `
+            <div class="section-header">
+              <h3>焦點新聞精選</h3>
+              <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">TOP STORIES</span>
+            </div>
+          `;
+          data.columns.forEach(col => {
+            let linkageHtml = '';
+            if (col.market_linkage) {
+              linkageHtml = `
+                <div class="market-linkage-box">
+                  <div class="linkage-header">
+                    <span class="linkage-tag">📊 市場指標連鎖</span>
+                    <strong class="linkage-name">${col.market_linkage.indicator_name || ''}</strong>
+                  </div>
+                  <div class="linkage-trend"><strong>📈 近 10 日走勢：</strong>${col.market_linkage.ten_day_trend || ''}</div>
+                  <div class="linkage-spillover"><strong>⚠️ 連鎖效應：</strong>${col.market_linkage.spillover_effects || ''}</div>
+                  ${col.market_linkage.deep_dive_query ? `<button type="button" class="linkage-btn" onclick="triggerDeepDive('${col.market_linkage.deep_dive_query}')">🔍 深度特刊：${col.market_linkage.deep_dive_query} ↗</button>` : ''}
+                </div>
+              `;
+            }
+            colsHtml += `
+              <article class="story-item">
+                <span class="category-badge">${col.category}</span>
+                <h4 class="story-title"><a href="${col.url || '#'}" target="_blank" rel="noopener noreferrer">${col.title}</a></h4>
+                <p class="story-summary">${col.summary}</p>
+                ${col.key_takeaway ? `<div class="story-takeaway"><strong>啟示：</strong>${col.key_takeaway}</div>` : ''}
+                ${linkageHtml}
+                <div class="story-footer" style="display:flex; justify-content:space-between; align-items:center;">
+                  <span>來源：${col.source}</span>
+                  <div class="card-feedback-actions">
+                    <button type="button" class="fb-thumb-btn" onclick="quickFeedback('like', '${col.title}', '${col.category}')">👍</button>
+                    <button type="button" class="fb-thumb-btn" onclick="quickFeedback('dislike', '${col.title}', '${col.category}')">👎</button>
+                  </div>
+                  <a href="${col.url || '#'}" target="_blank" rel="noopener noreferrer" style="color:var(--accent);">原文 ↗</a>
+                </div>
+              </article>
+            `;
+          });
+          colStories.innerHTML = colsHtml;
+        }
+      }
+
+      // 5. Editorial (主筆銳評)
+      if (data.editorial) {
+        const edSection = document.querySelector('.editorial-section');
+        if (edSection) {
+          edSection.innerHTML = `
+            <span class="editorial-badge">✒️ 每日主筆冷眼 / 銳評</span>
+            <h3 class="editorial-title">${data.editorial.title}</h3>
+            <span class="editorial-author">${data.editorial.author}</span>
+            <p class="editorial-body">${data.editorial.commentary}</p>
+            ${data.editorial.quote ? `<div class="editorial-quote">${data.editorial.quote}</div>` : ''}
+          `;
+        }
+      }
+
+      // 6. Sidebar (全球快訊)
+      if (Array.isArray(data.sidebar) && data.sidebar.length > 0) {
+        const sidebarCol = document.querySelector('.col-sidebar');
+        if (sidebarCol) {
+          let sideHtml = `
+            <div class="section-header">
+              <h3>全球快訊速讀</h3>
+              <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-faint);">DISPATCHES</span>
+            </div>
+          `;
+          data.sidebar.forEach(item => {
+            sideHtml += `
+              <div class="sidebar-item">
+                <span class="sidebar-category">${item.category || '快訊'}</span>
+                <h5 class="sidebar-title">
+                  <a href="${item.url || '#'}" target="_blank" rel="noopener noreferrer">${item.title}</a>
+                </h5>
+                <p class="sidebar-brief">${item.brief}</p>
+                <div class="sidebar-source">
+                  <span>${item.source || '快訊'}</span>
+                  <a href="${item.url || '#'}" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted);">詳情 ↗</a>
+                </div>
+              </div>
+            `;
+          });
+          const quoteText = data.editorial && data.editorial.quote ? data.editorial.quote : '歷史不會重複自己，但它總是壓著相同的韻腳。';
+          sideHtml += `
+            <div class="classic-quote-box">
+              <div style="font-size:11px; font-family:var(--font-sans); text-transform:uppercase; letter-spacing:1px; color:var(--text-faint); margin-bottom:6px;">每日格言 • QUOTE OF THE DAY</div>
+              <p>“${quoteText}”</p>
+            </div>
+          `;
+          sidebarCol.innerHTML = sideHtml;
+        }
+      }
+    }
+
+    // Auto-restore cached edition if available
+    (function initCachedEdition() {
+      try {
+        const cached = localStorage.getItem('cached_curated_edition');
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (parsed && parsed.headline) {
+            renderNewspaperInPlace(parsed);
+            // Add reset indicator to toolbar
+            const toolbarLeft = document.querySelector('.toolbar-left');
+            if (toolbarLeft && !document.getElementById('resetEditionBtn')) {
+              const resetBtn = document.createElement('span');
+              resetBtn.id = 'resetEditionBtn';
+              resetBtn.style.cssText = 'color:var(--accent); cursor:pointer; text-decoration:underline; font-weight:700; margin-left:6px;';
+              resetBtn.innerText = '[恢復原始版面]';
+              resetBtn.onclick = resetToDefaultEdition;
+              toolbarLeft.appendChild(resetBtn);
+            }
+          }
+        }
+      } catch (e) {
+        console.warn("Could not load cached edition:", e);
+      }
+    })();
+
+    function closeDeepDive() {
+      document.getElementById('deepDiveModal').classList.remove('active');
+    }
+
+    function formatMarkdown(text) {
+      let html = text
+        .replace(/^### (.*$)/gim, '<h4>♦ $1</h4>')
+        .replace(/^## (.*$)/gim, '<h3>$1</h3>')
+        .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/gim, '<em>$1</em>')
+        .replace(/^\s*-\s+(.*$)/gim, '<li>$1</li>')
+        .replace(/\n\n+/g, '</p><p>');
+      
+      html = '<p>' + html + '</p>';
+      html = html.replace(/<li>(.*?)<\/li>/g, function(match) {
+        return match;
+      });
+      return html;
+    }
+
+    // Search across all sections in today's newspaper edition
+    function searchTodayEdition(query) {
+      if (!TODAY_EDITION || typeof TODAY_EDITION !== 'object') return [];
+      const q = query.toLowerCase().trim();
+      if (!q) return [];
+
+      const results = [];
+
+      // 1. Headline
+      if (TODAY_EDITION.headline) {
+        const h = TODAY_EDITION.headline;
+        const text = `${h.title || ''} ${h.subtitle || ''} ${h.summary || ''} ${(h.key_points || []).join(' ')} ${h.category || ''}`;
+        if (text.toLowerCase().includes(q)) {
+          results.push({
+            section: '今日頭條焦點',
+            category: h.category || '頭條',
+            title: h.title,
+            snippet: h.summary || (h.key_points ? h.key_points.join('； ') : ''),
+            url: h.url || '#',
+            source: h.source || '特約通訊'
+          });
+        }
+      }
+
+      // 2. Columns
+      if (Array.isArray(TODAY_EDITION.columns)) {
+        TODAY_EDITION.columns.forEach(col => {
+          const text = `${col.title || ''} ${col.summary || ''} ${col.key_takeaway || ''} ${col.category || ''}`;
+          if (text.toLowerCase().includes(q)) {
+            results.push({
+              section: '焦點新聞專欄',
+              category: col.category || '專欄',
+              title: col.title,
+              snippet: col.summary || col.key_takeaway || '',
+              url: col.url || '#',
+              source: col.source || '本報'
+            });
+          }
+        });
+      }
+
+      // 3. Stock market
+      if (Array.isArray(TODAY_EDITION.stock_market)) {
+        TODAY_EDITION.stock_market.forEach(s => {
+          const text = `${s.title || ''} ${s.summary || ''} ${s.trend_signal || ''} ${s.market_tag || ''}`;
+          if (text.toLowerCase().includes(q)) {
+            results.push({
+              section: '股市與資本焦點',
+              category: s.market_tag || '股市',
+              title: s.title,
+              snippet: s.summary || s.trend_signal || '',
+              url: s.url || '#',
+              source: s.source || '看盤'
+            });
+          }
+        });
+      }
+
+      // 4. Sidebar
+      if (Array.isArray(TODAY_EDITION.sidebar)) {
+        TODAY_EDITION.sidebar.forEach(sb => {
+          const text = `${sb.title || ''} ${sb.brief || ''} ${sb.category || ''}`;
+          if (text.toLowerCase().includes(q)) {
+            results.push({
+              section: '全球快訊速讀',
+              category: sb.category || '快訊',
+              title: sb.title,
+              snippet: sb.brief || '',
+              url: sb.url || '#',
+              source: sb.source || '國際編譯'
+            });
+          }
+        });
+      }
+
+      // 5. Editorial
+      if (TODAY_EDITION.editorial) {
+        const ed = TODAY_EDITION.editorial;
+        const text = `${ed.title || ''} ${ed.commentary || ''} ${ed.author || ''}`;
+        if (text.toLowerCase().includes(q)) {
+          results.push({
+            section: '每日主筆冷眼 / 銳評',
+            category: '主筆評論',
+            title: ed.title,
+            snippet: ed.commentary ? ed.commentary.slice(0, 160) + '...' : '',
+            url: '#',
+            source: ed.author || '首席主筆'
+          });
+        }
+      }
+
+      return results;
+    }
+
+    function highlightKeyword(text, keyword) {
+      if (!keyword || !text) return text;
+      const cleanKw = keyword.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      if (!cleanKw) return text;
+      const regex = new RegExp(`(${cleanKw})`, 'gi');
+      return text.replace(regex, '<mark class="search-highlight">$1</mark>');
+    }
+
+    // Trigger Search & Deep Dive Modal
+    async function triggerDeepDive(topic) {
+      if (!topic || !topic.trim()) return;
+      topic = topic.trim().replace(/^#/, '');
+
+      const modal = document.getElementById('deepDiveModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalTopicTag = document.getElementById('modalTopicTag');
+      const modalBody = document.getElementById('modalBody');
+
+      modalTitle.innerText = `📰 特刊號與搜尋：${topic}`;
+      modalTopicTag.innerText = `核心主題：#${topic}`;
+      modal.classList.add('active');
+
+      // 1. Search today's articles
+      const matches = searchTodayEdition(topic);
+      let searchSectionHtml = '';
+
+      if (matches.length > 0) {
+        searchSectionHtml = `
+          <div class="modal-section-title">
+            <span>📑 今日報紙相關報導 (共 ${matches.length} 則)</span>
+            <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-muted);">TODAY'S DISPATCHES</span>
+          </div>
+          <div class="search-results-list">
+            ${matches.map(m => `
+              <div class="search-result-card">
+                <div class="search-result-header">
+                  <span class="search-result-badge">${m.category} • ${m.section}</span>
+                  <span>來源：${m.source}</span>
+                </div>
+                <h4 class="search-result-title">
+                  <a href="${m.url}" target="_blank" rel="noopener noreferrer">${highlightKeyword(m.title, topic)}</a>
+                </h4>
+                <p class="search-result-snippet">${highlightKeyword(m.snippet, topic)}</p>
+                <div style="margin-top:6px; text-align:right;">
+                  <a href="${m.url}" target="_blank" rel="noopener noreferrer" style="font-size:12px; color:var(--accent); font-family:var(--font-sans);">閱讀原文 ↗</a>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      } else {
+        searchSectionHtml = `
+          <div class="modal-section-title">
+            <span>📑 今日報紙相關報導</span>
+            <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-muted);">LOCAL ARCHIVE</span>
+          </div>
+          <div style="background:var(--bg-card); padding:14px 16px; border:1px solid var(--border-light); font-size:13.5px; color:var(--text-muted); margin-bottom:20px; border-radius:3px;">
+            📌 <em>本日晨報排版中未直接提及「${topic}」關鍵字。您可以點擊下方 AI 智庫即時生成專屬全球深度研析特刊！</em>
+          </div>
+        `;
+      }
+
+      // 2. AI Deep Dive Section
+      let aiSectionHtml = `
+        <div class="modal-section-title">
+          <span>🤖 首席主筆 AI 即時深度特刊</span>
+          <span style="font-size:11px; font-family:var(--font-sans); color:var(--text-muted);">GLOBAL DEEP DIVE</span>
+        </div>
+        <div id="aiDeepDiveContainer">
+          <div class="modal-spinner">
+            <div class="spinner-ring"></div>
+            <div>正在為您深度梳理「${topic}」之全球脈絡與產業衝擊...</div>
+          </div>
+        </div>
+      `;
+
+      modalBody.innerHTML = searchSectionHtml + aiSectionHtml;
+
+      // 3. Trigger AI Generation or Show Key Setup Card
+      const activeKey = localStorage.getItem('gemini_api_key') || GEMINI_API_KEY;
+      if (activeKey) {
+        generateAiDeepDive(topic, activeKey);
+      } else {
+        renderApiKeySetupCard(topic, matches);
+      }
+    }
+
+    // Call Gemini API in browser with multiple model fallback
+    async function generateAiDeepDive(topic, activeKey) {
+      const container = document.getElementById('aiDeepDiveContainer');
+      if (!container) return;
+
+      container.innerHTML = `
+        <div class="modal-spinner">
+          <div class="spinner-ring"></div>
+          <div>正在連線 AI 智庫，為您即時撰寫「${topic}」深度特刊...</div>
+        </div>
+      `;
+
+      const prompt = `
+你是一位享譽國際的頂級報社首席主筆兼資深產業分析師。
+讀者正在閱讀今日早報，並點擊了感興趣的特定核心關鍵字或主題：『${topic}』。
+
+請為讀者撰寫一篇極具深度、洞察與事實依據的「每日時代特刊：深度研析專欄」（繁體中文，約 550-800 字）。
+
+請包含以下四大清晰段落（務必使用 Markdown 標題 ###）：
+### 一、核心脈絡與關鍵背景拆解
+說明此議題為何在當前局勢下至關重要，發生的底層邏輯與最新進展。
+
+### 二、產業鏈衝擊與受惠/受害焦點
+具體分析哪些產業（如半導體、雲端伺服器、金融、硬體供應鏈或公共政策）將受到最直接影響，並提及代表性指標企業或產業動態。
+
+### 三、市場法人預期與潛在風險
+剖析機構法人、政策制定者對此的博弈觀點與不可忽視的灰犀牛風險。
+
+### 四、未來 3 至 6 個月關鍵觀察指標
+列出 3 點投資人或決策者後續必須密切追蹤的具體指標或政策時程。
+
+語氣優雅沉穩、客觀專業、直指本質。
+`;
+
+      const modelsToTry = [
+        "gemini-2.0-flash",
+        "gemini-1.5-flash",
+        "gemini-2.5-flash",
+        "gemini-1.5-pro",
+        "gemini-2.0-flash-lite"
+      ];
+
+      let lastError = null;
+      for (const m of modelsToTry) {
+        try {
+          const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${activeKey}`;
+          const res = await fetch(endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: { temperature: 0.35 }
+            })
+          });
+
+          if (!res.ok) {
+            const errBody = await res.text();
+            throw new Error(`HTTP ${res.status}: ${errBody}`);
+          }
+
+          const data = await res.json();
+          const reply = data.candidates[0].content.parts[0].text;
+          container.innerHTML = formatMarkdown(reply);
+          return;
+
+        } catch (err) {
+          console.warn(`Model ${m} failed for deep dive:`, err);
+          lastError = err;
+        }
+      }
+
+      // If all models failed, display informative error with action buttons
+      container.innerHTML = `
+        <div class="api-error-card">
+          <h4 style="color:var(--accent); font-family:var(--font-masthead); margin:0 0 6px 0;">⚠️ AI 特刊生成連線受阻</h4>
+          <p style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">
+            錯誤代碼：${lastError ? lastError.message : 'API 連線失敗'}。<br>
+            可能原因：API Key 無效、流量額度超限或網路連線異常。
+          </p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="tool-btn" onclick="generateAiDeepDive('${topic}', '${activeKey}')">🔄 重新嘗試</button>
+            <button class="tool-btn" onclick="renderApiKeySetupCard('${topic}')">🔑 更換 API Key</button>
+          </div>
+        </div>
+      `;
+    }
+
+    // Render interactive API key setup card in modal when no key is configured
+    function renderApiKeySetupCard(topic, matches = []) {
+      const container = document.getElementById('aiDeepDiveContainer');
+      if (!container) return;
+
+      const safeTopic = topic.replace(/'/g, "\\'");
+      let fallbackSummaryHtml = '';
+
+      if (matches && matches.length > 0) {
+        fallbackSummaryHtml = `
+          <div style="margin-top:16px; padding:14px; background:var(--bg-paper); border-left:3px solid var(--accent);">
+            <div style="font-weight:700; font-size:13px; margin-bottom:6px;">📰 本日出刊相關要點即時摘要：</div>
+            <ul style="margin:0 0 0 16px; font-size:13px; color:var(--text-main); line-height:1.6;">
+              ${matches.map(m => `<li><strong>${m.category}</strong>：${m.title}</li>`).join('')}
+            </ul>
+          </div>
+        `;
+      }
+
+      container.innerHTML = `
+        <div class="api-key-prompt-card">
+          <h4>🔑 啟用 AI 即時深度特刊生成</h4>
+          <p>
+            請輸入您的 <strong>Gemini API Key</strong>，系統即可針對「<strong>${topic}</strong>」由 AI 首席主筆為您即時撰寫 600~800 字之專屬全球產業與政經研析。（金鑰僅安全儲存在您目前的本機瀏覽器，不會上傳伺服器）
+          </p>
+          <div class="api-key-input-row">
+            <input type="password" id="modalApiKeyInput" class="api-key-input-field" placeholder="請貼上 AIzaSy... 開頭之 API 金鑰" />
+            <button type="button" class="tool-btn" style="background:var(--accent); color:#fff; border-color:var(--accent); font-weight:700;" onclick="saveModalKeyAndGenerate('${safeTopic}')">
+              🚀 儲存並即時生成
+            </button>
+          </div>
+          <div style="margin-top:10px; font-size:12px;">
+            <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style="color:var(--accent); text-decoration:underline;">
+              👉 點此免費獲取 Google Gemini API Key (Google AI Studio) ↗
+            </a>
+          </div>
+          ${fallbackSummaryHtml}
+        </div>
+      `;
+    }
+
+    // Save key from modal input and immediately start generation
+    function saveModalKeyAndGenerate(topic) {
+      const input = document.getElementById('modalApiKeyInput');
+      if (!input) return;
+      const keyVal = input.value.trim();
+      if (!keyVal) {
+        alert("請輸入有效的 Gemini API Key！");
+        return;
+      }
+
+      localStorage.setItem('gemini_api_key', keyVal);
+      const prefInput = document.getElementById('prefApiKey');
+      if (prefInput) prefInput.value = keyVal;
+
+      showToast("🔑 <strong>API Key 已成功儲存於瀏覽器！</strong>");
+      generateAiDeepDive(topic, keyVal);
+    }
+
+    function copyModalContent() {
+      const text = document.getElementById('modalBody').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('特刊全文已成功複製至剪貼簿！');
+      });
+    }
+
+    function printModal() {
+      window.print();
+    }
+  </script>
+</body>
+</html>

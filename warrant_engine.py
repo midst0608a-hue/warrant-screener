@@ -1,3 +1,11 @@
+import sys
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 import requests
 import pandas as pd
 import numpy as np
@@ -193,50 +201,84 @@ def load_all_warrants(force_fetch=False):
         except Exception as e:
             print("讀取靜態檔案失敗:", e)
 
-    full_list = []
+    twse_list = []
+    tpex_list = []
     stock_mapping = get_stock_mapping()
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
     
-    #上市
-    try:
-        r1 = requests.get("https://openapi.twse.com.tw/v1/opendata/t187ap37_L", verify=False, timeout=10)
-        if r1.status_code == 200:
-            for i in r1.json():
-                try:
-                    raw_stock = str(i.get('標的證券/指數', '')).strip()
-                    # 嘗試從 mapping 中取出數字代號，若無則保留原名 (例如台指期、ETF等)
-                    actual_stock_id = stock_mapping.get(raw_stock, raw_stock.split(' ')[0])
-                    
-                    full_list.append({
-                        'w_code': str(i.get('權證代號', '')).strip(),
-                        'w_name': str(i.get('權證簡稱', '')).strip(),
-                        'stock_id': actual_stock_id, 
-                        'strike': float(i.get('最新履約價格(元)/履約指數', 0)),
-                        'ratio': float(i.get('最新標的履約配發數量(每仟單位權證)', 0)),
-                        'expiry': str(i.get('最後交易日', '')).strip(),
-                        'market': '上市',
-                        'opt_type': 'C' if '購' in str(i.get('權證簡稱', '')) else 'P'
-                    })
-                except: continue
-    except: pass
+    # 1. 上市權證 (TWSE) - 最多重試 3 次
+    for attempt in range(3):
+        try:
+            r1 = requests.get("https://openapi.twse.com.tw/v1/opendata/t187ap37_L", headers=headers, verify=False, timeout=15)
+            if r1.status_code == 200:
+                for i in r1.json():
+                    try:
+                        raw_stock = str(i.get('標的證券/指數', '')).strip()
+                        actual_stock_id = stock_mapping.get(raw_stock, raw_stock.split(' ')[0])
+                        twse_list.append({
+                            'w_code': str(i.get('權證代號', '')).strip(),
+                            'w_name': str(i.get('權證簡稱', '')).strip(),
+                            'stock_id': actual_stock_id, 
+                            'strike': float(i.get('最新履約價格(元)/履約指數', 0)),
+                            'ratio': float(i.get('最新標的履約配發數量(每仟單位權證)', 0)),
+                            'expiry': str(i.get('最後交易日', '')).strip(),
+                            'market': '上市',
+                            'opt_type': 'C' if '購' in str(i.get('權證簡稱', '')) else 'P'
+                        })
+                    except Exception:
+                        continue
+                if len(twse_list) > 1000:
+                    break
+        except Exception as e:
+            if attempt == 2:
+                print(f"⚠️ 證交所 (TWSE) 上市權證抓取失敗: {e}")
+            continue
 
-    #上櫃
-    try:
-        r2 = requests.get("https://www.tpex.org.tw/openapi/v1/tpex_warrant_issue", verify=False, timeout=10)
-        if r2.status_code == 200:
-            for i in r2.json():
-                try:
-                    full_list.append({
-                        'w_code': str(i.get('Code', '')).strip(),
-                        'w_name': str(i.get('Name', '')).strip(),
-                        'stock_id': str(i.get('UnderlyingStockCode', '')).strip(),
-                        'strike': float(i.get('LatestExercisePrice', 0)),
-                        'ratio': float(i.get('Latest ExerciseRatio', 0)),
-                        'expiry': str(i.get('ExpiryDate', '')).strip(),
-                        'market': '上櫃',
-                        'opt_type': 'C' if '購' in str(i.get('Name', '')) else 'P'
-                    })
-                except: continue
-    except: pass
+    # 2. 上櫃權證 (TPEx) - 資料量大 (~10MB)，延長超時至 25 秒並最多重試 3 次
+    for attempt in range(3):
+        try:
+            r2 = requests.get("https://www.tpex.org.tw/openapi/v1/tpex_warrant_issue", headers=headers, verify=False, timeout=25)
+            if r2.status_code == 200:
+                for i in r2.json():
+                    try:
+                        tpex_list.append({
+                            'w_code': str(i.get('Code', '')).strip(),
+                            'w_name': str(i.get('Name', '')).strip(),
+                            'stock_id': str(i.get('UnderlyingStockCode', '')).strip(),
+                            'strike': float(i.get('LatestExercisePrice', 0)),
+                            'ratio': float(i.get('Latest ExerciseRatio', 0)),
+                            'expiry': str(i.get('ExpiryDate', '')).strip(),
+                            'market': '上櫃',
+                            'opt_type': 'C' if '購' in str(i.get('Name', '')) else 'P'
+                        })
+                    except Exception:
+                        continue
+                if len(tpex_list) > 1000:
+                    break
+        except Exception as e:
+            if attempt == 2:
+                print(f"⚠️ 櫃買中心 (TPEx) 上櫃權證抓取失敗: {e}")
+            continue
+            
+    # 3. 容錯保全：若某一市場因臨時網路故障抓取為 0，自現存靜態檔案中繼承該市場資料，避免整個市場權證被清空
+    file_path = os.path.join(os.path.dirname(__file__), 'warrants_data.json')
+    if (len(twse_list) == 0 or len(tpex_list) == 0) and os.path.exists(file_path):
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                backup_data = json.load(f)
+                if len(twse_list) == 0:
+                    backup_twse = [x for x in backup_data if x.get('market') == '上市']
+                    print(f"[提示] 上市資料抓取未果，已自動沿用現有快取之 {len(backup_twse)} 筆上市權證。")
+                    twse_list.extend(backup_twse)
+                if len(tpex_list) == 0:
+                    backup_tpex = [x for x in backup_data if x.get('market') == '上櫃']
+                    print(f"[提示] 上櫃資料抓取未果，已自動沿用現有快取之 {len(backup_tpex)} 筆上櫃權證（保障 6173 等櫃買標的）。")
+                    tpex_list.extend(backup_tpex)
+        except Exception as e:
+            print("[警告] 讀取既有快取備份失敗:", e)
+
+    full_list = twse_list + tpex_list
+    print(f"[統計] 權證更新統計：上市 {len(twse_list)} 筆 + 上櫃 {len(tpex_list)} 筆 = 合計 {len(full_list)} 筆")
     
     df = pd.DataFrame(full_list)
     if not df.empty:

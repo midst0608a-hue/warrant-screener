@@ -63,7 +63,7 @@ def render_newspaper_html(curated_data: Dict[str, Any], config: Dict[str, Any], 
     
     context = {
         "newspaper": config.get("newspaper", {}),
-        "gemini_model": config.get("gemini", {}).get("model", "gemini-2.5-flash"),
+        "gemini_model": config.get("gemini", {}).get("model", "gemini-3.6-flash"),
         "api_key": api_key,
         "date_str": edition_info["date_display"],
         "generated_time": now_tpe.strftime("%Y-%m-%d %H:%M:%S (UTC+8)"),

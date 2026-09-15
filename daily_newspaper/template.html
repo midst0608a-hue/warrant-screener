@@ -1937,19 +1937,46 @@
       if (likesText) feedbackSection += `\n【讀者偏好多看之題材】：${likesText}\n`;
       if (dislikesText) feedbackSection += `\n【讀者要求減少之題材】：${dislikesText}\n`;
 
+      let articlesText = "";
+      if (TODAY_EDITION) {
+        let artIdx = 1;
+        if (TODAY_EDITION.headline) {
+          articlesText += `[${artIdx++}] 分類: ${TODAY_EDITION.headline.category || '頭條'} | 標題: ${TODAY_EDITION.headline.title}\n    來源: ${TODAY_EDITION.headline.source || ''} | 連結: ${TODAY_EDITION.headline.url || ''}\n    摘要: ${TODAY_EDITION.headline.summary}\n`;
+        }
+        if (Array.isArray(TODAY_EDITION.columns)) {
+          TODAY_EDITION.columns.forEach(c => {
+            articlesText += `[${artIdx++}] 分類: ${c.category || '專欄'} | 標題: ${c.title}\n    來源: ${c.source || ''} | 連結: ${c.url || ''}\n    摘要: ${c.summary}\n`;
+          });
+        }
+        if (Array.isArray(TODAY_EDITION.stock_market)) {
+          TODAY_EDITION.stock_market.forEach(s => {
+            articlesText += `[${artIdx++}] 分類: 股市焦點 | 標題: ${s.title}\n    來源: ${s.source || ''} | 連結: ${s.url || ''}\n    摘要: ${s.summary}\n`;
+          });
+        }
+        if (Array.isArray(TODAY_EDITION.sidebar)) {
+          TODAY_EDITION.sidebar.forEach(sb => {
+            articlesText += `[${artIdx++}] 分類: 快訊 | 標題: ${sb.title}\n    來源: ${sb.source || ''} | 連結: ${sb.url || ''}\n    摘要: ${sb.brief}\n`;
+          });
+        }
+      }
+
       const prompt = `
 你是一位享譽全球的權威報社（如《金融時報》、《彭博社》）總編輯兼首席主筆。
-讀者正在閱讀今日早報，並要求根據最新的審稿偏好重新策劃與排版今日晨間時報 (The Daily Times)。
+讀者正在閱讀今日早報，並要求根據最新的審稿偏好與個人化指令，對今日的新聞素材進行重新策劃、選題與排版：
 
 ${feedbackSection}
 
+【今日可供編排之新聞素材庫】：
+==================================================
+${articlesText}
+==================================================
+
 【每日四大優先涵蓋領域】：
-一、台灣中央與地方政治、立法院法案制度變動、預算、憲政與公共政策（至少 1~3 則具制度結構意義新聞）。
+一、台灣中央與地方政治、立法院法案制度變動、預算、憲政與公共政策。
 二、兩岸關係、中國政局、香港、東亞與印太地緣安全。
 三、全球民主政治、公民社會、威權擴張、各國大選與憲政。
 四、AI治理與能動性、數位身分/憑證、去中心化抗審查基建、Web3、科技政策。
 五、股市與資本市場焦點：精選 3 則關鍵行情與資金動能新聞。
-★ 涉及大宗商品（如原油/天然氣/黃金）、總經利率或半導體供應鏈的新聞，務必在 market_linkage 提供指標名稱、近 10 日走勢與連鎖效應。
 
 請以繁體中文輸出符合以下完整格式的 JSON 物件（必須包含 headline, columns, stock_market, sidebar, editorial, market_pulse）：
 {
@@ -1975,10 +2002,9 @@ ${feedbackSection}
 
       // Robust fallback model cascade
       const modelsToTry = [
-        "gemini-2.5-flash",
-        "gemini-2.5-flash-lite",
-        "gemini-2.5-pro",
-        "gemini-2.0-flash"
+        "gemini-3.6-flash",
+        "gemini-1.5-flash",
+        "gemini-1.5-pro"
       ];
 
       let lastError = null;
@@ -2496,10 +2522,9 @@ ${feedbackSection}
 `;
 
       const modelsToTry = [
-        "gemini-2.5-flash",
-        "gemini-2.5-flash-lite",
-        "gemini-2.5-pro",
-        "gemini-2.0-flash"
+        "gemini-3.6-flash",
+        "gemini-1.5-flash",
+        "gemini-1.5-pro"
       ];
 
       let lastError = null;

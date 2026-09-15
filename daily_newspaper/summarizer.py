@@ -483,7 +483,7 @@ def curate_newspaper_with_gemini(articles: List[Dict[str, Any]], config: Dict[st
     client = genai.Client(api_key=api_key)
     
     gemini_cfg = config.get("gemini", {})
-    model_name = gemini_cfg.get("model", "gemini-2.5-flash")
+    model_name = gemini_cfg.get("model", "gemini-3.6-flash")
     temperature = gemini_cfg.get("temperature", 0.3)
     focus_topics = config.get("focus_topics", [])
     max_arts = gemini_cfg.get("max_articles_to_analyze", 25)
@@ -543,12 +543,10 @@ def curate_newspaper_with_gemini(articles: List[Dict[str, Any]], config: Dict[st
 
     candidate_models = [
         model_name,
-        "gemini-2.5-flash",
-        "gemini-2.0-flash",
-        "gemini-2.5-pro",
+        "gemini-3.6-flash",
         "gemini-1.5-flash",
         "gemini-1.5-pro",
-        "gemini-2.0-flash-001"
+        "gemini-3.6-flash-lite"
     ]
     # Deduplicate while preserving order
     models_to_try = list(dict.fromkeys(candidate_models))

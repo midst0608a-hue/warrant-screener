@@ -9315,7 +9315,7 @@
     "stock_id": "2472",
     "strike": 275.81,
     "ratio": 20.0,
-    "expiry": "1151126",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "P"
   },
@@ -37453,7 +37453,7 @@
     "w_code": "04531T",
     "w_name": "川湖元大63售03",
     "stock_id": "2059",
-    "strike": 5995.0,
+    "strike": 8910.0,
     "ratio": 1.0,
     "expiry": "1160312",
     "market": "上市",
@@ -37473,7 +37473,7 @@
     "w_code": "04532T",
     "w_name": "世芯元大63售01",
     "stock_id": "3661",
-    "strike": 1795.0,
+    "strike": 2512.5,
     "ratio": 2.0,
     "expiry": "1160312",
     "market": "上市",
@@ -37980,6 +37980,16 @@
     "opt_type": "C"
   },
   {
+    "w_code": "04556T",
+    "w_name": "晶技永豐63售09",
+    "stock_id": "3042",
+    "strike": 162.9,
+    "ratio": 30.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "P"
+  },
+  {
     "w_code": "045573",
     "w_name": "旭隼凱基5A購01",
     "stock_id": "6409",
@@ -38000,6 +38010,16 @@
     "opt_type": "C"
   },
   {
+    "w_code": "04557T",
+    "w_name": "世芯永豐63售07",
+    "stock_id": "3661",
+    "strike": 3019.5,
+    "ratio": 2.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "P"
+  },
+  {
     "w_code": "045589",
     "w_name": "金寶元大5B購01",
     "stock_id": "2312",
@@ -38008,6 +38028,46 @@
     "expiry": "1151119",
     "market": "上市",
     "opt_type": "C"
+  },
+  {
+    "w_code": "04558T",
+    "w_name": "世芯永豐66售06",
+    "stock_id": "3661",
+    "strike": 2684.0,
+    "ratio": 2.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "P"
+  },
+  {
+    "w_code": "04559T",
+    "w_name": "世芯永豐69售04",
+    "stock_id": "3661",
+    "strike": 2516.25,
+    "ratio": 3.0,
+    "expiry": "1160914",
+    "market": "上市",
+    "opt_type": "P"
+  },
+  {
+    "w_code": "04560T",
+    "w_name": "緯穎永豐63售15",
+    "stock_id": "6669",
+    "strike": 2083.5,
+    "ratio": 3.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "P"
+  },
+  {
+    "w_code": "04561T",
+    "w_name": "奇鋐國票64售03",
+    "stock_id": "3017",
+    "strike": 3000.0,
+    "ratio": 1.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "P"
   },
   {
     "w_code": "045621",
@@ -38050,6 +38110,16 @@
     "opt_type": "C"
   },
   {
+    "w_code": "04562T",
+    "w_name": "乙盛國票65售02",
+    "stock_id": "5243",
+    "strike": 70.0,
+    "ratio": 60.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "P"
+  },
+  {
     "w_code": "045631",
     "w_name": "世芯元大5B購02",
     "stock_id": "3661",
@@ -38078,6 +38148,16 @@
     "expiry": "1150820",
     "market": "上市",
     "opt_type": "C"
+  },
+  {
+    "w_code": "04563T",
+    "w_name": "緯穎國票64售03",
+    "stock_id": "6669",
+    "strike": 2000.0,
+    "ratio": 2.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "P"
   },
   {
     "w_code": "045640",
@@ -38120,6 +38200,16 @@
     "opt_type": "C"
   },
   {
+    "w_code": "04564T",
+    "w_name": "惠特國票65售01",
+    "stock_id": "6706",
+    "strike": 120.0,
+    "ratio": 30.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "P"
+  },
+  {
     "w_code": "045650",
     "w_name": "元債2X富邦59購02",
     "stock_id": "00680L",
@@ -38160,6 +38250,26 @@
     "opt_type": "C"
   },
   {
+    "w_code": "04565T",
+    "w_name": "台灣50凱基69售04",
+    "stock_id": "0050",
+    "strike": 78.0,
+    "ratio": 250.0,
+    "expiry": "1160914",
+    "market": "上市",
+    "opt_type": "P"
+  },
+  {
+    "w_code": "04566T",
+    "w_name": "T50正2凱基63售14",
+    "stock_id": "00631L",
+    "strike": 32.0,
+    "ratio": 300.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "P"
+  },
+  {
     "w_code": "045679",
     "w_name": "至上國票58購01",
     "stock_id": "8112",
@@ -38168,6 +38278,36 @@
     "expiry": "1150820",
     "market": "上市",
     "opt_type": "C"
+  },
+  {
+    "w_code": "04567T",
+    "w_name": "上銀凱基63售08",
+    "stock_id": "2049",
+    "strike": 260.0,
+    "ratio": 60.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "P"
+  },
+  {
+    "w_code": "04568T",
+    "w_name": "力積電凱基63售17",
+    "stock_id": "6770",
+    "strike": 55.0,
+    "ratio": 300.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "P"
+  },
+  {
+    "w_code": "04569T",
+    "w_name": "臺股指凱基63售45",
+    "stock_id": "臺股指數",
+    "strike": 32666.0,
+    "ratio": 2.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "P"
   },
   {
     "w_code": "045709",
@@ -38180,6 +38320,16 @@
     "opt_type": "C"
   },
   {
+    "w_code": "04570T",
+    "w_name": "臺股指凱基64售08",
+    "stock_id": "臺股指數",
+    "strike": 43688.0,
+    "ratio": 0.5,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "P"
+  },
+  {
     "w_code": "045716",
     "w_name": "矽統統一58購01",
     "stock_id": "2363",
@@ -38188,6 +38338,26 @@
     "expiry": "1150730",
     "market": "上市",
     "opt_type": "C"
+  },
+  {
+    "w_code": "04571T",
+    "w_name": "台灣50元大63售15",
+    "stock_id": "0050",
+    "strike": 100.0,
+    "ratio": 200.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "P"
+  },
+  {
+    "w_code": "04572T",
+    "w_name": "T50正2元大63售10",
+    "stock_id": "00631L",
+    "strike": 34.0,
+    "ratio": 200.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "P"
   },
   {
     "w_code": "045738",
@@ -38200,6 +38370,16 @@
     "opt_type": "C"
   },
   {
+    "w_code": "04573T",
+    "w_name": "華邦電元大63售29",
+    "stock_id": "2344",
+    "strike": 162.5,
+    "ratio": 31.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "P"
+  },
+  {
     "w_code": "045746",
     "w_name": "祥碩凱基5B購01",
     "stock_id": "5269",
@@ -38210,6 +38390,16 @@
     "opt_type": "C"
   },
   {
+    "w_code": "04574T",
+    "w_name": "南亞科元大63售35",
+    "stock_id": "2408",
+    "strike": 444.5,
+    "ratio": 11.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "P"
+  },
+  {
     "w_code": "045751",
     "w_name": "南亞元大5B購01",
     "stock_id": "1303",
@@ -38218,6 +38408,26 @@
     "expiry": "1151120",
     "market": "上市",
     "opt_type": "C"
+  },
+  {
+    "w_code": "04575T",
+    "w_name": "日月光台新63售04",
+    "stock_id": "3711",
+    "strike": 520.0,
+    "ratio": 50.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "P"
+  },
+  {
+    "w_code": "04576T",
+    "w_name": "華邦電群益65售02",
+    "stock_id": "2344",
+    "strike": 125.0,
+    "ratio": 50.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "P"
   },
   {
     "w_code": "045776",
@@ -38258,6 +38468,16 @@
     "expiry": "1150730",
     "market": "上市",
     "opt_type": "C"
+  },
+  {
+    "w_code": "04577T",
+    "w_name": "華碩群益66售01",
+    "stock_id": "2357",
+    "strike": 650.0,
+    "ratio": 15.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "P"
   },
   {
     "w_code": "045780",
@@ -43375,7 +43595,7 @@
     "stock_id": "2637",
     "strike": 67.45,
     "ratio": 143.0,
-    "expiry": "1151210",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -48855,7 +49075,7 @@
     "stock_id": "3443",
     "strike": 2986.39,
     "ratio": 20.0,
-    "expiry": "1151228",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -58475,7 +58695,7 @@
     "stock_id": "2303",
     "strike": 63.91,
     "ratio": 356.0,
-    "expiry": "1151112",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -70265,7 +70485,7 @@
     "stock_id": "6669",
     "strike": 1437.84,
     "ratio": 3.0,
-    "expiry": "1151223",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -74355,7 +74575,7 @@
     "stock_id": "2454",
     "strike": 2485.15,
     "ratio": 12.0,
-    "expiry": "1151130",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -77235,7 +77455,7 @@
     "stock_id": "2303",
     "strike": 69.81,
     "ratio": 203.0,
-    "expiry": "1151230",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -77245,7 +77465,7 @@
     "stock_id": "2303",
     "strike": 81.6,
     "ratio": 153.0,
-    "expiry": "1151230",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -110265,7 +110485,7 @@
     "stock_id": "2303",
     "strike": 90.94,
     "ratio": 224.0,
-    "expiry": "1160107",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -119545,7 +119765,7 @@
     "stock_id": "1303",
     "strike": 124.4,
     "ratio": 90.0,
-    "expiry": "1160114",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -135935,7 +136155,7 @@
     "stock_id": "6213",
     "strike": 222.76,
     "ratio": 40.0,
-    "expiry": "1151229",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -145425,7 +145645,7 @@
     "stock_id": "2351",
     "strike": 158.95,
     "ratio": 50.0,
-    "expiry": "1160107",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -157705,7 +157925,7 @@
     "stock_id": "5292",
     "strike": 301.48,
     "ratio": 23.0,
-    "expiry": "1151117",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -158995,7 +159215,7 @@
     "stock_id": "3563",
     "strike": 1375.11,
     "ratio": 8.0,
-    "expiry": "1151118",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -186145,7 +186365,7 @@
     "stock_id": "4967",
     "strike": 414.1,
     "ratio": 31.0,
-    "expiry": "1151113",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -188033,8 +188253,8 @@
     "w_code": "067476",
     "w_name": "科技息凱基5C購01",
     "stock_id": "00929",
-    "strike": 28.82,
-    "ratio": 521.0,
+    "strike": 28.44,
+    "ratio": 528.0,
     "expiry": "1151216",
     "market": "上市",
     "opt_type": "C"
@@ -189215,7 +189435,7 @@
     "stock_id": "2485",
     "strike": 90.0,
     "ratio": 75.0,
-    "expiry": "1151116",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -189225,7 +189445,7 @@
     "stock_id": "3006",
     "strike": 355.32,
     "ratio": 30.0,
-    "expiry": "1151116",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -191235,7 +191455,7 @@
     "stock_id": "2485",
     "strike": 109.5,
     "ratio": 70.0,
-    "expiry": "1151118",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -191945,7 +192165,7 @@
     "stock_id": "3563",
     "strike": 1163.93,
     "ratio": 14.0,
-    "expiry": "1151118",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -200205,7 +200425,7 @@
     "stock_id": "2329",
     "strike": 73.58,
     "ratio": 255.0,
-    "expiry": "1151123",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -211913,8 +212133,8 @@
     "w_code": "069890",
     "w_name": "FH富產元大61購01",
     "stock_id": "00712",
-    "strike": 8.76,
-    "ratio": 1027.0,
+    "strike": 8.55,
+    "ratio": 1053.0,
     "expiry": "1151230",
     "market": "上市",
     "opt_type": "C"
@@ -212005,7 +212225,7 @@
     "stock_id": "2317",
     "strike": 403.0,
     "ratio": 51.0,
-    "expiry": "1151130",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -215703,8 +215923,8 @@
     "w_code": "070270",
     "w_name": "科技息元大5C購01",
     "stock_id": "00929",
-    "strike": 30.89,
-    "ratio": 311.0,
+    "strike": 30.48,
+    "ratio": 315.0,
     "expiry": "1151202",
     "market": "上市",
     "opt_type": "C"
@@ -216763,8 +216983,8 @@
     "w_code": "070375",
     "w_name": "FH富產凱基61購01",
     "stock_id": "00712",
-    "strike": 8.64,
-    "ratio": 1027.0,
+    "strike": 8.43,
+    "ratio": 1053.0,
     "expiry": "1160105",
     "market": "上市",
     "opt_type": "C"
@@ -222555,7 +222775,7 @@
     "stock_id": "2312",
     "strike": 51.03,
     "ratio": 204.0,
-    "expiry": "1151207",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -228833,8 +229053,8 @@
     "w_code": "071582",
     "w_name": "科技息凱基61購01",
     "stock_id": "00929",
-    "strike": 33.78,
-    "ratio": 726.0,
+    "strike": 33.33,
+    "ratio": 736.0,
     "expiry": "1160113",
     "market": "上市",
     "opt_type": "C"
@@ -236255,7 +236475,7 @@
     "stock_id": "00715L",
     "strike": 45.0,
     "ratio": 100.0,
-    "expiry": "1151218",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -236965,7 +237185,7 @@
     "stock_id": "3673",
     "strike": 125.87,
     "ratio": 68.0,
-    "expiry": "1151218",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -238385,7 +238605,7 @@
     "stock_id": "2317",
     "strike": 369.5,
     "ratio": 51.0,
-    "expiry": "1151221",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -239795,7 +240015,7 @@
     "stock_id": "1802",
     "strike": 114.5,
     "ratio": 78.0,
-    "expiry": "1151222",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -244155,7 +244375,7 @@
     "stock_id": "2340",
     "strike": 58.9,
     "ratio": 172.0,
-    "expiry": "1151223",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -245715,7 +245935,7 @@
     "stock_id": "8110",
     "strike": 89.22,
     "ratio": 137.0,
-    "expiry": "1151224",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -248235,7 +248455,7 @@
     "stock_id": "2404",
     "strike": 1932.9,
     "ratio": 5.0,
-    "expiry": "1151229",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -249535,7 +249755,7 @@
     "stock_id": "3406",
     "strike": 750.0,
     "ratio": 10.0,
-    "expiry": "1151230",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -256985,7 +257205,7 @@
     "stock_id": "2401",
     "strike": 51.4,
     "ratio": 205.0,
-    "expiry": "1160104",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -259915,7 +260135,7 @@
     "stock_id": "6191",
     "strike": 127.77,
     "ratio": 43.0,
-    "expiry": "1160105",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -260935,7 +261155,7 @@
     "stock_id": "3059",
     "strike": 59.32,
     "ratio": 113.0,
-    "expiry": "1160106",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -261315,7 +261535,7 @@
     "stock_id": "3008",
     "strike": 4211.53,
     "ratio": 2.0,
-    "expiry": "1160106",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -261325,7 +261545,7 @@
     "stock_id": "3008",
     "strike": 4707.01,
     "ratio": 2.0,
-    "expiry": "1160402",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -263315,7 +263535,7 @@
     "stock_id": "3605",
     "strike": 103.51,
     "ratio": 101.0,
-    "expiry": "1160108",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -264305,7 +264525,7 @@
     "stock_id": "3008",
     "strike": 3963.79,
     "ratio": 2.0,
-    "expiry": "1160108",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -264315,7 +264535,7 @@
     "stock_id": "3017",
     "strike": 2532.46,
     "ratio": 3.0,
-    "expiry": "1160108",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -264565,7 +264785,7 @@
     "stock_id": "3406",
     "strike": 700.0,
     "ratio": 15.0,
-    "expiry": "1160108",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -268165,7 +268385,7 @@
     "stock_id": "3406",
     "strike": 689.0,
     "ratio": 10.0,
-    "expiry": "1160112",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -268235,7 +268455,7 @@
     "stock_id": "6191",
     "strike": 116.5,
     "ratio": 38.0,
-    "expiry": "1160112",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -270105,7 +270325,7 @@
     "stock_id": "2375",
     "strike": 228.61,
     "ratio": 27.0,
-    "expiry": "1160113",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -270175,7 +270395,7 @@
     "stock_id": "2458",
     "strike": 231.27,
     "ratio": 43.0,
-    "expiry": "1160113",
+    "expiry": "1150917",
     "market": "上市",
     "opt_type": "C"
   },
@@ -385783,7 +386003,7 @@
     "w_code": "086663",
     "w_name": "矽統永豐63購03",
     "stock_id": "2363",
-    "strike": 77.1,
+    "strike": 61.38,
     "ratio": 200.0,
     "expiry": "1160312",
     "market": "上市",
@@ -386243,7 +386463,7 @@
     "w_code": "086705",
     "w_name": "川湖元大63購02",
     "stock_id": "2059",
-    "strike": 17985.0,
+    "strike": 14850.0,
     "ratio": 1.0,
     "expiry": "1160312",
     "market": "上市",
@@ -386253,7 +386473,7 @@
     "w_code": "086706",
     "w_name": "川湖元大64購01",
     "stock_id": "2059",
-    "strike": 17985.0,
+    "strike": 16038.0,
     "ratio": 1.0,
     "expiry": "1160414",
     "market": "上市",
@@ -386263,7 +386483,7 @@
     "w_code": "086707",
     "w_name": "川湖元大65購01",
     "stock_id": "2059",
-    "strike": 17985.0,
+    "strike": 16632.0,
     "ratio": 1.0,
     "expiry": "1160513",
     "market": "上市",
@@ -386783,7 +387003,7 @@
     "w_code": "086754",
     "w_name": "川湖統一67購01",
     "stock_id": "2059",
-    "strike": 17985.0,
+    "strike": 16038.0,
     "ratio": 1.0,
     "expiry": "1160714",
     "market": "上市",
@@ -386813,7 +387033,7 @@
     "w_code": "086757",
     "w_name": "世芯統一65購01",
     "stock_id": "3661",
-    "strike": 5385.0,
+    "strike": 4690.0,
     "ratio": 1.0,
     "expiry": "1160513",
     "market": "上市",
@@ -386833,7 +387053,7 @@
     "w_code": "086759",
     "w_name": "世芯統一69購01",
     "stock_id": "3661",
-    "strike": 5385.0,
+    "strike": 4857.5,
     "ratio": 1.0,
     "expiry": "1160913",
     "market": "上市",
@@ -386873,7 +387093,7 @@
     "w_code": "086762",
     "w_name": "穎崴統一63購01",
     "stock_id": "6515",
-    "strike": 9900.0,
+    "strike": 9077.0,
     "ratio": 1.0,
     "expiry": "1160312",
     "market": "上市",
@@ -386893,7 +387113,7 @@
     "w_code": "086764",
     "w_name": "睿生統一69購01",
     "stock_id": "6861",
-    "strike": 353.25,
+    "strike": 304.43,
     "ratio": 9.0,
     "expiry": "1160913",
     "market": "上市",
@@ -386913,7 +387133,7 @@
     "w_code": "086766",
     "w_name": "南電統一6A購03",
     "stock_id": "8046",
-    "strike": 1582.5,
+    "strike": 1511.1,
     "ratio": 2.0,
     "expiry": "1161014",
     "market": "上市",
@@ -389390,6 +389610,36 @@
     "opt_type": "C"
   },
   {
+    "w_code": "086991",
+    "w_name": "台達電統一71購03",
+    "stock_id": "2308",
+    "strike": 2505.0,
+    "ratio": 1.0,
+    "expiry": "1170113",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "086992",
+    "w_name": "國巨統一69購03",
+    "stock_id": "2327",
+    "strike": 733.33,
+    "ratio": 3.0,
+    "expiry": "1160914",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "086993",
+    "w_name": "建準統一69購01",
+    "stock_id": "2421",
+    "strike": 237.0,
+    "ratio": 14.0,
+    "expiry": "1160914",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "086994",
     "w_name": "全新統一59購01",
     "stock_id": "2455",
@@ -389420,6 +389670,36 @@
     "opt_type": "C"
   },
   {
+    "w_code": "086997",
+    "w_name": "光寶科中信63購03",
+    "stock_id": "2301",
+    "strike": 350.0,
+    "ratio": 20.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "086998",
+    "w_name": "台達電中信69購03",
+    "stock_id": "2308",
+    "strike": 2500.0,
+    "ratio": 2.0,
+    "expiry": "1160914",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "086999",
+    "w_name": "世芯中信63購03",
+    "stock_id": "3661",
+    "strike": 3600.0,
+    "ratio": 1.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "08699U",
     "w_name": "金融類國票59售02",
     "stock_id": "金融類",
@@ -389430,12 +389710,102 @@
     "opt_type": "P"
   },
   {
+    "w_code": "087000",
+    "w_name": "緯穎中信67購02",
+    "stock_id": "6669",
+    "strike": 3472.0,
+    "ratio": 2.0,
+    "expiry": "1160715",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087001",
+    "w_name": "南電中信66購01",
+    "stock_id": "8046",
+    "strike": 1500.0,
+    "ratio": 3.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "087002",
     "w_name": "貿聯統一61購01",
     "stock_id": "3665",
     "strike": 1197.59,
     "ratio": 2.0,
     "expiry": "1160106",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087003",
+    "w_name": "金寶永豐63購02",
+    "stock_id": "2312",
+    "strike": 35.0,
+    "ratio": 360.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087004",
+    "w_name": "仁寶永豐64購01",
+    "stock_id": "2324",
+    "strike": 42.0,
+    "ratio": 360.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087005",
+    "w_name": "漢唐永豐65購02",
+    "stock_id": "2404",
+    "strike": 1225.0,
+    "ratio": 23.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087006",
+    "w_name": "奇鋐永豐64購16",
+    "stock_id": "3017",
+    "strike": 3688.0,
+    "ratio": 2.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087007",
+    "w_name": "威強電永豐63購01",
+    "stock_id": "3022",
+    "strike": 100.0,
+    "ratio": 80.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087008",
+    "w_name": "群創永豐64購04",
+    "stock_id": "3481",
+    "strike": 53.0,
+    "ratio": 150.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087009",
+    "w_name": "嘉澤永豐63購03",
+    "stock_id": "3533",
+    "strike": 1520.0,
+    "ratio": 3.0,
+    "expiry": "1160315",
     "market": "上市",
     "opt_type": "C"
   },
@@ -389450,6 +389820,106 @@
     "opt_type": "P"
   },
   {
+    "w_code": "087010",
+    "w_name": "臻鼎永豐64購07",
+    "stock_id": "4958",
+    "strike": 697.0,
+    "ratio": 75.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087011",
+    "w_name": "凌華永豐63購02",
+    "stock_id": "6166",
+    "strike": 130.0,
+    "ratio": 36.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087012",
+    "w_name": "睿生永豐63購01",
+    "stock_id": "6861",
+    "strike": 260.0,
+    "ratio": 23.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087013",
+    "w_name": "富邦媒永豐63購02",
+    "stock_id": "8454",
+    "strike": 280.0,
+    "ratio": 36.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087014",
+    "w_name": "中砂國泰64購02",
+    "stock_id": "1560",
+    "strike": 865.0,
+    "ratio": 12.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087015",
+    "w_name": "華邦電國泰64購01",
+    "stock_id": "2344",
+    "strike": 170.0,
+    "ratio": 35.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087016",
+    "w_name": "華邦電國泰64購02",
+    "stock_id": "2344",
+    "strike": 190.0,
+    "ratio": 35.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087017",
+    "w_name": "智邦國泰64購01",
+    "stock_id": "2345",
+    "strike": 1950.0,
+    "ratio": 4.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087018",
+    "w_name": "智邦國泰64購02",
+    "stock_id": "2345",
+    "strike": 2200.0,
+    "ratio": 4.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087019",
+    "w_name": "嘉晶國泰64購01",
+    "stock_id": "3016",
+    "strike": 125.0,
+    "ratio": 60.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "08701U",
     "w_name": "臺股指富邦5C售15",
     "stock_id": "臺股指數",
@@ -389458,6 +389928,106 @@
     "expiry": "1151214",
     "market": "上市",
     "opt_type": "P"
+  },
+  {
+    "w_code": "087020",
+    "w_name": "嘉晶國泰64購02",
+    "stock_id": "3016",
+    "strike": 150.0,
+    "ratio": 75.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087021",
+    "w_name": "零壹國泰64購01",
+    "stock_id": "3029",
+    "strike": 145.0,
+    "ratio": 75.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087022",
+    "w_name": "新日興國泰64購05",
+    "stock_id": "3376",
+    "strike": 180.0,
+    "ratio": 40.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087023",
+    "w_name": "邁達特國泰64購01",
+    "stock_id": "6112",
+    "strike": 60.0,
+    "ratio": 200.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087024",
+    "w_name": "邁科國泰64購02",
+    "stock_id": "6831",
+    "strike": 600.0,
+    "ratio": 20.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087025",
+    "w_name": "睿生國泰64購02",
+    "stock_id": "6861",
+    "strike": 275.0,
+    "ratio": 25.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087026",
+    "w_name": "華通國票66購01",
+    "stock_id": "2313",
+    "strike": 290.0,
+    "ratio": 19.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087027",
+    "w_name": "南亞科國票64購02",
+    "stock_id": "2408",
+    "strike": 520.0,
+    "ratio": 8.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087028",
+    "w_name": "中信金國票66購01",
+    "stock_id": "2891",
+    "strike": 100.0,
+    "ratio": 100.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087029",
+    "w_name": "世芯國票64購02",
+    "stock_id": "3661",
+    "strike": 3500.0,
+    "ratio": 3.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
   },
   {
     "w_code": "08702U",
@@ -389470,6 +390040,106 @@
     "opt_type": "P"
   },
   {
+    "w_code": "087030",
+    "w_name": "世芯國票65購02",
+    "stock_id": "3661",
+    "strike": 4500.0,
+    "ratio": 3.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087031",
+    "w_name": "力成國票65購03",
+    "stock_id": "6239",
+    "strike": 330.0,
+    "ratio": 17.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087032",
+    "w_name": "穎崴國票63購02",
+    "stock_id": "6515",
+    "strike": 7800.0,
+    "ratio": 1.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087033",
+    "w_name": "穎崴國票63購03",
+    "stock_id": "6515",
+    "strike": 7000.0,
+    "ratio": 1.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087034",
+    "w_name": "穎崴國票64購01",
+    "stock_id": "6515",
+    "strike": 9400.0,
+    "ratio": 1.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087035",
+    "w_name": "穎崴國票64購02",
+    "stock_id": "6515",
+    "strike": 8600.0,
+    "ratio": 1.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087036",
+    "w_name": "研揚國票68購01",
+    "stock_id": "6579",
+    "strike": 220.0,
+    "ratio": 24.0,
+    "expiry": "1160813",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087037",
+    "w_name": "力積電國票64購03",
+    "stock_id": "6770",
+    "strike": 70.0,
+    "ratio": 130.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087038",
+    "w_name": "元油反凱基63購01",
+    "stock_id": "期元大S&P原油反1(原名：元大S&P原油反1)",
+    "strike": 11.5,
+    "ratio": 1000.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087039",
+    "w_name": "南亞凱基66購02",
+    "stock_id": "1303",
+    "strike": 285.0,
+    "ratio": 50.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "08703U",
     "w_name": "嘉澤中信59售01",
     "stock_id": "3533",
@@ -389478,6 +390148,106 @@
     "expiry": "1150914",
     "market": "上市",
     "opt_type": "P"
+  },
+  {
+    "w_code": "087040",
+    "w_name": "士電凱基63購03",
+    "stock_id": "1503",
+    "strike": 210.0,
+    "ratio": 65.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087041",
+    "w_name": "華城凱基63購09",
+    "stock_id": "1519",
+    "strike": 700.0,
+    "ratio": 20.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087042",
+    "w_name": "長興凱基67購02",
+    "stock_id": "1717",
+    "strike": 92.0,
+    "ratio": 250.0,
+    "expiry": "1160715",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087043",
+    "w_name": "聯電凱基63購15",
+    "stock_id": "2303",
+    "strike": 205.0,
+    "ratio": 100.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087044",
+    "w_name": "台達電凱基65購02",
+    "stock_id": "2308",
+    "strike": 2420.0,
+    "ratio": 12.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087045",
+    "w_name": "台達電凱基66購03",
+    "stock_id": "2308",
+    "strike": 2220.0,
+    "ratio": 9.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087046",
+    "w_name": "鴻海凱基63購18",
+    "stock_id": "2317",
+    "strike": 247.0,
+    "ratio": 65.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087047",
+    "w_name": "華邦電凱基63購20",
+    "stock_id": "2344",
+    "strike": 170.0,
+    "ratio": 65.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087048",
+    "w_name": "順德凱基63購04",
+    "stock_id": "2351",
+    "strike": 280.0,
+    "ratio": 40.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087049",
+    "w_name": "華碩凱基64購02",
+    "stock_id": "2357",
+    "strike": 950.0,
+    "ratio": 15.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
   },
   {
     "w_code": "08704U",
@@ -389490,6 +390260,106 @@
     "opt_type": "P"
   },
   {
+    "w_code": "087050",
+    "w_name": "金像電凱基63購22",
+    "stock_id": "2368",
+    "strike": 1000.0,
+    "ratio": 7.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087051",
+    "w_name": "研華凱基63購04",
+    "stock_id": "2395",
+    "strike": 900.0,
+    "ratio": 45.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087052",
+    "w_name": "漢唐凱基63購13",
+    "stock_id": "2404",
+    "strike": 1370.0,
+    "ratio": 20.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087053",
+    "w_name": "友達凱基65購02",
+    "stock_id": "2409",
+    "strike": 32.0,
+    "ratio": 450.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087054",
+    "w_name": "建準凱基63購06",
+    "stock_id": "2421",
+    "strike": 175.0,
+    "ratio": 70.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087055",
+    "w_name": "萬海凱基63購10",
+    "stock_id": "2615",
+    "strike": 123.0,
+    "ratio": 80.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087056",
+    "w_name": "富邦金凱基65購01",
+    "stock_id": "2881",
+    "strike": 195.0,
+    "ratio": 100.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087057",
+    "w_name": "永豐金凱基64購01",
+    "stock_id": "2890",
+    "strike": 58.0,
+    "ratio": 550.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087058",
+    "w_name": "神基凱基63購02",
+    "stock_id": "3005",
+    "strike": 125.0,
+    "ratio": 70.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087059",
+    "w_name": "奇鋐凱基63購19",
+    "stock_id": "3017",
+    "strike": 4500.0,
+    "ratio": 6.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "08705U",
     "w_name": "臺股指群益59售32",
     "stock_id": "臺股指數",
@@ -389498,6 +390368,106 @@
     "expiry": "1150914",
     "market": "上市",
     "opt_type": "P"
+  },
+  {
+    "w_code": "087060",
+    "w_name": "零壹凱基63購02",
+    "stock_id": "3029",
+    "strike": 170.0,
+    "ratio": 90.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087061",
+    "w_name": "智原凱基64購02",
+    "stock_id": "3035",
+    "strike": 180.0,
+    "ratio": 60.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087062",
+    "w_name": "文曄凱基66購02",
+    "stock_id": "3036",
+    "strike": 250.0,
+    "ratio": 85.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087063",
+    "w_name": "晶技凱基63購10",
+    "stock_id": "3042",
+    "strike": 200.0,
+    "ratio": 65.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087064",
+    "w_name": "嘉澤凱基63購10",
+    "stock_id": "3533",
+    "strike": 1900.0,
+    "ratio": 9.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087065",
+    "w_name": "世芯凱基65購05",
+    "stock_id": "3661",
+    "strike": 3500.0,
+    "ratio": 3.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087066",
+    "w_name": "天鈺凱基63購02",
+    "stock_id": "4961",
+    "strike": 260.0,
+    "ratio": 100.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087067",
+    "w_name": "亞翔凱基63購08",
+    "stock_id": "6139",
+    "strike": 950.0,
+    "ratio": 30.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087068",
+    "w_name": "瑞儀凱基63購01",
+    "stock_id": "6176",
+    "strike": 110.0,
+    "ratio": 120.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087069",
+    "w_name": "帆宣凱基63購06",
+    "stock_id": "6196",
+    "strike": 530.0,
+    "ratio": 37.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
   },
   {
     "w_code": "08706U",
@@ -389510,6 +390480,106 @@
     "opt_type": "P"
   },
   {
+    "w_code": "087070",
+    "w_name": "佳必琪凱基63購06",
+    "stock_id": "6197",
+    "strike": 390.0,
+    "ratio": 80.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087071",
+    "w_name": "啟碁凱基63購04",
+    "stock_id": "6285",
+    "strike": 260.0,
+    "ratio": 110.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087072",
+    "w_name": "光聖凱基63購09",
+    "stock_id": "6442",
+    "strike": 1600.0,
+    "ratio": 6.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087073",
+    "w_name": "達發凱基63購03",
+    "stock_id": "6526",
+    "strike": 700.0,
+    "ratio": 20.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087074",
+    "w_name": "緯穎凱基63購21",
+    "stock_id": "6669",
+    "strike": 3470.0,
+    "ratio": 10.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087075",
+    "w_name": "力積電凱基63購16",
+    "stock_id": "6770",
+    "strike": 94.0,
+    "ratio": 250.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087076",
+    "w_name": "新代凱基63購05",
+    "stock_id": "7750",
+    "strike": 2200.0,
+    "ratio": 5.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087077",
+    "w_name": "昇陽半凱基64購04",
+    "stock_id": "8028",
+    "strike": 250.0,
+    "ratio": 50.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087078",
+    "w_name": "美利達凱基63購01",
+    "stock_id": "9914",
+    "strike": 80.0,
+    "ratio": 200.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087079",
+    "w_name": "臺股指凱基66購05",
+    "stock_id": "臺股指數",
+    "strike": 45000.0,
+    "ratio": 0.3,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "08707U",
     "w_name": "臺股指群益59售34",
     "stock_id": "臺股指數",
@@ -389518,6 +390588,106 @@
     "expiry": "1150914",
     "market": "上市",
     "opt_type": "P"
+  },
+  {
+    "w_code": "087080",
+    "w_name": "臺股指凱基66購06",
+    "stock_id": "臺股指數",
+    "strike": 56666.66,
+    "ratio": 1.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087081",
+    "w_name": "臺股指凱基69購02",
+    "stock_id": "臺股指數",
+    "strike": 59568.0,
+    "ratio": 1.0,
+    "expiry": "1160914",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087082",
+    "w_name": "臺股指凱基69購03",
+    "stock_id": "臺股指數",
+    "strike": 55888.0,
+    "ratio": 0.7,
+    "expiry": "1160914",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087083",
+    "w_name": "台灣50元大63購14",
+    "stock_id": "0050",
+    "strike": 135.0,
+    "ratio": 500.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087084",
+    "w_name": "T50正2元大63購09",
+    "stock_id": "00631L",
+    "strike": 35.5,
+    "ratio": 150.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087085",
+    "w_name": "T50反1元大63購11",
+    "stock_id": "00632R",
+    "strike": 11.88,
+    "ratio": 2000.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087086",
+    "w_name": "群臺2X元大64購02",
+    "stock_id": "00685L",
+    "strike": 16.8,
+    "ratio": 800.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087087",
+    "w_name": "南亞元大66購01",
+    "stock_id": "1303",
+    "strike": 286.0,
+    "ratio": 13.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087088",
+    "w_name": "上銀元大63購14",
+    "stock_id": "2049",
+    "strike": 409.5,
+    "ratio": 42.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087089",
+    "w_name": "上銀元大63購15",
+    "stock_id": "2049",
+    "strike": 430.5,
+    "ratio": 15.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
   },
   {
     "w_code": "08708U",
@@ -389530,6 +390700,106 @@
     "opt_type": "P"
   },
   {
+    "w_code": "087090",
+    "w_name": "光寶科元大63購16",
+    "stock_id": "2301",
+    "strike": 406.5,
+    "ratio": 21.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087091",
+    "w_name": "聯電元大63購13",
+    "stock_id": "2303",
+    "strike": 206.5,
+    "ratio": 53.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087092",
+    "w_name": "聯電元大63購14",
+    "stock_id": "2303",
+    "strike": 183.5,
+    "ratio": 45.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087093",
+    "w_name": "台達電元大63購19",
+    "stock_id": "2308",
+    "strike": 2280.0,
+    "ratio": 5.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087094",
+    "w_name": "台達電元大63購20",
+    "stock_id": "2308",
+    "strike": 2085.0,
+    "ratio": 4.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087095",
+    "w_name": "台達電元大65購07",
+    "stock_id": "2308",
+    "strike": 2375.0,
+    "ratio": 5.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087096",
+    "w_name": "光罩元大63購01",
+    "stock_id": "2338",
+    "strike": 69.1,
+    "ratio": 186.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087097",
+    "w_name": "華邦電元大63購28",
+    "stock_id": "2344",
+    "strike": 226.0,
+    "ratio": 45.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087098",
+    "w_name": "智邦元大63購17",
+    "stock_id": "2345",
+    "strike": 2015.0,
+    "ratio": 3.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087099",
+    "w_name": "智邦元大65購01",
+    "stock_id": "2345",
+    "strike": 2255.0,
+    "ratio": 4.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "08709U",
     "w_name": "臺股指群益59售36",
     "stock_id": "臺股指數",
@@ -389538,6 +390808,106 @@
     "expiry": "1150914",
     "market": "上市",
     "opt_type": "P"
+  },
+  {
+    "w_code": "087100",
+    "w_name": "智邦元大66購01",
+    "stock_id": "2345",
+    "strike": 2350.0,
+    "ratio": 4.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087101",
+    "w_name": "金像電元大63購30",
+    "stock_id": "2368",
+    "strike": 1225.0,
+    "ratio": 4.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087102",
+    "w_name": "金像電元大67購01",
+    "stock_id": "2368",
+    "strike": 1270.0,
+    "ratio": 3.0,
+    "expiry": "1160715",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087103",
+    "w_name": "大同元大63購02",
+    "stock_id": "2371",
+    "strike": 42.05,
+    "ratio": 516.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087104",
+    "w_name": "大同元大63購03",
+    "stock_id": "2371",
+    "strike": 28.05,
+    "ratio": 319.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087105",
+    "w_name": "研華元大63購03",
+    "stock_id": "2395",
+    "strike": 1020.0,
+    "ratio": 32.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087106",
+    "w_name": "漢唐元大63購08",
+    "stock_id": "2404",
+    "strike": 1490.0,
+    "ratio": 8.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087107",
+    "w_name": "漢唐元大63購09",
+    "stock_id": "2404",
+    "strike": 1160.0,
+    "ratio": 4.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087108",
+    "w_name": "漢唐元大65購03",
+    "stock_id": "2404",
+    "strike": 1520.0,
+    "ratio": 7.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087109",
+    "w_name": "南亞科元大63購33",
+    "stock_id": "2408",
+    "strike": 664.0,
+    "ratio": 7.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
   },
   {
     "w_code": "08710U",
@@ -389550,6 +390920,106 @@
     "opt_type": "P"
   },
   {
+    "w_code": "087110",
+    "w_name": "南亞科元大63購34",
+    "stock_id": "2408",
+    "strike": 630.0,
+    "ratio": 7.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087111",
+    "w_name": "友達元大63購26",
+    "stock_id": "2409",
+    "strike": 37.95,
+    "ratio": 437.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087112",
+    "w_name": "友達元大63購27",
+    "stock_id": "2409",
+    "strike": 34.8,
+    "ratio": 414.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087113",
+    "w_name": "建準元大63購10",
+    "stock_id": "2421",
+    "strike": 191.0,
+    "ratio": 45.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087114",
+    "w_name": "京元電元大63購06",
+    "stock_id": "2449",
+    "strike": 303.0,
+    "ratio": 37.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087115",
+    "w_name": "京元電元大66購02",
+    "stock_id": "2449",
+    "strike": 354.0,
+    "ratio": 35.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087116",
+    "w_name": "瑞軒元大63購07",
+    "stock_id": "2489",
+    "strike": 53.9,
+    "ratio": 208.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087117",
+    "w_name": "瑞軒元大63購08",
+    "stock_id": "2489",
+    "strike": 39.05,
+    "ratio": 74.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087118",
+    "w_name": "華新科元大64購02",
+    "stock_id": "2492",
+    "strike": 301.5,
+    "ratio": 15.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087119",
+    "w_name": "華新科元大65購02",
+    "stock_id": "2492",
+    "strike": 381.0,
+    "ratio": 6.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "08711U",
     "w_name": "臺股指群益59售38",
     "stock_id": "臺股指數",
@@ -389558,6 +391028,106 @@
     "expiry": "1150914",
     "market": "上市",
     "opt_type": "P"
+  },
+  {
+    "w_code": "087120",
+    "w_name": "嘉晶元大63購07",
+    "stock_id": "3016",
+    "strike": 160.5,
+    "ratio": 44.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087121",
+    "w_name": "奇鋐元大63購15",
+    "stock_id": "3017",
+    "strike": 4510.0,
+    "ratio": 3.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087122",
+    "w_name": "零壹元大63購01",
+    "stock_id": "3029",
+    "strike": 177.75,
+    "ratio": 150.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087123",
+    "w_name": "聯詠元大64購03",
+    "stock_id": "3034",
+    "strike": 670.0,
+    "ratio": 26.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087124",
+    "w_name": "智原元大63購03",
+    "stock_id": "3035",
+    "strike": 171.0,
+    "ratio": 34.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087125",
+    "w_name": "文曄元大63購07",
+    "stock_id": "3036",
+    "strike": 209.5,
+    "ratio": 39.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087126",
+    "w_name": "文曄元大64購06",
+    "stock_id": "3036",
+    "strike": 250.0,
+    "ratio": 50.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087127",
+    "w_name": "晶技元大66購07",
+    "stock_id": "3042",
+    "strike": 269.5,
+    "ratio": 44.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087128",
+    "w_name": "緯創元大63購14",
+    "stock_id": "3231",
+    "strike": 219.0,
+    "ratio": 48.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087129",
+    "w_name": "新日興元大63購06",
+    "stock_id": "3376",
+    "strike": 188.5,
+    "ratio": 39.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
   },
   {
     "w_code": "08712U",
@@ -389570,6 +391140,106 @@
     "opt_type": "P"
   },
   {
+    "w_code": "087130",
+    "w_name": "新日興元大63購07",
+    "stock_id": "3376",
+    "strike": 177.5,
+    "ratio": 36.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087131",
+    "w_name": "新日興元大65購05",
+    "stock_id": "3376",
+    "strike": 237.0,
+    "ratio": 52.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087132",
+    "w_name": "世芯元大63購05",
+    "stock_id": "3661",
+    "strike": 4490.0,
+    "ratio": 2.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087133",
+    "w_name": "世芯元大63購06",
+    "stock_id": "3661",
+    "strike": 4260.0,
+    "ratio": 2.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087134",
+    "w_name": "世芯元大63購07",
+    "stock_id": "3661",
+    "strike": 4935.0,
+    "ratio": 2.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087135",
+    "w_name": "世芯元大64購09",
+    "stock_id": "3661",
+    "strike": 4590.0,
+    "ratio": 2.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087136",
+    "w_name": "世芯元大65購01",
+    "stock_id": "3661",
+    "strike": 5010.0,
+    "ratio": 1.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087137",
+    "w_name": "日月光元大66購01",
+    "stock_id": "3711",
+    "strike": 767.0,
+    "ratio": 13.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087138",
+    "w_name": "臻鼎元大64購09",
+    "stock_id": "4958",
+    "strike": 643.0,
+    "ratio": 18.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087139",
+    "w_name": "亞翔元大63購05",
+    "stock_id": "6139",
+    "strike": 982.0,
+    "ratio": 17.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "08713U",
     "w_name": "臺指2X中信63售04",
     "stock_id": "00663L",
@@ -389580,12 +391250,102 @@
     "opt_type": "P"
   },
   {
+    "w_code": "087140",
+    "w_name": "帆宣元大63購05",
+    "stock_id": "6196",
+    "strike": 724.0,
+    "ratio": 29.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087141",
+    "w_name": "帆宣元大63購06",
+    "stock_id": "6196",
+    "strike": 760.0,
+    "ratio": 17.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087142",
+    "w_name": "力成元大63購20",
+    "stock_id": "6239",
+    "strike": 387.5,
+    "ratio": 58.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087143",
+    "w_name": "力成元大63購21",
+    "stock_id": "6239",
+    "strike": 308.0,
+    "ratio": 38.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087144",
+    "w_name": "力成元大63購22",
+    "stock_id": "6239",
+    "strike": 292.5,
+    "ratio": 38.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "087145",
     "w_name": "台積電元富67購01",
     "stock_id": "2330",
     "strike": 1279.13,
     "ratio": 40.0,
     "expiry": "1160707",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087146",
+    "w_name": "矽格元大63購03",
+    "stock_id": "6257",
+    "strike": 253.0,
+    "ratio": 44.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087147",
+    "w_name": "矽格元大64購02",
+    "stock_id": "6257",
+    "strike": 267.0,
+    "ratio": 45.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087148",
+    "w_name": "光聖元大65購04",
+    "stock_id": "6442",
+    "strike": 1705.0,
+    "ratio": 3.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087149",
+    "w_name": "保瑞元大63購05",
+    "stock_id": "6472",
+    "strike": 477.0,
+    "ratio": 27.0,
+    "expiry": "1160315",
     "market": "上市",
     "opt_type": "C"
   },
@@ -389600,6 +391360,106 @@
     "opt_type": "P"
   },
   {
+    "w_code": "087150",
+    "w_name": "緯穎元大63購25",
+    "stock_id": "6669",
+    "strike": 3400.0,
+    "ratio": 5.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087151",
+    "w_name": "緯穎元大63購26",
+    "stock_id": "6669",
+    "strike": 3440.0,
+    "ratio": 3.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087152",
+    "w_name": "騰輝電元大64購05",
+    "stock_id": "6672",
+    "strike": 412.5,
+    "ratio": 31.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087153",
+    "w_name": "騰輝電元大67購01",
+    "stock_id": "6672",
+    "strike": 424.5,
+    "ratio": 25.0,
+    "expiry": "1160715",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087154",
+    "w_name": "力積電元大66購01",
+    "stock_id": "6770",
+    "strike": 84.5,
+    "ratio": 59.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087155",
+    "w_name": "昇陽半元大63購05",
+    "stock_id": "8028",
+    "strike": 311.0,
+    "ratio": 21.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087156",
+    "w_name": "南亞富邦65購04",
+    "stock_id": "1303",
+    "strike": 269.88,
+    "ratio": 14.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087157",
+    "w_name": "南亞富邦65購05",
+    "stock_id": "1303",
+    "strike": 259.88,
+    "ratio": 13.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087158",
+    "w_name": "南亞富邦65購06",
+    "stock_id": "1303",
+    "strike": 248.88,
+    "ratio": 12.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087159",
+    "w_name": "南亞富邦66購05",
+    "stock_id": "1303",
+    "strike": 292.88,
+    "ratio": 14.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "08715U",
     "w_name": "台灣50凱基5A售06",
     "stock_id": "0050",
@@ -389610,12 +391470,102 @@
     "opt_type": "P"
   },
   {
+    "w_code": "087160",
+    "w_name": "南亞富邦66購06",
+    "stock_id": "1303",
+    "strike": 316.88,
+    "ratio": 16.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087161",
+    "w_name": "中砂富邦65購02",
+    "stock_id": "1560",
+    "strike": 885.88,
+    "ratio": 6.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087162",
+    "w_name": "聯電富邦63購03",
+    "stock_id": "2303",
+    "strike": 200.0,
+    "ratio": 35.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087163",
+    "w_name": "鴻海富邦65購02",
+    "stock_id": "2317",
+    "strike": 325.0,
+    "ratio": 25.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087164",
+    "w_name": "致茂富邦63購03",
+    "stock_id": "2360",
+    "strike": 2950.0,
+    "ratio": 2.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087165",
+    "w_name": "裕民富邦65購01",
+    "stock_id": "2606",
+    "strike": 82.88,
+    "ratio": 58.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "087166",
     "w_name": "台積電凱基67購01",
     "stock_id": "2330",
     "strike": 1554.64,
     "ratio": 12.0,
     "expiry": "1160707",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087167",
+    "w_name": "嘉晶富邦63購01",
+    "stock_id": "3016",
+    "strike": 160.0,
+    "ratio": 30.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087168",
+    "w_name": "日月光富邦63購02",
+    "stock_id": "3711",
+    "strike": 800.0,
+    "ratio": 7.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087169",
+    "w_name": "新唐富邦63購02",
+    "stock_id": "4919",
+    "strike": 160.0,
+    "ratio": 30.0,
+    "expiry": "1160315",
     "market": "上市",
     "opt_type": "C"
   },
@@ -389630,6 +391580,106 @@
     "opt_type": "P"
   },
   {
+    "w_code": "087170",
+    "w_name": "騰輝電富邦66購01",
+    "stock_id": "6672",
+    "strike": 415.0,
+    "ratio": 9.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087171",
+    "w_name": "惠特富邦65購02",
+    "stock_id": "6706",
+    "strike": 168.88,
+    "ratio": 20.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087172",
+    "w_name": "力積電富邦65購01",
+    "stock_id": "6770",
+    "strike": 89.89,
+    "ratio": 60.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087173",
+    "w_name": "勤誠富邦63購02",
+    "stock_id": "8210",
+    "strike": 1160.0,
+    "ratio": 4.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087174",
+    "w_name": "富鼎富邦65購01",
+    "stock_id": "8261",
+    "strike": 197.88,
+    "ratio": 18.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087175",
+    "w_name": "南亞台新63購07",
+    "stock_id": "1303",
+    "strike": 280.0,
+    "ratio": 50.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087176",
+    "w_name": "亞德客台新63購03",
+    "stock_id": "1590",
+    "strike": 1500.0,
+    "ratio": 8.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087177",
+    "w_name": "華通台新63購05",
+    "stock_id": "2313",
+    "strike": 240.0,
+    "ratio": 40.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087178",
+    "w_name": "華通台新63購06",
+    "stock_id": "2313",
+    "strike": 327.75,
+    "ratio": 150.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087179",
+    "w_name": "旺宏台新64購02",
+    "stock_id": "2337",
+    "strike": 128.0,
+    "ratio": 200.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "08717U",
     "w_name": "愛普凱基59售06",
     "stock_id": "6531",
@@ -389638,6 +391688,106 @@
     "expiry": "1150915",
     "market": "上市",
     "opt_type": "P"
+  },
+  {
+    "w_code": "087180",
+    "w_name": "旺宏台新64購03",
+    "stock_id": "2337",
+    "strike": 150.0,
+    "ratio": 200.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087181",
+    "w_name": "聯詠台新66購01",
+    "stock_id": "3034",
+    "strike": 600.0,
+    "ratio": 10.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087182",
+    "w_name": "聯詠台新66購02",
+    "stock_id": "3034",
+    "strike": 750.0,
+    "ratio": 10.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087183",
+    "w_name": "世芯台新69購02",
+    "stock_id": "3661",
+    "strike": 4900.0,
+    "ratio": 2.0,
+    "expiry": "1160914",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087184",
+    "w_name": "世芯台新79購01",
+    "stock_id": "3661",
+    "strike": 5032.5,
+    "ratio": 2.0,
+    "expiry": "1170914",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087185",
+    "w_name": "日月光台新63購03",
+    "stock_id": "3711",
+    "strike": 620.0,
+    "ratio": 20.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087186",
+    "w_name": "新唐台新66購01",
+    "stock_id": "4919",
+    "strike": 125.0,
+    "ratio": 75.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087187",
+    "w_name": "新唐台新66購02",
+    "stock_id": "4919",
+    "strike": 150.0,
+    "ratio": 75.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087188",
+    "w_name": "祥碩台新63購02",
+    "stock_id": "5269",
+    "strike": 1730.0,
+    "ratio": 30.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087189",
+    "w_name": "祥碩台新63購03",
+    "stock_id": "5269",
+    "strike": 2030.0,
+    "ratio": 30.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
   },
   {
     "w_code": "08718U",
@@ -389650,12 +391800,102 @@
     "opt_type": "P"
   },
   {
+    "w_code": "087190",
+    "w_name": "祥碩台新64購01",
+    "stock_id": "5269",
+    "strike": 1500.0,
+    "ratio": 30.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087191",
+    "w_name": "穎崴台新63購05",
+    "stock_id": "6515",
+    "strike": 6800.0,
+    "ratio": 2.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087192",
+    "w_name": "T50正2群益64購02",
+    "stock_id": "00631L",
+    "strike": 52.6,
+    "ratio": 500.0,
+    "expiry": "1160415",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087193",
+    "w_name": "美費半群益63購01",
+    "stock_id": "00830",
+    "strike": 85.0,
+    "ratio": 200.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "087194",
     "w_name": "雄獅統一61購01",
     "stock_id": "2731",
     "strike": 191.33,
     "ratio": 14.0,
     "expiry": "1160107",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087195",
+    "w_name": "台塑群益63購04",
+    "stock_id": "1301",
+    "strike": 73.66,
+    "ratio": 200.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087196",
+    "w_name": "南亞群益65購02",
+    "stock_id": "1303",
+    "strike": 232.0,
+    "ratio": 15.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087197",
+    "w_name": "華城群益67購03",
+    "stock_id": "1519",
+    "strike": 720.0,
+    "ratio": 5.0,
+    "expiry": "1160715",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087198",
+    "w_name": "台玻群益63購03",
+    "stock_id": "1802",
+    "strike": 55.0,
+    "ratio": 120.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087199",
+    "w_name": "台玻群益63購04",
+    "stock_id": "1802",
+    "strike": 62.5,
+    "ratio": 150.0,
+    "expiry": "1160315",
     "market": "上市",
     "opt_type": "C"
   },
@@ -389670,6 +391910,106 @@
     "opt_type": "P"
   },
   {
+    "w_code": "087200",
+    "w_name": "光寶科群益63購12",
+    "stock_id": "2301",
+    "strike": 274.0,
+    "ratio": 65.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087201",
+    "w_name": "光寶科群益63購13",
+    "stock_id": "2301",
+    "strike": 328.0,
+    "ratio": 95.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087202",
+    "w_name": "聯電群益63購11",
+    "stock_id": "2303",
+    "strike": 143.5,
+    "ratio": 85.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087203",
+    "w_name": "台達電群益65購02",
+    "stock_id": "2308",
+    "strike": 2300.0,
+    "ratio": 50.0,
+    "expiry": "1160513",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087204",
+    "w_name": "華通群益63購14",
+    "stock_id": "2313",
+    "strike": 265.0,
+    "ratio": 115.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087205",
+    "w_name": "鴻海群益63購17",
+    "stock_id": "2317",
+    "strike": 245.6,
+    "ratio": 80.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087206",
+    "w_name": "仁寶群益63購06",
+    "stock_id": "2324",
+    "strike": 40.66,
+    "ratio": 200.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087207",
+    "w_name": "國巨群益63購11",
+    "stock_id": "2327",
+    "strike": 565.0,
+    "ratio": 35.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087208",
+    "w_name": "智邦群益63購12",
+    "stock_id": "2345",
+    "strike": 1920.0,
+    "ratio": 4.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087209",
+    "w_name": "智邦群益63購13",
+    "stock_id": "2345",
+    "strike": 2170.0,
+    "ratio": 6.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "08720U",
     "w_name": "台虹國票5A售02",
     "stock_id": "8039",
@@ -389678,6 +392018,106 @@
     "expiry": "1151015",
     "market": "上市",
     "opt_type": "P"
+  },
+  {
+    "w_code": "087210",
+    "w_name": "智邦群益66購03",
+    "stock_id": "2345",
+    "strike": 1860.0,
+    "ratio": 2.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087211",
+    "w_name": "英業達群益63購05",
+    "stock_id": "2356",
+    "strike": 68.0,
+    "ratio": 450.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087212",
+    "w_name": "致茂群益63購03",
+    "stock_id": "2360",
+    "strike": 2670.0,
+    "ratio": 11.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087213",
+    "w_name": "矽統群益63購10",
+    "stock_id": "2363",
+    "strike": 61.0,
+    "ratio": 138.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087214",
+    "w_name": "凱美群益63購01",
+    "stock_id": "2375",
+    "strike": 120.0,
+    "ratio": 75.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087215",
+    "w_name": "技嘉群益63購07",
+    "stock_id": "2376",
+    "strike": 343.0,
+    "ratio": 40.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087216",
+    "w_name": "研華群益63購05",
+    "stock_id": "2395",
+    "strike": 780.0,
+    "ratio": 25.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087217",
+    "w_name": "研華群益63購06",
+    "stock_id": "2395",
+    "strike": 800.0,
+    "ratio": 25.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087218",
+    "w_name": "漢唐群益63購12",
+    "stock_id": "2404",
+    "strike": 1050.0,
+    "ratio": 7.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087219",
+    "w_name": "漢唐群益63購13",
+    "stock_id": "2404",
+    "strike": 1230.0,
+    "ratio": 16.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
   },
   {
     "w_code": "08721U",
@@ -389690,6 +392130,106 @@
     "opt_type": "P"
   },
   {
+    "w_code": "087220",
+    "w_name": "漢唐群益63購14",
+    "stock_id": "2404",
+    "strike": 1370.0,
+    "ratio": 20.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087221",
+    "w_name": "南亞科群益63購17",
+    "stock_id": "2408",
+    "strike": 596.66,
+    "ratio": 30.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087222",
+    "w_name": "京元電群益63購12",
+    "stock_id": "2449",
+    "strike": 309.0,
+    "ratio": 110.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087223",
+    "w_name": "京元電群益69購02",
+    "stock_id": "2449",
+    "strike": 245.0,
+    "ratio": 10.0,
+    "expiry": "1160914",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087224",
+    "w_name": "志聖群益63購02",
+    "stock_id": "2467",
+    "strike": 620.0,
+    "ratio": 45.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087225",
+    "w_name": "瑞軒群益63購03",
+    "stock_id": "2489",
+    "strike": 38.0,
+    "ratio": 150.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087226",
+    "w_name": "揚博群益63購04",
+    "stock_id": "2493",
+    "strike": 200.0,
+    "ratio": 38.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087227",
+    "w_name": "新興群益63購01",
+    "stock_id": "2605",
+    "strike": 42.0,
+    "ratio": 750.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087228",
+    "w_name": "裕民群益63購02",
+    "stock_id": "2606",
+    "strike": 80.0,
+    "ratio": 150.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087229",
+    "w_name": "陽明群益63購05",
+    "stock_id": "2609",
+    "strike": 59.0,
+    "ratio": 100.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "08722U",
     "w_name": "國泰金元富59售02",
     "stock_id": "2882",
@@ -389700,6 +392240,106 @@
     "opt_type": "P"
   },
   {
+    "w_code": "087230",
+    "w_name": "玉山金群益63購01",
+    "stock_id": "2884",
+    "strike": 56.66,
+    "ratio": 250.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087231",
+    "w_name": "元大金群益63購01",
+    "stock_id": "2885",
+    "strike": 78.88,
+    "ratio": 150.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087232",
+    "w_name": "奇鋐群益63購16",
+    "stock_id": "3017",
+    "strike": 3360.0,
+    "ratio": 2.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087233",
+    "w_name": "聯詠群益63購08",
+    "stock_id": "3034",
+    "strike": 610.0,
+    "ratio": 60.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087234",
+    "w_name": "晶技群益63購12",
+    "stock_id": "3042",
+    "strike": 271.5,
+    "ratio": 60.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087235",
+    "w_name": "健鼎群益63購04",
+    "stock_id": "3044",
+    "strike": 565.0,
+    "ratio": 15.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087236",
+    "w_name": "日電貿群益63購02",
+    "stock_id": "3090",
+    "strike": 232.0,
+    "ratio": 110.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087237",
+    "w_name": "嘉澤群益63購03",
+    "stock_id": "3533",
+    "strike": 2030.0,
+    "ratio": 17.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087238",
+    "w_name": "辛耘群益63購07",
+    "stock_id": "3583",
+    "strike": 765.0,
+    "ratio": 35.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087239",
+    "w_name": "世芯群益63購03",
+    "stock_id": "3661",
+    "strike": 4060.0,
+    "ratio": 6.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
     "w_code": "08723U",
     "w_name": "FBNQ2X元大5A售01",
     "stock_id": "00670L",
@@ -389708,6 +392348,156 @@
     "expiry": "1151015",
     "market": "上市",
     "opt_type": "P"
+  },
+  {
+    "w_code": "087240",
+    "w_name": "貿聯群益63購12",
+    "stock_id": "3665",
+    "strike": 2750.0,
+    "ratio": 11.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087241",
+    "w_name": "大聯大群益66購01",
+    "stock_id": "3702",
+    "strike": 140.0,
+    "ratio": 70.0,
+    "expiry": "1160615",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087242",
+    "w_name": "日月光群益63購10",
+    "stock_id": "3711",
+    "strike": 790.0,
+    "ratio": 40.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087243",
+    "w_name": "和碩群益69購01",
+    "stock_id": "4938",
+    "strike": 106.0,
+    "ratio": 50.0,
+    "expiry": "1160914",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087244",
+    "w_name": "臻鼎群益63購11",
+    "stock_id": "4958",
+    "strike": 540.5,
+    "ratio": 15.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087245",
+    "w_name": "祥碩群益63購06",
+    "stock_id": "5269",
+    "strike": 1840.0,
+    "ratio": 19.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087246",
+    "w_name": "力成群益63購13",
+    "stock_id": "6239",
+    "strike": 300.0,
+    "ratio": 80.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087247",
+    "w_name": "啟碁群益63購07",
+    "stock_id": "6285",
+    "strike": 215.0,
+    "ratio": 50.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087248",
+    "w_name": "啟碁群益63購08",
+    "stock_id": "6285",
+    "strike": 262.0,
+    "ratio": 105.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087249",
+    "w_name": "矽力群益63購06",
+    "stock_id": "6415",
+    "strike": 475.0,
+    "ratio": 22.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087250",
+    "w_name": "緯穎群益63購13",
+    "stock_id": "6669",
+    "strike": 2310.0,
+    "ratio": 2.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087251",
+    "w_name": "力積電群益63購14",
+    "stock_id": "6770",
+    "strike": 100.0,
+    "ratio": 150.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087252",
+    "w_name": "AES群益63購02",
+    "stock_id": "6781",
+    "strike": 940.0,
+    "ratio": 8.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087253",
+    "w_name": "兆聯群益63購04",
+    "stock_id": "6944",
+    "strike": 805.0,
+    "ratio": 40.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "087254",
+    "w_name": "昇陽半群益63購02",
+    "stock_id": "8028",
+    "strike": 275.0,
+    "ratio": 36.0,
+    "expiry": "1160315",
+    "market": "上市",
+    "opt_type": "C"
   },
   {
     "w_code": "08725U",
@@ -393670,16 +396460,6 @@
     "opt_type": "P"
   },
   {
-    "w_code": "72697U",
-    "w_name": "穩懋凱基59售04",
-    "stock_id": "3105",
-    "strike": 179.25,
-    "ratio": 0.096,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "P"
-  },
-  {
     "w_code": "72700U",
     "w_name": "博智凱基59售03",
     "stock_id": "8155",
@@ -394046,26 +396826,6 @@
     "strike": 38.03,
     "ratio": 0.277,
     "expiry": "20261019",
-    "market": "上櫃",
-    "opt_type": "P"
-  },
-  {
-    "w_code": "72823U",
-    "w_name": "弘塑凱基59售05",
-    "stock_id": "3131",
-    "strike": 1472.89,
-    "ratio": 0.008,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "P"
-  },
-  {
-    "w_code": "72824U",
-    "w_name": "亞泰國票59售03",
-    "stock_id": "6727",
-    "strike": 237.41,
-    "ratio": 0.025,
-    "expiry": "20260918",
     "market": "上櫃",
     "opt_type": "P"
   },
@@ -397000,6 +399760,66 @@
     "opt_type": "P"
   },
   {
+    "w_code": "73119U",
+    "w_name": "台燿台新63售02",
+    "stock_id": "6274",
+    "strike": 1000.0,
+    "ratio": 0.02,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "P"
+  },
+  {
+    "w_code": "73120U",
+    "w_name": "良維台新63售02",
+    "stock_id": "6290",
+    "strike": 210.0,
+    "ratio": 0.08,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "P"
+  },
+  {
+    "w_code": "73121U",
+    "w_name": "穩懋群益63售08",
+    "stock_id": "3105",
+    "strike": 240.0,
+    "ratio": 0.06,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "P"
+  },
+  {
+    "w_code": "73122U",
+    "w_name": "台燿國票66售01",
+    "stock_id": "6274",
+    "strike": 710.0,
+    "ratio": 0.01,
+    "expiry": "20270616",
+    "market": "上櫃",
+    "opt_type": "P"
+  },
+  {
+    "w_code": "73123U",
+    "w_name": "信昌電國票64售03",
+    "stock_id": "6173",
+    "strike": 250.0,
+    "ratio": 0.03,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "P"
+  },
+  {
+    "w_code": "73124U",
+    "w_name": "信昌電國票65售03",
+    "stock_id": "6173",
+    "strike": 180.0,
+    "ratio": 0.05,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "P"
+  },
+  {
     "w_code": "700019",
     "w_name": "宏捷科統一5C購01",
     "stock_id": "8086",
@@ -397223,8 +400043,8 @@
     "w_code": "700189",
     "w_name": "協易機統一5A購01",
     "stock_id": "4533",
-    "strike": 29.99,
-    "ratio": 0.09,
+    "strike": 29.78,
+    "ratio": 0.091,
     "expiry": "20261002",
     "market": "上櫃",
     "opt_type": "C"
@@ -399990,36 +402810,6 @@
     "opt_type": "C"
   },
   {
-    "w_code": "702850",
-    "w_name": "創惟國票59購01",
-    "stock_id": "6104",
-    "strike": 133.17,
-    "ratio": 0.063,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "702856",
-    "w_name": "家登凱基59購01",
-    "stock_id": "3680",
-    "strike": 495.76,
-    "ratio": 0.101,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "702858",
-    "w_name": "順達凱基59購02",
-    "stock_id": "3211",
-    "strike": 281.85,
-    "ratio": 0.041,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
     "w_code": "702878",
     "w_name": "櫃200群益5B購01",
     "stock_id": "IX0118",
@@ -400056,26 +402846,6 @@
     "strike": 346.49,
     "ratio": 0.019,
     "expiry": "20261118",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "702888",
-    "w_name": "穩懋元大59購05",
-    "stock_id": "3105",
-    "strike": 245.47,
-    "ratio": 0.023,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "702898",
-    "w_name": "穩懋永豐59購02",
-    "stock_id": "3105",
-    "strike": 224.06,
-    "ratio": 0.045,
-    "expiry": "20260918",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -402370,46 +405140,6 @@
     "opt_type": "C"
   },
   {
-    "w_code": "704067",
-    "w_name": "世界凱基59購01",
-    "stock_id": "5347",
-    "strike": 181.7,
-    "ratio": 0.154,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "704068",
-    "w_name": "台半凱基59購01",
-    "stock_id": "5425",
-    "strike": 87.86,
-    "ratio": 0.307,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "704074",
-    "w_name": "世紀*兆豐59購01",
-    "stock_id": "5314",
-    "strike": 26.19,
-    "ratio": 0.175,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "704075",
-    "w_name": "台星科兆豐59購02",
-    "stock_id": "3265",
-    "strike": 154.56,
-    "ratio": 0.041,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
     "w_code": "704080",
     "w_name": "世禾富邦5C購01",
     "stock_id": "3551",
@@ -402420,32 +405150,12 @@
     "opt_type": "C"
   },
   {
-    "w_code": "704081",
-    "w_name": "家登富邦59購02",
-    "stock_id": "3680",
-    "strike": 517.45,
-    "ratio": 0.018,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
     "w_code": "704082",
     "w_name": "群翊富邦5A購01",
     "stock_id": "6664",
     "strike": 369.61,
     "ratio": 0.014,
     "expiry": "20261019",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "704083",
-    "w_name": "璟德富邦59購01",
-    "stock_id": "3152",
-    "strike": 328.85,
-    "ratio": 0.015,
-    "expiry": "20260918",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -402710,42 +405420,12 @@
     "opt_type": "C"
   },
   {
-    "w_code": "704111",
-    "w_name": "家登永豐59購01",
-    "stock_id": "3680",
-    "strike": 594.91,
-    "ratio": 0.028,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
     "w_code": "704115",
     "w_name": "金益鼎國票61購01",
     "stock_id": "8390",
     "strike": 144.44,
     "ratio": 0.062,
     "expiry": "20270118",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "704125",
-    "w_name": "合晶群益59購02",
-    "stock_id": "6182",
-    "strike": 58.61,
-    "ratio": 0.403,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "704126",
-    "w_name": "佳邦群益59購01",
-    "stock_id": "6284",
-    "strike": 117.73,
-    "ratio": 0.102,
-    "expiry": "20260918",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -405523,8 +408203,8 @@
     "w_code": "704963",
     "w_name": "協易機群益5A購01",
     "stock_id": "4533",
-    "strike": 53.8,
-    "ratio": 0.2,
+    "strike": 53.42,
+    "ratio": 0.201,
     "expiry": "20261005",
     "market": "上櫃",
     "opt_type": "C"
@@ -412340,26 +415020,6 @@
     "opt_type": "C"
   },
   {
-    "w_code": "706320",
-    "w_name": "均豪凱基59購01",
-    "stock_id": "5443",
-    "strike": 146.83,
-    "ratio": 0.112,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706321",
-    "w_name": "沛亨凱基59購02",
-    "stock_id": "6291",
-    "strike": 501.1,
-    "ratio": 0.025,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
     "w_code": "706322",
     "w_name": "亞泰凱基5A購01",
     "stock_id": "6727",
@@ -412390,16 +415050,6 @@
     "opt_type": "C"
   },
   {
-    "w_code": "706326",
-    "w_name": "雙鴻凱基59購15",
-    "stock_id": "3324",
-    "strike": 1062.81,
-    "ratio": 0.006,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
     "w_code": "706327",
     "w_name": "穩得凱基5C購01",
     "stock_id": "6761",
@@ -412416,26 +415066,6 @@
     "strike": 3142.17,
     "ratio": 0.004,
     "expiry": "20270518",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706329",
-    "w_name": "正德國票59購01",
-    "stock_id": "2641",
-    "strike": 21.41,
-    "ratio": 0.616,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706330",
-    "w_name": "亞泰國票59購02",
-    "stock_id": "6727",
-    "strike": 366.01,
-    "ratio": 0.025,
-    "expiry": "20260918",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -412460,52 +415090,12 @@
     "opt_type": "C"
   },
   {
-    "w_code": "706334",
-    "w_name": "良維元大59購13",
-    "stock_id": "6290",
-    "strike": 223.82,
-    "ratio": 0.038,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706335",
-    "w_name": "前鼎元大59購03",
-    "stock_id": "4908",
-    "strike": 121.7,
-    "ratio": 0.042,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
     "w_code": "706336",
     "w_name": "茂迪元大5C購01",
     "stock_id": "6244",
     "strike": 46.0,
     "ratio": 0.129,
     "expiry": "20261218",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706337",
-    "w_name": "雙鴻元大59購20",
-    "stock_id": "3324",
-    "strike": 1389.07,
-    "ratio": 0.005,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706338",
-    "w_name": "雙鴻元大59購21",
-    "stock_id": "3324",
-    "strike": 1408.85,
-    "ratio": 0.005,
-    "expiry": "20260918",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -412640,16 +415230,6 @@
     "opt_type": "C"
   },
   {
-    "w_code": "706353",
-    "w_name": "均豪永豐59購01",
-    "stock_id": "5443",
-    "strike": 135.12,
-    "ratio": 0.055,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
     "w_code": "706354",
     "w_name": "雙鴻永豐61購02",
     "stock_id": "3324",
@@ -412666,116 +415246,6 @@
     "strike": 1507.71,
     "ratio": 0.006,
     "expiry": "20270419",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706357",
-    "w_name": "印能元富59購04",
-    "stock_id": "7734",
-    "strike": 2450.65,
-    "ratio": 0.006,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706358",
-    "w_name": "亞泰元富59購02",
-    "stock_id": "6727",
-    "strike": 391.73,
-    "ratio": 0.051,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706359",
-    "w_name": "亞泰元富59購03",
-    "stock_id": "6727",
-    "strike": 421.41,
-    "ratio": 0.04,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706360",
-    "w_name": "鑫聯元富59購01",
-    "stock_id": "3709",
-    "strike": 76.07,
-    "ratio": 0.242,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706361",
-    "w_name": "台燿群益59購02",
-    "stock_id": "6274",
-    "strike": 714.29,
-    "ratio": 0.045,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706362",
-    "w_name": "弘塑群益59購05",
-    "stock_id": "3131",
-    "strike": 3171.63,
-    "ratio": 0.005,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706363",
-    "w_name": "宏捷科群益59購04",
-    "stock_id": "8086",
-    "strike": 192.22,
-    "ratio": 0.122,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706364",
-    "w_name": "宏觀群益59購02",
-    "stock_id": "6568",
-    "strike": 242.87,
-    "ratio": 0.035,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706365",
-    "w_name": "宏觀群益59購03",
-    "stock_id": "6568",
-    "strike": 272.61,
-    "ratio": 0.045,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706366",
-    "w_name": "優群群益59購01",
-    "stock_id": "3217",
-    "strike": 183.76,
-    "ratio": 0.064,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "706367",
-    "w_name": "譜瑞群益59購02",
-    "stock_id": "4966",
-    "strike": 599.25,
-    "ratio": 0.015,
-    "expiry": "20260918",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -416293,8 +418763,8 @@
     "w_code": "706769",
     "w_name": "協易機元大59購02",
     "stock_id": "4533",
-    "strike": 40.35,
-    "ratio": 0.216,
+    "strike": 40.06,
+    "ratio": 0.218,
     "expiry": "20260929",
     "market": "上櫃",
     "opt_type": "C"
@@ -417633,8 +420103,8 @@
     "w_code": "706921",
     "w_name": "協易機永豐5C購01",
     "stock_id": "4533",
-    "strike": 46.72,
-    "ratio": 0.23,
+    "strike": 46.39,
+    "ratio": 0.232,
     "expiry": "20261201",
     "market": "上櫃",
     "opt_type": "C"
@@ -418603,8 +421073,8 @@
     "w_code": "707031",
     "w_name": "協易機凱基5A購01",
     "stock_id": "4533",
-    "strike": 40.0,
-    "ratio": 0.22,
+    "strike": 39.71,
+    "ratio": 0.222,
     "expiry": "20261007",
     "market": "上櫃",
     "opt_type": "C"
@@ -419543,7 +422013,7 @@
     "w_code": "707136",
     "w_name": "協易機統一66購01",
     "stock_id": "4533",
-    "strike": 36.66,
+    "strike": 36.4,
     "ratio": 0.05,
     "expiry": "20270608",
     "market": "上櫃",
@@ -435375,7 +437845,7 @@
     "stock_id": "5443",
     "strike": 185.0,
     "ratio": 0.066,
-    "expiry": "20261118",
+    "expiry": "20260921",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -436515,7 +438985,7 @@
     "stock_id": "5443",
     "strike": 139.49,
     "ratio": 0.041,
-    "expiry": "20261120",
+    "expiry": "20260921",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -440175,7 +442645,7 @@
     "stock_id": "8155",
     "strike": 591.16,
     "ratio": 0.025,
-    "expiry": "20261126",
+    "expiry": "20260921",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -440745,7 +443215,7 @@
     "stock_id": "3663",
     "strike": 118.0,
     "ratio": 0.1,
-    "expiry": "20261127",
+    "expiry": "20260921",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -444925,7 +447395,7 @@
     "stock_id": "5309",
     "strike": 104.0,
     "ratio": 0.16,
-    "expiry": "20261209",
+    "expiry": "20260921",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -444935,7 +447405,7 @@
     "stock_id": "5309",
     "strike": 86.0,
     "ratio": 0.118,
-    "expiry": "20261209",
+    "expiry": "20260921",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -445213,7 +447683,7 @@
     "w_code": "709755",
     "w_name": "凱崴國票61購01",
     "stock_id": "5498",
-    "strike": 80.0,
+    "strike": 79.61,
     "ratio": 0.08,
     "expiry": "20270111",
     "market": "上櫃",
@@ -445643,7 +448113,7 @@
     "w_code": "709798",
     "w_name": "凱崴凱基61購01",
     "stock_id": "5498",
-    "strike": 90.0,
+    "strike": 89.56,
     "ratio": 0.065,
     "expiry": "20270111",
     "market": "上櫃",
@@ -446063,7 +448533,7 @@
     "w_code": "709840",
     "w_name": "凱崴國票61購02",
     "stock_id": "5498",
-    "strike": 90.0,
+    "strike": 89.56,
     "ratio": 0.06,
     "expiry": "20270111",
     "market": "上櫃",
@@ -446783,7 +449253,7 @@
     "w_code": "709912",
     "w_name": "凱崴統一66購01",
     "stock_id": "5498",
-    "strike": 88.88,
+    "strike": 88.44,
     "ratio": 0.02,
     "expiry": "20270614",
     "market": "上櫃",
@@ -447073,7 +449543,7 @@
     "w_code": "709941",
     "w_name": "凱崴台新5C購01",
     "stock_id": "5498",
-    "strike": 86.0,
+    "strike": 85.58,
     "ratio": 0.1,
     "expiry": "20261214",
     "market": "上櫃",
@@ -447173,7 +449643,7 @@
     "w_code": "709951",
     "w_name": "凱崴國票61購03",
     "stock_id": "5498",
-    "strike": 100.0,
+    "strike": 99.51,
     "ratio": 0.05,
     "expiry": "20270115",
     "market": "上櫃",
@@ -447843,7 +450313,7 @@
     "w_code": "710019",
     "w_name": "凱崴統一63購01",
     "stock_id": "5498",
-    "strike": 83.75,
+    "strike": 83.34,
     "ratio": 0.04,
     "expiry": "20270316",
     "market": "上櫃",
@@ -447853,7 +450323,7 @@
     "w_code": "710020",
     "w_name": "凱崴統一65購01",
     "stock_id": "5498",
-    "strike": 97.15,
+    "strike": 96.67,
     "ratio": 0.038,
     "expiry": "20270517",
     "market": "上櫃",
@@ -448463,7 +450933,7 @@
     "w_code": "710081",
     "w_name": "凱崴國泰61購01",
     "stock_id": "5498",
-    "strike": 75.0,
+    "strike": 74.63,
     "ratio": 0.07,
     "expiry": "20270118",
     "market": "上櫃",
@@ -449173,8 +451643,8 @@
     "w_code": "710152",
     "w_name": "凱崴台新5C購02",
     "stock_id": "5498",
-    "strike": 80.0,
-    "ratio": 0.11,
+    "strike": 79.61,
+    "ratio": 0.111,
     "expiry": "20261222",
     "market": "上櫃",
     "opt_type": "C"
@@ -449933,7 +452403,7 @@
     "w_code": "710229",
     "w_name": "凱崴群益5C購01",
     "stock_id": "5498",
-    "strike": 100.0,
+    "strike": 99.51,
     "ratio": 0.1,
     "expiry": "20261223",
     "market": "上櫃",
@@ -450125,7 +452595,7 @@
     "stock_id": "8086",
     "strike": 244.47,
     "ratio": 0.056,
-    "expiry": "20261224",
+    "expiry": "20260921",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -455195,7 +457665,7 @@
     "stock_id": "8182",
     "strike": 79.5,
     "ratio": 0.094,
-    "expiry": "20270106",
+    "expiry": "20260921",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -457665,7 +460135,7 @@
     "stock_id": "6435",
     "strike": 477.46,
     "ratio": 0.013,
-    "expiry": "20270112",
+    "expiry": "20260921",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -457685,7 +460155,7 @@
     "stock_id": "3317",
     "strike": 135.87,
     "ratio": 0.046,
-    "expiry": "20270112",
+    "expiry": "20260921",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -457795,7 +460265,7 @@
     "stock_id": "3227",
     "strike": 330.37,
     "ratio": 0.026,
-    "expiry": "20270112",
+    "expiry": "20260921",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -459085,7 +461555,7 @@
     "stock_id": "3498",
     "strike": 150.0,
     "ratio": 0.045,
-    "expiry": "20270114",
+    "expiry": "20260921",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -459305,7 +461775,7 @@
     "stock_id": "8091",
     "strike": 404.0,
     "ratio": 0.02,
-    "expiry": "20270114",
+    "expiry": "20260921",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -460185,7 +462655,7 @@
     "stock_id": "3718",
     "strike": 126.5,
     "ratio": 0.042,
-    "expiry": "20270115",
+    "expiry": "20260921",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -460205,7 +462675,7 @@
     "stock_id": "6175",
     "strike": 129.58,
     "ratio": 0.028,
-    "expiry": "20270115",
+    "expiry": "20260921",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -460253,8 +462723,8 @@
     "w_code": "711265",
     "w_name": "凱崴元大61購01",
     "stock_id": "5498",
-    "strike": 77.77,
-    "ratio": 0.136,
+    "strike": 77.39,
+    "ratio": 0.137,
     "expiry": "20270115",
     "market": "上櫃",
     "opt_type": "C"
@@ -461273,7 +463743,7 @@
     "w_code": "711367",
     "w_name": "凱崴永豐61購01",
     "stock_id": "5498",
-    "strike": 67.68,
+    "strike": 67.35,
     "ratio": 0.1,
     "expiry": "20270119",
     "market": "上櫃",
@@ -465653,8 +468123,8 @@
     "w_code": "711805",
     "w_name": "凱崴永豐61購02",
     "stock_id": "5498",
-    "strike": 73.05,
-    "ratio": 0.2,
+    "strike": 72.69,
+    "ratio": 0.201,
     "expiry": "20270127",
     "market": "上櫃",
     "opt_type": "C"
@@ -469903,7 +472373,7 @@
     "w_code": "712230",
     "w_name": "凱崴國票65購01",
     "stock_id": "5498",
-    "strike": 60.0,
+    "strike": 59.7,
     "ratio": 0.07,
     "expiry": "20270505",
     "market": "上櫃",
@@ -489293,7 +491763,7 @@
     "w_code": "714169",
     "w_name": "凱崴永豐64購01",
     "stock_id": "5498",
-    "strike": 70.98,
+    "strike": 70.63,
     "ratio": 0.1,
     "expiry": "20270409",
     "market": "上櫃",
@@ -490283,7 +492753,7 @@
     "w_code": "714268",
     "w_name": "凱崴凱基65購01",
     "stock_id": "5498",
-    "strike": 65.0,
+    "strike": 64.68,
     "ratio": 0.085,
     "expiry": "20270510",
     "market": "上櫃",
@@ -494380,22 +496850,1132 @@
     "opt_type": "C"
   },
   {
-    "w_code": "724431",
-    "w_name": "原相統一59購01",
-    "stock_id": "3227",
-    "strike": 320.31,
-    "ratio": 0.006,
-    "expiry": "20260918",
+    "w_code": "714678",
+    "w_name": "台燿凱基63購01",
+    "stock_id": "6274",
+    "strike": 2000.0,
+    "ratio": 0.01,
+    "expiry": "20270316",
     "market": "上櫃",
     "opt_type": "C"
   },
   {
-    "w_code": "724436",
-    "w_name": "波若威元富59購01",
-    "stock_id": "3163",
-    "strike": 158.6,
-    "ratio": 0.018,
-    "expiry": "20260918",
+    "w_code": "714679",
+    "w_name": "台燿凱基63購02",
+    "stock_id": "6274",
+    "strike": 1800.0,
+    "ratio": 0.008,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714680",
+    "w_name": "台燿凱基63購03",
+    "stock_id": "6274",
+    "strike": 1600.0,
+    "ratio": 0.007,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714681",
+    "w_name": "台燿凱基63購04",
+    "stock_id": "6274",
+    "strike": 1400.0,
+    "ratio": 0.006,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714682",
+    "w_name": "台燿凱基65購01",
+    "stock_id": "6274",
+    "strike": 1500.0,
+    "ratio": 0.006,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714683",
+    "w_name": "台燿凱基65購02",
+    "stock_id": "6274",
+    "strike": 1700.0,
+    "ratio": 0.007,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714684",
+    "w_name": "台燿凱基65購03",
+    "stock_id": "6274",
+    "strike": 1900.0,
+    "ratio": 0.008,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714685",
+    "w_name": "青雲凱基63購04",
+    "stock_id": "5386",
+    "strike": 453.0,
+    "ratio": 0.05,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714686",
+    "w_name": "茂綸凱基63購01",
+    "stock_id": "6227",
+    "strike": 160.0,
+    "ratio": 0.085,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714687",
+    "w_name": "新應材凱基63購12",
+    "stock_id": "4749",
+    "strike": 750.0,
+    "ratio": 0.02,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714688",
+    "w_name": "群聯凱基63購22",
+    "stock_id": "8299",
+    "strike": 1950.0,
+    "ratio": 0.005,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714689",
+    "w_name": "台半台新64購01",
+    "stock_id": "5425",
+    "strike": 120.0,
+    "ratio": 0.25,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714690",
+    "w_name": "台燿台新63購01",
+    "stock_id": "6274",
+    "strike": 1500.0,
+    "ratio": 0.007,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714691",
+    "w_name": "台燿台新66購01",
+    "stock_id": "6274",
+    "strike": 1700.0,
+    "ratio": 0.008,
+    "expiry": "20270616",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714692",
+    "w_name": "台燿台新69購01",
+    "stock_id": "6274",
+    "strike": 1800.0,
+    "ratio": 0.007,
+    "expiry": "20270916",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714693",
+    "w_name": "印能台新65購02",
+    "stock_id": "7734",
+    "strike": 3000.0,
+    "ratio": 0.003,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714694",
+    "w_name": "印能台新65購03",
+    "stock_id": "7734",
+    "strike": 3727.5,
+    "ratio": 0.003,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714695",
+    "w_name": "良維台新63購01",
+    "stock_id": "6290",
+    "strike": 275.0,
+    "ratio": 0.05,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714696",
+    "w_name": "宜鼎台新66購01",
+    "stock_id": "5289",
+    "strike": 1666.0,
+    "ratio": 0.012,
+    "expiry": "20270616",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714697",
+    "w_name": "台燿群益63購01",
+    "stock_id": "6274",
+    "strike": 1550.0,
+    "ratio": 0.006,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714698",
+    "w_name": "台燿群益63購02",
+    "stock_id": "6274",
+    "strike": 1766.66,
+    "ratio": 0.008,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714699",
+    "w_name": "台燿群益63購03",
+    "stock_id": "6274",
+    "strike": 2000.0,
+    "ratio": 0.008,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714700",
+    "w_name": "印能群益63購03",
+    "stock_id": "7734",
+    "strike": 3000.0,
+    "ratio": 0.003,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714701",
+    "w_name": "竹陞群益64購02",
+    "stock_id": "6739",
+    "strike": 1300.0,
+    "ratio": 0.004,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714702",
+    "w_name": "亞通群益64購01",
+    "stock_id": "6179",
+    "strike": 41.68,
+    "ratio": 0.22,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714703",
+    "w_name": "亞通群益66購01",
+    "stock_id": "6179",
+    "strike": 50.0,
+    "ratio": 0.25,
+    "expiry": "20270616",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714704",
+    "w_name": "宜鼎群益63購08",
+    "stock_id": "5289",
+    "strike": 1680.0,
+    "ratio": 0.008,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714705",
+    "w_name": "欣銓群益63購03",
+    "stock_id": "3264",
+    "strike": 303.0,
+    "ratio": 0.075,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714706",
+    "w_name": "青雲群益63購03",
+    "stock_id": "5386",
+    "strike": 450.0,
+    "ratio": 0.02,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714707",
+    "w_name": "青雲群益65購01",
+    "stock_id": "5386",
+    "strike": 400.0,
+    "ratio": 0.02,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714708",
+    "w_name": "威剛群益63購12",
+    "stock_id": "3260",
+    "strike": 485.0,
+    "ratio": 0.06,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714709",
+    "w_name": "家登群益63購08",
+    "stock_id": "3680",
+    "strike": 650.0,
+    "ratio": 0.045,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714710",
+    "w_name": "頎邦群益65購01",
+    "stock_id": "6147",
+    "strike": 270.0,
+    "ratio": 0.06,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714711",
+    "w_name": "穩懋群益63購07",
+    "stock_id": "3105",
+    "strike": 560.0,
+    "ratio": 0.045,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714712",
+    "w_name": "台燿元大63購01",
+    "stock_id": "6274",
+    "strike": 1740.63,
+    "ratio": 0.004,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714713",
+    "w_name": "台燿元大64購05",
+    "stock_id": "6274",
+    "strike": 1879.88,
+    "ratio": 0.004,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714714",
+    "w_name": "台燿元大65購01",
+    "stock_id": "6274",
+    "strike": 1949.5,
+    "ratio": 0.004,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714715",
+    "w_name": "印能元大63購03",
+    "stock_id": "7734",
+    "strike": 3180.0,
+    "ratio": 0.002,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714716",
+    "w_name": "沛亨元大63購07",
+    "stock_id": "6291",
+    "strike": 605.0,
+    "ratio": 0.015,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714717",
+    "w_name": "良維元大63購05",
+    "stock_id": "6290",
+    "strike": 386.0,
+    "ratio": 0.028,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714718",
+    "w_name": "亞通元大63購05",
+    "stock_id": "6179",
+    "strike": 36.95,
+    "ratio": 0.215,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714719",
+    "w_name": "宜鼎元大64購07",
+    "stock_id": "5289",
+    "strike": 1465.0,
+    "ratio": 0.003,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714720",
+    "w_name": "昇達科元大63購04",
+    "stock_id": "3491",
+    "strike": 1550.0,
+    "ratio": 0.003,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714721",
+    "w_name": "昇達科元大63購05",
+    "stock_id": "3491",
+    "strike": 1890.0,
+    "ratio": 0.003,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714722",
+    "w_name": "信昌電元大63購04",
+    "stock_id": "6173",
+    "strike": 285.0,
+    "ratio": 0.016,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714723",
+    "w_name": "信昌電元大63購05",
+    "stock_id": "6173",
+    "strike": 381.0,
+    "ratio": 0.008,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714724",
+    "w_name": "威剛元大63購16",
+    "stock_id": "3260",
+    "strike": 439.0,
+    "ratio": 0.026,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714725",
+    "w_name": "茂綸元大63購01",
+    "stock_id": "6227",
+    "strike": 152.66,
+    "ratio": 0.041,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714726",
+    "w_name": "茂綸元大64購01",
+    "stock_id": "6227",
+    "strike": 185.85,
+    "ratio": 0.045,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714727",
+    "w_name": "家登元大63購02",
+    "stock_id": "3680",
+    "strike": 677.0,
+    "ratio": 0.022,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714728",
+    "w_name": "家登元大64購02",
+    "stock_id": "3680",
+    "strike": 756.0,
+    "ratio": 0.023,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714729",
+    "w_name": "群聯元大63購31",
+    "stock_id": "8299",
+    "strike": 2140.0,
+    "ratio": 0.003,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714730",
+    "w_name": "群聯元大63購33",
+    "stock_id": "8299",
+    "strike": 2235.0,
+    "ratio": 0.004,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714731",
+    "w_name": "環球晶元大64購04",
+    "stock_id": "6488",
+    "strike": 911.0,
+    "ratio": 0.005,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714732",
+    "w_name": "環球晶元大65購07",
+    "stock_id": "6488",
+    "strike": 991.0,
+    "ratio": 0.004,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714733",
+    "w_name": "台燿永豐63購01",
+    "stock_id": "6274",
+    "strike": 1551.0,
+    "ratio": 0.004,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714734",
+    "w_name": "台燿永豐63購02",
+    "stock_id": "6274",
+    "strike": 1692.0,
+    "ratio": 0.004,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714735",
+    "w_name": "台燿永豐63購03",
+    "stock_id": "6274",
+    "strike": 1833.0,
+    "ratio": 0.003,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714736",
+    "w_name": "台燿永豐63購04",
+    "stock_id": "6274",
+    "strike": 2115.0,
+    "ratio": 0.004,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714737",
+    "w_name": "台燿永豐64購03",
+    "stock_id": "6274",
+    "strike": 1692.0,
+    "ratio": 0.003,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714738",
+    "w_name": "台燿永豐64購04",
+    "stock_id": "6274",
+    "strike": 1974.0,
+    "ratio": 0.005,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714739",
+    "w_name": "台燿永豐65購01",
+    "stock_id": "6274",
+    "strike": 1621.5,
+    "ratio": 0.003,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714740",
+    "w_name": "台燿永豐65購02",
+    "stock_id": "6274",
+    "strike": 1903.5,
+    "ratio": 0.005,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714741",
+    "w_name": "台燿永豐66購01",
+    "stock_id": "6274",
+    "strike": 1762.5,
+    "ratio": 0.005,
+    "expiry": "20270616",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714742",
+    "w_name": "台燿永豐66購02",
+    "stock_id": "6274",
+    "strike": 2044.5,
+    "ratio": 0.01,
+    "expiry": "20270616",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714743",
+    "w_name": "台燿永豐69購01",
+    "stock_id": "6274",
+    "strike": 1734.3,
+    "ratio": 0.005,
+    "expiry": "20270916",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714744",
+    "w_name": "台燿永豐69購02",
+    "stock_id": "6274",
+    "strike": 2115.0,
+    "ratio": 0.006,
+    "expiry": "20270916",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714745",
+    "w_name": "台燿永豐73購01",
+    "stock_id": "6274",
+    "strike": 2072.7,
+    "ratio": 0.006,
+    "expiry": "20280316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714746",
+    "w_name": "弘塑永豐64購02",
+    "stock_id": "3131",
+    "strike": 2656.5,
+    "ratio": 0.003,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714747",
+    "w_name": "光焱永豐65購01",
+    "stock_id": "7728",
+    "strike": 788.0,
+    "ratio": 0.005,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714748",
+    "w_name": "欣銓永豐63購01",
+    "stock_id": "3264",
+    "strike": 250.0,
+    "ratio": 0.033,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714749",
+    "w_name": "博盛永豐64購03",
+    "stock_id": "7712",
+    "strike": 180.6,
+    "ratio": 0.05,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714750",
+    "w_name": "蜜望實永豐64購01",
+    "stock_id": "8043",
+    "strike": 199.5,
+    "ratio": 0.08,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714751",
+    "w_name": "營邦永豐65購01",
+    "stock_id": "3693",
+    "strike": 801.47,
+    "ratio": 0.005,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714752",
+    "w_name": "環球晶永豐64購02",
+    "stock_id": "6488",
+    "strike": 990.0,
+    "ratio": 0.005,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714753",
+    "w_name": "穩懋永豐63購08",
+    "stock_id": "3105",
+    "strike": 500.0,
+    "ratio": 0.033,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714754",
+    "w_name": "台燿中信63購01",
+    "stock_id": "6274",
+    "strike": 2000.0,
+    "ratio": 0.005,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714755",
+    "w_name": "欣銓中信63購01",
+    "stock_id": "3264",
+    "strike": 300.0,
+    "ratio": 0.02,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714756",
+    "w_name": "信昌電中信63購01",
+    "stock_id": "6173",
+    "strike": 420.0,
+    "ratio": 0.02,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714757",
+    "w_name": "雷科中信63購01",
+    "stock_id": "6207",
+    "strike": 150.0,
+    "ratio": 0.05,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714758",
+    "w_name": "台燿國票67購01",
+    "stock_id": "6274",
+    "strike": 2100.0,
+    "ratio": 0.003,
+    "expiry": "20270716",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714759",
+    "w_name": "東捷國票66購01",
+    "stock_id": "8064",
+    "strike": 168.0,
+    "ratio": 0.06,
+    "expiry": "20270616",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714760",
+    "w_name": "信昌電國票64購01",
+    "stock_id": "6173",
+    "strike": 300.0,
+    "ratio": 0.02,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714761",
+    "w_name": "信昌電國票64購02",
+    "stock_id": "6173",
+    "strike": 370.0,
+    "ratio": 0.025,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714762",
+    "w_name": "信昌電國票65購01",
+    "stock_id": "6173",
+    "strike": 335.0,
+    "ratio": 0.025,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714763",
+    "w_name": "信昌電國票65購02",
+    "stock_id": "6173",
+    "strike": 405.0,
+    "ratio": 0.03,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714764",
+    "w_name": "信昌電國票66購01",
+    "stock_id": "6173",
+    "strike": 440.0,
+    "ratio": 0.03,
+    "expiry": "20270616",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714765",
+    "w_name": "宣德國票66購01",
+    "stock_id": "5457",
+    "strike": 36.0,
+    "ratio": 0.12,
+    "expiry": "20270616",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714766",
+    "w_name": "風青國票67購01",
+    "stock_id": "2061",
+    "strike": 70.0,
+    "ratio": 0.05,
+    "expiry": "20270716",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714767",
+    "w_name": "營邦國票65購01",
+    "stock_id": "3693",
+    "strike": 1032.0,
+    "ratio": 0.02,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714768",
+    "w_name": "環球晶國票64購04",
+    "stock_id": "6488",
+    "strike": 1050.0,
+    "ratio": 0.012,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714769",
+    "w_name": "台燿統一65購02",
+    "stock_id": "6274",
+    "strike": 1740.63,
+    "ratio": 0.002,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714770",
+    "w_name": "台燿統一69購01",
+    "stock_id": "6274",
+    "strike": 1949.5,
+    "ratio": 0.002,
+    "expiry": "20270916",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714771",
+    "w_name": "台燿統一69購02",
+    "stock_id": "6274",
+    "strike": 2019.13,
+    "ratio": 0.002,
+    "expiry": "20270916",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714772",
+    "w_name": "台燿統一6C購01",
+    "stock_id": "6274",
+    "strike": 2108.88,
+    "ratio": 0.001,
+    "expiry": "20271216",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714773",
+    "w_name": "台燿統一71購02",
+    "stock_id": "6274",
+    "strike": 1688.88,
+    "ratio": 0.001,
+    "expiry": "20280117",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714774",
+    "w_name": "台燿統一79購01",
+    "stock_id": "6274",
+    "strike": 2088.88,
+    "ratio": 0.001,
+    "expiry": "20280918",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714775",
+    "w_name": "印能統一69購01",
+    "stock_id": "7734",
+    "strike": 3657.63,
+    "ratio": 0.001,
+    "expiry": "20270916",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714776",
+    "w_name": "金山電統一79購01",
+    "stock_id": "8042",
+    "strike": 166.5,
+    "ratio": 0.01,
+    "expiry": "20280918",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714777",
+    "w_name": "青雲統一79購01",
+    "stock_id": "5386",
+    "strike": 453.0,
+    "ratio": 0.003,
+    "expiry": "20280918",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714778",
+    "w_name": "信昌電統一68購03",
+    "stock_id": "6173",
+    "strike": 437.0,
+    "ratio": 0.007,
+    "expiry": "20270816",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714779",
+    "w_name": "台燿國泰64購01",
+    "stock_id": "6274",
+    "strike": 1500.0,
+    "ratio": 0.005,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714780",
+    "w_name": "台燿國泰64購02",
+    "stock_id": "6274",
+    "strike": 1600.0,
+    "ratio": 0.005,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714781",
+    "w_name": "信昌電國泰64購03",
+    "stock_id": "6173",
+    "strike": 340.0,
+    "ratio": 0.025,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714782",
+    "w_name": "元太富邦64購03",
+    "stock_id": "8069",
+    "strike": 141.88,
+    "ratio": 0.024,
+    "expiry": "20270416",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714783",
+    "w_name": "台半富邦65購01",
+    "stock_id": "5425",
+    "strike": 102.58,
+    "ratio": 0.038,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714784",
+    "w_name": "台燿富邦63購04",
+    "stock_id": "6274",
+    "strike": 1888.0,
+    "ratio": 0.004,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714785",
+    "w_name": "台燿富邦63購05",
+    "stock_id": "6274",
+    "strike": 1688.0,
+    "ratio": 0.003,
+    "expiry": "20270316",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714786",
+    "w_name": "金山電富邦65購01",
+    "stock_id": "8042",
+    "strike": 122.88,
+    "ratio": 0.024,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714787",
+    "w_name": "晶呈富邦65購03",
+    "stock_id": "4768",
+    "strike": 343.88,
+    "ratio": 0.013,
+    "expiry": "20270517",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714788",
+    "w_name": "新應材富邦66購01",
+    "stock_id": "4749",
+    "strike": 1000.77,
+    "ratio": 0.007,
+    "expiry": "20270616",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714789",
+    "w_name": "穩懋富邦67購01",
+    "stock_id": "3105",
+    "strike": 620.88,
+    "ratio": 0.008,
+    "expiry": "20270716",
+    "market": "上櫃",
+    "opt_type": "C"
+  },
+  {
+    "w_code": "714790",
+    "w_name": "譜瑞富邦64購03",
+    "stock_id": "4966",
+    "strike": 512.88,
+    "ratio": 0.007,
+    "expiry": "20270416",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -494806,26 +498386,6 @@
     "strike": 856.69,
     "ratio": 0.004,
     "expiry": "20261112",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "731874",
-    "w_name": "茂訊統一59購01",
-    "stock_id": "3213",
-    "strike": 143.62,
-    "ratio": 0.015,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "731877",
-    "w_name": "鈊象統一59購01",
-    "stock_id": "3293",
-    "strike": 1021.57,
-    "ratio": 0.002,
-    "expiry": "20260918",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -496870,32 +500430,12 @@
     "opt_type": "C"
   },
   {
-    "w_code": "739419",
-    "w_name": "永信建國票59購01",
-    "stock_id": "5508",
-    "strike": 151.68,
-    "ratio": 0.074,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
     "w_code": "739425",
     "w_name": "泰茂國票5A購01",
     "stock_id": "2230",
     "strike": 156.19,
     "ratio": 0.072,
     "expiry": "20261019",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "739433",
-    "w_name": "威剛兆豐59購01",
-    "stock_id": "3260",
-    "strike": 143.21,
-    "ratio": 0.057,
-    "expiry": "20260918",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -496930,26 +500470,6 @@
     "opt_type": "C"
   },
   {
-    "w_code": "739444",
-    "w_name": "合晶統一59購02",
-    "stock_id": "6182",
-    "strike": 38.63,
-    "ratio": 0.111,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "739445",
-    "w_name": "合晶統一59購03",
-    "stock_id": "6182",
-    "strike": 45.25,
-    "ratio": 0.111,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
     "w_code": "739446",
     "w_name": "宜鼎統一5C購03",
     "stock_id": "5289",
@@ -496966,36 +500486,6 @@
     "strike": 185.49,
     "ratio": 0.013,
     "expiry": "20261218",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "739448",
-    "w_name": "長佳智統一59購01",
-    "stock_id": "6841",
-    "strike": 109.27,
-    "ratio": 0.026,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "739451",
-    "w_name": "威剛統一59購03",
-    "stock_id": "3260",
-    "strike": 182.76,
-    "ratio": 0.021,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "739452",
-    "w_name": "茂達統一59購01",
-    "stock_id": "6138",
-    "strike": 297.88,
-    "ratio": 0.014,
-    "expiry": "20260918",
     "market": "上櫃",
     "opt_type": "C"
   },
@@ -497020,72 +500510,12 @@
     "opt_type": "C"
   },
   {
-    "w_code": "739455",
-    "w_name": "鈊象統一59購03",
-    "stock_id": "3293",
-    "strike": 1059.16,
-    "ratio": 0.003,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "739456",
-    "w_name": "精測統一59購02",
-    "stock_id": "6510",
-    "strike": 2011.37,
-    "ratio": 0.002,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "739457",
-    "w_name": "營邦統一59購01",
-    "stock_id": "3693",
-    "strike": 328.53,
-    "ratio": 0.01,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "739458",
-    "w_name": "環球晶統一59購01",
-    "stock_id": "6488",
-    "strike": 528.71,
-    "ratio": 0.01,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "739459",
-    "w_name": "環球晶統一59購02",
-    "stock_id": "6488",
-    "strike": 605.81,
-    "ratio": 0.01,
-    "expiry": "20260918",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
     "w_code": "739460",
     "w_name": "環球晶統一64購02",
     "stock_id": "6488",
     "strike": 660.87,
     "ratio": 0.005,
     "expiry": "20270419",
-    "market": "上櫃",
-    "opt_type": "C"
-  },
-  {
-    "w_code": "739478",
-    "w_name": "大宇資群益59購01",
-    "stock_id": "6111",
-    "strike": 75.0,
-    "ratio": 0.15,
-    "expiry": "20260918",
     "market": "上櫃",
     "opt_type": "C"
   },
